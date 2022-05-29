@@ -1,0 +1,903 @@
+---
+title: "DataAnalysis"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+knit: (function(inputFile, encoding) {rmarkdown::render(inputFile, encoding = encoding, output_dir = "../reports/") })
+output:
+  pdf_document:
+    latex_engine: xelatex
+---
+
+# Document setup
+
+```{r 'setup', echo = FALSE, include=FALSE}
+knitr::opts_chunk$set(dev = c('pdf','png'), fig.path='../reports/figures/', fig.align = 'center') #, fig.height = 4, fig.width = 4, fig.cap = " " cache=TRUE,
+```
+
+```{r, echo=FALSE, include=FALSE, include=FALSE}
+library(tidyverse)
+library(here)
+theme_set(theme_classic(20))
+```
+
+# Used promoters
+```{r echo=FALSE, fig.height=5, fig.width=7.5, message=FALSE}
+
+level_key <- c(`1` = "high", `2` = "high_low", `3` = "low_high", `4` = "low")
+
+promoters <- read_csv(here("data/raw/promoters.csv"))
+
+promoters_long <- promoters %>%
+   mutate(NIL_6h_FPKM_freq = NIL_6h_FPKM/sum(NIL_6h_FPKM),
+          NIL_12h_FPKM_freq = NIL_12h_FPKM/sum(NIL_12h_FPKM),
+          NIL_24h_FPKM_freq = NIL_24h_FPKM/sum(NIL_24h_FPKM))  %>%
+  #select(- sequence_5_to_3,-no_name,-number,-id,-sys_name,-length)
+  select(no_by_pos, position, name, id,NIL_6h_FPKM, NIL_12h_FPKM, NIL_24h_FPKM) %>%
+  #select(no_by_pos, position, name, id, NIL_6h_FPKM_freq, NIL_12h_FPKM_freq, NIL_24h_FPKM_freq) %>%
+  `colnames<-`(c("no_by_pos", "position", "name", "id", "6", "12", "24")) %>%
+  pivot_longer(
+     cols = `6`:`24`,
+     names_to = "sampling_time",
+     values_to = "mRNA_count",
+     values_drop_na = TRUE) %>%
+  mutate(sampling_hour = as.numeric(sampling_time),
+         no_by_pos = as.character(no_by_pos),
+         by_pos = recode(no_by_pos, !!!level_key))
+
+p_promoters <- promoters_long %>%
+  ggplot() +
+  geom_line(aes(x=sampling_hour, y = mRNA_count, color = name)) +
+  facet_grid(.~position) +
+  #scale_colour_manual(values = c("red", "blue", "green", "purple","red", "blue", "green", "purple")) +
+  scale_colour_manual(values = c("orangered1", "orangered3", "seagreen1", "darkorchid1","darkorchid3", "deepskyblue1", "seagreen3", "deepskyblue3")) +
+  scale_x_continuous(breaks = c(6,12,24))
+
+p_promoters
+```
+
+
+# Analytics
+## Data wrangling
+
+```{r echo=FALSE, message=FALSE, include=FALSE}
+#1. In Emacs; Result_table_210330_tmet494_Soren.xlsx to .csv N.D. -> N.A.; N.A. -> NA.
+#2. Change names to plates names e.g.Result_table_210330_tmet494_Soren.csv -> Result_table_210330_tmet494_yp48Feed-Nofeed.xlsx
+results <- tibble(abs_path = list.files(here("data","raw","023_LC-MS"), full.names = TRUE, pattern = ".csv"))  %>%
+  mutate(filename = tools::file_path_sans_ext(basename(abs_path))) %>%
+  separate(filename, into=c("a","b","date","tmetab","description"), sep="_") %>%
+  arrange(date) %>%
+  mutate(data = map(abs_path,read_csv)) %>%
+  unnest(data) %>% 
+  select(-abs_path, -a, -b) %>%
+  # filter standards
+  filter(!grepl("*_v13*", sample_notes)) %>%
+  # filter not acquired
+  filter(!(is.na(Amt_uM_Loganin) & is.na(Amt_uM_Secologanin) & is.na(Amt_uM_Strictosidine) &   is.na(Amt_uM_Tryptamine))) %>%
+  #filter_at(vars(Amt_uM_Loganin, Amt_uM_Secologanin, Amt_uM_Strictosidine, Amt_uM_Tryptamine),any_vars(!is.na(.))) %>%
+
+
+  # Excel contains values both in ug and uM. Ill use uM because values are in a better scale.
+  # remove cols starting with "Amt_ug_L_" because of redundancy and uM has better scale.
+  select(!starts_with("Amt_ug_L_"), -X8,-X11, -data_file, -description) %>%
+  
+  #fix 210330 sample_notes column
+  mutate(sample_notes = gsub("*(_P[12])*","",sample_notes)) %>%
+  separate(sample_notes,  sep = "_", into = c('plate','well')) %>%
+  arrange(plate, well) %>%
+  # make tmet494 no feed vs feed
+  mutate(medium = ifelse(plate=="96WP988","nofeed",
+                         ifelse(plate=="96WP989","feed","NA"))) %>%
+  
+  # fix plate column
+  mutate(plate = gsub("96WP","",plate),
+         plate = gsub("1056","YP49",plate),
+         plate = gsub("988|989","YP48",plate),
+         plate = gsub("YP","yp",plate)) %>%
+ # str pad well column
+  mutate(row = str_extract(well, "^([a-zA-Z])"),
+         col = str_extract(well, "([0-9]+)$"),
+         col = str_pad(col, width=2, pad = "0"),
+         well = str_c(row,col,"")) %>%
+  select(-row,-col) %>%
+  # replace na's with 0
+  mutate(
+    across(starts_with("Amt"), ~replace_na(.x, 0))
+  )
+
+```
+  
+
+```{bash, echo = FALSE, include=FALSE}
+#Merge yp48-52 metadata into single csv file
+
+LCMS="$HOME/projects/g8h_cpr_library/data/raw/023_LC-MS"
+procLCMS="$HOME/projects/g8h_cpr_library/data/processed/023_LC-MS"
+
+# convert from xls with tabs to single csv files
+ssconvert "$LCMS/plateDesign_yp48-51_MIA-HA-1-17_21-100.xls" "$LCMS/plateDesign.csv" --export-file-per-sheet
+
+mv "$LCMS/plateDesign.csv.0" "$LCMS/yp50.csv"
+mv "$LCMS/plateDesign.csv.1" "$LCMS/yp51.csv"
+mv "$LCMS/plateDesign.csv.2" "$LCMS/yp49.csv"
+mv "$LCMS/plateDesign.csv.3" "$LCMS/yp48.csv"
+mv "$LCMS/plateDesign.csv.4" "$LCMS/yp52.csv"
+
+# Add fbname as column in csv
+for f in "$LCMS/yp48.csv" "$LCMS/yp49.csv" "$LCMS/yp50.csv" "$LCMS/yp51.csv" "$LCMS/yp52.csv"
+do
+  fbname=$(basename "$f" .csv)
+  gawk -v d="$fbname" -F"," 'BEGIN {OFS = ","} {$13=d; print}' $f > "$LCMS/Plate$fbname.csv"
+done
+
+# create header and append to output file
+# replace ",yp49" from header with ",plate"
+header=$(head -1 "$LCMS/Plateyp48.csv"| sed 's/.....$//')
+header="$header,plate"
+echo $header > "$LCMS/yp48-52_meta.csv"
+
+# concatenate files without headers
+for f in "$LCMS/Plateyp48.csv" "$LCMS/Plateyp49.csv" "$LCMS/Plateyp50.csv" "$LCMS/Plateyp51.csv" "$LCMS/Plateyp52.csv"
+do
+    echo "Processing $f"
+    grep -v '^p' $f >> "$LCMS/yp48-52_meta.csv"
+done
+
+mv "$LCMS/yp48-52_meta.csv" "$procLCMS/yp48-52_meta.csv"
+
+# cleanup
+#rm "$LCMS/plateDesign.csv.0" "$LCMS/plateDesign.csv.1" "$LCMS/plateDesign.csv.2" "$LCMS/plateDesign.csv.3"
+rm "$LCMS/yp48.csv" "$LCMS/yp49.csv" "$LCMS/yp50.csv" "$LCMS/yp51.csv" "$LCMS/yp52.csv"
+rm "$LCMS/Plateyp48.csv" "$LCMS/Plateyp49.csv" "$LCMS/Plateyp50.csv" "$LCMS/Plateyp51.csv" "$LCMS/Plateyp52.csv"
+```
+
+
+```{r, echo = FALSE, include=FALSE}
+# Read into R
+meta <- read_csv(here("data/processed/023_LC-MS/yp48-52_meta.csv")) %>%
+  select(plate, well = position, Strain, col_no = `Replicate #`, genotype,medium = Medium) %>%
+  mutate(Strain = gsub("MIA-","",Strain),
+         genotype = gsub("CPR","",genotype),
+         genotype = gsub("G8H","",genotype))
+  
+```
+
+
+```{r}
+meta %>% filter(plate %in% c("yp49")) %>% view()
+```
+
+
+```{r,  echo = FALSE, include=FALSE}
+results_meta <- meta %>%
+  left_join(results, by=c("plate","well")) %>%
+  mutate(strain = str_c(Strain,well, str_replace_na(genotype), str_replace_na(col_no), sep="_"),
+         Strain = str_c(Strain, str_replace_na(genotype), sep="_")) %>%
+  mutate(medium = ifelse(plate == "yp48", medium.y, medium.x)) %>%
+  select(-medium.y,-medium.x)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+Results_long <- results_meta %>%
+  #tidying data  
+  pivot_longer(
+     cols = `Amt_uM_Loganic acid`:Amt_uM_Tryptophan,
+     names_to = "compound",
+     #names_prefix = "norm_",
+     #values_to = "norm_Amt",
+     names_prefix = "Amt_uM_",
+     values_to = "Amt_uM",
+     values_drop_na = TRUE)
+```
+
+
+
+
+## YP48 (Cro strains)
+
+*** Experiment
+1. Check if MIA-HA-2 - 17 strains produces MIA's with / without feeding. We suspect that the base strain MIA-HA-1 has lost GES and or TDC (outside strictosidine module). If this is the case our strains will only produce MIA when feed
+
+Strains  
+1. YP48
+
+Media feed: 0.2 mM geraniol & 1 mM tryptamine
+1. YP + 2 % glucose 
+2. YP + 2 % glucose + feed
+
+Cultivation 30C, 300 rpm 
+1. (Wednesday 24): Inoculate precultures. Transfer 10 of YP48 g.stock to 90 media 1 (-feed). 
+2. (Friday 26):  Inoculate maincultures. Transfer 10 of preculture to  500 media 1 and media 2
+3. (Monday 8): For each media, one at a time:
+    1. Transfer 10 of mainculture into 140 to measure OD (in incubator while measuring)
+    2. Transfer 200 into new 96 well plate,
+    3. Add 20 uL 10 mg/L caffeine stock
+    4. Add X ul Std_MM_v13 standards
+    5. Transfer 220 onto filter in collection plate, centrifuge (2000 g x 1 min; put collection plate in -80C) 
+    6. Measure MIAs (extracellular loganin)
+4. (TBD): Khem run plate
+5. (TBD): Data analysis
+
+**** Analytics notes:
+Notes from Khem: 
+N:D.: not detected or below quantification limits; N.A.: not analyzed; Loganin, strictosidine and tryptamine are quantifiable and others are not quantifiable. Some samples might have been not integrated because of low abundance of the peak
+
+
+```{r,  echo = FALSE, include=FALSE}
+Results_long_norm_yp48 <- Results_long %>%
+  filter(plate == "yp48",
+         compound == "Strictosidine") %>%
+ #tidying data  
+  group_by(Strain, medium, compound) %>%
+  summarise(meAmt = mean(Amt_uM, na.rm = TRUE),
+            seAmt = sd(Amt_uM, na.rm = TRUE) / sqrt(n())) %>%
+  ungroup()
+```
+
+```{r  echo=FALSE, fig.height=5, fig.width=5}
+Results_long_norm_yp48 %>%
+  ggplot() +
+  geom_bar(aes(x=Strain, y=meAmt), stat="identity", fill="skyblue", alpha=0.7) +
+  geom_errorbar( aes(x=Strain, ymin=meAmt-seAmt, ymax=meAmt+seAmt), width=0.4, colour="orange", alpha=0.9, size=1.3) +
+  facet_grid(medium ~ compound) +
+  theme_classic(15) +
+  theme(axis.text.x = element_text(size = 10, angle = 90, vjust = 0.5, hjust=1)) +
+  
+  labs(x = "Strain_name", y = "Mean amount in uM +- SE (n=3)") 
+  
+```
+*** Conclusion
+1. Bg strain mutated & lost genes
+2. Promoters course large variation
+  - continously low (pRPL15b) doesn't work well for G8H but does for alright for CPR (pURE)
+3. Has strain lost tryptamine synthase or geraniol synthesis genes?
+
+
+## YP49-51 (library strains)
+
+
+*** Experiment:
+
+- Strains: 3 colonies from each of 80 library plates. Each plate has specific combination of G8H and CPR but any of 16 possible promoter combinations
+- Media: YP + 2 % glucose + feed 0.2 mM geraniol & 1 mM tryptamine
+- Sampling: day 6
+
+
+**** Analytics notes:
+
+  - More than 500 uM tryptamine in all samples
+  - No Loganic acid or Secologanin detected in any sample
+
+**Wells not injected/acquired:**
+
+- Khem is not sure why. 
+  - Volume is high enough. 
+  - No bubbles as samples where filtered before handover (as well as spun down by Khem)
+  - Column clogging due to YPD?
+
+Run 1
+
+- YP49
+  - A3, B1
+
+Run 2
+
+- YP50 
+  - :A9  A10, B3, B5, B9, C2, C4, C5, C9, D6 
+- YP51
+  - :A3, A4, A9, A11, B7, B9, B10, C9, D3, E4 
+
+Run 3:  
+
+Rerun of samples not injected in run 2 as well as control(H7-11) for both plates rerun
+
+- YP50 
+  - C5 and H7-11
+- YP51
+  - A11 and B9
+  
+  
+
+```{r,  echo = FALSE, include=FALSE}
+Results_long_norm_yp49_51 <- Results_long %>%
+  filter(plate != "yp48") %>%
+  # Loganing is less interesting as its amount mirrors Strictosidine amount
+  filter(compound %in% c("Strictosidine")) %>%
+  # Desired outcome: comepare amounts (loganin and strictosidine) between plates.
+  # Assumption: amounts within one plate is comparable
+  # Each plate contains the same 4 colonies of MIA-CH-A2
+  # Scale amounts of colonies in a plate  accordingt o 
+  # scale amounts from each plate to MIA-CH-A2 levels
+  group_by(plate, compound) %>% #
+  
+  mutate(Amt_norm = Amt_uM / mean(Amt_uM[well %in% c("H07","H08","H09", "H10")], na.rm = TRUE)*100) %>%
+
+  ungroup()
+  
+```
+
+
+
+```{r echo=FALSE, fig.height=10, fig.width=20} 
+
+p1 <- Results_long_norm_yp49_51 %>%
+
+  
+  group_by(strain,compound) %>%
+  summarise(Amt_uM_me = mean(Amt_uM, na.rm = TRUE),
+            Amt_uM_se = sd(Amt_uM, na.rm = TRUE) / sqrt(n()),
+            Amt_norm_me = mean(Amt_norm, na.rm = TRUE),
+            Amt_norm_se = sd(Amt_norm, na.rm = TRUE) / sqrt(n())) %>%
+  ungroup() %>%
+  
+  mutate(control = ifelse(grepl("^CH-A2", strain), "yes",
+                          ifelse(grepl("^CM-3", strain), "perhaps", "no"))) %>%
+  ggplot() +
+  geom_bar(aes(x=strain, y=Amt_norm_me, fill=control), stat="identity", alpha=0.7) + #  # , fill = run
+    scale_fill_manual(values = c( "yes"="tomato", "perhaps"="grey", "no"="skyblue" ), guide = FALSE ) +
+  geom_errorbar(aes(x=strain, ymin=Amt_norm_me-Amt_norm_se, ymax=Amt_norm_me+Amt_norm_se), width=0.4, colour="orange", alpha=0.9, size=1.3) +
+  geom_hline(yintercept=100, linetype="dashed", color = "black", size=1) +
+  facet_grid(compound~.) +
+  theme(axis.text.x = element_text(size = 10, angle = 90, vjust = 0.5, hjust=1)) +
+  labs(x = "Strain_name (MIA-_G8H_CPR_colony-number)", y = "Normalised Strictosidine Concentration(uM/uM CH-A2 * 100)")
+
+#p1 + 
+#  coord_flip() +
+#  theme_classic(20) +
+#  #theme(axis.text.y = element_text(size = 10, hjust = 0.5, vjust=1)) + 
+#  theme(axis.text.y = element_text(size = 15, hjust = 0.5, vjust=1))
+p1  
+# sorting order controls, reminder G8H, CPR, colony number
+
+ggsave(p1,filename=here("reports","presentation","figures","g8h_cpr_library_analytics.png"), height = 10, width = 20)
+```
+
+
+*** Results & Discussion: 
+
+- SmusG8H AraCPR_3 higher amounts than CM-3
+- CM-3 Strictosidine amount is drifting from ~40 to ~120 between runs while CH-A2 is not. Discuss CM-3 drift with Khem
+- CM-3 mutation increases geraniol uptake?
+- corner well evaporation increases concentration?
+
+1. Strict > loganin
+ - 6 day cultivation
+ 
+2. Strains with low amount
+ - inactive/incompatible enzymes.
+ - Ethanol phase promoters. To surprise, cultivatons show still glucose after 6 days. Thus G8H/CPR may be inactivate.
+ 
+
+*** Next steps considerations: 
+
+1. Genotyping
+2. Modeling and recommend sublibrary/ies
+3. Construct and test more colonies
+
+
+- Optimise signal?
+    - sampling time?
+    - media   
+        - lower glucose amount, more ethanol? 
+- Test more colonies
+  - if a company we would just run 1300 colonies. Academically we want to check whether we can find best strain with fewer tests. Therefore genotyping ML route. 
+
+
+<!-- Notes 2021-06- 17 -->
+<!-- Dear Khem -->
+
+<!-- The data looks very good. We even see one strain that seems to produce more loganin and Strictosidine than our current best (CM-3)! :). -->
+
+<!-- I have one question: -->
+
+<!-- all 3 plates contain: -->
+<!-- - 4xMIA-CH-A2 colonies (H07-H10) -->
+<!-- - 1xMIA-CM-3 colony (H11) -->
+
+<!-- The 4x CH-A2 consistently produce 30-40 µM across plates -->
+
+<!-- The 1xCM-3 produces from ~40 µM, 70, and 120 between plates -->
+
+<!-- Do you think it makes sense to double check the processing? -->
+
+<!-- Kind regards Søren -->
+
+<!-- Dear three -->
+<!-- I have now double checked data with Khem -->
+<!-- We focused on caffeine and strictosidine for strains CM-3 and YP50 D3 (highest measurements) -->
+<!-- We cannot find any errors in the data processing. -->
+<!-- Peaks are well defined and clear and for caffeine they do not very significantly in size from surrounding samples -->
+<!-- Khem has suggested to run the CM-3 sample again for all three plates but I do not know whether that makes sense? -->
+
+
+<!-- [10.49] Jie Zhang -->
+<!--     Hi Søren, thanks for the update. if Khem has the time I think it’s better to rum these samples again. I am not sure whether this was an error, but having >130 uM strictosidine in deep well plate with sub-optimal growth medium/condition sounds too high to be true. But on the other hand,I also think we should focus on the library vs CH-A2, which are more comparable. -->
+## YP52 (Selected library strains & controls)
+```{r,  include=FALSE, message=FALSE, echo = FALSE}
+level_key <- c("HA-71_Cro Cro" = "HA-71_Cro-NA_NA-Cro", "HA-72_Cro Aan" = "HA-72_Cro-NA_NA-Aan","CH-A2_Cro Cro"= "CH-A2_Cro-pTDH3_pTEF1-Cro", "CM-3_Cro Cro"= "CM-3_Cro-pTDH3_pTEF1-Cro")
+level_key
+Results_long_norm_yp52 <- Results_long %>%
+  filter(plate == "yp52") %>%
+  filter(compound == "Strictosidine") %>%
+  
+  mutate(Strain = factor(Strain, levels = c("HA-71_Cro Cro", "HA-72_Cro Aan", "CH-A2_Cro Cro", "CM-3_Cro Cro"))) %>%
+  mutate(Strain = recode(Strain, !!!level_key)) %>%
+ #tidying data  
+  group_by(Strain, medium, compound) %>%
+  summarise(meAmt = mean(Amt_uM, na.rm = TRUE),
+            seAmt = sd(Amt_uM, na.rm = TRUE) / sqrt(n())) %>%
+  ungroup()
+```
+
+ 
+
+```{r  echo=FALSE, message=FALSE, fig.height=5, fig.width=5}
+p <- Results_long_norm_yp52 %>%
+  
+  ggplot() +
+  geom_bar(aes(x=Strain, y=meAmt), stat="identity", fill="skyblue", alpha=0.7) +
+  geom_errorbar( aes(x=Strain, ymin=meAmt-seAmt, ymax=meAmt+seAmt), width=0.4, colour="orange", alpha=0.9, size=1.3) +
+  #facet_grid(medium ~ .) + 
+  facet_grid(factor(medium, levels=c('-','g','t','g&t')) ~ .) +
+  theme_classic(10) +
+  theme(axis.text.x = element_text(size = 10, angle = 25, vjust = 0.5)) + #
+  labs(x = "Strain_name", y = "Mean Strictosidine Concentration in uM +- SE (n=3)") 
+
+ 
+p
+ggsave(p,filename=here("reports","presentation","figures","HA71-72_CH-A2_CM3.png"), height = 10, width = 10)
+
+```
+
+*** Conclusion
+1. Stable measurements of CM-3
+2. My background strain can synthesize tryptamine but not geraniol.
+3. MIA-HA-71 promoters may improve production compared to MIA-CH-A2 and MIA-CM-3 promoters
+4. AanCPR seems to work better than CroCPR 
+
+
+# Genotyping
+Purpose: Determine promoters from library strains to enable ML based sampling of library space
+
+Methods:
+DNA sequencing of assembled clusters. Genomic DNA was extracted from
+overnight cultures using the LiOAc/SDS method adapted to a 96-well microtiter
+plate format. Each extract was used as a template in 2 PCR reactions spanning
+the 2 integrated promoter gene pairs and amplifying from 2500 to 3200 bp. The PCR
+products were validated using a LabChip GX II (Perkin Elmer) and sequenced
+using PlateSeq PCR Kits (Eurofins) according to the manufacturer’s instructions.
+From the LabChip results, a PCR reaction was considered as trusted if it showed a
+strong band of the correct size; not trusted if it showed a strong band of the wrong
+size, and as no information (NI) gained if it showed a weak or no band. From the
+sequencing results, a sequencing reaction was considered as trusted if it showed an
+unambiguous sequence of the expected length (i.e., only limited by length of PCR
+fragment, stretches of the same nucleotide in the promoter or of ~1 kb limit of
+sanger sequencing reactions), not trusted if it showed an unambiguous sequence of
+the expected length with an assembly error, and NI gained if there were no or bad
+sequence results. If one or more sequencing results from the same strain showed
+double peaks in the promoter region the strain was considered as a double
+population. Finally, the promoter was noted as a failed assembly if either LabChip
+and or sequencing results were considered not trusted, as NI if the sequencing
+result was NI and else as the promoter predicted by pairwise alignment between
+sequencing results and promoter sequence.
+
+## Labchip
+[Results folder](/Users/sorpet/projects/)
+
+![Labchip results](/Users/sorpet/projects/g8h_cpr_library/data/raw/009_LabChip/YP49_G8H2_NNFCB-LABCHIP_g8h_cpr_library_2021-06-30_12-12-51_Gel copy.png)
+
+Results show that not band in all wells. Take to long to get perfect results. Cost benefit to low. How many bands before good enough? How many strain fully sequenced before we have enough and can proceed? Do we want to pick some wells to resequence. If we resequence where do we put the new data and make sure to use that instead of the old? Both in terms of .ab1 files but also in plateseq reports
+
+Thoughts:
+
+- When all/most PCR/sanger fail per strain probably template problem
+- When single/few fail per strain probably PCR failure
+  
+
+## Sequencing
+
+### Submission
+[Documents folder](/Users/sorpet/projects/g8h_cpr_library/data/raw/sequence/Sanger/Submission)
+Eurofins     | SDP_ID | cassette
+------------ | ------ | --------
+PCR_00020195 | yp49   | g8h
+PCR_00020204 | yp50   | g8h
+PCR_00020205 | yp51   | g8h
+PCR_00020206 | yp49   | cpr
+PCR_00020207 | yp50   | cpr
+PCR_00020208 | yp51   | cpr
+
+In plateseq kits well h12 is reserved for quality control.
+In all 6 plates yp49-51 for g8h & cpr well h12 contains medium control which do not need to be sequenced. Thus no need to rearrange samples.
+
+### Download and movement of files to correct folders
+
+[Eurofins Results](https://eurofinsgenomics.eu/pages/core/trackorder.aspx?orderRef=11107492995-1&secretRef=9e6a6a47-5a6a-4dde-99e0-f8ada3b2c411)
+
+```{bash}
+#results archieve 2021-07-03
+# save at "/Users/sorpet/projects/g8h_cpr_library/data/raw/sequence/Sanger/Order_11107492995-1_Results"
+## Plate_yp51_cpr.fasta & PlateReport_yp51_cpr.xls not included
+https://ws.e-sequence.medigenomix.de/eseq-download/OrderResultArchiveDownload?mId=2&oId=11107492995-1&trackingCode=9e6a6a47-5a6a-4dde-99e0-f8ada3b2c411&gsd=2021-07-08T11%3a24&gsh=CE5EEBA993649A3CE510C909E685670299C20511D0A57E626DC79A1462356D57
+
+# Upon writing email the following were uploaded on 07-07-2021
+## Plate_yp51_cpr.fasta 
+https://apigateway.eurofinsgenomics.com/download/HttpDownload?get=Z2lkPWViZSZmcD1ZMkV4T1RVNU1qUXRPRFl5TUMwME5USTFMV0l4WldZdFpqSXhOV0kyT0dOak1ETmtMMUJzWVhSbFgzbHdOVEZmWTNCeUxtWmhjM1JoJmNkPTIwMjEtMDctMDhUMTElM2EyNCZleGQ9MjAyMS0wNy0wOFQxMiUzYTI0JnNpZz00NkQ4NjY2N0VGN0MxOTdGQzBENjkxQ0VDQzJDOEVGQUZDRENBMTQ5NkU1MkQzNThFQzcxRkZFMkNEODc4NjI0
+
+## PlateReport_yp51_cpr.xls 
+https://ws.e-sequence.medigenomix.de/eseq-download/FileDownload?fId=225180530&uuid=1554ee7e-663c-4c9c-891d-39f725fbe1a5&gsd=2021-07-08T11%3a24&gsh=6E44B529B30E38F933D358126559BD93701C3987C5D1A5DB8A9A5E06784B0679
+
+https://ws.e-sequence.medigenomix.de/eseq-download/FileDownload?fId=225180530&uuid=1554ee7e-663c-4c9c-891d-39f725fbe1a5&gsd=2021-07-08T11%3a24&gsh=6E44B529B30E38F933D358126559BD93701C3987C5D1A5DB8A9A5E06784B0679
+#  Generally happy with results. However, for plate PCR_00020205 almost all sequencing reactions failed (see PlateReport_yp51_g8h.xls). This surprised me since this is the only plate that fails, and I have a gel showing (also for this plate) bands in almost all wells (see attached). Eurofins agreed to resequence
+
+```
+
+### R import and cleanup
+
+```{r}
+# Lookup tables
+primer_trans <- tibble(primer = c("pad_g8h_fw", "pad_cpr_fw"), position = c("1","2"))
+g8h_trans <- tibble(homolog = c("Cacu", "Opum","Cro","Vmin","Smus","Rsep","Oeu","Ccal"), `0` = c("1","2","3","4","5","6","7","8"))
+cpr_trans <- tibble(homolog = c("Cro", "Aan","Ara","Clo","Rse","Ahu","Ani","Cac","Oeu","Cpo"), `3` = c("1","2","3","4","5","6","7","8","9","10"))
+position_trans <- tibble(cassette = c("g8h", "cpr"), position = c("1","2"))
+
+sanger_import_file_pattern_to_tibble <- function(pattern) {
+    imported_data <- tibble(abs_path = list.files(here("data","raw","sequence","Sanger", "Order_11107492995-1_Results"), full.names = TRUE,   pattern = pattern, recursive = TRUE))
+    return(imported_data)
+}
+
+df_separate_filename_column <- function(df_with_fn_column) {
+  df_fn_separated <- df_with_fn_column %>%
+    mutate(plate = str_extract(filename, "yp\\d\\d"),
+           well = str_extract(filename, "[A-H]\\d?\\d"),
+           primer = substring(str_extract(filename, "(_[:alnum:]+){3}$"), 2)) %>%
+    # str pad well column
+    mutate(row = str_extract(well, "^([a-zA-Z])"),
+           col = str_extract(well, "([0-9]+)$"),
+           col = str_pad(col, width=2, pad = "0"),
+           well = str_c(row,col,"")) %>%
+  left_join(primer_trans, by = c("primer"))
+  return(df_fn_separated)
+}
+```
+
+### Determine promoter by pairwise alignment
+```{r}
+#take sequence of promoter region and determine promoter
+# this funciton is slow thus we cache results
+cached_sanger_files_path <- here("data","interim","sequence","sanger_files.csv")
+if (!file.exists(cached_sanger_files_path)) {
+  sanger_files <- sanger_import_file_pattern_to_tibble(".ab1") %>%
+   mutate(filename = tools::file_path_sans_ext(basename(abs_path))) %>%
+   df_separate_filename_column() %>%
+   mutate(sangerseq_obj = map(abs_path, ~ sangerseqR::readsangerseq(.x)),
+         prim_seq = map_chr(sangerseq_obj, ~ sangerseqR::primarySeq(.x, string = TRUE)),
+         nchar = map_dbl(prim_seq, nchar),
+         p_align_obj = map(prim_seq, ~ Biostrings::pairwiseAlignment(promoters$sequence_5_to_3, .x, type='local')),
+         p_align_scores = map(p_align_obj, ~ BiocGenerics::score(.x)),
+         p_align_hscore = map_dbl(p_align_scores, ~ max(.x)),
+         inf_promoter = map_dbl(p_align_scores, ~ which.max(.x))) %>%
+  select(plate, well, position, nchar, p_align_hscore, inf_promoter)
+} else {
+sanger_files <- read_csv(cached_sanger_files_path)
+}
+```
+
+```{r}
+
+# read_decision <- googlesheets::gs_title("strain_info") %>% googlesheets::gs_read(ws = "by_position")  %>% 
+#   select(-row, -col) %>%
+#   filter(plate == "yp24") %>%
+#   mutate(decision = ifelse(!is.na(promoter) & is.na(comment), 'good',
+#                            ifelse(is.na(promoter) & is.na(comment), 'unknown',
+#                                   ifelse(comment == 'ambiguous', 'ambiguous','bad'))),
+#          position = as.character(position))
+```
+
+```{r}
+plate_reports <- sanger_import_file_pattern_to_tibble(".xls") %>%
+  mutate(data = map(abs_path,readxl::read_excel, na = "n.a.", skip = 5)) %>%
+  unnest(data) %>%
+  select(filename = `Sample-Name`, used, avg_qual = AvgQual, length = Length) %>%
+  df_separate_filename_column() %>%
+  select(plate, well, position, length, used, avg_qual)
+```
+
+```{r}
+sanger_data_by_position <- sanger_files %>% 
+  left_join(plate_reports, by = c("plate","well","position")) %>%
+  
+  #left_join(read_decision, by = c("plate","well","position")) %>%
+  mutate(inf_promoter = ifelse(used < 50 | avg_qual < 25 | is.na(avg_qual), NA , inf_promoter),
+         inf_promoter = ifelse(position == "1" & (inf_promoter < 1 | inf_promoter > 4), 1,
+                               ifelse(position == "2" & (inf_promoter <  5 | inf_promoter >  8), 5,inf_promoter)))
+```
+
+### Checks
+```{r}
+# ab1 file and plate report match?
+sanger_data_by_position %>% mutate(test = nchar - length) %>% filter(test != 0)
+
+# Does algorithmic decision match human decision?
+# Has sanger_files df been matched correctly with read_decision df?
+#sanger_data_by_position %>%
+#  filter(inf_promoter != promoter)
+
+# Has the allignment determined a promoter that should not be present at that location?
+sanger_data_by_position %>%
+  filter((position == "1" & (inf_promoter < 1 | inf_promoter > 4)) |
+           (position == "2" & (inf_promoter <  5 | inf_promoter >  8)))
+
+# Can we determine which reads gives na inf_promoter?
+sanger_data_by_position %>% filter(is.na(inf_promoter)) %>% arrange(desc(avg_qual))
+
+sanger_qual_vs_used <- here("reports","figures", "sanger_qual_vs_used.pdf")
+
+if (!file.exists(sanger_qual_vs_used)) {
+  sanger_data_by_position %>%
+  #filter(plate == "yp24") %>% 
+  ggplot(aes(x = used, y = avg_qual)) + #, color = decision
+  geom_point() +
+  #geom_text(aes(label=str_c(well,position,sep = "_"))) +
+  #ggrepel::geom_text_repel(aes(label=str_c(well,position,sep = "_")))
+  theme_classic(20) %>%
+  ggsave(sanger_qual_vs_used, width = 5, height = 5, units = "in")
+}
+```
+
+
+```{r}
+
+
+strain_info <- meta %>%
+  filter(plate %in% c("yp49","yp50","yp51")) %>%
+  select(plate,well,genotype) %>%
+  separate(genotype, sep = " ", into = c("g8h","cpr")) %>%
+  left_join(g8h_trans, by = c("g8h" = "homolog")) %>%
+  left_join(cpr_trans, by = c("cpr" = "homolog")) %>%
+  select(-g8h,-cpr) #%>%
+  #pivot_longer(cols = c(`0`, `3`), names_to = "position", values_to = "homolog_no")
+```
+### Output by_position & by_well
+
+```{r}
+sanger_data_by_position %>%
+  write_csv(here("data","processed","sequence","sanger_data_by_position.csv"))
+
+sanger_data_by_well <- sanger_data_by_position %>% 
+    #mutate(inf_promoter = ifelse(is.na(comment),inf_promoter,NA)) %>% 
+    select(plate,well,position, inf_promoter) %>%
+    spread(position, inf_promoter) %>% 
+    arrange(plate,well) %>%
+    left_join(strain_info, by = c("plate","well")) 
+
+sanger_data_by_well %>%
+    write_csv(here("data","processed","sequence","sanger_data_by_well.csv"))
+```
+
+### Plotting
+```{r}
+
+# For how many strains have we sequenced all promoters?
+sanger_data_by_position %>% 
+  filter(!is.na(inf_promoter)) %>% 
+  count(plate, well) %>% 
+  count(n,name = "nn") %>%
+  ggplot() +
+  geom_bar(aes(n,nn), stat="identity") +
+  labs(title = "sequencing status", x = "no. of good sequencing reads", y = "no. of strains") +
+  theme_bw(20)
+ggsave(here("reports","figures","sequencing_status.pdf"), width = 5, height = 5, units = "in")
+
+# How many of these strains are unique? And if not all which are not?
+# sanger_data_by_position %>% 
+#   select(plate,well,position,inf_promoter) %>%
+#   spread(position, inf_promoter) %>% 
+
+
+sanger_data_by_well %>%  
+  drop_na() %>%
+  #unique
+  #distinct(`1`,`2`,`3`,`4`,`5`, .keep_all = TRUE) %>%
+  #duplicated genotype
+  group_by(`1`,`2`) %>% filter(n()>1) %>% ungroup() %>%
+  arrange(`1`,`2`)
+### just 3 duplicates!!!
+
+sanger_data_by_position %>% 
+  filter(!is.na(inf_promoter)) %>% 
+  group_by(plate,well) %>% 
+  filter(n() == 2) %>% 
+  ungroup() %>% 
+  count(inf_promoter) %>%
+  #mutate(inf_promoter = str_pad(string = inf_promoter, width = 2, side = c("left"), pad = "0")) %>%
+  left_join(promoters, by = c( "inf_promoter" = "number")) %>%
+  select(inf_promoter, n, name) %>%
+  ggplot(aes(inf_promoter, n)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label=name), vjust=1.6, size=3.5) +
+  theme_bw(15) +
+  labs(x = "promoter_no", y = "promoter_count") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggsave(here("figures","promoter_count.pdf"), width = 5, height = 5, units = "in")
+
+
+palette <-  c( "#d9d9d9","#bdbdbd", "#969696", "#737373", "#525252","#252525")
+palette1 <- c( "#fef0d9","#fdd49e", "#fdbb84", "#fc8d59", "#e34a33","#b30000")
+palette2 <- c( "#fef0d9","#fef0d9", "#fef0d9","#fdbb84", "#fc8d59", "#e34a33")
+sanger_data_by_position %>% 
+  filter(!is.na(inf_promoter)) %>% 
+  group_by(plate,well) %>% 
+  filter(n() == 2) %>% 
+  ungroup() %>% 
+  #mutate(inf_promoter = str_pad(string = inf_promoter, width = 2, side = c("left"), pad = "0"),
+  #       position = as.integer(position)) %>%
+  count(position, inf_promoter) %>%
+  left_join(promoters, by = c( "inf_promoter" = "number")) %>%
+  select(position = position.x, inf_promoter, n, name) %>%
+  arrange(position,desc(inf_promoter)) %>% 
+  group_by(position) %>% mutate(cs = cumsum((n))) %>% ungroup() %>%
+  ggplot(aes(x=position, y=n, fill = inf_promoter)) +
+  geom_bar(stat="identity", color = "black") +
+  geom_text(aes(y=cs, label=str_c(name,n,sep="_")), vjust=1.6, color="black", size=3.5) +
+  #scale_fill_manual(values=rep(palette2, 2)) +
+  theme_minimal(20) +
+  labs(x = "position", y = "count") +
+  theme(legend.position="none")
+ggsave(here("reports","figures","promoter_count_by_position.pdf"), width = 5, height = 5, units = "in")
+
+# sanger_data %>%
+#   group_by(plate,well) %>%
+#   filter(duplicated(inf_promoter))
+
+
+# venn <- eulerr::euler(c(Library = 7776, Sample = 195, "Library&Sample" = 195), input = c("union"))
+# pdf(here("figures","sample_size_venn.pdf"), width = 9, height = 6)
+# plot(venn)
+# dev.off()
+```
+
+## Detailed checking
+**Detailed overview by seq to ref in CLC**
+- For each library strain make clc assembly
+- Assemble sanger data to XI_2 contig of each strain in the library.
+- Make folder that contains XI_2 contigs (or best guess of) of for each library strain (identified by well in yp49-51)
+- 1. Make folder with every possible contig (possible_genotypes_by_promoter). 
+- 2. For each well in yp49-51(/library strain), determine contig (or best guess of; determined in this rscript, uses sanger results and promoter list to determine promoter, homolog combination is known from transformation reaction)
+- 3. copy and rename that particular contig from  /possible_genotypes_by_promoter to /sampled_genotypes_by_well. rename that contig from by_promoter name to by_well name, e.g. 8_4_4_10 to yp49_A01... etc.
+- 5. Add sanger .ab1 files to CLC
+- 6. Batch assemble sequence to reference (in CLC)
+- 7. Go through assemblies to double check our sequencing conclusions are correct.
+
+### 1 possible_genotypes_by_promoter
+- Output from jupyterlab 05-SDP-AllLibraries
+
+### 3.,4. copy and rename contigs
+```{r}
+
+reCopyAndRename = FALSE
+
+if (reCopyAndRename) {
+  
+  promotercomb_to_well_lookup <- sanger_data_by_well %>%
+  mutate(`0` = ifelse(is.na(`0`),1,`0`),
+         `1` = ifelse(is.na(`1`),1,`1`),
+         `2` = ifelse(is.na(`2`),5,`2`),
+         `3` = ifelse(is.na(`3`),1,`3`),
+         promotercomb = str_c(`0`,`1`, `2`, `3`, sep="_"),
+         well_id = str_c(plate,well, sep="_")) %>%
+  select(promotercomb,well_id)
+
+  # subtract 4 from every cpr promoter no. to match jupyter notebook output file formatiing
+  promotercomb_to_well_lookup <- promotercomb_to_well_lookup %>%
+    separate(promotercomb, sep="_", into = c("g","pg","pc","c")) %>%
+    mutate(pc = as.numeric(pc) - 4) %>%
+    mutate(promotercomb = str_c(g, pg, pc, c, sep="_")) %>%
+    select(-g, -pg, -pc,-c)
+  
+  
+  source_folder <- here("data", "clc_g8h_cpr_lib", "Y.Strains", "possible_genotypes_by_promoter")
+  distination_folder <- here("data", "clc_g8h_cpr_lib", "Y.Strains", "sampled_genotypes_by_well")
+  for (row in 1:nrow(promotercomb_to_well_lookup)) {
+    #print(row)
+    name_by_genotype <- paste0(promotercomb_to_well_lookup[[row,2]],".clc")
+    name_by_well <- paste0(promotercomb_to_well_lookup[[row,1]],".clc")
+    # print(name_by_genotype)
+    # print(name_by_well)
+    # print(paste0("from ", str_c(source_folder,name_by_genotype,sep = "/")))
+    # print(paste0("to   ", str_c(distination_folder,name_by_well,sep = "/")))
+    # print("")
+    file.copy(from = str_c(source_folder,name_by_genotype,sep = "/"), to = str_c(distination_folder,name_by_well,sep = "/"))
+    
+  }
+  
+}
+
+
+
+```
+
+### 5. Add sanger .ab1 files to CLC
+
+```{bash}
+
+# These clc_g8h_cpr_lib is a folder in CLC
+#cd /Users/sorpet/projects/g8h_cpr_library/data/clc_g8h_cpr_lib/sequencing
+#mkdir ./yp49_g8h_PCR_00020195
+#mkdir ./yp50_g8h_PCR_00020204
+#mkdir ./yp51_g8h_PCR_00020205
+#mkdir ./yp49_cpr_PCR_00020206
+#mkdir ./yp50_cpr_PCR_00020207
+#mkdir ./yp51_cpr_PCR_00020208
+
+# isolate .ab1 files for easier import into CLC
+#cd /Users/sorpet/projects/g8h_cpr_library/data/raw/sequence/Sanger/Order_11107492995-1_Results/
+#mkdir ./plate_yp49_g8h/ab1
+#mkdir ./plate_yp50_g8h/ab1
+#mkdir ./plate_yp51_g8h/ab1
+#mkdir ./plate_yp49_cpr/ab1
+#mkdir ./plate_yp50_cpr/ab1
+#mkdir ./plate_yp51_cpr/ab1
+
+#mv ./plate_yp49_g8h/*.ab1  ./plate_yp49_g8h/ab1
+#mv ./plate_yp50_g8h/*.ab1  ./plate_yp50_g8h/ab1
+#mv ./plate_yp51_g8h/*.ab1  ./plate_yp51_g8h/ab1
+#mv ./plate_yp49_cpr/*.ab1  ./plate_yp49_cpr/ab1
+#mv ./plate_yp50_cpr/*.ab1  ./plate_yp50_cpr/ab1
+#mv ./plate_yp51_cpr/*.ab1  ./plate_yp51_cpr/ab1
+
+# from CLC import ab1 files
+```
+
+### 6 assemble seq to ref
+#### 6.1 check 
+use [mailed workflow from CLC support](/Users/sorpet/projects/g8h_cpr_library/references/assembling sequences to references CLC.pdf) 
+#### 6.2. assemble_file
+create assemble_file (produced in this script)
+
+```{r}
+
+
+
+pre_CLC_assembly_lookup <- sanger_data_by_position %>%
+    mutate(inf_promoter = ifelse(is.na(inf_promoter) & position == "1", 1,
+                               ifelse(is.na(inf_promoter) & position == "2", 5,inf_promoter))) %>%
+  select(plate,well,position,inf_promoter) %>%
+  spread(position, inf_promoter) %>%
+  mutate(ref = str_c(`1`,`2`, sep="_")) %>%
+  gather(position,inf_promoter,-plate,-well,-ref) %>%
+  select(plate,well,position,inf_promoter,ref) %>%
+  arrange(plate,well) %>%
+  
+  # remove well string padding to match Eurofins .ab1 file names
+  mutate(row = str_extract(well, "^([a-zA-Z])"),
+         col = str_extract(well, "([0-9]+)$"),
+         col = str_remove(col, "^0+"),
+         well_non_padded = str_c(row,col,"")) %>%
+  select(-row,-col) %>%
+  
+  left_join(primer_trans, by = c("position")) %>%
+  left_join(position_trans, by = c("position")) %>%
+  mutate(ID = str_c(plate,cassette,well_non_padded,primer,sep = "_"),
+         Sample = str_c(plate,well,sep = "_"),
+         Type = "sample") %>%
+  select(ID,Sample,Type)
+
+# insert type = reference lines in 
+CLC_assembly_lookup <- as.data.frame(pre_CLC_assembly_lookup)
+New = c()
+for (i in rev(seq(from=2, to=500, by=2))) {
+  New = c(CLC_assembly_lookup[[i,"Sample"]], CLC_assembly_lookup[[i,"Sample"]], "reference")
+  #New
+  CLC_assembly_lookup <- DataCombine::InsertRow(CLC_assembly_lookup, NewRow = New, RowNum = i+1)
+}
+CLC_assembly_lookup <- CLC_assembly_lookup  %>% drop_na() 
+
+openxlsx::write.xlsx(CLC_assembly_lookup, file = here("data","processed","sequence","CLC_assembly_lookup.xlsx"))
+
+```
+
+### 7. Detailed check of assemblies
+
+- Manuel filtering. trusted / not_trusted ab1. 
+- For certains strains multiple ab1 sequences get ambiguous only in promoters -> double population
+- ab1 sequences quality drops preliminary due to stretches of same nucleotides in certain promoters  -> trusted even though small seq alignment 
+- Low quality ab1 -> not_trusted
