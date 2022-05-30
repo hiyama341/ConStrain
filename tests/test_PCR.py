@@ -96,8 +96,15 @@ def test_PCR_program():
 
 
 def test_grouper():
-    # no tests atm
-    pass
+    elong_times = [60,60, 46, 60, 45, 30, 200, 100]
+    elong_times.sort()
+    elong_time_max_diff = 10
+    groups = dict(enumerate(grouper(elong_times,elong_time_max_diff), 1))
+
+    assert groups == {1: [30], 2: [45, 46], 3: [60, 60, 60], 4: [100], 5: [200]}
+
+
+
 
 
 def test_det_no_of_thermal_cyclers():

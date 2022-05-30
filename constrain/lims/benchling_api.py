@@ -18,9 +18,11 @@ load_dotenv(find_dotenv())
 api_key = os.environ.get("API_KEY")
 
 # Add your benchling home environment here 
-home = os.environ.get("HOME")
+home_url = os.environ.get("HOME_url")
 
-session = Session(api_key= api_key, home=home)
+print(home_url, api_key)
+
+session = Session(api_key= api_key, home=home_url)
 
 
 ''' This part of the LIMS module is used for importing sequences and exporting sequences to benchling
