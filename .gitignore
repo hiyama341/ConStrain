@@ -1,4 +1,11 @@
 # Ignore env file
 .env
+# ignore 
 .coverage
 .pytest_cache
+.DS_Store
+.Rproj.user
+
+# ignore the data directory
+data/
+

@@ -2,11 +2,8 @@
 
 # Test benchlingapi  module
 
-import sys
-
 # Importing the module we are  testing
 from constrain.lims.benchling_api import *
-
 
 
 def test_sequence_to_benchling(): 

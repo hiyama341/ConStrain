@@ -327,6 +327,7 @@ def det_no_of_thermal_cyclers(amplicons, polymerase, elong_time_max_diff = 15):
         thermal_cyclers = pd.DataFrame(list_of_lists, columns = ['amplicons', 'tas', 'elong_times', 'order'])
         thermal_cyclers = thermal_cyclers.sort_values(['order'])
         thermal_cyclers = thermal_cyclers.groupby(['tas','elong_times'])['amplicons'].apply(', '.join).reset_index()
+        
         return thermal_cyclers
 
     
