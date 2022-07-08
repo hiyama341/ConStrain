@@ -9,6 +9,7 @@
 
 # R_project initializer
 .Rproj.user
+.RData
 
 # ignore the data directory
 data/

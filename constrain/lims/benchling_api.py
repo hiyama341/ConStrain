@@ -20,7 +20,7 @@ api_key = os.environ.get("API_KEY")
 # Add your benchling home environment here 
 home_url = os.environ.get("HOME_url")
 
-print(home_url, api_key)
+#print(home_url, api_key)
 
 session = Session(api_key= api_key, home=home_url)
 

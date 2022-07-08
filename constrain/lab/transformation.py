@@ -183,7 +183,7 @@ def transformation_mix(reaction_names, reaction_participants, wanted_amounts, wa
         part_names     = [part.name                                       for part in parts] # ng/ul
         sizes          = [len(part)                                       for part in parts] # in bp
 
-        part_mass      = [round(wanted_amounts.get(pname,"") * size * 650,1) for pname, size in zip(part_names, sizes)] # in ng = nmol * bp * 650 ng/(nmol * bp)
+        part_mass      = [round(wanted_amounts.get(pname,"") * int(size) * 650,1) for pname, size in zip(part_names, sizes)] # in ng = nmol * bp * 650 ng/(nmol * bp)
 
         part_volume    = [round(mass / con,1) for mass, con in zip(part_mass, concentrations)] # in µl
 
@@ -191,7 +191,7 @@ def transformation_mix(reaction_names, reaction_participants, wanted_amounts, wa
 
         df  = pd.DataFrame(data =  di, index  = [name]) #,index  = reagents_plus_total
 
-        df_comb = df_comb.append(df, sort=False)
+        df_comb = pd.concat([df_comb,df], sort = False)
 
     #df_comb = df_comb.fillna(0)
 

@@ -1,0 +1,577 @@
+position,Sample name,Cellular Compartment,Medium,Sample Type,Temperature (C),Timepoint (h),Cultivation Container ID/Position,Operator Name,Replicate #,Strain,genotype,Cellular compartment
+A01,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A02,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A03,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A04,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A05,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A06,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A07,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A08,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A09,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A10,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A11,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A12,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+B01,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+B02,20210330_MIA-HA-2_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-2,pCYC1_pURE2,
+B03,20210330_MIA-HA-2_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-2,pCYC1_pURE2,
+B04,20210330_MIA-HA-2_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-2,pCYC1_pURE2,
+B05,20210330_MIA-HA-3_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-3,pCYC1_pTPI1,
+B06,20210330_MIA-HA-3_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-3,pCYC1_pTPI1,
+B07,20210330_MIA-HA-3_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-3,pCYC1_pTPI1,
+B08,20210330_MIA-HA-4_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-4,pCYC1_pMLS1,
+B09,20210330_MIA-HA-4_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-4,pCYC1_pMLS1,
+B10,20210330_MIA-HA-4_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-4,pCYC1_pMLS1,
+B11,20210330_MIA-HA-5_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-5,pCYC1_pCCW12,
+B12,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+C01,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+C02,20210330_MIA-HA-5_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-5,pCYC1_pCCW12,
+C03,20210330_MIA-HA-5_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-5,pCYC1_pCCW12,
+C04,20210330_MIA-HA-6_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-6,pENO2_pURE2,
+C05,20210330_MIA-HA-6_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-6,pENO2_pURE2,
+C06,20210330_MIA-HA-6_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-6,pENO2_pURE2,
+C07,20210330_MIA-HA-7_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-7,pENO2_pTPI1,
+C08,20210330_MIA-HA-7_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-7,pENO2_pTPI1,
+C09,20210330_MIA-HA-7_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-7,pENO2_pTPI1,
+C10,20210330_MIA-HA-8_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-8,pENO2_pMLS1,
+C11,20210330_MIA-HA-8_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-8,pENO2_pMLS1,
+C12,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+D01,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+D02,20210330_MIA-HA-8_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-8,pENO2_pMLS1,
+D03,20210330_MIA-HA-9_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-9,pENO2_pCCW12,
+D04,20210330_MIA-HA-9_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-9,pENO2_pCCW12,
+D05,20210330_MIA-HA-9_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-9,pENO2_pCCW12,
+D06,20210330_MIA-HA-10_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-10,pPCK1_pURE2,
+D07,20210330_MIA-HA-10_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-10,pPCK1_pURE2,
+D08,20210330_MIA-HA-10_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-10,pPCK1_pURE2,
+D09,20210330_MIA-HA-11_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-11,pPCK1_pTPI1,
+D10,20210330_MIA-HA-11_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-11,pPCK1_pTPI1,
+D11,20210330_MIA-HA-11_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-11,pPCK1_pTPI1,
+D12,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+E01,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+E02,20210330_MIA-HA-12_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-12,pPCK1_pMLS1,
+E03,20210330_MIA-HA-12_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-12,pPCK1_pMLS1,
+E04,20210330_MIA-HA-12_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-12,pPCK1_pMLS1,
+E05,20210330_MIA-HA-13_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-13,pPCK1_pCCW12,
+E06,20210330_MIA-HA-13_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-13,pPCK1_pCCW12,
+E07,20210330_MIA-HA-13_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-13,pPCK1_pCCW12,
+E08,20210330_MIA-HA-14_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-14,pRPL15B_pURE2,
+E09,20210330_MIA-HA-14_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-14,pRPL15B_pURE2,
+E10,20210330_MIA-HA-14_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-14,pRPL15B_pURE2,
+E11,20210330_MIA-HA-15_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-15,pRPL15B_pTPI1,
+E12,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+F01,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+F02,20210330_MIA-HA-15_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-15,pRPL15B_pTPI1,
+F03,20210330_MIA-HA-15_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-15,pRPL15B_pTPI1,
+F04,20210330_MIA-HA-16_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-16,pRPL15B_pMLS1,
+F05,20210330_MIA-HA-16_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-16,pRPL15B_pMLS1,
+F06,20210330_MIA-HA-16_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-16,pRPL15B_pMLS1,
+F07,20210330_MIA-HA-17_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-17,pRPL15B_pCCW12,
+F08,20210330_MIA-HA-17_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-17,pRPL15B_pCCW12,
+F09,20210330_MIA-HA-17_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-17,pRPL15B_pCCW12,
+F10,20210330_MIA-HA-1b_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-1b,,
+F11,20210330_MIA-HA-1b_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-1b,,
+F12,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+G01,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+G02,20210330_MIA-HA-1b_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-1b,,
+G03,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+G04,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+G05,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+G06,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+G07,20210330_MIA-HA-17_1,,YPD,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-17,pRPL15B_pCCW12,
+G08,20210330_MIA-HA-17_2,,YPD,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-17,pRPL15B_pCCW12,
+G09,20210330_MIA-HA-17_3,,YPD,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-17,pRPL15B_pCCW12,
+G10,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+G11,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+G12,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H01,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H02,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H03,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H04,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H05,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H06,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H07,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H08,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H09,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H10,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H11,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+H12,,,YPD,Blank,30.0,144.0,,Soeren Petersen,,,,
+A01,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A02,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A03,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A04,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A05,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A06,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A07,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A08,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A09,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A10,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A11,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A12,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+B01,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+B02,20210330_MIA-HA-2_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-2,pCYC1_pURE2,
+B03,20210330_MIA-HA-2_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-2,pCYC1_pURE2,
+B04,20210330_MIA-HA-2_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-2,pCYC1_pURE2,
+B05,20210330_MIA-HA-3_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-3,pCYC1_pTPI1,
+B06,20210330_MIA-HA-3_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-3,pCYC1_pTPI1,
+B07,20210330_MIA-HA-3_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-3,pCYC1_pTPI1,
+B08,20210330_MIA-HA-4_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-4,pCYC1_pMLS1,
+B09,20210330_MIA-HA-4_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-4,pCYC1_pMLS1,
+B10,20210330_MIA-HA-4_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-4,pCYC1_pMLS1,
+B11,20210330_MIA-HA-5_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-5,pCYC1_pCCW12,
+B12,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+C01,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+C02,20210330_MIA-HA-5_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-5,pCYC1_pCCW12,
+C03,20210330_MIA-HA-5_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-5,pCYC1_pCCW12,
+C04,20210330_MIA-HA-6_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-6,pENO2_pURE2,
+C05,20210330_MIA-HA-6_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-6,pENO2_pURE2,
+C06,20210330_MIA-HA-6_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-6,pENO2_pURE2,
+C07,20210330_MIA-HA-7_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-7,pENO2_pTPI1,
+C08,20210330_MIA-HA-7_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-7,pENO2_pTPI1,
+C09,20210330_MIA-HA-7_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-7,pENO2_pTPI1,
+C10,20210330_MIA-HA-8_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-8,pENO2_pMLS1,
+C11,20210330_MIA-HA-8_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-8,pENO2_pMLS1,
+C12,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+D01,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+D02,20210330_MIA-HA-8_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-8,pENO2_pMLS1,
+D03,20210330_MIA-HA-9_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-9,pENO2_pCCW12,
+D04,20210330_MIA-HA-9_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-9,pENO2_pCCW12,
+D05,20210330_MIA-HA-9_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-9,pENO2_pCCW12,
+D06,20210330_MIA-HA-10_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-10,pPCK1_pURE2,
+D07,20210330_MIA-HA-10_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-10,pPCK1_pURE2,
+D08,20210330_MIA-HA-10_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-10,pPCK1_pURE2,
+D09,20210330_MIA-HA-11_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-11,pPCK1_pTPI1,
+D10,20210330_MIA-HA-11_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-11,pPCK1_pTPI1,
+D11,20210330_MIA-HA-11_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-11,pPCK1_pTPI1,
+D12,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+E01,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+E02,20210330_MIA-HA-12_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-12,pPCK1_pMLS1,
+E03,20210330_MIA-HA-12_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-12,pPCK1_pMLS1,
+E04,20210330_MIA-HA-12_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-12,pPCK1_pMLS1,
+E05,20210330_MIA-HA-13_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-13,pPCK1_pCCW12,
+E06,20210330_MIA-HA-13_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-13,pPCK1_pCCW12,
+E07,20210330_MIA-HA-13_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-13,pPCK1_pCCW12,
+E08,20210330_MIA-HA-14_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-14,pRPL15B_pURE2,
+E09,20210330_MIA-HA-14_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-14,pRPL15B_pURE2,
+E10,20210330_MIA-HA-14_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-14,pRPL15B_pURE2,
+E11,20210330_MIA-HA-15_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-15,pRPL15B_pTPI1,
+E12,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+F01,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+F02,20210330_MIA-HA-15_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-15,pRPL15B_pTPI1,
+F03,20210330_MIA-HA-15_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-15,pRPL15B_pTPI1,
+F04,20210330_MIA-HA-16_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-16,pRPL15B_pMLS1,
+F05,20210330_MIA-HA-16_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-16,pRPL15B_pMLS1,
+F06,20210330_MIA-HA-16_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-16,pRPL15B_pMLS1,
+F07,20210330_MIA-HA-17_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-17,pRPL15B_pCCW12,
+F08,20210330_MIA-HA-17_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-17,pRPL15B_pCCW12,
+F09,20210330_MIA-HA-17_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-17,pRPL15B_pCCW12,
+F10,20210330_MIA-HA-1b_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-1b,,
+F11,20210330_MIA-HA-1b_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-1b,,
+F12,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+G01,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+G02,20210330_MIA-HA-1b_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-1b,,
+G03,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+G04,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+G05,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+G06,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+G07,20210330_MIA-HA-17_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-17,pRPL15B_pCCW12,
+G08,20210330_MIA-HA-17_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-17,pRPL15B_pCCW12,
+G09,20210330_MIA-HA-17_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-17,pRPL15B_pCCW12,
+G10,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+G11,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+G12,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H01,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H02,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H03,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H04,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H05,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H06,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H07,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H08,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H09,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H10,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H11,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+H12,,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,,,,
+A01,MIA-HA-51_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-51,CacuG8H CroCPR,Extracellular Region
+A02,MIA-HA-51_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-51,CacuG8H CroCPR,Extracellular Region
+A03,MIA-HA-51_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-51,CacuG8H CroCPR,Extracellular Region
+A04,MIA-HA-52_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-52,CacuG8H AanCPR,Extracellular Region
+A05,MIA-HA-52_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-52,CacuG8H AanCPR,Extracellular Region
+A06,MIA-HA-52_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-52,CacuG8H AanCPR,Extracellular Region
+A07,MIA-HA-53_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-53,CacuG8H AraCPR,Extracellular Region
+A08,MIA-HA-53_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-53,CacuG8H AraCPR,Extracellular Region
+A09,MIA-HA-53_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-53,CacuG8H AraCPR,Extracellular Region
+A10,MIA-HA-54_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-54,CacuG8H CloCPR,Extracellular Region
+A11,MIA-HA-54_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-54,CacuG8H CloCPR,Extracellular Region
+A12,MIA-HA-54_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-54,CacuG8H CloCPR,Extracellular Region
+B01,MIA-HA-55_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-55,CacuG8H RseCPR,Extracellular Region
+B02,MIA-HA-55_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-55,CacuG8H RseCPR,Extracellular Region
+B03,MIA-HA-55_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-55,CacuG8H RseCPR,Extracellular Region
+B04,MIA-HA-56_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-56,CacuG8H AhuCPR,Extracellular Region
+B05,MIA-HA-56_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-56,CacuG8H AhuCPR,Extracellular Region
+B06,MIA-HA-56_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-56,CacuG8H AhuCPR,Extracellular Region
+B07,MIA-HA-57_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-57,CacuG8H AniCPR,Extracellular Region
+B08,MIA-HA-57_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-57,CacuG8H AniCPR,Extracellular Region
+B09,MIA-HA-57_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-57,CacuG8H AniCPR,Extracellular Region
+B10,MIA-HA-58_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-58,CacuG8H CacCPR,Extracellular Region
+B11,MIA-HA-58_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-58,CacuG8H CacCPR,Extracellular Region
+B12,MIA-HA-58_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-58,CacuG8H CacCPR,Extracellular Region
+C01,MIA-HA-59_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-59,CacuG8H OeuCPR,Extracellular Region
+C02,MIA-HA-59_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-59,CacuG8H OeuCPR,Extracellular Region
+C03,MIA-HA-59_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-59,CacuG8H OeuCPR,Extracellular Region
+C04,MIA-HA-60_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-60,CacuG8H CpoCPR,Extracellular Region
+C05,MIA-HA-60_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-60,CacuG8H CpoCPR,Extracellular Region
+C06,MIA-HA-60_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-60,CacuG8H CpoCPR,Extracellular Region
+C07,MIA-HA-61_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-61,OpumG8H CroCPR,Extracellular Region
+C08,MIA-HA-61_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-61,OpumG8H CroCPR,Extracellular Region
+C09,MIA-HA-61_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-61,OpumG8H CroCPR,Extracellular Region
+C10,MIA-HA-62_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-62,OpumG8H AanCPR,Extracellular Region
+C11,MIA-HA-62_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-62,OpumG8H AanCPR,Extracellular Region
+C12,MIA-HA-62_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-62,OpumG8H AanCPR,Extracellular Region
+D01,MIA-HA-63_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-63,OpumG8H AraCPR,Extracellular Region
+D02,MIA-HA-63_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-63,OpumG8H AraCPR,Extracellular Region
+D03,MIA-HA-63_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-63,OpumG8H AraCPR,Extracellular Region
+D04,MIA-HA-64_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-64,OpumG8H CloCPR,Extracellular Region
+D05,MIA-HA-64_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-64,OpumG8H CloCPR,Extracellular Region
+D06,MIA-HA-64_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-64,OpumG8H CloCPR,Extracellular Region
+D07,MIA-HA-65_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-65,OpumG8H RseCPR,Extracellular Region
+D08,MIA-HA-65_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-65,OpumG8H RseCPR,Extracellular Region
+D09,MIA-HA-65_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-65,OpumG8H RseCPR,Extracellular Region
+D10,MIA-HA-66_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-66,OpumG8H AhuCPR,Extracellular Region
+D11,MIA-HA-66_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-66,OpumG8H AhuCPR,Extracellular Region
+D12,MIA-HA-66_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-66,OpumG8H AhuCPR,Extracellular Region
+E01,MIA-HA-67_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-67,OpumG8H AniCPR,Extracellular Region
+E02,MIA-HA-67_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-67,OpumG8H AniCPR,Extracellular Region
+E03,MIA-HA-67_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-67,OpumG8H AniCPR,Extracellular Region
+E04,MIA-HA-68_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-68,OpumG8H CacCPR,Extracellular Region
+E05,MIA-HA-68_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-68,OpumG8H CacCPR,Extracellular Region
+E06,MIA-HA-68_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-68,OpumG8H CacCPR,Extracellular Region
+E07,MIA-HA-69_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-69,OpumG8H OeuCPR,Extracellular Region
+E08,MIA-HA-69_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-69,OpumG8H OeuCPR,Extracellular Region
+E09,MIA-HA-69_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-69,OpumG8H OeuCPR,Extracellular Region
+E10,MIA-HA-70_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-70,OpumG8H CpoCPR,Extracellular Region
+E11,MIA-HA-70_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-70,OpumG8H CpoCPR,Extracellular Region
+E12,MIA-HA-70_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-70,OpumG8H CpoCPR,Extracellular Region
+F01,MIA-HA-71_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-71,CroG8H CroCPR,Extracellular Region
+F02,MIA-HA-71_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-71,CroG8H CroCPR,Extracellular Region
+F03,MIA-HA-71_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-71,CroG8H CroCPR,Extracellular Region
+F04,MIA-HA-72_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-72,CroG8H AanCPR,Extracellular Region
+F05,MIA-HA-72_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-72,CroG8H AanCPR,Extracellular Region
+F06,MIA-HA-72_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-72,CroG8H AanCPR,Extracellular Region
+F07,MIA-HA-73_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-73,CroG8H AraCPR,Extracellular Region
+F08,MIA-HA-73_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-73,CroG8H AraCPR,Extracellular Region
+F09,MIA-HA-73_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-73,CroG8H AraCPR,Extracellular Region
+F10,MIA-HA-74_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-74,CroG8H CloCPR,Extracellular Region
+F11,MIA-HA-74_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-74,CroG8H CloCPR,Extracellular Region
+F12,MIA-HA-74_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-74,CroG8H CloCPR,Extracellular Region
+G01,MIA-HA-75_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-75,CroG8H RseCPR,Extracellular Region
+G02,MIA-HA-75_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-75,CroG8H RseCPR,Extracellular Region
+G03,MIA-HA-75_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-75,CroG8H RseCPR,Extracellular Region
+G04,MIA-HA-76_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-76,CroG8H AhuCPR,Extracellular Region
+G05,MIA-HA-76_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-76,CroG8H AhuCPR,Extracellular Region
+G06,MIA-HA-76_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-76,CroG8H AhuCPR,Extracellular Region
+G07,MIA-HA-77_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-77,CroG8H AniCPR,Extracellular Region
+G08,MIA-HA-77_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-77,CroG8H AniCPR,Extracellular Region
+G09,MIA-HA-77_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-77,CroG8H AniCPR,Extracellular Region
+G10,MIA-HA-78_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-78,CroG8H CacCPR,Extracellular Region
+G11,MIA-HA-78_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-78,CroG8H CacCPR,Extracellular Region
+G12,MIA-HA-78_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-78,CroG8H CacCPR,Extracellular Region
+H01,MIA-HA-79_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-79,CroG8H OeuCPR,Extracellular Region
+H02,MIA-HA-79_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-79,CroG8H OeuCPR,Extracellular Region
+H03,MIA-HA-79_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-79,CroG8H OeuCPR,Extracellular Region
+H04,MIA-HA-80_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-80,CroG8H CpoCPR,Extracellular Region
+H05,MIA-HA-80_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-80,CroG8H CpoCPR,Extracellular Region
+H06,MIA-HA-80_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-80,CroG8H CpoCPR,Extracellular Region
+H07,MIA-CH-A2_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H08,MIA-CH-A2_2,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H09,MIA-CH-A2_3,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H10,MIA-CH-A2_4,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,4.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H11,MIA-CM-3_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CM-3,CroG8H CroCPR,Extracellular Region
+H12,_1,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,1.0,,,Extracellular Region
+A01,20210601MIA-HA-211,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-21,VminG8H CroCPR,Extracellular Region
+A02,20210601MIA-HA-212,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-21,VminG8H CroCPR,Extracellular Region
+A03,20210601MIA-HA-213,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-21,VminG8H CroCPR,Extracellular Region
+A04,20210601MIA-HA-221,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-22,VminG8H AanCPR,Extracellular Region
+A05,20210601MIA-HA-222,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-22,VminG8H AanCPR,Extracellular Region
+A06,20210601MIA-HA-223,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-22,VminG8H AanCPR,Extracellular Region
+A07,20210601MIA-HA-231,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-23,VminG8H AraCPR,Extracellular Region
+A08,20210601MIA-HA-232,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-23,VminG8H AraCPR,Extracellular Region
+A09,20210601MIA-HA-233,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-23,VminG8H AraCPR,Extracellular Region
+A10,20210601MIA-HA-241,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-24,VminG8H CloCPR,Extracellular Region
+A11,20210601MIA-HA-242,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-24,VminG8H CloCPR,Extracellular Region
+A12,20210601MIA-HA-243,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-24,VminG8H CloCPR,Extracellular Region
+B01,20210601MIA-HA-251,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-25,VminG8H RseCPR,Extracellular Region
+B02,20210601MIA-HA-252,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-25,VminG8H RseCPR,Extracellular Region
+B03,20210601MIA-HA-253,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-25,VminG8H RseCPR,Extracellular Region
+B04,20210601MIA-HA-261,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-26,VminG8H AhuCPR,Extracellular Region
+B05,20210601MIA-HA-262,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-26,VminG8H AhuCPR,Extracellular Region
+B06,20210601MIA-HA-263,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-26,VminG8H AhuCPR,Extracellular Region
+B07,20210601MIA-HA-271,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-27,VminG8H AniCPR,Extracellular Region
+B08,20210601MIA-HA-272,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-27,VminG8H AniCPR,Extracellular Region
+B09,20210601MIA-HA-273,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-27,VminG8H AniCPR,Extracellular Region
+B10,20210601MIA-HA-281,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-28,VminG8H CacCPR,Extracellular Region
+B11,20210601MIA-HA-282,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-28,VminG8H CacCPR,Extracellular Region
+B12,20210601MIA-HA-283,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-28,VminG8H CacCPR,Extracellular Region
+C01,20210601MIA-HA-291,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-29,VminG8H OeuCPR,Extracellular Region
+C02,20210601MIA-HA-292,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-29,VminG8H OeuCPR,Extracellular Region
+C03,20210601MIA-HA-293,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-29,VminG8H OeuCPR,Extracellular Region
+C04,20210601MIA-HA-301,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-30,VminG8H CpoCPR,Extracellular Region
+C05,20210601MIA-HA-302,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-30,VminG8H CpoCPR,Extracellular Region
+C06,20210601MIA-HA-303,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-30,VminG8H CpoCPR,Extracellular Region
+C07,20210601MIA-HA-311,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-31,SmusG8H CroCPR,Extracellular Region
+C08,20210601MIA-HA-312,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-31,SmusG8H CroCPR,Extracellular Region
+C09,20210601MIA-HA-313,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-31,SmusG8H CroCPR,Extracellular Region
+C10,20210601MIA-HA-321,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-32,SmusG8H AanCPR,Extracellular Region
+C11,20210601MIA-HA-322,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-32,SmusG8H AanCPR,Extracellular Region
+C12,20210601MIA-HA-323,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-32,SmusG8H AanCPR,Extracellular Region
+D01,20210601MIA-HA-331,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-33,SmusG8H AraCPR,Extracellular Region
+D02,20210601MIA-HA-332,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-33,SmusG8H AraCPR,Extracellular Region
+D03,20210601MIA-HA-333,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-33,SmusG8H AraCPR,Extracellular Region
+D04,20210601MIA-HA-341,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-34,SmusG8H CloCPR,Extracellular Region
+D05,20210601MIA-HA-342,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-34,SmusG8H CloCPR,Extracellular Region
+D06,20210601MIA-HA-343,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-34,SmusG8H CloCPR,Extracellular Region
+D07,20210601MIA-HA-351,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-35,SmusG8H RseCPR,Extracellular Region
+D08,20210601MIA-HA-352,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-35,SmusG8H RseCPR,Extracellular Region
+D09,20210601MIA-HA-353,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-35,SmusG8H RseCPR,Extracellular Region
+D10,20210601MIA-HA-361,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-36,SmusG8H AhuCPR,Extracellular Region
+D11,20210601MIA-HA-362,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-36,SmusG8H AhuCPR,Extracellular Region
+D12,20210601MIA-HA-363,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-36,SmusG8H AhuCPR,Extracellular Region
+E01,20210601MIA-HA-371,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-37,SmusG8H AniCPR,Extracellular Region
+E02,20210601MIA-HA-372,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-37,SmusG8H AniCPR,Extracellular Region
+E03,20210601MIA-HA-373,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-37,SmusG8H AniCPR,Extracellular Region
+E04,20210601MIA-HA-381,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-38,SmusG8H CacCPR,Extracellular Region
+E05,20210601MIA-HA-382,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-38,SmusG8H CacCPR,Extracellular Region
+E06,20210601MIA-HA-383,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-38,SmusG8H CacCPR,Extracellular Region
+E07,20210601MIA-HA-391,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-39,SmusG8H OeuCPR,Extracellular Region
+E08,20210601MIA-HA-392,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-39,SmusG8H OeuCPR,Extracellular Region
+E09,20210601MIA-HA-393,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-39,SmusG8H OeuCPR,Extracellular Region
+E10,20210601MIA-HA-401,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-40,SmusG8H CpoCPR,Extracellular Region
+E11,20210601MIA-HA-402,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-40,SmusG8H CpoCPR,Extracellular Region
+E12,20210601MIA-HA-403,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-40,SmusG8H CpoCPR,Extracellular Region
+F01,20210601MIA-HA-411,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-41,RsepG8H CroCPR,Extracellular Region
+F02,20210601MIA-HA-412,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-41,RsepG8H CroCPR,Extracellular Region
+F03,20210601MIA-HA-413,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-41,RsepG8H CroCPR,Extracellular Region
+F04,20210601MIA-HA-421,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-42,RsepG8H AanCPR,Extracellular Region
+F05,20210601MIA-HA-422,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-42,RsepG8H AanCPR,Extracellular Region
+F06,20210601MIA-HA-423,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-42,RsepG8H AanCPR,Extracellular Region
+F07,20210601MIA-HA-431,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-43,RsepG8H AraCPR,Extracellular Region
+F08,20210601MIA-HA-432,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-43,RsepG8H AraCPR,Extracellular Region
+F09,20210601MIA-HA-433,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-43,RsepG8H AraCPR,Extracellular Region
+F10,20210601MIA-HA-441,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-44,RsepG8H CloCPR,Extracellular Region
+F11,20210601MIA-HA-442,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-44,RsepG8H CloCPR,Extracellular Region
+F12,20210601MIA-HA-443,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-44,RsepG8H CloCPR,Extracellular Region
+G01,20210601MIA-HA-451,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-45,RsepG8H RseCPR,Extracellular Region
+G02,20210601MIA-HA-452,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-45,RsepG8H RseCPR,Extracellular Region
+G03,20210601MIA-HA-453,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-45,RsepG8H RseCPR,Extracellular Region
+G04,20210601MIA-HA-461,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-46,RsepG8H AhuCPR,Extracellular Region
+G05,20210601MIA-HA-462,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-46,RsepG8H AhuCPR,Extracellular Region
+G06,20210601MIA-HA-463,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-46,RsepG8H AhuCPR,Extracellular Region
+G07,20210601MIA-HA-471,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-47,RsepG8H AniCPR,Extracellular Region
+G08,20210601MIA-HA-472,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-47,RsepG8H AniCPR,Extracellular Region
+G09,20210601MIA-HA-473,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-47,RsepG8H AniCPR,Extracellular Region
+G10,20210601MIA-HA-481,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-48,RsepG8H CacCPR,Extracellular Region
+G11,20210601MIA-HA-482,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-48,RsepG8H CacCPR,Extracellular Region
+G12,20210601MIA-HA-483,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-48,RsepG8H CacCPR,Extracellular Region
+H01,20210601MIA-HA-491,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-49,RsepG8H OeuCPR,Extracellular Region
+H02,20210601MIA-HA-492,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-49,RsepG8H OeuCPR,Extracellular Region
+H03,20210601MIA-HA-493,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-49,RsepG8H OeuCPR,Extracellular Region
+H04,20210601MIA-HA-501,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-50,RsepG8H CpoCPR,Extracellular Region
+H05,20210601MIA-HA-502,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-50,RsepG8H CpoCPR,Extracellular Region
+H06,20210601MIA-HA-503,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-50,RsepG8H CpoCPR,Extracellular Region
+H07,20210601MIA-CH-A21,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H08,20210601MIA-CH-A22,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H09,20210601MIA-CH-A23,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H10,20210601MIA-CH-A24,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,4.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H11,20210601MIA-CM-31,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CM-3,CroG8H CroCPR,Extracellular Region
+H12,202106011,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,1.0,,,Extracellular Region
+A01,MIA-HA-81_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-81,OeuG8H CroCPR,Extracellular Region
+A02,MIA-HA-81_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-81,OeuG8H CroCPR,Extracellular Region
+A03,MIA-HA-81_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-81,OeuG8H CroCPR,Extracellular Region
+A04,MIA-HA-82_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-82,OeuG8H AanCPR,Extracellular Region
+A05,MIA-HA-82_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-82,OeuG8H AanCPR,Extracellular Region
+A06,MIA-HA-82_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-82,OeuG8H AanCPR,Extracellular Region
+A07,MIA-HA-83_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-83,OeuG8H AraCPR,Extracellular Region
+A08,MIA-HA-83_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-83,OeuG8H AraCPR,Extracellular Region
+A09,MIA-HA-83_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-83,OeuG8H AraCPR,Extracellular Region
+A10,MIA-HA-84_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-84,OeuG8H CloCPR,Extracellular Region
+A11,MIA-HA-84_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-84,OeuG8H CloCPR,Extracellular Region
+A12,MIA-HA-84_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-84,OeuG8H CloCPR,Extracellular Region
+B01,MIA-HA-85_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-85,OeuG8H RseCPR,Extracellular Region
+B02,MIA-HA-85_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-85,OeuG8H RseCPR,Extracellular Region
+B03,MIA-HA-85_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-85,OeuG8H RseCPR,Extracellular Region
+B04,MIA-HA-86_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-86,OeuG8H AhuCPR,Extracellular Region
+B05,MIA-HA-86_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-86,OeuG8H AhuCPR,Extracellular Region
+B06,MIA-HA-86_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-86,OeuG8H AhuCPR,Extracellular Region
+B07,MIA-HA-87_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-87,OeuG8H AniCPR,Extracellular Region
+B08,MIA-HA-87_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-87,OeuG8H AniCPR,Extracellular Region
+B09,MIA-HA-87_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-87,OeuG8H AniCPR,Extracellular Region
+B10,MIA-HA-88_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-88,OeuG8H CacCPR,Extracellular Region
+B11,MIA-HA-88_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-88,OeuG8H CacCPR,Extracellular Region
+B12,MIA-HA-88_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-88,OeuG8H CacCPR,Extracellular Region
+C01,MIA-HA-89_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-89,OeuG8H OeuCPR,Extracellular Region
+C02,MIA-HA-89_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-89,OeuG8H OeuCPR,Extracellular Region
+C03,MIA-HA-89_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-89,OeuG8H OeuCPR,Extracellular Region
+C04,MIA-HA-90_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-90,OeuG8H CpoCPR,Extracellular Region
+C05,MIA-HA-90_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-90,OeuG8H CpoCPR,Extracellular Region
+C06,MIA-HA-90_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-90,OeuG8H CpoCPR,Extracellular Region
+C07,MIA-HA-91_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-91,CcalG8H CroCPR,Extracellular Region
+C08,MIA-HA-91_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-91,CcalG8H CroCPR,Extracellular Region
+C09,MIA-HA-91_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-91,CcalG8H CroCPR,Extracellular Region
+C10,MIA-HA-92_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-92,CcalG8H AanCPR,Extracellular Region
+C11,MIA-HA-92_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-92,CcalG8H AanCPR,Extracellular Region
+C12,MIA-HA-92_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-92,CcalG8H AanCPR,Extracellular Region
+D01,MIA-HA-93_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-93,CcalG8H AraCPR,Extracellular Region
+D02,MIA-HA-93_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-93,CcalG8H AraCPR,Extracellular Region
+D03,MIA-HA-93_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-93,CcalG8H AraCPR,Extracellular Region
+D04,MIA-HA-94_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-94,CcalG8H CloCPR,Extracellular Region
+D05,MIA-HA-94_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-94,CcalG8H CloCPR,Extracellular Region
+D06,MIA-HA-94_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-94,CcalG8H CloCPR,Extracellular Region
+D07,MIA-HA-95_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-95,CcalG8H RseCPR,Extracellular Region
+D08,MIA-HA-95_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-95,CcalG8H RseCPR,Extracellular Region
+D09,MIA-HA-95_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-95,CcalG8H RseCPR,Extracellular Region
+D10,MIA-HA-96_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-96,CcalG8H AhuCPR,Extracellular Region
+D11,MIA-HA-96_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-96,CcalG8H AhuCPR,Extracellular Region
+D12,MIA-HA-96_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-96,CcalG8H AhuCPR,Extracellular Region
+E01,MIA-HA-97_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-97,CcalG8H AniCPR,Extracellular Region
+E02,MIA-HA-97_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-97,CcalG8H AniCPR,Extracellular Region
+E03,MIA-HA-97_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-97,CcalG8H AniCPR,Extracellular Region
+E04,MIA-HA-98_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-98,CcalG8H CacCPR,Extracellular Region
+E05,MIA-HA-98_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-98,CcalG8H CacCPR,Extracellular Region
+E06,MIA-HA-98_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-98,CcalG8H CacCPR,Extracellular Region
+E07,MIA-HA-99_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-99,CcalG8H OeuCPR,Extracellular Region
+E08,MIA-HA-99_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-99,CcalG8H OeuCPR,Extracellular Region
+E09,MIA-HA-99_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-99,CcalG8H OeuCPR,Extracellular Region
+E10,MIA-HA-100_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-100,CcalG8H CpoCPR,Extracellular Region
+E11,MIA-HA-100_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-100,CcalG8H CpoCPR,Extracellular Region
+E12,MIA-HA-100_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-100,CcalG8H CpoCPR,Extracellular Region
+F01,,,,,,,,,,,,
+F02,,,,,,,,,,,,
+F03,,,,,,,,,,,,
+F04,,,,,,,,,,,,
+F05,,,,,,,,,,,,
+F06,,,,,,,,,,,,
+F07,,,,,,,,,,,,
+F08,,,,,,,,,,,,
+F09,,,,,,,,,,,,
+F10,,,,,,,,,,,,
+F11,,,,,,,,,,,,
+F12,,,,,,,,,,,,
+G01,,,,,,,,,,,,
+G02,,,,,,,,,,,,
+G03,,,,,,,,,,,,
+G04,,,,,,,,,,,,
+G05,,,,,,,,,,,,
+G06,,,,,,,,,,,,
+G07,,,,,,,,,,,,
+G08,,,,,,,,,,,,
+G09,,,,,,,,,,,,
+G10,,,,,,,,,,,,
+G11,,,,,,,,,,,,
+G12,,,,,,,,,,,,
+H01,,,,,,,,,,,,
+H02,,,,,,,,,,,,
+H03,,,,,,,,,,,,
+H04,,,,,,,,,,,,
+H05,,,,,,,,,,,,
+H06,,,,,,,,,,,,
+H07,MIA-CH-A2_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H08,MIA-CH-A2_2_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H09,MIA-CH-A2_3_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H10,MIA-CH-A2_4_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,4.0,MIA-CH-A2,CroG8H CroCPR,Extracellular Region
+H11,MIA-CM-3_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CM-3,CroG8H CroCPR,Extracellular Region
+H12,_1_2021-06-01,,YPD + 1 mM tryptamine + 0.2 mM geraniol,Blank,30.0,144.0,,Soeren Petersen,1.0,,,Extracellular Region
+A01,MIA-HA-71_-_1,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-71,CroG8H CroCPR,
+A02,MIA-HA-71_-_2,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-71,CroG8H CroCPR,
+A03,MIA-HA-71_-_3,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-71,CroG8H CroCPR,
+A04,MIA-HA-72_-_1,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-72,CroG8H AanCPR,
+A05,MIA-HA-72_-_2,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-72,CroG8H AanCPR,
+A06,MIA-HA-72_-_3,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-72,CroG8H AanCPR,
+A07,MIA-CH-A2_-_1,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CH-A2,CroG8H CroCPR,
+A08,MIA-CH-A2_-_2,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CH-A2,CroG8H CroCPR,
+A09,MIA-CH-A2_-_3,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CH-A2,CroG8H CroCPR,
+A10,MIA-CM-3_-_1,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CM-3,CroG8H CroCPR,
+A11,MIA-CM-3_-_2,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CM-3,CroG8H CroCPR,
+A12,MIA-CM-3_-_3,Extracellular Region,-,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CM-3,CroG8H CroCPR,
+B01,MIA-HA-71_g_1,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-71,CroG8H CroCPR,
+B02,MIA-HA-71_g_2,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-71,CroG8H CroCPR,
+B03,MIA-HA-71_g_3,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-71,CroG8H CroCPR,
+B04,MIA-HA-72_g_1,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-72,CroG8H AanCPR,
+B05,MIA-HA-72_g_2,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-72,CroG8H AanCPR,
+B06,MIA-HA-72_g_3,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-72,CroG8H AanCPR,
+B07,MIA-CH-A2_g_1,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CH-A2,CroG8H CroCPR,
+B08,MIA-CH-A2_g_2,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CH-A2,CroG8H CroCPR,
+B09,MIA-CH-A2_g_3,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CH-A2,CroG8H CroCPR,
+B10,MIA-CM-3_g_1,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CM-3,CroG8H CroCPR,
+B11,MIA-CM-3_g_2,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CM-3,CroG8H CroCPR,
+B12,MIA-CM-3_g_3,Extracellular Region,g,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CM-3,CroG8H CroCPR,
+C01,MIA-HA-71_t_1,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-71,CroG8H CroCPR,
+C02,MIA-HA-71_t_2,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-71,CroG8H CroCPR,
+C03,MIA-HA-71_t_3,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-71,CroG8H CroCPR,
+C04,MIA-HA-72_t_1,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-72,CroG8H AanCPR,
+C05,MIA-HA-72_t_2,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-72,CroG8H AanCPR,
+C06,MIA-HA-72_t_3,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-72,CroG8H AanCPR,
+C07,MIA-CH-A2_t_1,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CH-A2,CroG8H CroCPR,
+C08,MIA-CH-A2_t_2,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CH-A2,CroG8H CroCPR,
+C09,MIA-CH-A2_t_3,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CH-A2,CroG8H CroCPR,
+C10,MIA-CM-3_t_1,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CM-3,CroG8H CroCPR,
+C11,MIA-CM-3_t_2,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CM-3,CroG8H CroCPR,
+C12,MIA-CM-3_t_3,Extracellular Region,t,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CM-3,CroG8H CroCPR,
+D01,MIA-HA-71_g&t_1,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-71,CroG8H CroCPR,
+D02,MIA-HA-71_g&t_2,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-71,CroG8H CroCPR,
+D03,MIA-HA-71_g&t_3,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-71,CroG8H CroCPR,
+D04,MIA-HA-72_g&t_1,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-HA-72,CroG8H AanCPR,
+D05,MIA-HA-72_g&t_2,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-HA-72,CroG8H AanCPR,
+D06,MIA-HA-72_g&t_3,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-HA-72,CroG8H AanCPR,
+D07,MIA-CH-A2_g&t_1,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CH-A2,CroG8H CroCPR,
+D08,MIA-CH-A2_g&t_2,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CH-A2,CroG8H CroCPR,
+D09,MIA-CH-A2_g&t_3,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CH-A2,CroG8H CroCPR,
+D10,MIA-CM-3_g&t_1,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,1.0,MIA-CM-3,CroG8H CroCPR,
+D11,MIA-CM-3_g&t_2,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,2.0,MIA-CM-3,CroG8H CroCPR,
+D12,MIA-CM-3_g&t_3,Extracellular Region,g&t,Specimen,30.0,144.0,,Soeren Petersen,3.0,MIA-CM-3,CroG8H CroCPR,
+E01,,,,,,,,,,,,
+E02,,,,,,,,,,,,
+E03,,,,,,,,,,,,
+E04,,,,,,,,,,,,
+E05,,,,,,,,,,,,
+E06,,,,,,,,,,,,
+E07,,,,,,,,,,,,
+E08,,,,,,,,,,,,
+E09,,,,,,,,,,,,
+E10,,,,,,,,,,,,
+E11,,,,,,,,,,,,
+E12,,,,,,,,,,,,
+F01,,,,,,,,,,,,
+F02,,,,,,,,,,,,
+F03,,,,,,,,,,,,
+F04,,,,,,,,,,,,
+F05,,,,,,,,,,,,
+F06,,,,,,,,,,,,
+F07,,,,,,,,,,,,
+F08,,,,,,,,,,,,
+F09,,,,,,,,,,,,
+F10,,,,,,,,,,,,
+F11,,,,,,,,,,,,
+F12,,,,,,,,,,,,
+G01,,,,,,,,,,,,
+G02,,,,,,,,,,,,
+G03,,,,,,,,,,,,
+G04,,,,,,,,,,,,
+G05,,,,,,,,,,,,
+G06,,,,,,,,,,,,
+G07,,,,,,,,,,,,
+G08,,,,,,,,,,,,
+G09,,,,,,,,,,,,
+G10,,,,,,,,,,,,
+G11,,,,,,,,,,,,
+G12,,,,,,,,,,,,
+H01,,,,,,,,,,,,
+H02,,,,,,,,,,,,
+H03,,,,,,,,,,,,
+H04,,,,,,,,,,,,
+H05,,,,,,,,,,,,
+H06,,,,,,,,,,,,
+H07,,,,,,,,,,,,
+H08,,,,,,,,,,,,
+H09,,,,,,,,,,,,
+H10,,,,,,,,,,,,
+H11,,,,,,,,,,,,
+H12,,,,,,,,,,,,

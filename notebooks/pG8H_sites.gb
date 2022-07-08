@@ -1,0 +1,128 @@
+LOCUS       pCYC1                    987 bp    DNA              UNK 01-JAN-1980
+DEFINITION  .
+ACCESSION   seq_DPrPIMvy
+VERSION     seq_DPrPIMvy
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     promoter        1..987
+                     /name="pCYC1"
+                     /color="#D6B295"
+                     /label="pCYC1"
+ORIGIN
+        1 cagcattttc aaaggtgtgt tcttcgtcag acatgtttta gtgtgtgaat gaaataggtg
+       61 tatgttttct ttttgctaga caataattag gaacaaggta agggaactaa agtgtagaat
+      121 aagattaaaa aagaagaaca agttgaaaag gcaagttgaa atttcaagaa aaaagtcaat
+      181 tgaagtacag taaattgacc tgaatatatc tgagttccga caacaatgag tttaccaaag
+      241 agaacaatgg aataggaaac tttgaacgaa gaaaggaaag caggaaagga aaaaattttt
+      301 aggctcgaga acaatagggc gaaaaaacag gcaacgaacg aacaatggaa aaacgaaaaa
+      361 aaaaaaaaaa aacacagaaa agaatgcaga aagatgtcaa ctgaaaaaaa aaaaggtgaa
+      421 cacaggaaaa aaaataaaaa aaaaaaaaaa aaaaggagga cgaaacaaaa aagtgaaaaa
+      481 aaatgaaaat ttttttggaa aaccaagaaa tgaattatat ttccgtgtga gacgacatcg
+      541 tcgaatatga ttcagggtaa cagtattgat gtaatcaatt tcctacctga atctaaaatt
+      601 cccgggagca agatcaagat gttttcaccg atctttccgg tctctttggc cggggtttac
+      661 ggacgatggc agaagaccaa agcgccagtt catttggcga gcgttggttg gtggatcaag
+      721 cccacgcgta ggcaatcctc gagcagatcc gccaggcgtg tatatatagc gtggatggcc
+      781 aggcaacttt agtgctgaca catacaggca tatatatatg tgtgcgacga cacatgatca
+      841 tatggcatgc atgtgctctg tatgtatata aaactcttgt tttcttcttt tctctaaata
+      901 ttctttcctt atacattagg acctttgcag cataaattac tatacttcta tagacacaca
+      961 aacacaaata cacacactaa attaata
+//
+LOCUS       pENO2                   1000 bp    DNA              UNK 01-JAN-1980
+DEFINITION  .
+ACCESSION   seq_8wWqUcpf
+VERSION     seq_8wWqUcpf
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     promoter        1..1000
+                     /name="pENO2"
+                     /color="#85DAE9"
+                     /label="pENO2"
+ORIGIN
+        1 aatcctactc ttgccgttgc catccaaaat gagctagaag gtggattaac aaatataatg
+       61 acaaatcgtt gcttgtctga cttgattcca ctacagttac aaatatttga cattgtatat
+      121 aagttttgca agttcatcaa atctatgaga gcaaaattat gtcaactgga ccccgtacta
+      181 tatgagaaac acaaaagcgg gatgatgaaa acactaaacg aaggctatcg tacaaacaat
+      241 ggcggtcagg aagatgttgg ttaccaagaa gatgccgccc tggaattaat tcagaagctg
+      301 attgaataca ttagcaacgc gtccagcatt tttcggaagt gtctcataaa ctttactcaa
+      361 gagttaagta ctgaaaaatt cgacttttat gatagttcaa gtgtcgacgc tgcgggtata
+      421 gaaagggttc tttactctat agtacctcct cgctcagcat ctgcttcttc ccaaagatga
+      481 acgcggcgtt atgtcactaa cgacgtgcac caacttgcgg aaagtggaat cccgttccaa
+      541 aactggcatc cactaattga tacatctaca caccgcacgc cttttttctg aagcccactt
+      601 tcgtggactt tgccatatgc aaaattcatg aagtgtgata ccaagtcagc atacacctca
+      661 ctagggtagt ttctttggtt gtattgatca tttggttcat cgtggttcat taattttttt
+      721 tctccattgc tttctggctt tgatcttact atcatttgga tttttgtcga aggttgtaga
+      781 attgtatgtg acaagtggca ccaagcatat ataaaaaaaa aaagcattat cttcctacca
+      841 gagttgattg ttaaaaacgt atttatagca aacgcaattg taattaattc ttattttgta
+      901 tcttttcttc ccttgtctca atcttttatt tttattttat ttttcttttc ttagtttctt
+      961 tcataacacc aagcaactaa tactataaca tacaataata
+//
+LOCUS       pPCK1                   1000 bp    DNA              UNK 01-JAN-1980
+DEFINITION  .
+ACCESSION   seq_Bs85fGcK
+VERSION     seq_Bs85fGcK
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     promoter        1..1000
+                     /name="pPCK1"
+                     /color="#9EAFD2"
+                     /label="pPCK1"
+ORIGIN
+        1 cacatgtcga cgagtttgtc atcgaatccg taatgaaggc gcaagaaaaa ctagagagtg
+       61 ccagcgaacc gcgtctttcc cctcgccgct ttaactacgt agttctgata tctgacgacg
+      121 acgccatgaa gaaaaaagca gaagaaaaag aaataaaaac gctaagcaca cgatttgtgt
+      181 tttctttgtg cacaaaactt ggcgaacagc gccatctgtg tacagactga tcgttcgttg
+      241 tacgtacatt tacaacaaca ccaattctac tcaccgccat aaataacact ttaattttaa
+      301 tatatacttt tatatgcata taaccaactg acttccatca attctgacca gagcacttgg
+      361 gcagagcccc ccacccaggg ccttgtcgga aaaaatcgga atatcccaca cgatccaccg
+      421 gagaatatcg ggacgctgac gggtgaatgg agatctggat ttcctaattt ggatacatct
+      481 cttttctttt tttgactcac aataggaaaa aaccgagctt cctttcatcc ggcgcggctg
+      541 tgttctacat atcactgaag ctccgggtat tttaagttat acaagggaaa gatgccggct
+      601 agactagcaa gttttaggct gcttaacatt atggataggc ggataaaggg cccaaacagg
+      661 attgtaaagc ttagacgctt ctggttggac aatggtacgt ttgtgtatta agtaaggctt
+      721 ggctggggat agcaacattg ggcagagtat agaagaccac aaaaaaaagg tatataaggg
+      781 cagagaagtc tttgtaatgt gtgtaacttc tcttccatgt gtaatcagta tttctactta
+      841 cttcttaaat atacagaagt aagacagata accaacagcc tttcccagat atacatatat
+      901 atctttattt cagcttaaac aataattata tttgtttaac tcaaaaataa aaaaaaaaac
+      961 caaactcacg caactaatta ttccataata aaataacaac
+//
+LOCUS       pRPL15B                  980 bp    DNA              UNK 01-JAN-1980
+DEFINITION  .
+ACCESSION   seq_NFnLfXI8
+VERSION     seq_NFnLfXI8
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     promoter        1..980
+                     /name="pRPL15B"
+                     /color="#B4ABAC"
+                     /label="pRPL15B"
+ORIGIN
+        1 gtactgctgg ccatttttat tcaggttatt tgcgattagg ttggggtttg tgtttgatgg
+       61 agacctcagt aattaacagt acattctgag agcggcaaac agaattctgc cttaaattca
+      121 gatcgtttat atactttttt ttcacttttt acgctcgaga caccataacc caaaaataga
+      181 tcaaactagc cattgtattt ttcaccaata tggcaatgtg atttccgcat taggcaatac
+      241 tgtgaaagac tctatgctac gtcagttcgg aggcgtgttt cgcaatcttc gcgttccaga
+      301 acgcaccaac gcgttgttat ttgcgcagca caagggggac gagagacatt ctggccaacg
+      361 tgcattcgac ggaagtaaat ttcggctgga ggctaagcgc tgctttactg caatttgcat
+      421 cattacggtg gctcgcaggg atagattggg cgtactggtt tgtggcaaaa acaccgcctc
+      481 cacgctacct tatttgccag ccaaccgcat attcaggttg ccaaaggtac agatcaggaa
+      541 aatgtttccc attggatgcg caactttcct tagtagggaa tatataatca ctgcattgct
+      601 ggtttcgtac tgccatcttt gcgtttaaag tataaccaaa ttaataaagc gactacgccg
+      661 ctatccaaaa caggctcctc cagctccttt aaggaaacaa acgtcttttt tctttactct
+      721 tattttttgc accgattgct agaatacttc tccaatctct tcaaatgatg atacaaacat
+      781 gtagtcagta gagatgtatc tgtcttgatg ctccatatgt cgttacccgg aaaacatctt
+      841 tcttgttcct ttcgatactt ttccacgttt tcaattaacc ggagccattg ataatttcat
+      901 tcactcttga gaagttagcg gcaatagtaa tcggcgaaag ctaccgtaaa gacagtcaca
+      961 aattacctac cacacaagca
+//

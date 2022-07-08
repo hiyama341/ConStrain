@@ -298,7 +298,9 @@ def PCR_program(amplicon, pgroup, touch_down = False, ta_tm_refresh = False, pri
 
     return _pretty_str(f)
 
-
+def takeThird(elem):
+    
+    return elem[2]
 
 def det_no_of_thermal_cyclers(amplicons, polymerase, elong_time_max_diff = 15):
 
@@ -370,6 +372,7 @@ def pcr_locations(amplicons):
     #Save information as dataframe
     df = pd.DataFrame(list(zip(product_loc,product_names, template_loc, fw_loc, rv_loc)), 
                   columns =['location','name', 'template', 'fw', 'rv'])
+    
     return(df)
 
 

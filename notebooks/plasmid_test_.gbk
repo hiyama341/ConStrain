@@ -1,0 +1,124 @@
+LOCUS       Exported                2747 bp ds-DNA     circular SYN 13-MAY-2021
+DEFINITION  synthetic circular DNA
+ACCESSION   .
+VERSION     .
+KEYWORDS    pMLLAC-J72041
+SOURCE      synthetic DNA construct
+  ORGANISM  synthetic DNA construct
+REFERENCE   1  (bases 1 to 2747)
+  TITLE     J.C. Anderson Lab Plasmids
+REFERENCE   2  (bases 1 to 2747)
+  AUTHORS   .
+  TITLE     Direct Submission
+  JOURNAL   Exported May 13, 2021 from SnapGene Server 1.1.58
+            http://www.snapgene.com
+FEATURES             Location/Qualifiers
+     source          1..2747
+                     /organism="synthetic DNA construct"
+                     /mol_type="other DNA"
+     CDS             6..26
+                     /codon_start=1
+                     /product="tobacco etch virus (TEV) protease recognition and
+                     cleavage site"
+                     /label=TEV site
+                     /translation="ENLYFQG"
+     primer_bind     complement(53..70)
+                     /label=L4440
+                     /note="L4440 vector, forward primer"
+     protein_bind    complement(132..156)
+                     /gene="mutant version of attB"
+                     /label=attB2
+                     /bound_moiety="BP Clonase(TM)"
+                     /note="recombination site for the Gateway(R) BP reaction"
+     CDS             273..932
+                     /codon_start=1
+                     /gene="cat"
+                     /product="chloramphenicol acetyltransferase"
+                     /label=CmR
+                     /note="confers resistance to chloramphenicol"
+                     /translation="MEKKITGYTTVDISQWHRKEHFEAFQSVAQCTYNQTVQLDITAFL
+                     KTVKKNKHKFYPAFIHILARLMNAHPEFRMAMKDGELVIWDSVHPCYTVFHEQTETFSS
+                     LWSEYHDDFRQFLHIYSQDVACYGENLAYFPKGFIENMFFVSANPWVSFTSFDLNVANM
+                     DNFFAPVFTMGKYYTQGDKVLMPLAIQVHHAVCDGFHVGRMLNELQQYCDEWQGGA"
+     primer_bind     complement(339..358)
+                     /label=CAT-R
+                     /note="Chloramphenicol resistance gene, reverse primer"
+     terminator      953..1047
+                     /label=lambda t0 terminator
+                     /note="transcription terminator from phage lambda"
+     promoter        1140..1244
+                     /gene="bla"
+                     /label=AmpR promoter
+     CDS             1245..2105
+                     /codon_start=1
+                     /gene="bla"
+                     /product="beta-lactamase"
+                     /label=AmpR
+                     /note="confers resistance to ampicillin, carbenicillin, and
+                     related antibiotics"
+                     /translation="MSIQHFRVALIPFFAAFCLPVFAHPETLVKVKDAEDQLGARVGYI
+                     ELDLNSGKILESFRPEERFPMMSTFKVLLCGAVLSRIDAGQEQLGRRIHYSQNDLVEYS
+                     PVTEKHLTDGMTVRELCSAAITMSDNTAANLLLTTIGGPKELTAFLHNMGDHVTRLDRW
+                     EPELNEAIPNDERDTTMPVAMATTLRKLLTGELLTLASRQQLIDWMEADKVAGPLLRSA
+                     LPAGWFIADKSGAGERGSRGIIAALGPDGKPSRIVVIYTTGSQATMDERNRQIAEIGAS
+                     LIKHW"
+     primer_bind     complement(1463..1482)
+                     /label=Amp-R
+                     /note="Ampicillin resistance gene, reverse primer"
+     rep_origin      2226..2582
+                     /label=R6K gamma ori
+                     /note="gamma replication origin from E. coli plasmid R6K; 
+                     requires the R6K initiator protein pi for replication"
+     protein_bind    2644..2668
+                     /gene="mutant version of attB"
+                     /label=attB1
+                     /bound_moiety="BP Clonase(TM)"
+                     /note="recombination site for the Gateway(R) BP reaction"
+ORIGIN
+        1 gatctgaaaa cctctatttt caaggtggat cctaactcgc tcctcaggct tcctcgctca
+       61 ctgactcgct gcgctcggtc gttcggctgc ggcgagcggt atcagctcac tcaaaggcgg
+      121 taatcaattc gacccagctt tcttgtacaa agtggttgat cggatctttg atcgggcacg
+      181 taagaggttc caactttcac cataatgaaa taagatcact accgggcgta ttttttgagt
+      241 tatcgagatt ttcaggagct aaggaagcta aaatggagaa aaaaatcact ggatatacca
+      301 ccgttgatat atcccaatgg catcgtaaag aacattttga ggcatttcag tcagttgctc
+      361 aatgtaccta taaccagacc gttcagctgg atattacggc ctttttaaag accgtaaaga
+      421 aaaataagca caagttttat ccggccttta ttcacattct tgcccgcctg atgaatgctc
+      481 atccggaatt tcgtatggca atgaaagacg gtgagctggt gatatgggat agtgttcacc
+      541 cttgttacac cgttttccat gagcaaactg aaacgttttc atcgctctgg agtgaatacc
+      601 acgacgattt ccggcagttt ctacacatat attcgcaaga tgtggcgtgt tacggtgaaa
+      661 acctggccta tttccctaaa gggtttattg agaatatgtt tttcgtctca gccaatccct
+      721 gggtgagttt caccagtttt gatttaaacg tggccaatat ggacaacttc ttcgcccccg
+      781 ttttcaccat gggcaaatat tatacgcaag gcgacaaggt gctgatgccg ctggcgattc
+      841 aggttcatca tgccgtttgt gatggcttcc atgtcggcag aatgcttaat gaattacaac
+      901 agtactgcga tgagtggcag ggcggggcgt aatttgatat cgagctcgct tggactcctg
+      961 ttgatagatc cagtaatgac ctcagaactc catctggatt tgttcagaac gctcggttgc
+     1021 cgccgggcgt tttttattgg tgagaatcca agcctcggat ctctgaagac tctcgagctg
+     1081 caggactcac agctcctcgg atctcttaga cgtcaggtgg cacttttcgg ggaaatgtgc
+     1141 gcggaacccc tatttgttta tttttctaaa tacattcaaa tatgtatccg ctcatgagac
+     1201 aataaccctg ataaatgctt caataatatt gaaaaaggaa gagtatgagt attcaacatt
+     1261 tccgtgtcgc ccttattccc ttttttgcgg cattttgcct tcctgttttt gctcacccag
+     1321 aaacgctggt gaaagtaaaa gatgcagagg atcagttggg tgcacgagtg ggttacatcg
+     1381 aactggatct caacagcggt aagatccttg agagttttcg ccccgaagaa cgttttccaa
+     1441 tgatgagcac ttttaaagtt ctgctatgtg gcgcggtatt atcccgtatt gacgccgggc
+     1501 aagagcaact cggtcgccgc atacactatt ctcagaatga cttggttgag tactcaccag
+     1561 tcacagaaaa gcatcttacg gatggcatga cagtaagaga attatgcagt gctgccataa
+     1621 ccatgagtga taacactgcg gccaacttac ttctgacaac gatcggagga ccgaaggagc
+     1681 taaccgcttt tttgcacaac atgggggatc atgtaactcg ccttgatcgt tgggaaccgg
+     1741 agctgaatga agccatacca aacgacgagc gtgacaccac gatgcctgta gcaatggcaa
+     1801 caacgttgcg caaactatta actggcgaac tacttactct agcttcccgg caacaattaa
+     1861 tagactggat ggaggcggat aaagttgcag gaccacttct gcgctcggcc cttccggctg
+     1921 gctggtttat tgctgataaa tctggagccg gtgagcgtgg gtctcgcggt atcattgcag
+     1981 cactggggcc agatggtaag ccctcccgta tcgtagttat ctacacgacg gggagtcagg
+     2041 caactatgga tgaacgaaat agacagatcg ctgagatagg tgcctcactg attaagcatt
+     2101 ggtaactgtc agaccaagtt tactcatata tactttagat tgatttaaaa cttcattttt
+     2161 aatttaaaag gatctaggtg aagatccttt ttgataatcg gatctagcag ttcaacctgt
+     2221 tgatagtacg tactaagctc tcatgtttca cgtactaagc tctcatgttt aacgtactaa
+     2281 gctctcatgt ttaacgaact aaaccctcat ggctaacgta ctaagctctc atggctaacg
+     2341 tactaagctc tcatgtttca cgtactaagc tctcatgttt gaacaataaa attaatataa
+     2401 atcagcaact taaatagcct ctaaggtttt aagttttata agaaaaaaaa gaatatataa
+     2461 ggcttttaaa gcttttaagg tttaacggtt gtggacaaca agccagggat gtaacgcact
+     2521 gagaagccct tagagcctct caaagcaatt ttgagtgaca caggaacact taacggctga
+     2581 catgggaatt agccatgggc ccgtgcgaat cacggatctc ccgatcaaga attgccatta
+     2641 tcaacaagtt tgtacaaaaa agcaggctcc gaattggtat cacgaggcag aatttcagat
+     2701 aaaaaaaatc cttagctttc gctaaggatc tgaagtggaa ttcatga
+//
