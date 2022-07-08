@@ -28,3 +28,6 @@ coverage.xml
 
 # Jupyter NB Checkpoints
 .ipynb_checkpoints/
+
+# 
+dist
