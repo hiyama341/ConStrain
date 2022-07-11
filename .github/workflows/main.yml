@@ -44,5 +44,4 @@ jobs:
           # Password for your PyPI user or an access token
           password: ${{secrets.PYPI_TOKEN}} 
           # The repository URL to use https://pypi.org/project/ConStrain/0.1.0/
-          repository_url: https://test.pypi.org/legacy/
-          #repository_url: https://test.pypi.org/legacy/
+          #repository_url: https://test.pypi.org/legacy/ and https://pypi.org/project/ConStrain/0.1.0/ #### Doesnt work 
