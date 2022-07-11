@@ -44,6 +44,8 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/hiyama341/ConStrain',
+
+    ### Change version and put tag to release on PYPI
     version='0.1.2',
     zip_safe=False,
 )
