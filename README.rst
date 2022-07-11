@@ -3,9 +3,6 @@ ConStrain
 =========
 
 
-[![ci-cd](https://github.com/hiyama341/ConStrain/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/hiyama341/ConStrain/actions/workflows/main.yml)
-
-
 .. image:: https://img.shields.io/pypi/v/constrain.svg
         :target: https://pypi.python.org/pypi/constrain
 
@@ -18,8 +15,10 @@ ConStrain
 
 
 
+ConStrain is an easy-to-use python package with functions that can be used in literate programming to simulate steps of a strain construction cycle from generating genetic parts, to designing a combinatorial library along with instructions for the assembly. A fully integrated LIMS system is presented to keep track of samples and allocation through both a commercial Benchling API and a low-level CSV file database. 
 
-A Python package for  constructing microbial strains
+Here, we demonstrate the use of ConStrain in a complex machine learning-guided metabolic engineering task. We envision that literate programming for biology can be adapted for any experimental workflow and be mixed and matched for the benefit of the user. As this tool is built to be flexible through its open-source Python platform, future repetitive tasks can be automated and thus increase the speed at which we engineer biology. 
+
 
 
 * Free software: MIT license
