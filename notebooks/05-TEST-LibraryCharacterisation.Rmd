@@ -28,7 +28,7 @@ theme_set(theme_classic(20))
 level_key <- c(`1` = "high", `2` = "high_low", `3` = "low_high", `4` = "low")
 
 
-promoters <- "data/raw/promoters.csv" %>%
+promoters <- "/Users/lucaslevassor/Desktop/g8h_cpr_library 2/data/raw/promoters.csv" %>%
   here() %>% 
   read_csv()
 
@@ -65,7 +65,7 @@ p_promoters
 ## Data wrangling
 
 ```{r}
-results <- tibble(abs_path = list.files(here("data","raw","023_LC-MS"), full.names = TRUE, pattern = ".csv"))  %>%
+results <- tibble(abs_path = list.files(here("/Users/lucaslevassor/Desktop/g8h_cpr_library 2/data/raw/023_LC_MS"), full.names = TRUE, pattern =".csv"))  %>%
   mutate(filename = tools::file_path_sans_ext(basename(abs_path))) %>%
   separate(filename, into=c("a","b","date","tmetab","description"), sep="_") %>%
   arrange(date) %>%
@@ -74,7 +74,6 @@ results <- tibble(abs_path = list.files(here("data","raw","023_LC-MS"), full.nam
 
 results$data[[2]]
 ```
-
 
 ```{r echo=FALSE, message=FALSE, include=FALSE}
 
@@ -340,7 +339,7 @@ p1 <- Results_long_norm_yp49_51 %>%
 p1  
 # sorting order controls, reminder G8H, CPR, colony number
 
-ggsave(p1,filename=here("reports","presentation","figures","g8h_cpr_library_analytics.png"), height = 10, width = 20)
+#ggsave(p1,filename=here("reports","presentation","figures","g8h_cpr_library_analytics.png"), height = 10, width = 20)
 ```
 
 \*\*\* Results & Discussion:

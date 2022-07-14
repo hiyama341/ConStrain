@@ -1,0 +1,3 @@
+[console_scripts]
+constrain = constrain.cli:main
+
