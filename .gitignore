@@ -1,12 +1,19 @@
 # Ignore env file
 .env
+
 # ignore 
 .pytest_cache
+__pycache__/
 
 # Mac OS-specific storage files
 .DS_Store
 **/.DS_Store
 
+# Egg files
+*.egg-info/
+*.egg
+eggs/
+.eggs/
 
 # R_project initializer
 .Rproj.user
@@ -16,7 +23,7 @@
 data/
 
 # Ignore the notebooks directory
-notebooks/
+#notebooks/
 
 # Unit test / coverage reports
 htmlcov/
