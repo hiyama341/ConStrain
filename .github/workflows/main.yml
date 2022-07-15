@@ -1,4 +1,4 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions, and format with Python Black
+# This workflow will install Python dependencies, run tests, build package and publish on pipy
 
 name: ci-cd
 
@@ -47,5 +47,4 @@ jobs:
           user: __token__
           # Password for your PyPI user or an access token
           password: ${{secrets.PYPI_TOKEN}} 
-          # The repository URL to use https://pypi.org/project/ConStrain/0.1.0/
-          #repository_url: https://test.pypi.org/legacy/ and https://pypi.org/project/ConStrain/0.1.0/ #### Doesnt work 
+
