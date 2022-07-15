@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 
 """The setup script."""
+import versioneer
 
+        
 from setuptools import setup, find_packages
+
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -46,6 +49,7 @@ setup(
     url='https://github.com/hiyama341/ConStrain',
 
     ### Change version and put tag to release on PYPI
-    version='0.1.2',
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     zip_safe=False,
 )
