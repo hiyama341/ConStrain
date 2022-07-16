@@ -1,0 +1,32 @@
+constrain.lab.transformation
+============================
+
+.. automodule:: constrain.lab.transformation
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      ODtime
+      ng_to_nmol
+      time_to_inculate
+      transformation_mix
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
