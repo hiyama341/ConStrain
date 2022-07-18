@@ -40,7 +40,8 @@ from Bio.Seq import Seq
 
 
 def primer_tm_neb(primer):
-    """Calculates a single primers melting temp"""
+    '''Calculates a single primers melting temp'''
+
 
     url = "https://tmapi.neb.com/tm/batch"
     seqpairs = [[primer]]
@@ -60,7 +61,7 @@ def primer_tm_neb(primer):
 
 
 def primer_ta_neb(primer1, primer2):
-    """Calculates primer pair melting temp"""
+    '''Calculates primer pair melting temp'''
 
     url = "https://tmapi.neb.com/tm/batch"
     seqpairs = [[primer1, primer2]]
@@ -113,7 +114,7 @@ MakingAssembledContigs
 """
 
 
-def CombinatorialListMaker(listOflist_that_is_being_made_into_all_combinations):
+def Combinatorial_List_Maker(listOflist_that_is_being_made_into_all_combinations):
     """
     Makes all possible combinations from a list of list
 
@@ -168,7 +169,7 @@ def EmptyListMaker(list_of_sequences: list):
     return EmptyList
 
 
-def SimpleAmpliconMaker(list_of_seqs: list, list_of_names: list):
+def Simple_Amplicon_Maker(list_of_seqs: list, list_of_names: list):
     """Calculates amplicons, updates their names
 
 
@@ -323,7 +324,7 @@ def AssemblyMaker(combinatorial_list_of_amplicons: list):
 
 def UniquePrimers(primers: list, list_of_assemblies):
 
-    """Finds unique primers from a list of assemblies
+    """ Finds unique primers from a list of assemblies
     Parameters
     ----------
 
@@ -401,7 +402,7 @@ def UniquePrimers(primers: list, list_of_assemblies):
 
 def UniqueAmplicons(list_of_assemblies: list):
 
-    """Finds Unique amplicons from a list of assemblies
+    """ Finds Unique amplicons from a list of assemblies
     Parameters
     ----------
     """
@@ -418,7 +419,7 @@ def UniqueAmplicons(list_of_assemblies: list):
 def MakingAssemblyObjects(list_of_assemblies: list):
     """
     Assembling amplicons into assembling class that shows fragments, limit,
-    nodes and which algorithm that was used for assembling.
+    nodes and which algorithm that was used for assembling. 
 
 
     Parameters
@@ -434,13 +435,13 @@ def MakingAssemblyObjects(list_of_assemblies: list):
 
 
 def MakingAssembledContigs(list_of_assembly_objects: list):
-    """Assembles a list of assembly object into contigs
-
-    Input:
+    """ Assembles a list of assembly object into contigs
+    
+    Input: 
     :param list of assembly objects
     ----------
-
-    Returns:
+    
+    Returns: 
     list of contigs
     """
     contigs_assembled = []
@@ -496,11 +497,11 @@ class DesignAssembly:
         self.systematic_names = systematic_names_function(self.list_of_seqs)
 
         ### 3. COMBINATORIAL LISTS
-        self.combinatorial_list_of_amplicons = CombinatorialListMaker(
+        self.combinatorial_list_of_amplicons = Combinatorial_List_Maker(
             self.list_of_amplicons
         )
-        self.combinatorial_list_of_names = CombinatorialListMaker(self.list_of_names)
-        self.combinatorial_list_of_primer_tm = CombinatorialListMaker(
+        self.combinatorial_list_of_names = Combinatorial_List_Maker(self.list_of_names)
+        self.combinatorial_list_of_primer_tm = Combinatorial_List_Maker(
             self.list_of_amplicon_primer_temps
         )
 
@@ -646,7 +647,7 @@ class DesignAssembly:
 
     def GraphicalRepresentationOfAssemblies(self):
         """
-        Takes in the assembly object and returns graphical rep of the fragments assembled
+        Takes in the assembly object and returns graphical report of the fragments assembled
         """
         graphical_representation = [
             self.assembly_object[x].assemble_linear()[0].figure()
