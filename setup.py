@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+import re
+
 
 """The setup script."""
 import versioneer
@@ -11,18 +13,10 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=7.0', 'pytest>=7.1.2','pylint>=2.13.9',
-'black>=22.3.0',
-'pytest-cov>=3.0.0',
-'pydna>=4.0.7',
-'pandas>=1.4.2',
-'benchlingapi>=2.1.12',
-'numpy>=1.22.3',
-'biopython>=1.79',
-'synbiopython>=0.2.0',
-'python-dotenv>=0.20.0',
-'openpyxl>=3.0.9',
-'wheel>=0.37.1']
+install_requires = []
+with open("requirements.txt", encoding="utf-8") as f:
+    for line in f.readlines():
+        install_requires.append(re.split(r"(<|>|=)=", line)[0])
 
 test_requirements = ['pytest>=3', ]
 
@@ -46,7 +40,7 @@ setup(
             'constrain=constrain.cli:main',
         ],
     },
-    install_requires=requirements,
+    install_requires=install_requires,
     license="MIT license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
