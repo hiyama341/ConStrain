@@ -1,0 +1,2 @@
+# synbiopython has requirements that are not up to date with latest python versions
+synbiopython>=0.2.0
