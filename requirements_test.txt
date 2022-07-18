@@ -2,3 +2,5 @@ pytest==7.1.2
 pylint==2.13.9
 black==22.3.0
 pytest-cov==3.0.0
+# Is needed to run the test_of_RobotAssembly
+synbiopython==0.2.0
