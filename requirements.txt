@@ -6,3 +6,4 @@ biopython>=1.79
 python-dotenv>=0.20.0
 openpyxl>=3.0.9
 wheel>=0.37.1
+synbiopython>=0.2.0
