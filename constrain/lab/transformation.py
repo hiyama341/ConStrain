@@ -26,7 +26,7 @@ time_to_inculate
 """
 
 
-def ng_to_nmol(ng, bp):
+def ng_to_nmol(ng:float, bp:float):
 
     """Calculates nanogrom to nanomol for transformation mixes.
 
@@ -74,6 +74,8 @@ def time_to_inculate(
     A plot of cell growth at different td
     Note: This is used to calculate when the cells should be used for transformation
 
+    Examples
+    --------
     # OD 1 = 1 * 10^7 cells / ml
     For a succesfull S.cerevisiae transformation between 1 to 2 × 10^7 cells/ml should be used
     Normal doupling time is between 3-6 hours
