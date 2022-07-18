@@ -12,10 +12,15 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 # Requirements
-install_requires = []
-with open("requirements.txt", encoding="utf-8") as f:
-    for line in f.readlines():
-        install_requires.append(re.split(r"(<|>|=)=", line)[0])
+install_requires = ['pydna>=4.0.7',
+'pandas>=1.3.0', 
+'benchlingapi>=2.1.12',
+'numpy>=1.21.0',
+'biopython>=1.79',
+'python-dotenv>=0.20.0',
+'openpyxl>=3.0.9',
+'wheel>=0.37.1',
+'synbiopython>=0.2.0']
 
 # Test requirements
 test_requirements = []
