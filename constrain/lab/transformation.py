@@ -28,7 +28,9 @@ time_to_inculate
 
 def ng_to_nmol(ng, bp):
 
-    """To do a transformation it is important to have the right ratio of plasmid to insert.
+    """ Calculates nanogrom to nanomol for transformation mixes.
+
+    To do a transformation it is important to have the right ratio of plasmid to insert.
     In other words this is done by calculating the nanomolar ratios and this tool can do that
 
     parm: ng        eg. nanogram
@@ -43,7 +45,7 @@ def ng_to_nmol(ng, bp):
 
 
 def ODtime(initialOD: float, time: float, td: float = 0.5):
-    """
+    """ Calculates the OD based on doupling time.
     - initialOD in OD
     - time in hours
     - doupling time : td in h^-1
@@ -58,7 +60,8 @@ def time_to_inculate(
     initialOD=0.0025, td=0.4, verbose=False, transformation_time: int = 12
 ):
 
-    """
+    """ Calculates when a starter culture is ready to be inoculated with a transformation mixture.
+    
     Input:
 
     param: initialOD in OD

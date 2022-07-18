@@ -30,6 +30,7 @@ transf_locations1
 
 
 def grouper(iterable, max_diff):
+    '''Groups objects into distinct groups based on differences'''
     prev = None
     group = []
     for item in iterable:
@@ -47,7 +48,8 @@ def pcr_volumes(
     vol_p_reac=0, no_of_reactions=1, standard_reagents=[], standard_volumes=[]
 ):
 
-    """Can make a reaction scheme for PCR master mixes such as:
+    """Can make a reaction scheme for PCR master mixes. 
+    Example:  
 
     3-reactions:
     -----------------------
@@ -354,8 +356,7 @@ def takeThird(elem):
 
 def det_no_of_thermal_cyclers(amplicons, polymerase, elong_time_max_diff=15):
 
-    """Determines the number of thermalcyclers that is needed based
-    on elongation time differences"""
+    """Determines the number of thermalcyclers that is needed based on elongation time differences"""
 
     amp_names = [amplicon.name for amplicon in amplicons]
     elong_times = [amplicon.annotations["elongation_time"] for amplicon in amplicons]
@@ -460,10 +461,7 @@ def pcr_locations(amplicons):
 
 def nanophotometer_concentrations(path: pathlib.PosixPath):
 
-    """This function reads a CSV file with nanophotometer concentraions
-    and returns the concentrations in a list
-
-    """
+    """This function reads a CSV file with nanophotometer concentraions and returns the concentrations in a list"""
     concentrations = []
     with open(path, encoding="Latin1") as tsvfile:
         reader = csv.reader(tsvfile, delimiter="\t")

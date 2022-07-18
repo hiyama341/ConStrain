@@ -40,6 +40,7 @@ from Bio.Seq import Seq
 
 
 def primer_tm_neb(primer):
+    """Calculates a single primers melting temp"""
 
     url = "https://tmapi.neb.com/tm/batch"
     seqpairs = [[primer]]
@@ -59,6 +60,7 @@ def primer_tm_neb(primer):
 
 
 def primer_ta_neb(primer1, primer2):
+    """Calculates primer pair melting temp"""
 
     url = "https://tmapi.neb.com/tm/batch"
     seqpairs = [[primer1, primer2]]
@@ -131,9 +133,6 @@ def CombinatorialListMaker(listOflist_that_is_being_made_into_all_combinations):
 
 def systematic_names_function(List_of_list_parts: list):
     """Returns a list of list with systematic names i.e [1,1,1], [1,2,1]... etc
-
-
-
 
     Parameters
     ----------
@@ -216,7 +215,7 @@ def GetPrimers(
     combinatorial_list_of_names: list,
     combinatorial_list_of_primer_tm: list,
 ):
-    """Returns a list of primers from the combinatorial library
+    """Returns a list of ALL primers from the combinatorial library
 
     Parameters
     ----------
@@ -324,7 +323,7 @@ def AssemblyMaker(combinatorial_list_of_amplicons: list):
 
 def UniquePrimers(primers: list, list_of_assemblies):
 
-    """
+    """Finds unique primers from a list of assemblies
     Parameters
     ----------
 
@@ -402,7 +401,7 @@ def UniquePrimers(primers: list, list_of_assemblies):
 
 def UniqueAmplicons(list_of_assemblies: list):
 
-    """
+    """Finds Unique amplicons from a list of assemblies
     Parameters
     ----------
     """
@@ -419,7 +418,7 @@ def UniqueAmplicons(list_of_assemblies: list):
 def MakingAssemblyObjects(list_of_assemblies: list):
     """
     Assembling amplicons into assembling class that shows fragments, limit,
-    nodes and which algorithm that was used for assembling. THe printout is not so
+    nodes and which algorithm that was used for assembling.
 
 
     Parameters
@@ -435,15 +434,14 @@ def MakingAssemblyObjects(list_of_assemblies: list):
 
 
 def MakingAssembledContigs(list_of_assembly_objects: list):
-    """
-    Takes in a list of assembly object
-    This assembles the contigs into a continous contig
+    """Assembles a list of assembly object into contigs
 
-
-    Parameters
+    Input:
+    :param list of assembly objects
     ----------
 
-
+    Returns:
+    list of contigs
     """
     contigs_assembled = []
     for j in range(0, len(list_of_assembly_objects)):
@@ -648,8 +646,7 @@ class DesignAssembly:
 
     def GraphicalRepresentationOfAssemblies(self):
         """
-        Takes in the assembly object and returns graphical rep
-        of the fragments assembled
+        Takes in the assembly object and returns graphical rep of the fragments assembled
         """
         graphical_representation = [
             self.assembly_object[x].assemble_linear()[0].figure()

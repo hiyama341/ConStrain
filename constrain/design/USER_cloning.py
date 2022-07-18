@@ -120,6 +120,7 @@ def CRIPSIR_knockout(gRNA_record, insertion_site, repair_DNA):
 
 
 def extract_gRNAs(template, name):
+    """Extracts gRNAs from a template"""
     gRNAs = []
     for feature in template.features:
         if name in feature.qualifiers.get("name", ""):
@@ -254,7 +255,9 @@ def seq_to_annotation(seqrec_from, seqrec_onto, aType):
 
 def USER_enzyme(amplicon):
     """
-    Take pydna.amplicon.Amplicon
+    This function simulates digestion with USER enzyme.
+    ____________
+    Input pydna.amplicon.Amplicon
     Return Dseqrecord trimmed according to pcr primers
     """
     fw_U_idx = amplicon.forward_primer.seq.find("U")
@@ -464,8 +467,9 @@ def casembler(
 
 def UPandDW(strain, isite_name):
     """
-    take strain and grna
-    output UP and DW seqrecord
+    Finds Up and downstream sequences from CRISPR mediated DB break.
+    Input: strain and grna
+    Returns: UP and DW seqrecord
     """
 
     # load lookup table
@@ -538,10 +542,12 @@ def multiplyList(myList):
 
 
 def removeTupleDuplicates(lst):
+    """Removes tuple duplicates"""
     return [t for t in (set(tuple(i) for i in lst))]
 
 
 def recs_no_duplicates(recs_with_duplicates):
+    """Removes duplicates from a list"""
     seen_sequences = set()
     recs_no_dup = []
     for rec in recs_with_duplicates:
@@ -552,5 +558,7 @@ def recs_no_duplicates(recs_with_duplicates):
 
 
 def plate_plot(df, value):
+    """Plots a 96 well plate as a pandas df"""
+
     cols = [value, "prow", "pcol"]
     return df[cols].set_index(["prow", "pcol"]).unstack(level=-1)

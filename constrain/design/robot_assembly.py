@@ -62,7 +62,7 @@ def make_virtual_plates_fromDF(
     f_primers: list, r_primers: list, templates: list, Dataframe_with_PCR_contents
 ):
     """
-    THis function can make virtual plates from lists of primers and templates.
+    This function can make virtual plates from lists of primers and templates.
     The Pandas DataFrame is used to calculate how much pcr and h2o is needed for the reactions.
     """
 
