@@ -30,7 +30,7 @@ transf_locations1
 
 
 def grouper(iterable, max_diff):
-    '''Groups objects into distinct groups based on differences'''
+    """Groups objects into distinct groups based on differences"""
     prev = None
     group = []
     for item in iterable:
@@ -48,8 +48,8 @@ def pcr_volumes(
     vol_p_reac=0, no_of_reactions=1, standard_reagents=[], standard_volumes=[]
 ):
 
-    """Can make a reaction scheme for PCR master mixes. 
-    Example:  
+    """Can make a reaction scheme for PCR master mixes.
+    Example:
 
     3-reactions:
     -----------------------
