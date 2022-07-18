@@ -5,6 +5,7 @@
 
 # For automating part
 import synbiopython.lab_automation as lab
+import pandas as pd
 
 """ This part of the design module is used for robot instructions - primarily for Flowbot one
 
@@ -28,11 +29,30 @@ MakeVirtualPlatesFromDF
 PicklistFromPlates
 
 """
+class LiquidHandler(lab.picklist.Transfer.Transfer):
+
+    def __init__(self) -> None:
+        super().__init__()
+
+    def to_flowbot_instructions(self):
+        """Return Flowbot instructions: i.e
+                source, destination, volume
+                # 4:A3, 4:A6, 20
+                # 3:A1, 7, 50.7
+                # 2:A, 2:B-F, 100
+        ."""
+
+        return (
+            "{self.source_well.plate.name}:"
+            "{self.source_well.name},"
+            " {self.destination_well.plate.name}:"
+            "{self.destination_well.name}, {self.volume} "
+            ).format(self=self)
+
+
 
 
 # Helper functions
-
-
 def well_keys_96(row=True):
     """
     If true it generates keys for a 96 well plate by row.
