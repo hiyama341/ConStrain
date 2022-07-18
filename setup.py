@@ -1,24 +1,29 @@
 #!/usr/bin/env python
-import re
+
 
 
 """The setup script."""
 import versioneer
 from setuptools import setup, find_packages
+import re
 
-
+# Readme & History
 with open('README.rst') as readme_file:
     readme = readme_file.read()
-
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
+# Requirements
 install_requires = []
 with open("requirements.txt", encoding="utf-8") as f:
     for line in f.readlines():
         install_requires.append(re.split(r"(<|>|=)=", line)[0])
 
-test_requirements = ['pytest>=3', ]
+# Test requirements
+test_requirements = []
+with open("requirements_test.txt", encoding="utf-8") as f:
+    for line in f.readlines():
+        test_requirements.append(re.split(r"(<|>|=)=", line)[0])
 
 setup(
     author="Lucas Levassor",
