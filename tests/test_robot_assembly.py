@@ -6,7 +6,7 @@ import pytest
 import pandas as pd
 
 
-from constrain.design.robot_assembly import RobotAssembly, well_keys_96, make_virtual_plates_fromDF, picklist_from_plates
+from constrain.lab.robot_assembly import RobotAssembly, well_keys_96, make_virtual_plates_fromDF, picklist_from_plates
 
 # Read in test data
 test_data = pd.read_excel('../ConStrain/tests/files_for_testing/Random_PCR_list.xlsx')
