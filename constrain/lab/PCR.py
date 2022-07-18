@@ -390,8 +390,19 @@ def det_no_of_thermal_cyclers(amplicons, polymerase, elong_time_max_diff=15):
     return thermal_cyclers
 
 
-def pcr_locations(amplicons):
-    """Save primer information for amplicons."""
+def pcr_locations(amplicons: list):
+    """Obtain primer information for amplicons.
+    
+    Parameters
+    ----------
+    amplicon : list
+        List of amplicon objects `pydna.amplicon`() # check this
+
+    Returns
+    -------
+    pd.DataFrame
+        Pandas dataframe with locations of your amplicons
+    """
     # initialization
     product_loc = []
     product_names = []
