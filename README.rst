@@ -25,6 +25,30 @@ Here, we demonstrate the use of ConStrain in a complex machine learning-guided m
 * Documentation: https://constrain.readthedocs.io.
 
 
+Installation
+--------
+
+Stable release
+To install ConStrain, run this command in your terminal:
+
+pip install constrain
+This is the preferred method to install ConStrain, as it will always install the most recent stable release.
+
+If you don`t have pip installed, this Python installation guide can guide you through the process.
+
+From sources
+The sources for ConStrain can be downloaded from the Github repo.
+
+You can either clone the public repository:
+
+git clone git://github.com/hiyama341/constrain
+Or download the tarball:
+
+curl -OJL https://github.com/hiyama341/constrain/tarball/master
+Once you have a copy of the source, you can install it with:
+
+python setup.py install
+
 Features
 --------
 
