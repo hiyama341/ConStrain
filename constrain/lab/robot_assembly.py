@@ -1,35 +1,27 @@
 #!/usr/bin/env python
 
-############### ROBOT ASSEMBLY CLASS ##################################
-#!/usr/bin/env python
 
 # For automating part
 import synbiopython.lab_automation as lab
 import pandas as pd
 
-""" This part of the design module is used for robot instructions - primarily for Flowbot one
+r"""
+robot_assembly (:mod:`robot_assembly`)
+=====================================
 
-class RobotAssembly
-Input:
-    :param Pandas_dataframe_PCR
-    :param F_primers: list
-    :param R_primers: list
-    :param:Templates:list
+.. currentmodule:: robot_assembly
 
-    Robot_output:
-    :param  self.source_plateF_primers, self.source_plateR_primers, self.source_plateTemplates, self.source_platePCRmix = sourceplate objets
-    :param  self.picklist
------
+This part of the lab module is used for robot instructions - primarily for Flowbot one
 
 
-HELPER FUNCTIONS: 
------------------
-well_keys_96
-MakeVirtualPlatesFromDF
-PicklistFromPlates
+.. code-block:: python
+
+    from constrain.lab.robot_assembly import RobotAssembly
+
 
 """
 class LiquidHandler(lab.picklist.Transfer.Transfer):
+    ''' This class is is a subclass of the synbiopython Transfer class and be used to make flowbot instructions '''
 
     def __init__(self) -> None:
         super().__init__()
@@ -112,7 +104,14 @@ def make_virtual_plates_fromDF(
 def picklist_from_plates(
     F_primer_plate, R_primer_plate, Templates_plate, MM_H20_plate, PCR_dataframe
 ):
-    """This function can generate picklist from virtual plates and pandas dataframe with PCR components"""
+    """This function can generate picklist from virtual plates and pandas dataframe with PCR components
+        
+    Parameters
+    ----------
+
+    Returns
+    -------
+"""
 
     FORWARD_PRIMERS = F_primer_plate.to_pandas_dataframe()
     REVERSE_PRIMERS = R_primer_plate.to_pandas_dataframe()
@@ -183,20 +182,18 @@ def picklist_from_plates(
 
 
 class RobotAssembly:
-    """Class to generate instructions for robot on demand. It can be initialized in two ways:
-    1. Use a design assembly object
-    2. Pandas dataframe with PCRs and Pandas dataframe with Forward and Reverse primers, and Template
+    """Class to generate instructions for robot on demand. 
 
-    Input:
-    :param DesignAssembly_object
-    :param Pandas_dataframe_PCR
-    :param F_primers: list
-    :param R_primers: list
-    :param:Templates:list
+     Parameters
+    ----------
+    Pandas_dataframe_PCR
+    F_primers
+    R_primers
+    Templates
 
-    Robot_output:
-    :param  self.source_plateF_primers, self.source_plateR_primers, self.source_plateTemplates, self.source_platePCRmix = sourceplate objets
-    :param  self.picklist
+    Returns
+    -------
+
     """
 
     def __init__(

@@ -47,27 +47,18 @@ def grouper(iterable, max_diff):
 def pcr_volumes(
     vol_p_reac=0, no_of_reactions=1, standard_reagents=[], standard_volumes=[]
 ):
-
     """Can make a reaction scheme for PCR master mixes.
-    Example:
 
-    3-reactions:
-    -----------------------
-                   vol_p_reac	vol_p_3_reac
-    Template       	 1.0	        3.0
-    Primer 1	     2.5	        7.5
-    Primer 2	     2.5	        7.5
-    H20	             19.0	        57.0
-    MM	             25.0	        75.0
-    Total	         50.0         	150.0
-    -----------------------
+
+    Examples
+    --------
 
     If this is used as input:
     ------------------------
-    (vol_p_reac = 10,
-    no_of_reactions = 6,
-    standard_reagents = ["DNA","Buffer, Cutsmart","H20","Enz, USER"],
-    standard_volumes = [1,1,7,1])
+   pcr_volumes(vol_p_reac = 10,
+               no_of_reactions = 6,
+               standard_reagents = ["DNA","Buffer, Cutsmart","H20","Enz, USER"],
+               standard_volumes = [1,1,7,1])
 
     The following reaction scheme will be made:
     -------------------------
@@ -78,7 +69,6 @@ def pcr_volumes(
     Enz, USER	        1.0	        6.0
     Total	            10.0      	60.0
     -------------------------
-
 
     """
     standard_total_volume = sum(standard_volumes)
@@ -106,7 +96,7 @@ def pcr_volumes(
 
 def det_proc_speed(amplicon):
     """
-    This function determines process speed dependent on the which polymerase is used
+    This function determines process speed based on the which polymerase is used
     """
 
     if "proc_speed" in amplicon.forward_primer.annotations:

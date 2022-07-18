@@ -151,7 +151,8 @@ def transformation_mix(
 
     """This function makes a pandas dataframe of the parts(their location) that needs to be put into the transformation mixes
 
-    An example:
+    Examples
+    --------    
 
     # 1. Mention which reacion names you have
     reaction_names = ["insert", "n.ctr", "n.ctr", "n.ctr", "p. ctr"]
