@@ -100,8 +100,8 @@ class Http:
 
     TIMEOUT = 30  #: default request timeout for the session
     DEFAULT_HOME = (
-        "https://benchling.com/api/v2"
-    )  #: default home url to use if not provided.
+        "https://benchling.com/api/v2"  #: default home url to use if not provided.
+    )
     NEXT = "nextToken"  #: nextToken key for pagination
 
     def __init__(self, api_key, home=None):
