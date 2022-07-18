@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-
-
 """The setup script."""
 import versioneer
 from setuptools import setup, find_packages
