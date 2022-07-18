@@ -169,7 +169,7 @@ def EmptyListMaker(list_of_sequences: list):
     return EmptyList
 
 
-def Simple_Amplicon_Maker(list_of_seqs: list, list_of_names: list):
+def SimpleAmpliconMaker(list_of_seqs: list, list_of_names: list):
     """Calculates amplicons, updates their names
 
 
