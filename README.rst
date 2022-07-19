@@ -1,7 +1,12 @@
+
 =========
 ConStrain
 =========
 
+ConStrain: Literate programming can streamline bioengineering workflows
+-----------------------------------------------------------
+
+.. summary-start
 
 .. image:: https://img.shields.io/pypi/v/constrain.svg
         :target: https://pypi.python.org/pypi/constrain
@@ -13,67 +18,82 @@ ConStrain
         :target: https://constrain.readthedocs.io/en/latest/?version=latest
         :alt: Documentation Status
 
+What is ConStrain?
+~~~~~~~~~~~~~~
+
+**ConStrain** is an easy-to-use python package with functions that
+can be used in literate programming to simulate steps of a strain 
+construction cycle from generating genetic parts, to designing a 
+combinatorial library along with instructions for the assembly. 
+A fully integrated LIMS system is presented to keep track of samples 
+and allocation through both a commercial Benchling API and a low-level CSV file database. 
+
+Here, we demonstrate the use of ConStrain in a complex machine learning-guided
+metabolic engineering task. We envision that literate programming for biology 
+can be adapted for any experimental workflow and be mixed and matched for the 
+benefit of the user. As this tool is built to be flexible through its open-source
+Python platform, future repetitive tasks can be automated and thus increase 
+the speed at which we engineer biology. 
+
+Curious about how you can build easier and faster? Head over to our `Google Colab notebooks <https://github.com/hiyama341/ConStrain/tree/main/colab_notebooks>`__
+and give it a try.
+
+Please cite our paper (link tba) if you've used ConStrain in a scientific publication.
+
+.. summary-end
+
+Installation
+~~~~~~~~~~~~
+
+.. installation-start
+
+Use pip to install ConStrain from `PyPI <https://pypi.org/project/ConStrain/>`__.
+
+::
+
+    $ pip install constrain
 
 
-ConStrain is an easy-to-use python package with functions that can be used in literate programming to simulate steps of a strain construction cycle from generating genetic parts, to designing a combinatorial library along with instructions for the assembly. A fully integrated LIMS system is presented to keep track of samples and allocation through both a commercial Benchling API and a low-level CSV file database. 
+If you want to develop or you cloned the repository from our `GitHub <https://github.com/hiyama341/ConStrain/>`__
+you can install ConStrain in the following way.
 
-Here, we demonstrate the use of ConStrain in a complex machine learning-guided metabolic engineering task. We envision that literate programming for biology can be adapted for any experimental workflow and be mixed and matched for the benefit of the user. As this tool is built to be flexible through its open-source Python platform, future repetitive tasks can be automated and thus increase the speed at which we engineer biology. 
+::
+
+    $ pip install -e <path-to-constrain-repo>  
 
 
+You might need to run these commands with administrative
+privileges if you're not using a virtual environment (using ``sudo`` for example).
+Please check the `documentation <https://constrain.readthedocs.io/en/latest/installation.html#>`__
+for further details.
 
-* Free software: MIT license
+.. installation-end
+
+Documentation and Examples
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Documentation is available on through numerous Google Colab notebooks with
+examples on how to use ConStrain and how we use these notebooks for strain
+construnction. The Colab notebooks can be found here 
+`constrain.notebooks <https://github.com/hiyama341/ConStrain/tree/main/colab_notebooks>`__. 
+
 * Documentation: https://constrain.readthedocs.io.
 
 
-Installation
---------
+Contributions
+~~~~~~~~~~~~~
 
-Stable release
-To install ConStrain, run this command in your terminal:
-
-    pip install constrain
-    
-This is the preferred method to install ConStrain, as it will always install the most recent stable release.
-
-If you dont have pip installed, this Python installation guide can guide you through the process.
-
-From sources
-
-The sources for ConStrain can be downloaded from the Github repo.
-
-You can either clone the public repository:
-
-    git clone git://github.com/hiyama341/constrain
-
-Or download the tarball:
-
-    curl -OJL https://github.com/hiyama341/constrain/tarball/master
-    
-Once you have a copy of the source, you can install it with:
-
-    python setup.py install
-
-Modules
---------
-
-ConStrain consist of three modules to aid in the strain construction process.
-
-1. Design: Helps with planning and excecuting a cloning workflow
-2. Lab: Simulation and verification of lab experiments
-3. LIMS: A system to keep track of your samples. 
-
-More features are currently being developed to further help with strain construction. 
+Contributions are very welcome! Check our `guidelines <CONTRIBUTING.rst>`__ for instructions how to contribute.
 
 
-Features
---------
-
-* TODO
+License
+~~~~~~~~~~~~~
+* Free software: MIT license
 
 Credits
 -------
-
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
