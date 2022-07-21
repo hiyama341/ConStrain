@@ -22,11 +22,12 @@ install_requires = ['pydna>=4.0.7',
 'wheel>=0.37.1',
 'synbiopython>=0.2.0']
 
-# Test requirements
-test_requirements = []
-with open("requirements_test.txt", encoding="utf-8") as f:
-    for line in f.readlines():
-        test_requirements.append(re.split(r"(<|>|=)=", line)[0])
+
+test_requirements=['pytest==7.1.2',
+                    'pylint==2.13.9',
+                    'black==22.3.0',
+                    'pytest-cov==3.0.0'],
+
 
 setup(
     author="Lucas Levassor",
@@ -42,12 +43,16 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
-    description="A Python package for  constructing microbial strains",
+    description="A Python package for constructing microbial strains",
     entry_points={
         'console_scripts': [
             'constrain=constrain.cli:main',
         ],
     },
+
+    extras_requirements={'dev': ['pytest==7.1.2','pylint==2.13.9',
+                                'black==22.3.0','pytest-cov==3.0.0']},
+
     install_requires=install_requires,
     license="MIT license",
     long_description=readme + '\n\n' + history,
@@ -56,8 +61,9 @@ setup(
     name='ConStrain',
     packages=find_packages(include=['constrain', 'constrain.*']),
     test_suite='tests',
-    tests_require=test_requirements,
+    tests_require= test_requirements,
     url='https://github.com/hiyama341/ConStrain',
+    
 
     ### Change version and put tag to release on PYPI
     version=versioneer.get_version(),
