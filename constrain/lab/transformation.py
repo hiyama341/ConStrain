@@ -1,3 +1,26 @@
+#MIT License
+#Copyright (c) 2022, Technical University of Denmark (DTU)
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+
+""" This part of the lab module is used for making transformations
+
+HELPER FUNCTIONS: 
+-----------------
+ng_to_nmol
+ODtime
+time_to_inculate
+"""
+
 #!/usr/bin/env python
 # standard libraries
 import os
@@ -11,20 +34,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 plt.style.use("seaborn-whitegrid")
-
-""" This part of the lab module is used for making transformations
-
-
-
-HELPER FUNCTIONS: 
------------------
-ng_to_nmol
-ODtime
-time_to_inculate
-
-
-"""
-
 
 def ng_to_nmol(ng:float, bp:float):
 
