@@ -200,8 +200,7 @@ p_promoters
 ```{r echo=FALSE, message=FALSE, include=FALSE}
 #1. In Emacs; Result_table_210330_tmet494_Soren.xlsx to .csv N.D. -> N.A.; N.A. -> NA.
 #2. Change names to plates names e.g.Result_table_210330_tmet494_Soren.csv -> Result_table_210330_tmet494_yp48Feed-Nofeed.xlsx
-#results_1st_ana <- tibble(abs_path = list.files(here("data","raw","023_LC-MS"), full.names = TRUE, pattern = ".csv")) 
-results_1st_ana <- read_csv(here('/Users/lucaslevassor/Desktop/g8h_cpr_library 2/data/raw/023_LC-MS/Result_table_210330_tmet494_yp48Feed-Nofeed.csv'))%>%
+results_1st_ana <- tibble(abs_path = list.files(here("data","raw","023_LC-MS", "all_results_lcms"), full.names = TRUE, pattern = ".csv")) %>%
   #Extract data from filenames
   mutate(filename = tools::file_path_sans_ext(basename(abs_path))) %>%
   separate(filename, into=c("a","b","date","tmetab","description"), sep="_") %>%
@@ -214,7 +213,7 @@ results_1st_ana <- read_csv(here('/Users/lucaslevassor/Desktop/g8h_cpr_library 2
   filter(!grepl("*_v13*", sample_notes)) %>%
 
   # Excel contains values both in ug and uM. Keep uM and remove "Amt_ul_L_".
-  select(!starts_with("Amt_ug_L_"), -...8,-...11, -data_file, -description) %>%
+  #select(!starts_with("Amt_ug_L_"), -...8,-...11, -data_file, -description) %>%
   
   #Fix 210330 sample_notes column
   mutate(sample_notes = gsub("*(_P[12])*","",sample_notes)) %>%
@@ -320,7 +319,8 @@ results_1st_ana <- results_1st_ana %>%
 ```{r, echo = FALSE, include=FALSE}
 ##Plate position information
 #Read well information into R
-meta <- read_csv(here("/Users/lucaslevassor/Desktop/g8h_cpr_library 2/data/processed/023_LC-MS/yp48-51_meta.csv")) %>%
+here()
+meta <- read_csv(here("data/processed/023_LC-MS/yp48-52_meta_LL.csv")) %>%
   select(plate, well = position, Strain, col_no = `Replicate #`, genotype,medium = Medium) %>%
   mutate(Strain = gsub("MIA-","",Strain),
          genotype = gsub("CPR","",genotype),
@@ -342,7 +342,7 @@ results_meta_1st_ana <- meta %>%
 #Tidying data
 Results_long_1st_ana <- results_meta_1st_ana %>%
   pivot_longer(
-     cols = `Amt_uM_Loganic acid`:Amt_uM_Tryptophan,
+     cols = `Amt_uM_Loganic acid`:`Amt_uM_Strictosidine`,
      names_to = "compound",
      names_prefix = "Amt_uM_",
      values_to = "Amt_uM",
@@ -388,6 +388,8 @@ Results_long_norm_yp48 <- Results_long_1st_ana %>%
   summarise(meAmt = mean(Amt_uM, na.rm = TRUE),
             seAmt = sd(Amt_uM, na.rm = TRUE) / sqrt(n())) %>%
   ungroup()
+
+
 ```
 
 ```{r  echo=FALSE, fig.height=5, fig.width=5}
@@ -482,7 +484,7 @@ p49_51_analytics <- Results_long_norm_yp49_51_plot %>%
 p49_51_analytics  
 
 #Save plot
-ggsave(p49_51_analytics,filename=here("reports","presentation","figures","g8h_cpr_library_analytics.png"), height = 10, width = 25)
+#ggsave(p49_51_analytics,filename=here("reports","presentation","figures","g8h_cpr_library_analytics.png"), height = 10, width = 25)
 ```
 
 ```{r}
@@ -497,7 +499,7 @@ p49_51_top_prod <- top_n(Results_long_norm_yp49_51_plot , n=25, Amt_norm_me) %>%
   theme(axis.text.x = element_text(size = 14, angle = 90, vjust = 0.5, hjust=1)) +
   labs(x = "Strain_name (MIA-_G8H_CPR_colony-number)", y = "Normalised Strictosidine Concentration(uM/uM CH-A2 * 100)")
 p49_51_top_prod
-ggsave(p49_51_top_prod,filename=here("reports","ch_presentation","figures","g8h_cpr_library_analytics_top20.png"), height = 10, width = 20)
+#ggsave(p49_51_top_prod,filename=here("reports","ch_presentation","figures","g8h_cpr_library_analytics_top20.png"), height = 10, width = 20)
 
 ```
 
@@ -726,7 +728,7 @@ pcpr_trans_int <- tibble(homolog = c("CCW12", "TPI1","MLS1","URE2"), `2` = c(5,6
 ```{r}
 #take 010_Sequencing files of promoter region and determine promoter through alignment with promoter sequences
 #This function is slow thus we cache results
-cached_sanger_files_path <- here("data","interim","010_Sequencing files","sanger_files.csv")
+cached_sanger_files_path <- here("data","interim","010_Sequencing files","sanger_files_fromR.csv")
 if (!file.exists(cached_sanger_files_path)) {
   sanger_files <- sanger_import_file_pattern_to_tibble(".ab1") %>%
    mutate(filename = tools::file_path_sans_ext(basename(abs_path))) %>%
