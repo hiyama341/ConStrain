@@ -1,5 +1,5 @@
-#MIT License
-#Copyright (c) 2022, Technical University of Denmark (DTU)
+# MIT License
+# Copyright (c) 2022, Technical University of Denmark (DTU)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -7,7 +7,7 @@
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
@@ -41,7 +41,6 @@ from pydna._pretty import pretty_str as _pretty_str
 import csv
 
 
-
 def grouper(iterable, max_diff):
     """Groups objects into distinct groups based on differences"""
     prev = None
@@ -63,25 +62,25 @@ def pcr_volumes(
     """Can make a reaction scheme for PCR master mixes.
 
 
-    Examples
-    --------
+     Examples
+     --------
 
-    If this is used as input:
-    ------------------------
-   pcr_volumes(vol_p_reac = 10,
-               no_of_reactions = 6,
-               standard_reagents = ["DNA","Buffer, Cutsmart","H20","Enz, USER"],
-               standard_volumes = [1,1,7,1])
+     If this is used as input:
+     ------------------------
+    pcr_volumes(vol_p_reac = 10,
+                no_of_reactions = 6,
+                standard_reagents = ["DNA","Buffer, Cutsmart","H20","Enz, USER"],
+                standard_volumes = [1,1,7,1])
 
-    The following reaction scheme will be made:
-    -------------------------
-                    vol_p_reac	vol_p_x_reac
-    DNA	                1.0	        6.0
-    Buffer, Cutsmart	1.0	        6.0
-    H20	                7.0	        42.0
-    Enz, USER	        1.0	        6.0
-    Total	            10.0      	60.0
-    -------------------------
+     The following reaction scheme will be made:
+     -------------------------
+                     vol_p_reac	vol_p_x_reac
+     DNA	                1.0	        6.0
+     Buffer, Cutsmart	1.0	        6.0
+     H20	                7.0	        42.0
+     Enz, USER	        1.0	        6.0
+     Total	            10.0      	60.0
+     -------------------------
 
     """
     standard_total_volume = sum(standard_volumes)
@@ -395,7 +394,7 @@ def det_no_of_thermal_cyclers(amplicons, polymerase, elong_time_max_diff=15):
 
 def pcr_locations(amplicons: list):
     """Obtain primer information for amplicons.
-    
+
     Parameters
     ----------
     amplicon : list

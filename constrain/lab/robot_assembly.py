@@ -1,5 +1,5 @@
-#MIT License
-#Copyright (c) 2022, Technical University of Denmark (DTU)
+# MIT License
+# Copyright (c) 2022, Technical University of Denmark (DTU)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -7,7 +7,7 @@
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
@@ -32,8 +32,10 @@ This part of the lab module is used for robot instructions - primarily for Flowb
 
 
 """
+
+
 class LiquidHandler(lab.picklist.Transfer.Transfer):
-    ''' This class is is a subclass of the synbiopython Transfer class and be used to make flowbot instructions '''
+    """This class is is a subclass of the synbiopython Transfer class and be used to make flowbot instructions"""
 
     def __init__(self) -> None:
         super().__init__()
@@ -51,9 +53,7 @@ class LiquidHandler(lab.picklist.Transfer.Transfer):
             "{self.source_well.name},"
             " {self.destination_well.plate.name}:"
             "{self.destination_well.name}, {self.volume} "
-            ).format(self=self)
-
-
+        ).format(self=self)
 
 
 # Helper functions
@@ -117,13 +117,12 @@ def picklist_from_plates(
     F_primer_plate, R_primer_plate, Templates_plate, MM_H20_plate, PCR_dataframe
 ):
     """This function can generate picklist from virtual plates and pandas dataframe with PCR components
-        
+
     Parameters
     ----------
 
     Returns
-    -------
-"""
+    -------"""
 
     FORWARD_PRIMERS = F_primer_plate.to_pandas_dataframe()
     REVERSE_PRIMERS = R_primer_plate.to_pandas_dataframe()
@@ -194,7 +193,7 @@ def picklist_from_plates(
 
 
 class RobotAssembly:
-    """Class to generate instructions for robot on demand. 
+    """Class to generate instructions for robot on demand.
 
      Parameters
     ----------

@@ -1,5 +1,5 @@
-#MIT License
-#Copyright (c) 2022, Technical University of Denmark (DTU)
+# MIT License
+# Copyright (c) 2022, Technical University of Denmark (DTU)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -7,7 +7,7 @@
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
@@ -35,7 +35,8 @@ import matplotlib.pyplot as plt
 
 plt.style.use("seaborn-whitegrid")
 
-def ng_to_nmol(ng:float, bp:float):
+
+def ng_to_nmol(ng: float, bp: float):
 
     """Calculates nanogrom to nanomol for transformation mixes.
 
@@ -163,7 +164,7 @@ def transformation_mix(
     """This function makes a pandas dataframe of the parts(their location) that needs to be put into the transformation mixes
 
     Examples
-    --------    
+    --------
 
     # 1. Mention which reacion names you have
     reaction_names = ["insert", "n.ctr", "n.ctr", "n.ctr", "p. ctr"]
