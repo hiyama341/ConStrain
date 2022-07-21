@@ -43,7 +43,7 @@ from pydna.assembly import Assembly
 
 def CAS9_cutting(gRNA_record, background_record):
 
-    """Simulates cutting by CAS9 given a gRNA
+    """Simulates cutting by CAS9 given a gRNA.
 
     Parameters
     ----------
@@ -299,8 +299,7 @@ def casembler(
     to_benchling=False,
 ):
 
-    """
-    Simulate in vivo assembly and integration
+    """Simulate in vivo assembly and integration.
 
     Parameters
     ----------
@@ -404,8 +403,7 @@ def casembler2(
     to_benchling=False,
 ):
 
-    """
-    Simulate in vivo assembly and integration
+    """Simulate in vivo assembly and integration
 
     Parameters
     ----------
