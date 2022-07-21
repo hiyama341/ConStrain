@@ -13,7 +13,6 @@ constrain.lab.PCR
 
    .. autosummary::
    
-      PCR_program
       det_elon_time
       det_no_of_thermal_cyclers
       det_proc_speed
@@ -21,6 +20,9 @@ constrain.lab.PCR
       nanophotometer_concentrations
       pcr_locations
       pcr_volumes
+      primer_ta_neb
+      primer_tm_neb
+      simple_PCR_program
       takeThird
    
    

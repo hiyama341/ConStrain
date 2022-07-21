@@ -8,6 +8,7 @@ Welcome to ConStrain's documentation!
    readme
    installation
    usage
+   colab_notebooks
    contributing
    authors
    history

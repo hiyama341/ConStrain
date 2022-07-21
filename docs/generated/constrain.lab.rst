@@ -1,4 +1,4 @@
-constrain.lab
+﻿constrain.lab
 =============
 
 .. automodule:: constrain.lab
@@ -28,5 +28,6 @@ constrain.lab
    :recursive:
 
    constrain.lab.PCR
+   constrain.lab.robot_assembly
    constrain.lab.transformation
 

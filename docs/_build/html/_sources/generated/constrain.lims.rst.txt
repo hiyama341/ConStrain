@@ -1,4 +1,4 @@
-constrain.lims
+﻿constrain.lims
 ==============
 
 .. automodule:: constrain.lims
@@ -28,5 +28,4 @@ constrain.lims
    :recursive:
 
    constrain.lims.benchling_api
-   constrain.lims.session
 

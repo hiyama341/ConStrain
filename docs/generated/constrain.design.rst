@@ -1,4 +1,4 @@
-constrain.design
+﻿constrain.design
 ================
 
 .. automodule:: constrain.design
@@ -29,5 +29,4 @@ constrain.design
 
    constrain.design.cloning
    constrain.design.combinatorial_design
-   constrain.design.robot_assembly
 
