@@ -4,7 +4,7 @@
 
 # Importing the module we are  testing
 from pydna.amplify import pcr
-from constrain.design.USER_cloning import *
+from constrain.design.cloning import *
 
 
 def test_USER_enzyme(): 

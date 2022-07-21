@@ -27,7 +27,7 @@ constrain.design
    :toctree:
    :recursive:
 
-   constrain.design.USER_cloning
+   constrain.design.cloning
    constrain.design.combinatorial_design
    constrain.design.robot_assembly
 

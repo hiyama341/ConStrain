@@ -13,8 +13,8 @@
 
 
 #!/usr/bin/env python
-""" This part of the design module is used for USER cloning
-
+""" This part of the design module is used for USER cloning"""
+"""
 -----
 HELPER FUNCTIONS: 
 -----------------

@@ -1,7 +1,7 @@
 constrain.design.USER\_cloning
 ==============================
 
-.. automodule:: constrain.design.USER_cloning
+.. automodule:: constrain.design.cloning
 
    
    
