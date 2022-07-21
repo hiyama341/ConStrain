@@ -1,5 +1,19 @@
-#!/usr/bin/env python
+#MIT License
+#Copyright (c) 2022, Technical University of Denmark (DTU)
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
 
+'''For making Combinatorial libraries of DNA fragments'''
+
+#!/usr/bin/env python
 # standard libraries
 import os
 import pathlib
@@ -40,7 +54,8 @@ from Bio.Seq import Seq
 
 
 def primer_tm_neb(primer):
-    """Calculates a single primers melting temp"""
+    '''Calculates a single primers melting temp'''
+
 
     url = "https://tmapi.neb.com/tm/batch"
     seqpairs = [[primer]]
@@ -60,7 +75,7 @@ def primer_tm_neb(primer):
 
 
 def primer_ta_neb(primer1, primer2):
-    """Calculates primer pair melting temp"""
+    '''Calculates primer pair melting temp'''
 
     url = "https://tmapi.neb.com/tm/batch"
     seqpairs = [[primer1, primer2]]
@@ -323,7 +338,7 @@ def AssemblyMaker(combinatorial_list_of_amplicons: list):
 
 def UniquePrimers(primers: list, list_of_assemblies):
 
-    """Finds unique primers from a list of assemblies
+    """ Finds unique primers from a list of assemblies
     Parameters
     ----------
 
@@ -401,7 +416,7 @@ def UniquePrimers(primers: list, list_of_assemblies):
 
 def UniqueAmplicons(list_of_assemblies: list):
 
-    """Finds Unique amplicons from a list of assemblies
+    """ Finds Unique amplicons from a list of assemblies
     Parameters
     ----------
     """
@@ -418,7 +433,7 @@ def UniqueAmplicons(list_of_assemblies: list):
 def MakingAssemblyObjects(list_of_assemblies: list):
     """
     Assembling amplicons into assembling class that shows fragments, limit,
-    nodes and which algorithm that was used for assembling.
+    nodes and which algorithm that was used for assembling. 
 
 
     Parameters
@@ -434,13 +449,13 @@ def MakingAssemblyObjects(list_of_assemblies: list):
 
 
 def MakingAssembledContigs(list_of_assembly_objects: list):
-    """Assembles a list of assembly object into contigs
-
-    Input:
+    """ Assembles a list of assembly object into contigs
+    
+    Input: 
     :param list of assembly objects
     ----------
-
-    Returns:
+    
+    Returns: 
     list of contigs
     """
     contigs_assembled = []
