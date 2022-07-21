@@ -14,7 +14,7 @@
 
 """ This part of the lab module is used for making transformations
 
-HELPER FUNCTIONS: 
+HELPER FUNCTIONS:
 -----------------
 ng_to_nmol
 ODtime
@@ -23,14 +23,14 @@ time_to_inculate
 
 #!/usr/bin/env python
 # standard libraries
-import os
-import pathlib
-import itertools
-import string
+from datetime import datetime, timedelta
+
+
 import numpy as np
 import pandas as pd
 
-# for plotting
+
+# for plotting with pyplot
 import matplotlib.pyplot as plt
 
 plt.style.use("seaborn-whitegrid")
@@ -140,7 +140,6 @@ def time_to_inculate(
         print("Time of inoculation: \t" + str(when_to_inoculate) + "(the day before)")
 
         # If i innoculate now?
-        from datetime import datetime, timedelta, time
 
         print(
             "\nIf you innoculate now, the cells will have reached OD= 1 by:  ",
@@ -161,7 +160,8 @@ def transformation_mix(
     reaction_names, reaction_participants, wanted_amounts, water_dna_p_reac, media=""
 ):
 
-    """This function makes a pandas dataframe of the parts(their location) that needs to be put into the transformation mixes
+    """This function makes a pandas dataframe of the parts(their location)
+     that needs to be put into the transformation mixes
 
     Examples
     --------
@@ -191,7 +191,8 @@ def transformation_mix(
     media = ['LB_AMP'] * 5
 
     # 5. initate the function
-    transformation_mix(reaction_names, reaction_participants, wanted_concentration = wanted_concentrations, water_dna_p_reac = 7, media = media)
+    transformation_mix(reaction_names, reaction_participants, wanted_concentration =
+    (wanted_concentrations, water_dna_p_reac = 7, media = media)
 
     Return:
                 #these are freezer locations
@@ -228,8 +229,6 @@ def transformation_mix(
         df = pd.DataFrame(data=di, index=[name])  # ,index  = reagents_plus_total
 
         df_comb = pd.concat([df_comb, df], sort=False)
-
-    # df_comb = df_comb.fillna(0)
 
     df_comb["water"] = water_dna_p_reac - df_comb.sum(axis=1)
 

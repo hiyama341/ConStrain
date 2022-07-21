@@ -13,15 +13,15 @@ constrain.design.combinatorial\_design
 
    .. autosummary::
    
-      AssemblyMaker
+      assembly_maker
       CombinatorialListMaker
-      EmptyListMaker
-      GetPrimers
-      MakingAssembledContigs
-      MakingAssemblyObjects
-      SimpleAmpliconMaker
-      UniqueAmplicons
-      UniquePrimers
+      empty_list_maker
+      get_primers
+      making_assembled_contigs
+      making_assembly_objects
+      simple_amplicon_maker
+      unique_amplicons
+      unique_primers
       primer_ta_neb
       primer_tm_neb
       systematic_names_function

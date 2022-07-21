@@ -37,11 +37,11 @@ import Bio
 import Bio.SeqFeature
 import Bio.SeqRecord
 import Bio.SeqIO
-import copy
+from Bio.Seq import Seq
+from pydna.assembly import Assembly
 
 
 def CAS9_cutting(gRNA_record, background_record):
-    from Bio.Seq import Seq
 
     """ Simulates cutting by CAS9 given a gRNA
     
@@ -117,7 +117,7 @@ def CAS9_cutting(gRNA_record, background_record):
 
 
 def CRIPSIR_knockout(gRNA_record, insertion_site, repair_DNA):
-    from pydna.assembly import Assembly
+    
 
     """Cuts the insertion site with CAS9_cutting and assebmle knockout"""
     # Create fragments after CAS9 cut
@@ -160,8 +160,7 @@ def remove_features_with_negative_loc1(record):
 
 
 def extract_template_amplification_sites(templates, names, terminator):
-    """
-    This function takes in 3 parameters:
+    """Extracts amplifications sites from a templates features
 
     """
     template_amplification_sites = []
@@ -203,6 +202,7 @@ def extract_template_amplification_sites(templates, names, terminator):
 
 def extract_sites(annotations, templates, names):
     """This function extracts the sequences from annotated sequences based on they names"""
+
     sites = []
     for anno, template, name in zip(annotations, templates, names):
         for feature in template.features:
@@ -222,9 +222,8 @@ def extract_sites(annotations, templates, names):
 
 
 def seq_to_annotation(seqrec_from, seqrec_onto, aType):
-    from Bio.Seq import Seq
-
     """ Anotate an amplicon object from another amplicon object"""
+
     seq_from = seqrec_from.seq.watson.upper()
     seq_onto = seqrec_onto.seq.watson.upper()
 
@@ -390,14 +389,14 @@ def casembler(
                 DNA.write("./" + DNA.name + ".gb")  # "../data/processed/"
 
         if to_benchling:
-            utils.to_benchling(assembly, "to_benchling")
+            to_benchling(assembly, "to_benchling")
 
         assemblies.append(assembly)
 
     return functools.reduce(lambda x, y: x + y, assemblies)
 
 
-def casembler(
+def casembler2(
     bg_strain,
     site_names=None,
     gRNAs=None,
@@ -469,7 +468,7 @@ def casembler(
                 DNA.write("./" + DNA.name + ".gb")  # "../data/processed/"
 
         if to_benchling:
-            utils.to_benchling(assembly, "to_benchling")
+            to_benchling(assembly, "to_benchling")
 
         assemblies.append(assembly)
 
@@ -544,8 +543,7 @@ def UPandDW(strain, isite_name):
 
 
 def multiplyList(myList):
-
-    # Multiply elements one by one
+    ''' Multiplies elements one by one'''
     result = 1
     for x in myList:
         result = result * x

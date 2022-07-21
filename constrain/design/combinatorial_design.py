@@ -1,5 +1,5 @@
-#MIT License
-#Copyright (c) 2022, Technical University of Denmark (DTU)
+# MIT License
+# Copyright (c) 2022, Technical University of Denmark (DTU)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -7,128 +7,41 @@
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
-'''For making Combinatorial libraries of DNA fragments'''
-
-#!/usr/bin/env python
-# standard libraries
-import os
-import pathlib
-import itertools
-import string
-import numpy as np
-import pandas as pd
-import pydna
-
-# For primer TM function
-import requests
-import json
-
-# Biopython standards
-import Bio
-import Bio.SeqRecord
-import Bio.Seq
-import Bio.SeqFeature
-
-# Pydna for the molecular bio
-import pydna.editor
-import pydna.primer
-import pydna.dseqrecord
-import pydna.amplify
-import pydna.assembly
-import pydna.gel
-from pydna.design import primer_design
-from pydna.dseqrecord import Dseqrecord
-from pydna.design import assembly_fragments
-from pydna.assembly import Assembly
-import itertools
-from pydna.tm import tm_default as _tm_default
-
-# For anealing temp
-from Bio.SeqUtils import MeltingTemp as mt
-from pydna.tm import tm_default as _tm_default
-from Bio.Seq import Seq
-
-
-def primer_tm_neb(primer):
-    '''Calculates a single primers melting temp'''
-
-
-    url = "https://tmapi.neb.com/tm/batch"
-    seqpairs = [[primer]]
-
-    input = {"seqpairs": seqpairs, "conc": 0.5, "prodcode": "q5-0"}
-    headers = {"content-type": "application/json"}
-    res = requests.post(url, data=json.dumps(input), headers=headers)
-
-    r = json.loads(res.content)
-
-    if r["success"]:
-        for row in r["data"]:
-            return row["tm1"]
-    else:
-        print("request failed")
-        print(r["error"][0])
-
-
-def primer_ta_neb(primer1, primer2):
-    '''Calculates primer pair melting temp'''
-
-    url = "https://tmapi.neb.com/tm/batch"
-    seqpairs = [[primer1, primer2]]
-
-    input = {"seqpairs": seqpairs, "conc": 0.5, "prodcode": "q5-0"}
-    headers = {"content-type": "application/json"}
-    res = requests.post(url, data=json.dumps(input), headers=headers)
-
-    r = json.loads(res.content)
-
-    if r["success"]:
-        for row in r["data"]:
-            return row["ta"]
-
-    else:
-        print("request failed")
-        print(r["error"][0])
-
-
-""" This part of the design module is used for making combinatorial libraries
-
-Parameters
-----------
-param: list_of_seqs:list of list      e.g. DNA sequences for the parts
-param: list_of_names:list             e.g. Names for the parts
-param: pad:str                        e.g. A string that can be incorporated into the build
-param: position_of_pad:int            e.g. At wich position the pad should be inserted (zero-indexed)
--------
-
-Returns:
-list of all primers needed for the build
-list of all PCRs needed to make the build
-graphical representations of the library
+""" This part of the design module is used for making combinatorial libraries from DNA fragments
 
 -----
 HELPER FUNCTIONS: 
 -----------------
-primer_tm_neb
-primer_ta_neb
 CombinatorialListMaker
 systematic_names_function
-EmptyListMaker
-SimpleAmpliconMaker
-GetPrimers
-AssemblyMaker
-UniquePrimers
-UniqueAmplicons
-MakingAssemblyObjects
-MakingAssembledContigs
+empty_list_maker
+simple_amplicon_maker
+get_primers
+assembly_maker
+unique_primers
+unique_amplicons
+making_assembly_objects
+making_assembled_contigs
 """
 
+#!/usr/bin/env python
+# standard libraries
+import itertools
+import numpy as np
+import pandas as pd
 
-def Combinatorial_List_Maker(listOflist_that_is_being_made_into_all_combinations):
+# Pydna for the molecular bio
+from pydna.design import primer_design
+from pydna.design import assembly_fragments
+from pydna.assembly import Assembly
+from pydna.tm import tm_default as _tm_default
+
+
+def combinatorial_list_maker(listOflist_that_is_being_made_into_all_combinations: list):
     """
     Makes all possible combinations from a list of list
 
@@ -170,7 +83,7 @@ def systematic_names_function(List_of_list_parts: list):
     return combinatorial_list_of_indexes
 
 
-def EmptyListMaker(list_of_sequences: list):
+def empty_list_maker(list_of_sequences: list):
     """returns empty list in the length of seqs
 
     Parameters
@@ -183,7 +96,7 @@ def EmptyListMaker(list_of_sequences: list):
     return EmptyList
 
 
-def SimpleAmpliconMaker(list_of_seqs: list, list_of_names: list):
+def simple_amplicon_maker(list_of_seqs: list, list_of_names: list):
     """Calculates amplicons, updates their names
 
 
@@ -225,7 +138,7 @@ def SimpleAmpliconMaker(list_of_seqs: list, list_of_names: list):
     return list_of_amplicons, list_of_amplicon_primers, list_of_amplicon_primer_temps
 
 
-def GetPrimers(
+def get_primers(
     List_of_assemblies: list,
     combinatorial_list_of_names: list,
     combinatorial_list_of_primer_tm: list,
@@ -317,7 +230,7 @@ def GetPrimers(
     return primers
 
 
-def AssemblyMaker(combinatorial_list_of_amplicons: list):
+def assembly_maker(combinatorial_list_of_amplicons: list):
     """Assembles Amplicons with pad and makes new overlapping primers
 
     Parameters
@@ -336,9 +249,9 @@ def AssemblyMaker(combinatorial_list_of_amplicons: list):
     return List_of_assemblies
 
 
-def UniquePrimers(primers: list, list_of_assemblies):
+def unique_primers(primers: list, list_of_assemblies):
 
-    """ Finds unique primers from a list of assemblies
+    """Finds unique primers from a list of assemblies
     Parameters
     ----------
 
@@ -414,9 +327,9 @@ def UniquePrimers(primers: list, list_of_assemblies):
     return primer_list
 
 
-def UniqueAmplicons(list_of_assemblies: list):
+def unique_amplicons(list_of_assemblies: list):
 
-    """ Finds Unique amplicons from a list of assemblies
+    """Finds Unique amplicons from a list of assemblies
     Parameters
     ----------
     """
@@ -430,10 +343,10 @@ def UniqueAmplicons(list_of_assemblies: list):
     return unique_amplicons
 
 
-def MakingAssemblyObjects(list_of_assemblies: list):
+def making_assembly_objects(list_of_assemblies: list):
     """
     Assembling amplicons into assembling class that shows fragments, limit,
-    nodes and which algorithm that was used for assembling. 
+    nodes and which algorithm that was used for assembling.
 
 
     Parameters
@@ -448,14 +361,14 @@ def MakingAssemblyObjects(list_of_assemblies: list):
     return list_of_assembly_objects
 
 
-def MakingAssembledContigs(list_of_assembly_objects: list):
-    """ Assembles a list of assembly object into contigs
-    
-    Input: 
+def making_assembled_contigs(list_of_assembly_objects: list):
+    """Assembles a list of assembly object into contigs
+
+    Input:
     :param list of assembly objects
     ----------
-    
-    Returns: 
+
+    Returns:
     list of contigs
     """
     contigs_assembled = []
@@ -466,7 +379,11 @@ def MakingAssembledContigs(list_of_assembly_objects: list):
 
 
 class DesignAssembly:
-    """Class representing a combinatorial design library of chosen constructs.
+    """Class able to make a combinatorial library from DNA fragments.
+
+    Parameters
+    ----------
+
 
     Input:
     :param list_of_seqs: A list of list of a construct of choice.
@@ -505,17 +422,17 @@ class DesignAssembly:
             self.list_of_amplicons,
             self.list_of_amplicon_primers,
             self.list_of_amplicon_primer_temps,
-        ) = SimpleAmpliconMaker(self.list_of_seqs, self.list_of_names)
+        ) = simple_amplicon_maker(self.list_of_seqs, self.list_of_names)
 
         # Systematic names
         self.systematic_names = systematic_names_function(self.list_of_seqs)
 
         ### 3. COMBINATORIAL LISTS
-        self.combinatorial_list_of_amplicons = Combinatorial_List_Maker(
+        self.combinatorial_list_of_amplicons = combinatorial_list_maker(
             self.list_of_amplicons
         )
-        self.combinatorial_list_of_names = Combinatorial_List_Maker(self.list_of_names)
-        self.combinatorial_list_of_primer_tm = Combinatorial_List_Maker(
+        self.combinatorial_list_of_names = combinatorial_list_maker(self.list_of_names)
+        self.combinatorial_list_of_primer_tm = combinatorial_list_maker(
             self.list_of_amplicon_primer_temps
         )
 
@@ -532,20 +449,20 @@ class DesignAssembly:
             )
 
         ### 5. Assembling and making overlapping primers
-        self.list_of_assemblies = AssemblyMaker(self.combinatorial_list_of_amplicons)
+        self.list_of_assemblies = assembly_maker(self.combinatorial_list_of_amplicons)
 
         ### 6. GETTING all primers, annotating, adding features
-        self.primers = GetPrimers(
+        self.primers = get_primers(
             self.list_of_assemblies,
             self.combinatorial_list_of_names,
             self.combinatorial_list_of_primer_tm,
         )
 
         ### 7. Getting Unique primers and re-annotating list_assemblies to get right names
-        self.unique_primers = UniquePrimers(self.primers, self.list_of_assemblies)
+        self.unique_primers = unique_primers(self.primers, self.list_of_assemblies)
 
         ### 8. Unique amplicons
-        self.unique_amplicons = UniqueAmplicons(self.list_of_assemblies)
+        self.unique_amplicons = unique_amplicons(self.list_of_assemblies)
 
     ##########################################################
     ###################  CLASS METHODS  ######################
@@ -659,7 +576,7 @@ class DesignAssembly:
 
         return df
 
-    def GraphicalRepresentationOfAssemblies(self):
+    def graphical_representation_of_assemblies(self):
         """
         Takes in the assembly object and returns graphical report of the fragments assembled
         """

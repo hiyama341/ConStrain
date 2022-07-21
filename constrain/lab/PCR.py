@@ -13,7 +13,7 @@
 
 """ This part of the lab module is used for simulating and calculating PCR reactions
 
-HELPER FUNCTIONS: 
+HELPER FUNCTIONS:
 -----------------
 pcr_volumes (formerly known as volumes)
 det_proc_speed
@@ -27,18 +27,59 @@ transf_locations1
 
 #!/usr/bin/env python
 # standard libraries
-import os
 import pathlib
-import itertools
-import string
-import numpy as np
-import pandas as pd
-import pydna
-import math
-import pathlib
+
 import textwrap as _textwrap
-from pydna._pretty import pretty_str as _pretty_str
+import math
 import csv
+import pathlib
+import json
+
+# Extra
+import pandas as pd
+from pydna._pretty import pretty_str as _pretty_str
+import requests
+
+
+def primer_tm_neb(primer):
+    """Calculates a single primers melting temp"""
+
+    url = "https://tmapi.neb.com/tm/batch"
+    seqpairs = [[primer]]
+
+    input = {"seqpairs": seqpairs, "conc": 0.5, "prodcode": "q5-0"}
+    headers = {"content-type": "application/json"}
+    res = requests.post(url, data=json.dumps(input), headers=headers)
+
+    r = json.loads(res.content)
+
+    if r["success"]:
+        for row in r["data"]:
+            return row["tm1"]
+    else:
+        print("request failed")
+        print(r["error"][0])
+
+
+def primer_ta_neb(primer1, primer2):
+    """Calculates primer pair melting temp"""
+
+    url = "https://tmapi.neb.com/tm/batch"
+    seqpairs = [[primer1, primer2]]
+
+    input = {"seqpairs": seqpairs, "conc": 0.5, "prodcode": "q5-0"}
+    headers = {"content-type": "application/json"}
+    res = requests.post(url, data=json.dumps(input), headers=headers)
+
+    r = json.loads(res.content)
+
+    if r["success"]:
+        for row in r["data"]:
+            return row["ta"]
+
+    else:
+        print("request failed")
+        print(r["error"][0])
 
 
 def grouper(iterable, max_diff):
@@ -86,7 +127,6 @@ def pcr_volumes(
     standard_total_volume = sum(standard_volumes)
     volumes_p_x = [val / standard_total_volume * vol_p_reac for val in standard_volumes]
     volumes_p_x_p_y_reactions = [val * no_of_reactions for val in volumes_p_x]
-    volumes_p_x_p_y_reactions
 
     volumes_p_x_plus_total = volumes_p_x + [sum(volumes_p_x)]
     volumes_p_x_p_y_reactions_plus_total = volumes_p_x_p_y_reactions + [
@@ -144,221 +184,15 @@ def det_elon_time(amplicon):
     return amplicon
 
 
-def PCR_program(
-    amplicon, pgroup, touch_down=False, ta_tm_refresh=False, primer_con=500
-):
-    """Investigates ta and tm for amplicons and creates PCR program.
-
-    param: amplicon             eg. Pydna amplicon object
-    param: pgroup               eg.  product group - telling which polymerase is used
-
-    """
-
-    # Set product group & polymerase(/kit)
-    # Product groups: Q5, Q5 Hot Start, OneTaq, OneTaq Hot Start, Phusion, LongAmp Taq, LongAmp Hot Start Taq,
-    if pgroup == "OneTaq Hot Start":
-        pol = "OneTaq Hot Start 2X Master Mix with Standard Buffer"
-        (
-            proc_speed,
-            In_den_temp,
-            melt_temp,
-            melt_time,
-            elong_temp,
-            final_temp,
-            final_time,
-        ) = (60, 94, 94, 30, 68, 68, 10)
-    elif pgroup == "Q5 Hot Start":
-        pol = "Q5 Hot Start High-Fidelity 2X Master Mix"
-        proc_speed, In_den_temp, melt_temp, melt_time, elong_temp, final_temp = (
-            30,
-            98,
-            98,
-            10,
-            72,
-            72,
-        )
-        final_time = " 2"
-    elif pgroup == "Phusion":
-        pol = "Phusion High-Fidelity DNA Polymerase (HF Buffer)"
-        (
-            proc_speed,
-            In_den_temp,
-            melt_temp,
-            melt_time,
-            elong_temp,
-            final_temp,
-            final_time,
-        ) = (30, 98, 98, 10, 72, 72, 10)
-    else:
-        print("The provided polymerase is not accounted for in this code.")
-        print("""Write either "OneTaq Hot Start", "Q5 Hot Start" or "Phusion".""")
-
-    # Extension time.
-    extension_time_taq = int(proc_speed * len(amplicon) / 1000)
-
-    # check if keys already exist
-    tm1_key = "tm " + pgroup
-    tm2_key = "tm " + pgroup
-    ta_key = "ta " + pgroup
-    if (
-        tm1_key not in amplicon.forward_primer.annotations
-        and tm2_key not in amplicon.reverse_primer.annotations
-        and ta_key not in amplicon.annotations
-    ) or ta_tm_refresh:
-
-        # Extract primer sequence
-        p1_seq = Dseqrecord(amplicon.forward_primer.footprint).seq.watson
-        p2_seq = Dseqrecord(amplicon.reverse_primer.footprint).seq.watson
-
-        if "polymerase" in amplicon.annotations:
-            pass
-        else:
-            amplicon.annotations["polymerase"] = pgroup
-
-        # Open TM calculator
-        chrome_webdriver_path = (
-            os.path.normpath(os.getcwd() + os.sep + os.pardir) + "/chromedriver"
-        )
-        driver = webdriver.Chrome(chrome_webdriver_path)
-        driver.get("http://tmcalculator.neb.com/#!/main")
-        assert "Calculator" in driver.title
-
-        # Wait for webpage to load
-        driver.implicitly_wait(5)
-
-        ## Select product group and polymerase/kit
-        prod_group = Select(
-            driver.find_element_by_xpath('//*[@id="input"]/div[1]/div/select[1]')
-        )
-        prod_group.select_by_visible_text(pgroup)
-        polymerase = Select(
-            driver.find_element_by_xpath('//*[@id="input"]/div[1]/div/select[2]')
-        )
-        polymerase.select_by_visible_text(pol)
-
-        # Change primer concentration
-        prim_con = driver.find_element_by_id("ct")
-        prim_con.clear()  # Clear bar incase of input
-        prim_con.send_keys(str(primer_con))
-
-        # Input primers and extract tm
-        def input_primer_and_extract_tm(prim_no, prim_seq):
-            # Input primer
-            bar_id = "p" + str(prim_no)
-            prim_bar = driver.find_element_by_id(bar_id)
-            prim_bar.clear()  # Clear bar incase of input
-            prim_bar.send_keys(prim_seq)
-
-            # Extract Tm
-            result_id = "tm" + str(prim_no)
-            tm_elem = driver.find_element_by_id(result_id)
-            tm_text = tm_elem.text
-            pattern = (
-                "^Primer " + str(prim_no) + "\\n\d+\snt\\n\d+%\sGC\\nTm:\s(-?\d+).C$"
-            )
-            m = re.match(pattern, tm_text)
-            tm = int(m.group(1))
-            return tm
-
-        # Save melting temperature
-        tm1 = input_primer_and_extract_tm(1, p1_seq)
-        tm2 = input_primer_and_extract_tm(2, p2_seq)
-
-        # Save annealing temperature
-        ta_elem = driver.find_element_by_id("ta")
-        ta_text = ta_elem.text
-        ta_pattern = "^Anneal at\\n(-?\d+)\s.C$"
-        m3 = re.match(ta_pattern, ta_text)
-        ta = int(m3.group(1))
-
-        # Close tmcalculator
-        driver.close()
-
-        amplicon.forward_primer.annotations[tm1_key] = tm1
-        amplicon.reverse_primer.annotations[tm2_key] = tm2
-        amplicon.annotations[ta_key] = ta
-    else:
-        ta = amplicon.annotations[ta_key]
-        tm1 = amplicon.forward_primer.annotations[tm1_key]
-        tm2 = amplicon.reverse_primer.annotations[tm2_key]
-
-    # ta messages
-    if ta < 45:
-        print("Annealing temperature is lower than the recommended minimum of 45 °C.")
-    elif ta > 72:
-        print(
-            "Annealing temperature for experiments with this enzyme should typically not exceed 72°C."
-        )
-    if abs(tm1 - tm2) > 5:
-        print("Tm difference is greater than the recommended limit of 5 °C.")
-
-    # PCR program
-    if touch_down:
-        f = _textwrap.dedent(
-            r"""
-        | x1 |       -1°Cx6      |        x24        | 1x  |
-        |{initial_den}°C|{melting_temp}°C               |{melting_temp}°C               |     |tmf:{tmf:.1f}
-        |____|_____          {el_tem}°C|_____          {el_tem}°C|{f_temp}°C |tmr:{tmr:.1f}
-        |30s |{melting_time}s  \ {ta_start:.1f}°C _____|{melting_time}s  \ {ta_end:.1f}°C _____|_____|{rate}s/kb
-        |    |      \______/{0:2}:{1:2}|      \______/{0:2}:{1:2}|{f_time}min|GC {GC_prod}%
-        |    |       30s         |       30s         |     |{size}bp
-                            """[
-                1:-1
-            ].format(
-                initial_den=In_den_temp,
-                melting_temp=melt_temp,
-                melting_time=melt_time,
-                el_tem=elong_temp,
-                f_temp=final_temp,
-                f_time=final_time,
-                rate=proc_speed,
-                size=len(amplicon.seq),
-                ta_start=ta + 3,
-                ta_end=ta - 3,
-                tmf=tm1,
-                tmr=tm2,
-                GC_prod=int(amplicon.gc()),
-                *map(int, divmod(extension_time_taq, 60)),
-            )
-        )
-    else:
-        f = _textwrap.dedent(
-            r"""
-                                |{initial_den}°C|{melting_temp}°C               |     |tmf:{tmf:.1f}
-                                |____|_____          {el_tem}°C|{f_temp}°C |tmr:{tmr:.1f}
-                                |30s |{melting_time}s  \ {ta:.1f}°C _____|____ |{rate}s/kb
-                                |    |      \______/{0:2}:{1:2}|{f_time}min|GC {GC_prod}%
-                                |    |       30s         |     |{size}bp
-                                """[
-                1:-1
-            ].format(
-                initial_den=In_den_temp,
-                melting_temp=melt_temp,
-                melting_time=melt_time,
-                el_tem=elong_temp,
-                f_temp=final_temp,
-                f_time=final_time,
-                rate=proc_speed,
-                size=len(amplicon.seq),
-                ta=ta,
-                tmf=tm1,
-                tmr=tm2,
-                GC_prod=int(amplicon.gc()),
-                *map(int, divmod(extension_time_taq, 60)),
-            )
-        )
-
-    return _pretty_str(f)
-
-
 def takeThird(elem):
-
+    """Takes third element of a list"""
     return elem[2]
 
 
 def det_no_of_thermal_cyclers(amplicons, polymerase, elong_time_max_diff=15):
 
-    """Determines the number of thermalcyclers that is needed based on elongation time differences"""
+    """Determines the number of thermalcyclers that is needed
+    based on elongation time differences"""
 
     amp_names = [amplicon.name for amplicon in amplicons]
     elong_times = [amplicon.annotations["elongation_time"] for amplicon in amplicons]
@@ -464,17 +298,18 @@ def pcr_locations(amplicons: list):
             print(str(amplicons[i].name) + ": Reverse primer location was not found")
 
     # Save information as dataframe
-    df = pd.DataFrame(
+    df_pcr = pd.DataFrame(
         list(zip(product_loc, product_names, template_loc, fw_loc, rv_loc)),
         columns=["location", "name", "template", "fw", "rv"],
     )
 
-    return df
+    return df_pcr
 
 
 def nanophotometer_concentrations(path: pathlib.PosixPath):
 
-    """This function reads a CSV file with nanophotometer concentraions and returns the concentrations in a list"""
+    """This function reads a CSV file with nanophotometer concentraions
+    and returns the concentrations in a list"""
     concentrations = []
     with open(path, encoding="Latin1") as tsvfile:
         reader = csv.reader(tsvfile, delimiter="\t")
@@ -484,3 +319,55 @@ def nanophotometer_concentrations(path: pathlib.PosixPath):
             concentrations.append(conc)
 
     return concentrations
+
+
+def simple_PCR_program(amplicon):
+
+    """Simple PCR program designed to give a quick visual representations"""
+    amplicon = det_elon_time(amplicon)
+    amplicon = det_proc_speed(amplicon)
+
+    # ta
+    amplicon.annotations["ta Q5 Hot Start"] = primer_ta_neb(
+        str(amplicon.forward_primer.seq), str(amplicon.reverse_primer.seq)
+    )
+
+    # tm forward and reverse
+    amplicon.forward_primer.annotations["tm Q5 Hot Start"] = primer_tm_neb(
+        str(amplicon.forward_primer.seq)
+    )
+    amplicon.reverse_primer.annotations["tm Q5 Hot Start"] = primer_tm_neb(
+        str(amplicon.reverse_primer.seq)
+    )
+
+    r"""Returns a string containing a text representation of a suggested
+    PCR program using Taq or similar polymerase.
+    ::
+     |98°C|98°C               |    |tmf:59.5
+     |____|_____          72°C|72°C|tmr:59.7
+     |30s |10s  \ 59.1°C _____|____|30s/kb
+     |    |      \______/ 0:32|5min|GC 51%
+     |    |       30s         |    |1051bp
+    """
+
+    formated = _textwrap.dedent(
+        r"""
+                            |98°C|98°C               |    |tmf:{tmf:.1f}
+                            |____|_____          72°C|72°C|tmr:{tmr:.1f}
+                            |30 s|10s  \ {ta:.1f}°C _____|____|{rate}s/kb
+                            |    |      \______/{0:2}:{1:2}|2min|GC {GC_prod}%
+                            |    |       20s         |    |{size}bp
+                            """[
+            1:-1
+        ].format(
+            rate=amplicon.annotations["proc_speed"],
+            size=len(amplicon.seq),
+            ta=amplicon.annotations["ta Q5 Hot Start"],
+            tmf=amplicon.forward_primer.annotations["tm Q5 Hot Start"],
+            tmr=amplicon.reverse_primer.annotations["tm Q5 Hot Start"],
+            GC_prod=int(amplicon.gc()),
+            *map(int, divmod(amplicon.annotations["elongation_time"], 60)),
+        )
+    )
+
+    return _pretty_str(formated)
