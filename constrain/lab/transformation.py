@@ -12,8 +12,8 @@
 # copies or substantial portions of the Software.
 
 
-""" This part of the lab module is used for making transformations
-
+""" This part of the lab module is used for making transformations"""
+"""
 HELPER FUNCTIONS:
 -----------------
 ng_to_nmol

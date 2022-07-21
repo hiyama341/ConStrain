@@ -11,9 +11,10 @@
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
+""" Easy to use benchling functions to fetch sequences and objects"""
+
 
 #!/usr/bin/env python
-
 import os
 from benchlingapi import Session
 import pandas as pd
