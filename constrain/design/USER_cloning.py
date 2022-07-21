@@ -43,21 +43,21 @@ from pydna.assembly import Assembly
 
 def CAS9_cutting(gRNA_record, background_record):
 
-    """ Simulates cutting by CAS9 given a gRNA
-    
+    """Simulates cutting by CAS9 given a gRNA
+
     Parameters
     ----------
     gRNA_sequence: pydna.dseqrecord
-    
+
     background_record: pydna.dseqrecord (pydna.assembly)
-    
+
     up_surrounding: int (number of bp)
 
     dw_surrounding: int (number of bp)
 
     Returns
     -------
-    
+
     Two dseqrecords
 
     Examples
@@ -117,7 +117,6 @@ def CAS9_cutting(gRNA_record, background_record):
 
 
 def CRIPSIR_knockout(gRNA_record, insertion_site, repair_DNA):
-    
 
     """Cuts the insertion site with CAS9_cutting and assebmle knockout"""
     # Create fragments after CAS9 cut
@@ -160,9 +159,7 @@ def remove_features_with_negative_loc1(record):
 
 
 def extract_template_amplification_sites(templates, names, terminator):
-    """Extracts amplifications sites from a templates features
-
-    """
+    """Extracts amplifications sites from a templates features"""
     template_amplification_sites = []
     for name, template in zip(names, templates):
         for feature in template.features:
@@ -222,7 +219,7 @@ def extract_sites(annotations, templates, names):
 
 
 def seq_to_annotation(seqrec_from, seqrec_onto, aType):
-    """ Anotate an amplicon object from another amplicon object"""
+    """Anotate an amplicon object from another amplicon object"""
 
     seq_from = seqrec_from.seq.watson.upper()
     seq_onto = seqrec_onto.seq.watson.upper()
@@ -543,7 +540,7 @@ def UPandDW(strain, isite_name):
 
 
 def multiplyList(myList):
-    ''' Multiplies elements one by one'''
+    """Multiplies elements one by one"""
     result = 1
     for x in myList:
         result = result * x
