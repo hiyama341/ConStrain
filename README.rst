@@ -83,7 +83,7 @@ construnction. The Colab notebooks can be found here
 Contributions
 ~~~~~~~~~~~~~
 
-Contributions are very welcome! Check our `guidelines <CONTRIBUTING.rst>`__ for instructions how to contribute.
+Contributions are very welcome! Check our `guidelines <https://constrain.readthedocs.io/en/latest/contributing.html>`__ for instructions how to contribute.
 
 
 License
