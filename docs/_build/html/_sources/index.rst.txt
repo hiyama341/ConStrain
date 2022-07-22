@@ -12,7 +12,7 @@ Welcome to ConStrain's documentation!
    authors
    history
    api
-   00_DESIGN_HomologSelection
+   colab_notebooks
 
 Indices and tables
 ==================
