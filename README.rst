@@ -11,7 +11,7 @@ ConStrain: Literate programming can streamline bioengineering workflows
 .. image:: https://badge.fury.io/py/ConStrain.svg
     :target: https://badge.fury.io/py/ConStrain
 
-.. image:: ![example workflow](https://github.com/hiyama341/ConStrain/actions/workflows/main.yml/badge.svg)
+.. image:: https://github.com/hiyama341/ConStrain/actions/workflows/main.yml/badge.svg
         :target: https://github.com/hiyama341/ConStrain/actions
 
 .. image:: https://readthedocs.org/projects/constrain/badge/?version=latest
