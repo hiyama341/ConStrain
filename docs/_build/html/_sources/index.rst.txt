@@ -8,11 +8,11 @@ Welcome to ConStrain's documentation!
    readme
    installation
    usage
-   colab_notebooks
    contributing
    authors
    history
    api
+   00_DESIGN_HomologSelection
 
 Indices and tables
 ==================

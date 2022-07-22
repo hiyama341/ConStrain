@@ -245,6 +245,8 @@ results_1st_ana <- results_1st_ana %>%
   #Replace na's with 0
   mutate(across(starts_with("Amt"), ~replace_na(.x, 0)))
 
+
+print(results_1st_ana)
 #filter(results, Amt_uM == 0)
 ```
 
@@ -317,6 +319,8 @@ results_1st_ana <- results_1st_ana %>%
 <!-- ``` -->
 
 ```{r, echo = FALSE, include=FALSE}
+print(results_1st_ana)
+
 ##Plate position information
 #Read well information into R
 here()

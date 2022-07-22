@@ -4,7 +4,7 @@ ConStrain
 =========
 
 ConStrain: Literate programming can streamline bioengineering workflows
------------------------------------------------------------
+-----------------------------------------------------------------------
 
 .. summary-start
 
@@ -19,7 +19,7 @@ ConStrain: Literate programming can streamline bioengineering workflows
         :alt: Documentation Status
 
 What is ConStrain?
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 **ConStrain** is an easy-to-use python package with functions that
 can be used in literate programming to simulate steps of a strain 
