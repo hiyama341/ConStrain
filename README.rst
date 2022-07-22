@@ -35,7 +35,7 @@ benefit of the user. As this tool is built to be flexible through its open-sourc
 Python platform, future repetitive tasks can be automated and thus increase 
 the speed at which we engineer biology. 
 
-Curious about how you can build easier and faster? Head over to our `Google Colab notebooks <https://github.com/hiyama341/ConStrain/tree/main/colab_notebooks>`__
+Curious about how you can build strains easier and faster? Head over to our `Google Colab notebooks <https://github.com/hiyama341/ConStrain/tree/main/colab_notebooks>`__
 and give it a try.
 
 Please cite our paper (link tba) if you've used ConStrain in a scientific publication.

@@ -38,9 +38,13 @@ BUILD:
 TEST:
 -----
 
-8. The `LibraryCharacterisation`_ notebook describes data processing of LC-MS data and genotyping of the generated strains. 
+8. The `LibraryCharacterisation`_ notebook describes Con data processing of LC-MS data and genotyping of the generated strains. 
 
 LEARN:
 ------
 
-9. The `DataAnalysisML`_ notebook describes how we automatically can fetch homologs from NCBI from a query in a standardizable and repeatable way. 
+9. The `DataAnalysisML`_ notebook describes how we use AutoML to predict the best combinations for a targeted second round of library construction.
+
+
+For more information head over to our `publication <https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/08_LEARN_DataAnalysis.ipynb>`__ describing the use of ConStrain in a literate programming context. 
+
