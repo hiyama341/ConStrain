@@ -28,7 +28,6 @@ data/
 # Unit test / coverage reports
 htmlcov/
 .tox/
-.coverage
 .cache
 nosetests.xml
 coverage.xml
