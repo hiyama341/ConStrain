@@ -40,6 +40,13 @@ jobs:
         run: |
           python -m pytest
           
+          
+      - name: Code coverage
+        run: |
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          chmod +x codecov
+          ./codecov
+          
       - name: Build package
         run: python setup.py sdist bdist_wheel
 
@@ -57,4 +64,6 @@ jobs:
           user: __token__
           # Password for your PyPI user or an access token
           password: ${{secrets.PYPI_TOKEN}} 
+          
+        
 
