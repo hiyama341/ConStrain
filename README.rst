@@ -8,8 +8,8 @@ ConStrain: Literate programming can streamline bioengineering workflows
 
 .. summary-start
 
-.. image:: https://img.shields.io/pypi/v/constrain.svg
-        :target: https://pypi.python.org/pypi/constrain
+.. image:: https://badge.fury.io/py/ConStrain.svg
+    :target: https://badge.fury.io/py/ConStrain
 
 .. image:: https://img.shields.io/travis/hiyama341/constrain.svg
         :target: https://travis-ci.com/hiyama341/constrain
