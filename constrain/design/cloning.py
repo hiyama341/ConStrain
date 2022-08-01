@@ -198,14 +198,14 @@ def extract_template_amplification_sites(templates, names, terminator):
 
 
 def extract_sites(annotations, templates, names):
-    """This function extracts the sequences from annotated sequences based on they names"""
+    """This function extracts the sequences from annotated sequences based on their names"""
 
     sites = []
     for anno, template, name in zip(annotations, templates, names):
         for feature in template.features:
             site = template[feature.location.start : feature.location.end]
             if feature.qualifiers["name"] == anno:
-                site.name = names
+                site.name = name
 
             # If there is an batch anotation we can save it
             if "batches" in site.annotations.keys():
