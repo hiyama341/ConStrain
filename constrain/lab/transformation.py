@@ -177,9 +177,9 @@ def transformation_mix(
                      [LEU_plasmid]]                                   #positive control
 
     # 2. Calculate nmol:
-    nmol_vector = utils.ng_to_nmol(ng = 15, bp = len(vector))
-    nmol_gRNA = utils.ng_to_nmol(ng = 30, bp = len(gRNA1_pcr_prod))
-    nmol_pctr = utils.ng_to_nmol(ng = 10, bp = len(LEU_plasmid))
+    nmol_vector = ng_to_nmol(ng = 15, bp = len(vector))
+    nmol_gRNA = ng_to_nmol(ng = 30, bp = len(gRNA1_pcr_prod))
+    nmol_pctr = ng_to_nmol(ng = 10, bp = len(LEU_plasmid))
 
     # 3. Add the concentrations
     wanted_concentrations = {'p0056\\(pESC-LEU-ccdB-USER)' : nmol_vector,
