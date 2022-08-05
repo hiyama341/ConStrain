@@ -41,10 +41,10 @@ from pydna.assembly import Assembly
 from pydna.tm import tm_default as _tm_default
 
 
-
-
-def combinatorial_list_maker(listOflist_that_is_being_made_into_all_combinations: list)->list:
-    """ Makes all possible combinations from a list of list.
+def combinatorial_list_maker(
+    listOflist_that_is_being_made_into_all_combinations: list,
+) -> list:
+    """Makes all possible combinations from a list of list.
 
     Parameters
     ----------
@@ -64,7 +64,7 @@ def combinatorial_list_maker(listOflist_that_is_being_made_into_all_combinations
     return combinations
 
 
-def systematic_names_function(List_of_list_parts: list)->list:
+def systematic_names_function(List_of_list_parts: list) -> list:
     """Returns a list of list with systematic names i.e [1,1,1], [1,2,1]... etc
 
     Parameters
@@ -179,7 +179,7 @@ def get_primers(
     combinatorial_list_of_names: list,
     combinatorial_list_of_primer_tm: list,
 ):
-    """Returns a list of ALL primers from the combinatorial library, 
+    """Returns a list of ALL primers from the combinatorial library,
     updates names and what they anneal to.
 
     Parameters
@@ -279,10 +279,10 @@ def assembly_maker(combinatorial_list_of_amplicons: list, overlap=35):
     ----------
     combinatorial_list_of_amplicons : list[[pydna.amplicon.Amplicon]]
         the list of pydna.amplicon.Amplicon that you want generate
-        overlapping primers for. 
-    
+        overlapping primers for.
+
     overlap : int = 35
-        How many basepair overlaps 
+        How many basepair overlaps
 
     Returns
     -------
@@ -295,9 +295,7 @@ def assembly_maker(combinatorial_list_of_amplicons: list, overlap=35):
     List_of_assemblies = []
     for i in range(0, len(combinatorial_list_of_amplicons)):
         List_of_assemblies.append(
-            assembly_fragments(
-                combinatorial_list_of_amplicons[i], overlap, maxlink=40
-            )
+            assembly_fragments(combinatorial_list_of_amplicons[i], overlap, maxlink=40)
         )
 
     return List_of_assemblies
@@ -308,10 +306,10 @@ def unique_primers(primers: list, list_of_assemblies):
     Parameters
     ----------
     primers : list[list[[pydna.primer.Primer, pydna.primer.Primer]]
-        a list of all the primers made for the combinatorial library 
+        a list of all the primers made for the combinatorial library
 
     list_of_assemblies: list[[pydna.amplicon.Amplicon]]
-        used here to update the names of the primers 
+        used here to update the names of the primers
 
     Returns
     -------
@@ -345,11 +343,11 @@ def unique_primers(primers: list, list_of_assemblies):
         length_of_unique_primers += len(unikke_F_primers[i].seq)
         U_f_primers = [
             unikke_F_primers[i].id,
-            unikke_F_primers[i].name,               
+            unikke_F_primers[i].name,
             unikke_F_primers[i].seq,
-            unikke_F_primers[i].features,           # anealing temp
-            len(unikke_F_primers[i].seq),           # lenght
-            len(unikke_F_primers[i].seq) * 1.8,     # price 
+            unikke_F_primers[i].features,  # anealing temp
+            len(unikke_F_primers[i].seq),  # lenght
+            len(unikke_F_primers[i].seq) * 1.8,  # price
         ]
         unique_forward_primers.append(U_f_primers)
 
@@ -363,7 +361,7 @@ def unique_primers(primers: list, list_of_assemblies):
             unikke_R_primers[i].seq,
             unikke_R_primers[i].features,
             len(unikke_R_primers[i].seq),
-            len(unikke_R_primers[i].seq) * 1.8, #cost
+            len(unikke_R_primers[i].seq) * 1.8,  # cost
         ]
         unique_reverse_primers.append(U_r_primers)
 
@@ -396,7 +394,7 @@ def unique_amplicons(list_of_assemblies: list):
     Parameters
     ----------
     list_of_assemblies: list[[pydna.amplicon.Amplicon]]
-        list of the combinatorial libarary with overlapping ends 
+        list of the combinatorial libarary with overlapping ends
 
     Returns
     -------
@@ -415,14 +413,14 @@ def unique_amplicons(list_of_assemblies: list):
 
 
 def making_assembly_objects(list_of_assemblies: list):
-    """Assembling amplicons into assembling class that shows 
+    """Assembling amplicons into assembling class that shows
     fragments, limit,nodes and which algorithm that was used
     for assembling.
 
     Parameters
     ----------
     list_of_assemblies: list[[pydna.amplicon.Amplicon]]
-        list of the combinatorial libarary with overlapping ends 
+        list of the combinatorial libarary with overlapping ends
 
     Returns
     -------
@@ -449,7 +447,7 @@ def making_assembled_contigs(list_of_assembly_objects: list):
     Returns
     -------
     list_of_assembly_objects : list[]
-        list_of_assembly_objects have been assembled into contigs    
+        list_of_assembly_objects have been assembled into contigs
     """
     contigs_assembled = []
     for j in range(0, len(list_of_assembly_objects)):
@@ -660,7 +658,7 @@ class DesignAssembly:
 
     def graphical_representation_of_assemblies(self):
         """
-        Takes in the assembly object and returns graphical report of the 
+        Takes in the assembly object and returns graphical report of the
         fragments assembled
         """
         graphical_representation = [

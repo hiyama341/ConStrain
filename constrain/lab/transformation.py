@@ -244,16 +244,17 @@ def transformation_mix(
 
 def wanted_mass(wanted_moles, size):
     """
-    wanted moles in nmol, 
+    wanted moles in nmol,
     size in bp
-    
+
     Returns:
     in ng = nmol * bp * 650 ng/(nmol * bp)
-    
+
     """
     w_mass = wanted_moles * size * 650
-    w_mass_rounded = round(w_mass,1)
-    return(w_mass_rounded)
+    w_mass_rounded = round(w_mass, 1)
+    return w_mass_rounded
+
 
 def wanted_volume(wanted_mass, actual_concentration):
     """
@@ -262,5 +263,5 @@ def wanted_volume(wanted_mass, actual_concentration):
     return in ul
     """
     wanted_volume = wanted_mass / actual_concentration
-    wanted_volume_rounded = round(wanted_volume,1)
-    return(wanted_volume_rounded)
+    wanted_volume_rounded = round(wanted_volume, 1)
+    return wanted_volume_rounded
