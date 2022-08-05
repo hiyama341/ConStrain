@@ -41,15 +41,20 @@ from pydna.assembly import Assembly
 from pydna.tm import tm_default as _tm_default
 
 
-def combinatorial_list_maker(listOflist_that_is_being_made_into_all_combinations: list):
-    """
-    Makes all possible combinations from a list of list
+
+
+def combinatorial_list_maker(listOflist_that_is_being_made_into_all_combinations: list)->list:
+    """ Makes all possible combinations from a list of list.
 
     Parameters
     ----------
+    listOflist_that_is_being_made_into_all_combinations: list[list[any_type]]
+        can be of any type inside the list of lists
 
-    Returns:
-
+    Returns
+    -------
+    combinations: list[tuple(any_type)]
+        all possible combinations of the list of lists
 
     """
     combinations = list(
@@ -59,11 +64,19 @@ def combinatorial_list_maker(listOflist_that_is_being_made_into_all_combinations
     return combinations
 
 
-def systematic_names_function(List_of_list_parts: list):
+def systematic_names_function(List_of_list_parts: list)->list:
     """Returns a list of list with systematic names i.e [1,1,1], [1,2,1]... etc
 
     Parameters
     ----------
+    List_of_list_parts: list of list
+        can have anny type withing the list[list[any_type]]
+
+    Returns
+    -------
+    combinatorial_list_of_indexes
+        list of tuples with the systematic names eg. [(1,1,1),(1,2,1)]
+
     """
     # The number of parts of each fragment
     no_parts = [int(len(l)) for l in List_of_list_parts]
@@ -88,7 +101,13 @@ def empty_list_maker(list_of_sequences: list):
 
     Parameters
     ----------
+    list_of_sequences: list
+        could be any list with any types
 
+    Returns
+    -------
+    EmptyList:list
+        an empty list with the same dimensions
 
     """
     EmptyList = [[] for i in range(len(list_of_sequences))]
@@ -97,11 +116,29 @@ def empty_list_maker(list_of_sequences: list):
 
 
 def simple_amplicon_maker(list_of_seqs: list, list_of_names: list):
-    """Calculates amplicons, updates their names
+    """Creates amplicons, updates their names
 
 
     Parameters
     ----------
+    list_of_seqs : list[list[pydna.dseqrecord.Dseqrecord]]
+        List of the pydna.dseqrecord import Dseqrecord elements u want to made into amplicons
+
+    list_of_names : list[list[str]]
+        provide names for the sequences since pydna changes their names to amplicon
+
+    Returns
+    -------
+    list_of_amplicons : list[pydna.amplicon.Amplicon]
+        list with the pydna.amplicon.Amplicon objects that have been made
+
+    list_of_amplicon_primers : list[list[(pydna.seq.Seq, pydna.seq.Seq)]]
+        a list of all the generated primers in tuples where index0 = forward primer
+        and index1=reverse primer. Both are pydna.seq.Seq objects
+
+    list_of_amplicon_primer_temps : list[list[(float, float)]]
+        a list of melting temperatures in tuples where index0 = forward primer melting temp
+        and index1=reverse primer melting temp.
 
     """
     # Start by making an empty list
@@ -110,7 +147,6 @@ def simple_amplicon_maker(list_of_seqs: list, list_of_names: list):
     list_of_amplicon_primer_temps = [[] for i in range(len(list_of_seqs))]
 
     ### HERE WE CALCULATE Amplicons, primers, and their temperatures
-
     # Then we calculate the primers with the NEB calculator
     for i in range(0, len(list_of_seqs)):
         for j in range(0, len(list_of_seqs[i])):
@@ -143,12 +179,19 @@ def get_primers(
     combinatorial_list_of_names: list,
     combinatorial_list_of_primer_tm: list,
 ):
-    """Returns a list of ALL primers from the combinatorial library
+    """Returns a list of ALL primers from the combinatorial library, 
+    updates names and what they anneal to.
 
     Parameters
     ----------
+    List_of_assemblies : list[list[pydna.amplicon.Amplicon]]
+    combinatorial_list_of_names : list[(str)]
+    combinatorial_list_of_primer_tm : list[(float, float),..)...]
 
-
+    Returns
+    -------
+    primers : list[list[[pydna.primer.Primer, pydna.primer.Primer]]
+        All primers that have been made for all assemblies
     """
 
     primers_temporary = []
@@ -230,11 +273,22 @@ def get_primers(
     return primers
 
 
-def assembly_maker(combinatorial_list_of_amplicons: list):
-    """Assembles Amplicons with pad and makes new overlapping primers
-
+def assembly_maker(combinatorial_list_of_amplicons: list, overlap=35):
+    """Assembles Amplicons with pad and makes new overlapping primers.
     Parameters
     ----------
+    combinatorial_list_of_amplicons : list[[pydna.amplicon.Amplicon]]
+        the list of pydna.amplicon.Amplicon that you want generate
+        overlapping primers for. 
+    
+    overlap : int = 35
+        How many basepair overlaps 
+
+    Returns
+    -------
+    List_of_assemblies : list[[pydna.amplicon.Amplicon]]
+        amplicons that overlaps eachother with the specified overlap value.
+
 
     """
 
@@ -242,7 +296,7 @@ def assembly_maker(combinatorial_list_of_amplicons: list):
     for i in range(0, len(combinatorial_list_of_amplicons)):
         List_of_assemblies.append(
             assembly_fragments(
-                combinatorial_list_of_amplicons[i], overlap=35, maxlink=40
+                combinatorial_list_of_amplicons[i], overlap, maxlink=40
             )
         )
 
@@ -250,10 +304,19 @@ def assembly_maker(combinatorial_list_of_amplicons: list):
 
 
 def unique_primers(primers: list, list_of_assemblies):
-
     """Finds unique primers from a list of assemblies
     Parameters
     ----------
+    primers : list[list[[pydna.primer.Primer, pydna.primer.Primer]]
+        a list of all the primers made for the combinatorial library 
+
+    list_of_assemblies: list[[pydna.amplicon.Amplicon]]
+        used here to update the names of the primers 
+
+    Returns
+    -------
+    unique_primers : list[list(ID,Anneals_to,Sequence,Annealing_temp,Length,Price(DKK))]
+        Relevant metrics for the unique primers of the combinatorial library.
 
     """
 
@@ -282,11 +345,11 @@ def unique_primers(primers: list, list_of_assemblies):
         length_of_unique_primers += len(unikke_F_primers[i].seq)
         U_f_primers = [
             unikke_F_primers[i].id,
-            unikke_F_primers[i].name,
+            unikke_F_primers[i].name,               
             unikke_F_primers[i].seq,
-            unikke_F_primers[i].features,
-            len(unikke_F_primers[i].seq),
-            len(unikke_F_primers[i].seq) * 1.8,
+            unikke_F_primers[i].features,           # anealing temp
+            len(unikke_F_primers[i].seq),           # lenght
+            len(unikke_F_primers[i].seq) * 1.8,     # price 
         ]
         unique_forward_primers.append(U_f_primers)
 
@@ -300,7 +363,7 @@ def unique_primers(primers: list, list_of_assemblies):
             unikke_R_primers[i].seq,
             unikke_R_primers[i].features,
             len(unikke_R_primers[i].seq),
-            len(unikke_R_primers[i].seq) * 1.8,
+            len(unikke_R_primers[i].seq) * 1.8, #cost
         ]
         unique_reverse_primers.append(U_r_primers)
 
@@ -308,7 +371,7 @@ def unique_primers(primers: list, list_of_assemblies):
         unique_forward_primers + unique_reverse_primers
     )  # cOULD CONCATONATE THEM INTO: unique_forward_primers + unique_reverse_primers
 
-    ### Updating primer names and removing duplicates?
+    ### Updating primer names and removing duplicates
     for i in range(0, len(list_of_assemblies)):
         for j in range(0, len(list_of_assemblies[i])):
             for l in range(0, len(unikke_F_primers)):
@@ -332,6 +395,14 @@ def unique_amplicons(list_of_assemblies: list):
     """Finds Unique amplicons from a list of assemblies
     Parameters
     ----------
+    list_of_assemblies: list[[pydna.amplicon.Amplicon]]
+        list of the combinatorial libarary with overlapping ends 
+
+    Returns
+    -------
+        unique_amplicons: list[pydna.amplicon.Amplicon]
+            returns a list of unique amplicons where relavant metrics
+            are added to the objects.
     """
     ### Unique amplicons
     unique_amplicons = []
@@ -344,14 +415,19 @@ def unique_amplicons(list_of_assemblies: list):
 
 
 def making_assembly_objects(list_of_assemblies: list):
-    """
-    Assembling amplicons into assembling class that shows fragments, limit,
-    nodes and which algorithm that was used for assembling.
-
+    """Assembling amplicons into assembling class that shows 
+    fragments, limit,nodes and which algorithm that was used
+    for assembling.
 
     Parameters
     ----------
+    list_of_assemblies: list[[pydna.amplicon.Amplicon]]
+        list of the combinatorial libarary with overlapping ends 
 
+    Returns
+    -------
+        list_of_assembly_objects: list[pydna.assembly.Assembly]
+            shows which algorithm that was used, nodes, limit and fragments
 
     """
     list_of_assembly_objects = []
@@ -362,14 +438,18 @@ def making_assembly_objects(list_of_assemblies: list):
 
 
 def making_assembled_contigs(list_of_assembly_objects: list):
-    """Assembles a list of assembly object into contigs
+    """Assembles a list of assembly object into
+    linear contigs.
 
-    Input:
-    :param list of assembly objects
+    Parameters
     ----------
+    list_of_assembly_objects : list[pydna.assembly.Assembly]
+        these objects can be assembled into contigs
 
-    Returns:
-    list of contigs
+    Returns
+    -------
+    list_of_assembly_objects : list[]
+        list_of_assembly_objects have been assembled into contigs    
     """
     contigs_assembled = []
     for j in range(0, len(list_of_assembly_objects)):
@@ -384,6 +464,8 @@ class DesignAssembly:
     Parameters
     ----------
 
+    Returns
+    -------
 
     Input:
     :param list_of_seqs: A list of list of a construct of choice.
@@ -578,7 +660,8 @@ class DesignAssembly:
 
     def graphical_representation_of_assemblies(self):
         """
-        Takes in the assembly object and returns graphical report of the fragments assembled
+        Takes in the assembly object and returns graphical report of the 
+        fragments assembled
         """
         graphical_representation = [
             self.assembly_object[x].assemble_linear()[0].figure()

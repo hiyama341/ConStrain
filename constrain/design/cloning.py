@@ -43,25 +43,22 @@ from pydna.assembly import Assembly
 
 def CAS9_cutting(gRNA_record, background_record):
 
-    """Simulates cutting by CAS9 given a gRNA.
+    """Simulates double-stranded-break by CAS9 given a gRNA.
 
     Parameters
     ----------
-    gRNA_sequence: pydna.dseqrecord
-
-    background_record: pydna.dseqrecord (pydna.assembly)
-
-    up_surrounding: int (number of bp)
-
-    dw_surrounding: int (number of bp)
+    gRNA_record: pydna.dseqrecord.
+        A 20 bp DNA sequence
+    background_record: pydna.dseqrecord.
+        The sequence of interest for CRISPR mediated DSB
 
     Returns
     -------
+    1.pydna.dseqrecord.
+        Sequence upstream of the DSB: pydna.dseqrecord.
+    2. pydna.dseqrecord.
+        Sequence downstream of the DSB: pydna.dseqrecord.
 
-    Two dseqrecords
-
-    Examples
-    --------
     """
     gRNA_sequence = gRNA_record.seq.watson.upper()
 
@@ -116,9 +113,28 @@ def CAS9_cutting(gRNA_record, background_record):
     return (up, dw)
 
 
-def CRIPSIR_knockout(gRNA_record, insertion_site, repair_DNA):
+def CRIPSR_knockout(gRNA_record, insertion_site, repair_DNA):
 
-    """Cuts the insertion site with CAS9_cutting and assebmle knockout"""
+    """Cuts the insertion site with CAS9_cutting and 
+    assebmles knockout with a repair template.
+    
+    Parameters
+    ----------
+    gRNA_record: pydna.dseqrecord.
+        A 20 bp DNA sequence
+
+    insertion_site: pydna.dseqrecord.
+        The site to knock out
+
+    repair_DNA: pydna.dseqrecord.
+        Repair template. Typucally 90 bp or longer
+
+    Returns
+    -------
+    pydna.dseqrecord.
+        Of assembled contig after CRISPR-mediated KO
+
+"""
     # Create fragments after CAS9 cut
     IS_UP, IS_DW = CAS9_cutting(gRNA_record, insertion_site)
 
@@ -130,7 +146,22 @@ def CRIPSIR_knockout(gRNA_record, insertion_site, repair_DNA):
 
 
 def extract_gRNAs(template, name):
-    """Extracts gRNAs from a template"""
+    """Extracts gRNAs from a template.
+
+    Parameters
+    ----------
+    template: pydna.dseqrecord or pydna.amplicon.Amplicon
+        a plasmid or piece of DNA
+
+    name: str
+        a string that would include the feature name for example: gRNA
+
+    Returns
+    -------
+    list of pydna.dseqrecord or pydna.amplicon.Amplicon
+        list of with the found features and their sequences
+    
+    """
     gRNAs = []
     for feature in template.features:
         if name in feature.qualifiers.get("name", ""):
@@ -143,23 +174,47 @@ def extract_gRNAs(template, name):
 
 
 def remove_features_with_negative_loc(record):
-    """Removes a features if it is negative"""
+    """Removes a SeqFeatures if negative.
+    
+    Parameters
+    ----------
+    record: pydna.amplicon.Amplicon.
+        A amplicon with SeqFeature and locations
+
+    Returns
+    -------
+    record: pydna.amplicon.Amplicon.
+        With the negative features deleted
+
+    """
+
     for i in range(len(record.features)):
         if record.features[i].location.start < 0 or record.features[i].location.end < 0:
             del record.features[i]
 
 
-""" ### the old function for removing negative features
-def remove_features_with_negative_loc1(record):
-    for i, feature in enumerate(record.features):
-        if feature.location.start < 0 or feature.location.start < 0:
-            del record.features[i]
-            print(feature.qualifiers.get("label","") + " deleted")
- """
-
-
 def extract_template_amplification_sites(templates, names, terminator):
-    """Extracts amplifications sites from a templates features"""
+    """Extracts amplifications sites from a templates features
+    
+        
+    Parameters
+    ----------
+    templates: list of Bio.SeqRecord.SeqRecord
+        list of Bio.SeqRecord.SeqRecord objects with SeqFeatures
+
+    names: list of strings
+        list of strings to be extracted  
+    
+    terminator: str
+        a string with the name of upstream terminator
+        
+
+    Returns
+    -------
+    record: list of Bio.SeqRecord.SeqRecord
+        list of extracted elements 
+    
+    """
     template_amplification_sites = []
     for name, template in zip(names, templates):
         for feature in template.features:
@@ -198,7 +253,25 @@ def extract_template_amplification_sites(templates, names, terminator):
 
 
 def extract_sites(annotations, templates, names):
-    """This function extracts the sequences from annotated sequences based on their names"""
+    """This function extracts the sequences from annotated sequences based 
+    on their names
+    
+    Parameters
+    ----------
+    annotations: str
+        annotation sequence that will be extracted
+
+    templates: list of Bio.SeqRecord.SeqRecord
+        A list of Bio.SeqRecord.SeqRecord with SeqFeatures
+  
+    names: str
+        name of the sequence that will be extracted
+
+    Returns
+    -------
+    record: list of Bio.SeqRecord.SeqRecord
+        list of extracted sites 
+    """
 
     sites = []
     for anno, template, name in zip(annotations, templates, names):
@@ -219,7 +292,24 @@ def extract_sites(annotations, templates, names):
 
 
 def seq_to_annotation(seqrec_from, seqrec_onto, aType):
-    """Anotate an amplicon object from another amplicon object"""
+    """Anotate an amplicon object from another amplicon object.
+
+    Parameters
+    ----------
+    seqrec_from: str
+        annotation sequence that will be extracted
+
+    seqrec_onto: list of Bio.SeqRecord.SeqRecord
+        A list of Bio.SeqRecord.SeqRecord with SeqFeatures
+  
+    aType: str
+        name of the sequence that will be extracted
+
+    Returns
+    -------
+    record: list of Bio.SeqRecord.SeqRecord
+        list of extracted sites 
+    """
 
     seq_from = seqrec_from.seq.watson.upper()
     seq_onto = seqrec_onto.seq.watson.upper()
@@ -261,11 +351,17 @@ def seq_to_annotation(seqrec_from, seqrec_onto, aType):
 
 
 def USER_enzyme(amplicon):
-    """
-    This function simulates digestion with USER enzyme.
-    ____________
-    Input pydna.amplicon.Amplicon
-    Return Dseqrecord trimmed according to pcr primers
+    """ Simulates digestion with USER enzyme.
+
+    Parameters
+    ----------
+    amplicon: pydna.amplicon.Amplicon
+        An pydna.amplicon.Amplicon to with Uracil integrated
+
+    Returns
+    -------
+    Dseqrecord 
+        USER digested Dseqrecord with USER tails
     """
     fw_U_idx = amplicon.forward_primer.seq.find("U")
     # fw_U_idx
@@ -303,22 +399,34 @@ def casembler(
 
     Parameters
     ----------
-    bg_strain
-    site_names      list of names                      e.g. [X-3, XI-3]
-    gRNAs           list of 20 bp seqrecords           e.g. [ATF1_gRNA, CroCPR_gRNA]
-    parts           list of list of parts              e.g. [[ATF1_repair_template],[CPR_repair_template]]
-    assembly_limits list of numbers of bp              e.g. [200,400]
-    assembly_names  list of names of DNA post assembly e.g. ["X_3_tADH1_P2_pPGK1", "XI_3_UP_DW"]
-    verbose         write DNA                          e.g. False
-    to_benchling    upload DNA                         e.g. False
+    bg_strain: 
+        strain of choice eg. genbank file
+
+    site_names:
+          list of names e.g. [X-3, XI-3]
+
+    gRNAs: Seqrecords           
+        list of 20 bp seqrecords e.g. [ATF1_gRNA, CroCPR_gRNA]
+
+    parts: list           
+        list of list of parts e.g. [[ATF1_repair_template],[CPR_repair_template]]
+
+    assembly_limits: list
+        list of numbers of bp assembly limits e.g. [200,400]
+
+    assembly_names: list
+        list of names of DNA post assembly e.g.["X_3_tADH1_P2_pPGK1", "XI_3_UP_DW"]
+
+    verbose: bool        
+        write DNA e.g. False
+
+    to_benchling: bool
+        upload DNA to benchling e.g. False
 
     Returns
     -------
-
     One dseqrecord
-
-    Examples
-    --------
+        of assembled contig
     """
 
     # fix mutable default arguments
@@ -472,9 +580,23 @@ def casembler2(
 
 def UPandDW(strain, isite_name):
     """
-    Finds Up and downstream sequences from CRISPR mediated DB break.
-    Input: strain and grna
-    Returns: UP and DW seqrecord
+
+    Parameters
+    ----------
+    strain: str
+        name of the strain eg. CENPK113-7d 
+        (you should specify path to the chromosome)
+
+    isite_name: str
+        a string of the site chomosomal site you want to retrieve
+
+    Returns
+    -------
+    UP_sites:
+    
+    DW_sites
+    list of pydna.dseqrecord or pydna.amplicon.Amplicon
+        list of with the found features and their sequences
     """
 
     # load lookup table
@@ -538,20 +660,54 @@ def UPandDW(strain, isite_name):
 
 
 def multiplyList(myList):
-    """Multiplies elements one by one"""
+    """Multiplies elements one by one.
+
+    Parameters
+    ----------
+    myList: list
+        list of integers to be multiplied
+
+    Returns
+    -------
+    int
+
+    """
     result = 1
     for x in myList:
         result = result * x
     return result
 
 
-def removeTupleDuplicates(lst):
-    """Removes tuple duplicates"""
+def removeTupleDuplicates(lst:list)-> list:
+    """Removes tuple duplicates
+
+    Parameters
+    ----------
+    lst: list
+        list with duplicated elements   
+
+    Returns
+    -------
+    list
+        without duplicates  
+    """
     return [t for t in (set(tuple(i) for i in lst))]
 
 
-def recs_no_duplicates(recs_with_duplicates):
-    """Removes duplicates from a list"""
+def recs_no_duplicates(recs_with_duplicates:list)-> list:
+    """Removes duplicates from a list.
+
+    Parameters
+    ----------
+    recs_with_duplicates: list
+        list with duplicated elements   
+
+    Returns
+    -------
+    list
+        without duplicates  
+    
+    """
     seen_sequences = set()
     recs_no_dup = []
     for rec in recs_with_duplicates:
@@ -562,7 +718,50 @@ def recs_no_duplicates(recs_with_duplicates):
 
 
 def plate_plot(df, value):
-    """Plots a 96 well plate as a pandas df"""
+    """Plots a 96 well plate as a pandas df.
+
+    Parameters
+    ----------
+    df: pd.Dataframe
+        A pandas dataframe with
+
+    value: pandas dataframe column name
+        The name of the pandas dataframe coloumn that you want to display
+    Returns
+    -------
+    pd.Dataframe
+        in a 96 well plate format of the chosen column
+    
+    Example
+    -------
+
+    1. Initialize: 
+    Amplicon_df = {
+        name	location	template_name	fw_name	fw_location	rv_name	rv_location	prow	pcol
+    29	PCR_G8H_01	l5_A03	VminG8H_tADH1	PR_G8H_01	op4_A10	PR_G8H_02	op4_A01	A	1
+    25	PCR_G8H_05	l5_A07	SmusG8H_tADH1	PR_G8H_01	op4_A10	PR_G8H_06	op4_A02	A	2
+    21	PCR_G8H_09	l5_B02	RsepG8H_tADH1	PR_G8H_01	op4_A10	PR_G8H_10	op4_A03	A	3
+    17	PCR_G8H_13	l5_B06	CacuG8H_tADH1	PR_G8H_01	op4_A10	PR_G8H_14	op4_A04	A	4
+    13	PCR_G8H_17	l5_C01	OpumG8H_tADH1	PR_G8H_01	op4_A10	PR_G8H_18	op4_A05	A	5
+    }
+
+    2. Call the function:  # here we call the name coloumn
+    plate_plot(amplicon_df, 'name')
+    
+    <<Result: 
+    name
+    pcol	1	2	3	4	5	6	7	8	9	10	11	12
+    prow												
+    A	PCR_G8H_01	PCR_G8H_05	PCR_G8H_09	PCR_G8H_13	PCR_G8H_17	PCR_G8H_21	PCR_G8H_25	PCR_G8H_29	PCR_G8H_33	PCR_UP_tADH1_01	PCR_PRO_01	NaN1
+    B	PCR_G8H_02	PCR_G8H_06	PCR_G8H_10	PCR_G8H_14	PCR_G8H_18	PCR_G8H_22	PCR_G8H_26	PCR_G8H_30	PCR_G8H_34	PCR_TRP1-DW_02	PCR_PRO_02	NaN2
+    C	PCR_G8H_03	PCR_G8H_07	PCR_G8H_11	PCR_G8H_15	PCR_G8H_19	PCR_G8H_23	PCR_G8H_27	PCR_G8H_31	PCR_G8H_35	PCR_TRP1-DW_01	PCR_PRO_03	NaN3
+    D	PCR_G8H_04	PCR_G8H_08	PCR_G8H_12	PCR_G8H_16	PCR_G8H_20	PCR_G8H_24	PCR_G8H_28	PCR_G8H_32	PCR_G8H_36	NaN4	PCR_PRO_04	NaN5
+    E	PCR_CPR_01	PCR_CPR_10	PCR_CPR_03	PCR_CPR_09	PCR_CPR_02	PCR_CPR_06	PCR_CPR_07	PCR_CPR_08	PCR_CPR_04	PCR_CPR_05	PCR_PRO_05	NaN6
+    F	PCR_CPR_11	PCR_CPR_20	PCR_CPR_13	PCR_CPR_19	PCR_CPR_12	PCR_CPR_16	PCR_CPR_17	PCR_CPR_18	PCR_CPR_14	PCR_CPR_15	PCR_PRO_06	NaN7
+    G	PCR_CPR_21	PCR_CPR_30	PCR_CPR_23	PCR_CPR_29	PCR_CPR_22	PCR_CPR_26	PCR_CPR_27	PCR_CPR_28	PCR_CPR_24	PCR_CPR_25	PCR_PRO_07	NaN8
+    H	PCR_CPR_31	PCR_CPR_40	PCR_CPR_33	PCR_CPR_39	PCR_CPR_32	PCR_CPR_36	PCR_CPR_37	PCR_CPR_38	PCR_CPR_34	PCR_CPR_35	PCR_PRO_08	NaN9
+    
+    """
 
     cols = [value, "prow", "pcol"]
     return df[cols].set_index(["prow", "pcol"]).unstack(level=-1)
