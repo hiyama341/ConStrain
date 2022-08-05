@@ -20,7 +20,6 @@ from benchlingapi import Session
 import pandas as pd
 import datetime
 import Bio
-from Bio import Seqrecord
 from Bio.SeqFeature import SeqFeature
 import pydna
 
