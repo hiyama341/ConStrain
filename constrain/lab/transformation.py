@@ -40,11 +40,19 @@ def ng_to_nmol(ng: float, bp: float):
 
     """Calculates nanogrom to nanomol for transformation mixes.
 
-    To do a transformation it is important to have the right ratio of plasmid to insert.
-    In other words this is done by calculating the nanomolar ratios and this tool can do that
+    To do a transformation it is important to have the right ratio
+    of plasmid to insert. In other words this is done by calculating
+    the nanomolar ratios and this tool can do that
+
+
+    Parameters
+    ----------
 
     parm: ng        eg. nanogram
     param: bp       eg. basepairs
+
+    Returns
+    -------
 
     nmol = ng/(bp*650)
     """
@@ -56,9 +64,15 @@ def ng_to_nmol(ng: float, bp: float):
 
 def ODtime(initialOD: float, time: float, td: float = 0.5):
     """Calculates the OD based on doupling time.
+    Parameters
+    ----------
     - initialOD in OD
     - time in hours
     - doupling time : td in h^-1
+
+    Returns
+    -------
+
     """
     if initialOD >= 0 and time >= 0:
         return round(initialOD * 2 ** (time * td), 3)
@@ -70,19 +84,24 @@ def time_to_inculate(
     initialOD=0.0025, td=0.4, verbose=False, transformation_time: int = 12
 ):
 
-    """Calculates when a starter culture is ready to be inoculated with a transformation mixture.
+    """Calculates when a starter culture is ready to be inoculated
+     with a transformation mixture.
 
-    Input:
-
+    Parameters
+    ----------
     param: initialOD in OD
     param: td is doubling time
     param: transformations time is given as the time you want to transform
     param: verbose : Provides extra information
 
 
-    Returns:
+    Returns
+    -------
     A plot of cell growth at different td
-    Note: This is used to calculate when the cells should be used for transformation
+
+    Note
+    ----
+    This is used to calculate when the cells should be used for transformation
 
     Examples
     --------
@@ -162,6 +181,12 @@ def transformation_mix(
 
     """This function makes a pandas dataframe of the parts(their location)
      that needs to be put into the transformation mixes
+
+    Parameters
+    ----------
+
+    Returns
+    -------
 
     Examples
     --------
@@ -244,6 +269,14 @@ def transformation_mix(
 
 def wanted_mass(wanted_moles, size):
     """
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
+
     wanted moles in nmol,
     size in bp
 
@@ -258,6 +291,14 @@ def wanted_mass(wanted_moles, size):
 
 def wanted_volume(wanted_mass, actual_concentration):
     """
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
+
     wanted mass in ng
     actual_concentration in ng/ul
     return in ul

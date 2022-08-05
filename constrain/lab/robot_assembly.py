@@ -35,7 +35,17 @@ This part of the lab module is used for robot instructions - primarily for Flowb
 
 
 class LiquidHandler(lab.picklist.Transfer.Transfer):
-    """This class is is a subclass of the synbiopython Transfer class and be used to make flowbot instructions"""
+    """This class is is a subclass of the synbiopython Transfer
+    class and be used to make flowbot instructions
+
+
+    Parameters
+    ----------
+
+
+    Returns
+    -------
+    """
 
     def __init__(self) -> None:
         super().__init__()
@@ -61,6 +71,13 @@ def well_keys_96(row=True):
     """
     If true it generates keys for a 96 well plate by row.
     else it does it by column
+
+    Parameters
+    ----------
+
+
+    Returns
+    -------
     """
     key_list = "ABCDEFGH"
 
@@ -86,8 +103,17 @@ def make_virtual_plates_fromDF(
     f_primers: list, r_primers: list, templates: list, Dataframe_with_PCR_contents
 ):
     """
-    This function can make virtual plates from lists of primers and templates.
-    The Pandas DataFrame is used to calculate how much pcr and h2o is needed for the reactions.
+    This function can make virtual plates from lists of primers
+    and templates.The Pandas DataFrame is used to calculate how
+    much pcr and h2o is needed for the reactions.
+
+    Parameters
+    ----------
+
+
+    Returns
+    -------
+
     """
 
     # initializing
@@ -122,7 +148,8 @@ def picklist_from_plates(
     ----------
 
     Returns
-    -------"""
+    -------
+    """
 
     FORWARD_PRIMERS = F_primer_plate.to_pandas_dataframe()
     REVERSE_PRIMERS = R_primer_plate.to_pandas_dataframe()

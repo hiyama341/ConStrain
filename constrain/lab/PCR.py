@@ -42,7 +42,16 @@ import requests
 
 
 def primer_tm_neb(primer):
-    """Calculates a single primers melting temp"""
+    """Calculates a single primers melting temp
+
+    Parameters
+    ----------
+
+
+    Returns
+    -------
+
+    """
 
     url = "https://tmapi.neb.com/tm/batch"
     seqpairs = [[primer]]
@@ -62,7 +71,16 @@ def primer_tm_neb(primer):
 
 
 def primer_ta_neb(primer1, primer2):
-    """Calculates primer pair melting temp"""
+    """Calculates primer pair melting temp
+
+    Parameters
+    ----------
+
+
+    Returns
+    -------
+
+    """
 
     url = "https://tmapi.neb.com/tm/batch"
     seqpairs = [[primer1, primer2]]
@@ -101,13 +119,19 @@ def pcr_volumes(
     vol_p_reac=0, no_of_reactions=1, standard_reagents=[], standard_volumes=[]
 ):
     """Can make a reaction scheme for PCR master mixes.
+    Parameters
+    ----------
 
 
-     Examples
-     --------
+    Returns
+    -------
 
-     If this is used as input:
-     ------------------------
+
+    Examples
+    --------
+
+    If this is used as input:
+    ------------------------
     pcr_volumes(vol_p_reac = 10,
                 no_of_reactions = 6,
                 standard_reagents = ["DNA","Buffer, Cutsmart","H20","Enz, USER"],
@@ -148,7 +172,15 @@ def pcr_volumes(
 
 def det_proc_speed(amplicon):
     """
-    This function determines process speed based on the which polymerase is used
+    This function determines process speed based on the which polymerase is used.
+
+
+    Parameters
+    ----------
+
+
+    Returns
+    -------
     """
 
     if "proc_speed" in amplicon.forward_primer.annotations:
@@ -192,7 +224,17 @@ def takeThird(elem):
 def det_no_of_thermal_cyclers(amplicons, polymerase, elong_time_max_diff=15):
 
     """Determines the number of thermalcyclers that is needed
-    based on elongation time differences"""
+    based on elongation time differences
+
+
+    Parameters
+    ----------
+
+
+    Returns
+    -------
+
+    """
 
     amp_names = [amplicon.name for amplicon in amplicons]
     elong_times = [amplicon.annotations["elongation_time"] for amplicon in amplicons]
@@ -309,7 +351,15 @@ def pcr_locations(amplicons: list):
 def nanophotometer_concentrations(path: pathlib.PosixPath):
 
     """This function reads a CSV file with nanophotometer concentraions
-    and returns the concentrations in a list"""
+    and returns the concentrations in a list
+
+    Parameters
+    ----------
+
+
+    Returns
+    -------
+    """
     concentrations = []
     with open(path, encoding="Latin1") as tsvfile:
         reader = csv.reader(tsvfile, delimiter="\t")
@@ -323,7 +373,15 @@ def nanophotometer_concentrations(path: pathlib.PosixPath):
 
 def simple_PCR_program(amplicon):
 
-    """Simple PCR program designed to give a quick visual representations"""
+    """Simple PCR program designed to give a quick visual representations
+
+    Parameters
+    ----------
+
+
+    Returns
+    -------
+    """
     amplicon = det_elon_time(amplicon)
     amplicon = det_proc_speed(amplicon)
 

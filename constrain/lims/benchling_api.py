@@ -62,7 +62,11 @@ def sequence_to_benchling(folder_name, oligo_name, oligo_bases, schema):
 
     """This function uploads sequences to benchlong
 
-    NOTE: currently not working correctly
+    Parameters
+    ----------
+
+    Returns
+    -------
 
     """
 
@@ -95,7 +99,15 @@ def sequence_to_benchling(folder_name, oligo_name, oligo_bases, schema):
 
 def from_benchling(bname, schema=""):
 
-    """Extract information of object on benchling."""
+    """Extract information of object on benchling.
+
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+    """
     # retrieve benchling sequence dict
     bench_dict = session.DNASequence.find_by_name(bname).dump()
 
@@ -183,10 +195,17 @@ def from_benchling(bname, schema=""):
 
 
 def update_loc_vol_conc(seqRecord):
-    """
+    """Update with location volume and concentration
+    information downloaded from benchling if possible.
+
+
+    Parameters
+    ----------
+
+    Returns
+    -------
     take Bio.SeqRecord.SeqRecord
 
-    update with location volume and concentration information downloaded from benchling if possible
     """
 
     DBpath = "../data/external/benchlingBoxes_sorted.csv"
@@ -212,6 +231,14 @@ def update_loc_vol_conc(seqRecord):
 
 
 def unnest_dict(dictionary, key_unnest_dict):
+    """
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+    """
 
     nested_dict = dictionary.pop(key_unnest_dict)
 
@@ -224,7 +251,14 @@ def unnest_dict(dictionary, key_unnest_dict):
 
 
 def nest_dict(dictionary, key_for_nested_dict, first_order_keys=None):
+    """
 
+    Parameters
+    ----------
+
+    Returns
+    -------
+    """
     if first_order_keys is None:
         first_order_keys = []
     else:
@@ -245,7 +279,16 @@ def nest_dict(dictionary, key_for_nested_dict, first_order_keys=None):
 
 
 def SE_to_CLoc(dictionary, length):
-    """Start and End Key Value pair to Compound Location Key Value pair"""
+    """Start and End Key Value pair to Compound Location Key Value pair.
+
+
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+    """
     start = dictionary.pop("start")
     end = dictionary.pop("end")
     start_pos = Bio.SeqFeature.ExactPosition(start)
@@ -275,7 +318,15 @@ def split_based_on_keys(dictionary, key_list):
 
 
 def rename_dict_keys(dictionary, trans_dictionary):
-    """rename the keys of a dictionary using another dictionary"""
+    """rename the keys of a dictionary using another dictionary
+
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+    """
 
     keys = dictionary.keys()
     values = dictionary.values()
@@ -285,7 +336,17 @@ def rename_dict_keys(dictionary, trans_dictionary):
 
 
 def Compoundloc_to_SE(dictionary):
-    """location : CompoundLocation to start : v , end : v, strand : v key value pairs"""
+    """location :
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
+     CompoundLocation to start : v ,
+     end : v
+     strand : v key value pairs"""
 
     Compoundloc = dictionary.pop("location")
 
