@@ -117,7 +117,7 @@ def empty_list_maker(list_of_sequences: list):
 
 def simple_amplicon_maker(list_of_seqs: list, list_of_names: list):
     """Creates amplicons, updates their names
-    
+
     Parameters
     ----------
     list_of_seqs : list[list[pydna.dseqrecord.Dseqrecord]]
