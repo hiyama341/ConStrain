@@ -8,13 +8,10 @@ from Bio import SeqIO
 # Importing the module we are  testing
 from constrain.test.genotyping import *
 
-
-# Importing a Plate2Seq csv file
 sequencing_plates = pd.read_csv('../ConStrain/tests/files_for_testing/Plate2Seq.csv',index_col=False)
-# getting rid of first row
-df = [sequencing_plates.iloc[: , 1:]]
+df = [sequencing_plates]
 
-# Plate2SeqFunctions
+#Plate2SeqFunctions
 sliced = slicing_and_naming_seq_plates(df)
 list_of_dfs = plat_seq_data_wrangler(sliced)
 filtered_plates = plate_AvgQual(list_of_dfs)
@@ -53,7 +50,6 @@ def test_concatenating_list_of_dfs():
     assert len(all_data_frames.columns) == 9
 
 def test_pairwise_alignment_of_templates():
-
 
     # templates
     small_prom = []
