@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # MIT License
 # Copyright (c) 2022, Technical University of Denmark (DTU)
 #
@@ -12,8 +13,7 @@
 # copies or substantial portions of the Software.
 
 
-#!/usr/bin/env python
-""" This part of the design module is used for USER cloning"""
+""" This part of the design module is used for cloning of microbial strains"""
 """
 -----
 HELPER FUNCTIONS: 
@@ -578,24 +578,25 @@ def casembler2(
 
 
 def UPandDW(strain, isite_name):
-    """
+    """Finds upstream and downstream sequences based on genome and site name. 
 
     Parameters
     ----------
-    strain: str
+    strain : str
         name of the strain eg. CENPK113-7d
         (you should specify path to the chromosome)
 
-    isite_name: str
+    isite_name : str
         a string of the site chomosomal site you want to retrieve
 
     Returns
     -------
-    UP_sites:
+    UP_sites : list
+        list of pydna.dseqrecord or pydna.amplicon.Amplicon
 
-    DW_sites
-    list of pydna.dseqrecord or pydna.amplicon.Amplicon
-        list of with the found features and their sequences
+    DW_sites : list
+        list of pydna.dseqrecord or pydna.amplicon.Amplicon
+
     """
 
     # load lookup table
@@ -658,7 +659,7 @@ def UPandDW(strain, isite_name):
     return ([UPrec], [DWrec])
 
 
-def multiplyList(myList):
+def multiply_list(myList):
     """Multiplies elements one by one.
 
     Parameters
@@ -668,7 +669,7 @@ def multiplyList(myList):
 
     Returns
     -------
-    int
+    result : int
 
     """
     result = 1
@@ -677,7 +678,7 @@ def multiplyList(myList):
     return result
 
 
-def removeTupleDuplicates(lst: list) -> list:
+def remove_tuple_duplicates(lst: list) -> list:
     """Removes tuple duplicates
 
     Parameters
@@ -694,7 +695,7 @@ def removeTupleDuplicates(lst: list) -> list:
 
 
 def recs_no_duplicates(recs_with_duplicates: list) -> list:
-    """Removes duplicates from a list.
+    """Removes duplicate sequences from a list.
 
     Parameters
     ----------
@@ -713,6 +714,29 @@ def recs_no_duplicates(recs_with_duplicates: list) -> list:
         if rec.seq.watson not in seen_sequences:
             recs_no_dup.append(rec)
             seen_sequences.add(rec.seq.watson)
+    return recs_no_dup
+
+def recs_no_duplicates_names(recs_with_duplicates):
+    '''Removes duplicate names from a list
+
+    Parameters
+    ----------
+    recs_with_duplicates: list
+        list with duplicated elements
+
+    Returns
+    -------
+    list
+        without duplicates
+    
+    
+     '''
+    seen_names = set()
+    recs_no_dup = []
+    for rec in recs_with_duplicates:
+        if rec.name not in seen_names:
+            recs_no_dup.append(rec)
+            seen_names.add(rec.name)
     return recs_no_dup
 
 
