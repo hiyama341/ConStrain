@@ -35,7 +35,7 @@ This part of the lab module is used for robot instructions - primarily for Flowb
 
 
 class LiquidHandler(lab.picklist.Transfer.Transfer):
-    """This class is is a subclass of the synbiopython Transfer
+    """This class is a subclass of the synbiopython Transfer
     class and be used to make flowbot instructions
 
 
@@ -239,7 +239,6 @@ class RobotAssembly:
     ):
 
         ###  1.INITIALIZING ##
-        ######################## Assembly from plates ############################
         if (
             Pandas_dataframe_PCR is not None
             and F_primers is not None
@@ -277,8 +276,6 @@ class RobotAssembly:
         else:
             print("Remember to put in all the neccesarry components")
 
-    ##########################################################
-    ###################  CLASS METHODS  ######################
 
     def PlatesToExcelFile(self):
         """Returns an excel file of the plate setup that needs to be made before the flowbot can operate"""
@@ -316,7 +313,7 @@ class RobotAssembly:
         )
 
     def FlowbotInstructionsToCSV(self):
-        """Function that prints flowbot instructions to csv format"""
+        """Prints flowbot instructions to csv format"""
 
         with open("Flowbot_instructions.csv", "w") as outfile:
 
