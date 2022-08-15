@@ -170,7 +170,7 @@ def update_database(dataframe, which_database:str, path = '../data/csv_database/
     dataframe.to_csv(path+which_database+'.csv', index=False,)
 
 
-def get_dna_from_plate_name(name:str, database_name:str)-> SeqRecord:
+def get_dna_from_plate_name(name:str, database_name:str,  database_path = '../data/csv_database/')-> SeqRecord:
     ''' fetch dna based on the name from the database of choice. 
     
     Parameters
@@ -187,7 +187,7 @@ def get_dna_from_plate_name(name:str, database_name:str)-> SeqRecord:
     '''
     
     # initialize
-    path = '../data/csv_database/'+database_name+'.csv'
+    path = database_path+database_name+'.csv'
     dataframe = pd.read_csv(path)
     
     #find index of occurences of name in the dataframe and reset index
@@ -210,7 +210,7 @@ def get_dna_from_plate_name(name:str, database_name:str)-> SeqRecord:
 
 
 
-def get_dna_from_box_name(name:str, database_name:str)-> SeqRecord:
+def get_dna_from_box_name(name:str, database_name:str, database_path = '../data/csv_database/')-> SeqRecord:
     ''' fetch dna based on the name from the database of choice. 
     
     Parameters
@@ -227,7 +227,7 @@ def get_dna_from_box_name(name:str, database_name:str)-> SeqRecord:
     '''
     
     # initialize
-    path = '../data/csv_database/'+database_name+'.csv'
+    path = database_path+database_name+'.csv'
     dataframe = pd.read_csv(path)
     
     #find index of occurences of name in the dataframe and reset index
