@@ -15,14 +15,15 @@
 """
 HELPER FUNCTIONS:
 -----------------
+primer_tm_neb
+primer_ta_neb
+grouper
 pcr_volumes (formerly known as volumes)
 det_proc_speed
 det_elon_time
 PCR_program
 det_no_of_thermal_cyclers
-pcr_locations1
-transf_locations1
-
+pcr_locations
 """
 
 #!/usr/bin/env python
