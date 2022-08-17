@@ -349,9 +349,11 @@ def pcr_locations(amplicons: list):
     return df_pcr
 
 
-def nanophotometer_concentrations(path: pathlib.PosixPath):
+def nanophotometer_concentrations(
+    path="../data/raw/005_Nanophotometer/2021-03-29_G8H_CPR_library_part_concentrations.csv",
+):
 
-    """This function reads a CSV file with nanophotometer concentraions
+    """Reads a CSV file with nanophotometer concentraions
     and returns the concentrations in a list
 
     Parameters
@@ -372,7 +374,8 @@ def nanophotometer_concentrations(path: pathlib.PosixPath):
     return concentrations
 
 
-def amplicon_by_name(name, amplicons_lst):
+def amplicon_by_name(name: str, amplicons_lst: list):
+    """Returns amplicon with specified name"""
     for amplicon in amplicons_lst:
         if amplicon.name == name:
             return amplicon
@@ -384,10 +387,13 @@ def simple_PCR_program(amplicon):
 
     Parameters
     ----------
-
+    amplicon : pydna.amplicon
+        pydna amplicon object
 
     Returns
     -------
+    str
+        schematic representation of a Q5 program
     """
     amplicon = det_elon_time(amplicon)
     amplicon = det_proc_speed(amplicon)

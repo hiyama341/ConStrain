@@ -276,7 +276,6 @@ class RobotAssembly:
         else:
             print("Remember to put in all the neccesarry components")
 
-
     def PlatesToExcelFile(self):
         """Returns an excel file of the plate setup that needs to be made before the flowbot can operate"""
         df1 = self.source_plateF_primers.to_pandas_dataframe()

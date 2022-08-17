@@ -578,7 +578,7 @@ def casembler2(
 
 
 def UPandDW(strain, isite_name):
-    """Finds upstream and downstream sequences based on genome and site name. 
+    """Finds upstream and downstream sequences based on genome and site name.
 
     Parameters
     ----------
@@ -716,8 +716,9 @@ def recs_no_duplicates(recs_with_duplicates: list) -> list:
             seen_sequences.add(rec.seq.watson)
     return recs_no_dup
 
+
 def recs_no_duplicates_names(recs_with_duplicates):
-    '''Removes duplicate names from a list
+    """Removes duplicate names from a list
 
     Parameters
     ----------
@@ -728,9 +729,9 @@ def recs_no_duplicates_names(recs_with_duplicates):
     -------
     list
         without duplicates
-    
-    
-     '''
+
+
+    """
     seen_names = set()
     recs_no_dup = []
     for rec in recs_with_duplicates:
