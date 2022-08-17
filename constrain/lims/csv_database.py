@@ -112,7 +112,7 @@ def add_sequences_to_dataframe(list_of_DNA: list, csv_database_as_df, index=0) -
         csv_database_as_df.loc[blank_row_index, "reference"] = ds_dna.annotations[
             "reference"
         ]
-        csv_database_as_df.loc[blank_row_index, "stock"] = ds_dna.annotations["stock"]
+        csv_database_as_df.loc[blank_row_index, "volume"] = ds_dna.annotations["volume"]
 
 
 def get_plate(plate_number: int, csv_database_as_df):
@@ -163,18 +163,27 @@ def add_unique_ids(list_of_parts: list) -> None:
         list_of_parts[i].id = unique_id
 
 
-def add_annotations(list_of_parts: list) -> None:
+def add_annotations(
+    list_of_parts: list,
+    concentration="",
+    reference="",
+    volume="",
+    comments="",
+    temp_name="",
+    fw_name="",
+    rv_name="",
+) -> None:
     """Adds the neccessary annotations to SeqRecord object
     to be uploaded to the database"""
     for annotations in list_of_parts:
         annotations.annotations = {
-            "concentration": "",
-            "reference": "",
-            "stock": "",
-            "comments": "",
-            "temp_name": "",
-            "fw_name": "",
-            "rv_name": "",
+            "concentration": concentration,
+            "reference": reference,
+            "volume": volume,
+            "comments": comments,
+            "temp_name": temp_name,
+            "fw_name": fw_name,
+            "rv_name": rv_name,
         }
 
 
@@ -238,7 +247,7 @@ def get_dna_from_plate_name(
                     + str(found_the_record_df.loc[0, "plate"])
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
-                    "volume": str(found_the_record_df.loc[0, "stock"]),
+                    "volume": str(found_the_record_df.loc[0, "volume"]),
                     "concentration": str(found_the_record_df.loc[0, "concentration"]),
                 }
             ],
@@ -260,7 +269,7 @@ def get_dna_from_plate_name(
                     + str(found_the_record_df.loc[0, "plate"])
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
-                    "volume": str(found_the_record_df.loc[0, "stock"]),
+                    "volume": str(found_the_record_df.loc[0, "volume"]),
                     "concentration": str(found_the_record_df.loc[0, "concentration"]),
                 }
             ],
@@ -319,7 +328,7 @@ def get_dna_from_box_name(
                     + str(found_the_record_df.loc[0, "box"])
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
-                    "volume": str(found_the_record_df.loc[0, "stock"]),
+                    "volume": str(found_the_record_df.loc[0, "volume"]),
                     "concentration": str(found_the_record_df.loc[0, "concentration"]),
                 }
             ],
@@ -341,7 +350,7 @@ def get_dna_from_box_name(
                     + str(found_the_record_df.loc[0, "box"])
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
-                    "volume": str(found_the_record_df.loc[0, "stock"]),
+                    "volume": str(found_the_record_df.loc[0, "volume"]),
                     "concentration": str(found_the_record_df.loc[0, "concentration"]),
                 }
             ],
@@ -383,7 +392,7 @@ def change_row(row_index: int, csv_database_as_df, biopython_object) -> None:
     csv_database_as_df.loc[row_index, "reference"] = biopython_object.annotations[
         "reference"
     ]
-    csv_database_as_df.loc[row_index, "stock"] = biopython_object.annotations["stock"]
+    csv_database_as_df.loc[row_index, "volume"] = biopython_object.annotations["volume"]
 
 
 def delete_row_df(row_index, which_df):
@@ -398,7 +407,7 @@ def delete_row_df(row_index, which_df):
         "features",
         "location",
         "reference",
-        "stock",
+        "volume",
         "comments",
         "description",
         "date",
