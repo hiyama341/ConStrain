@@ -136,7 +136,7 @@ def get_plate(plate_number: int, csv_database_as_df):
     return plate
 
 
-def get_box(plate_number: int, csv_database_as_df):
+def get_box(box_number: int, csv_database_as_df):
 
     """Returns the plate from a specified csv_database.
     Parameters
@@ -151,15 +151,14 @@ def get_box(plate_number: int, csv_database_as_df):
     pd.Dataframe
         dataframe with the specified plate
     """
-    plate = csv_database_as_df.loc[csv_database_as_df["box"] == plate_number]
+    box = csv_database_as_df.loc[csv_database_as_df["box"] == box_number]
 
-    return plate
+    return box
 
-
-def add_unique_ids(list_of_parts: list) -> None:
-    """Adds unique ids to a list of SeqRecords."""
+def add_unique_ids(list_of_parts:list, path = '../data/csv_database') -> None: 
+    ''' Adds unique ids to a list of SeqRecords.'''
     for i in range(len(list_of_parts)):
-        unique_id = get_unique_id() + i
+        unique_id = get_unique_id(path)+i
         list_of_parts[i].id = unique_id
 
 
@@ -335,7 +334,7 @@ def get_dna_from_box_name(
         }
     else:
         # Taking data from the df
-        Record = SeqIO.read(Seq(str(found_the_record_df.loc[0, "seq"])))
+        Record = SeqRecord(Seq(str(found_the_record_df.loc[0, "seq"])))
         Record.id = int(found_the_record_df.loc[0, "ID"])
         Record.name = found_the_record_df.loc[0, "name"]
         Record.description = found_the_record_df.loc[0, "description"]
