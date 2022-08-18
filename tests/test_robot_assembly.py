@@ -5,7 +5,6 @@ import sys
 import pytest
 import pandas as pd
 
-
 from constrain.lab.robot_assembly import RobotAssembly, well_keys_96, make_virtual_plates_fromDF, picklist_from_plates
 
 # Read in test data
