@@ -32,7 +32,6 @@ import pandas as pd
 
 # for plotting with pyplot
 import matplotlib.pyplot as plt
-
 plt.style.use("seaborn-whitegrid")
 
 
