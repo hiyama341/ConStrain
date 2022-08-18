@@ -155,10 +155,11 @@ def get_box(box_number: int, csv_database_as_df):
 
     return box
 
-def add_unique_ids(list_of_parts:list, path = '../data/csv_database') -> None: 
-    ''' Adds unique ids to a list of SeqRecords.'''
+
+def add_unique_ids(list_of_parts: list, path="../data/csv_database") -> None:
+    """Adds unique ids to a list of SeqRecords."""
     for i in range(len(list_of_parts)):
-        unique_id = get_unique_id(path)+i
+        unique_id = get_unique_id(path) + i
         list_of_parts[i].id = unique_id
 
 
