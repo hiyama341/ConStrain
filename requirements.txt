@@ -7,6 +7,5 @@ biopython>=1.79
 python-dotenv>=0.20.0
 openpyxl>=3.0.9
 wheel>=0.37.1
-synbiopython>=0.2.0
 nbsphinx==0.8.9
 pytest-cov==3.0.0
