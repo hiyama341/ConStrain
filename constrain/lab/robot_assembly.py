@@ -14,7 +14,8 @@
 
 #!/usr/bin/env python
 # For automating part
-import synbiopython.lab_automation as lab
+from constrain.lab.containers_wells_picklists import Transfer, Plate96, Plate2x4, PickList
+
 import pandas as pd
 
 r"""
@@ -23,7 +24,7 @@ robot_assembly (:mod:`robot_assembly`)
 
 .. currentmodule:: robot_assembly
 
-This part of the lab module is used for robot instructions - primarily for Flowbot one
+This part of the lab module is used for robot instructions - primarily for FlowbotOne
 
 
 .. code-block:: python
@@ -34,7 +35,7 @@ This part of the lab module is used for robot instructions - primarily for Flowb
 """
 
 
-class LiquidHandler(lab.picklist.Transfer.Transfer):
+class LiquidHandler(Transfer):
     """This class is a subclass of the synbiopython Transfer
     class and be used to make flowbot instructions
 
@@ -115,12 +116,11 @@ def make_virtual_plates_fromDF(
     -------
 
     """
-
     # initializing
-    source_plate1 = lab.Plate96(name="1")  # Forward primers
-    source_plate2 = lab.Plate96(name="2")  # Reverse primers
-    source_plate3 = lab.Plate96(name="3")  # Templates
-    source_plate4 = lab.Plate2x4(name="4")  # PCR mix and H20
+    source_plate1 = Plate96(name="1")  # Forward primers
+    source_plate2 = Plate96(name="2")  # Reverse primers
+    source_plate3 = Plate96(name="3")  # Templates
+    source_plate4 = Plate2x4(name="4")  # PCR mix and H20
     well_keys = well_keys_96()
     volume_needed = len(Dataframe_with_PCR_contents) + 1
 
@@ -156,8 +156,8 @@ def picklist_from_plates(
     TEMPLATES = Templates_plate.to_pandas_dataframe()
     MM_H2O = MM_H20_plate.to_pandas_dataframe()
 
-    destination_plate = lab.Plate96(name="5")
-    picklist = lab.PickList()
+    destination_plate = Plate96(name="5")
+    picklist = PickList()
     counter = 0
 
     # FIRST WE CHECK WICH COMPONENTS WE NEED FOR THE PCRs
@@ -171,7 +171,7 @@ def picklist_from_plates(
         for index1, row1 in FORWARD_PRIMERS.iterrows():
             for k, v in row1["content"]["quantities"].items():
                 if k == f_primers:
-                    transfer_forward_primers = lab.Transfer(
+                    transfer_forward_primers = Transfer(
                         F_primer_plate.wells[index1],
                         destination_plate.wells[well_keys[counter]],
                         1,
@@ -183,7 +183,7 @@ def picklist_from_plates(
         for index2, row2 in REVERSE_PRIMERS.iterrows():
             for k, v in row2["content"]["quantities"].items():
                 if k == r_primers:
-                    transfer_reverse_primers = lab.Transfer(
+                    transfer_reverse_primers = Transfer(
                         R_primer_plate.wells[index2],
                         destination_plate.wells[well_keys[counter]],
                         1,
@@ -195,7 +195,7 @@ def picklist_from_plates(
         for index3, row3 in TEMPLATES.iterrows():
             for k, v in row3["content"]["quantities"].items():
                 if k == templates:
-                    transfer_template = lab.Transfer(
+                    transfer_template = Transfer(
                         Templates_plate.wells[index3],
                         destination_plate.wells[well_keys[counter]],
                         1,
@@ -203,12 +203,12 @@ def picklist_from_plates(
                     picklist.add_transfer(transfer=transfer_template)
 
         # Master mix
-        transfer_MM = lab.Transfer(
+        transfer_MM = Transfer(
             MM_H20_plate.wells["A1"], destination_plate.wells[well_keys[counter]], 10
         )
         picklist.add_transfer(transfer=transfer_MM)
         # H20
-        transfer_H20 = lab.Transfer(
+        transfer_H20 = Transfer(
             MM_H20_plate.wells["A2"], destination_plate.wells[well_keys[counter]], 7
         )
         picklist.add_transfer(transfer=transfer_H20)
@@ -319,7 +319,7 @@ class RobotAssembly:
             return print(
                 "source, target, volume",
                 "\n",
-                *self.picklist.to_flowbot_instructions(),
+                *self.picklist.to_flowbot_instructions_string(),
                 sep="",
                 end="\n",
                 file=outfile
