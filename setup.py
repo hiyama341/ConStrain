@@ -19,7 +19,8 @@ install_requires = ['pydna>=4.0.7',
 'biopython>=1.79',
 'python-dotenv>=0.20.0',
 'openpyxl>=3.0.9',
-'wheel>=0.37.1']
+'wheel>=0.37.1', 
+'matplotlib>=3.5.1']
 
 
 test_requirements=['pytest==7.1.2',

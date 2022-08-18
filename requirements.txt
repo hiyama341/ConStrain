@@ -9,3 +9,4 @@ openpyxl>=3.0.9
 wheel>=0.37.1
 nbsphinx==0.8.9
 pytest-cov==3.0.0
+matplotlib==3.5.1
