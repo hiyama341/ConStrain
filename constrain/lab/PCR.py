@@ -42,7 +42,7 @@ from pydna._pretty import pretty_str as _pretty_str
 import requests
 
 
-def primer_tm_neb(primer):
+def primer_tm_neb(primer,conc = 0.5 , prodcode ="q5-0" ):
     """Calculates a single primers melting temp
 
     Parameters
@@ -57,7 +57,7 @@ def primer_tm_neb(primer):
     url = "https://tmapi.neb.com/tm/batch"
     seqpairs = [[primer]]
 
-    input = {"seqpairs": seqpairs, "conc": 0.5, "prodcode": "q5-0"}
+    input = {"seqpairs": seqpairs, "conc": conc, "prodcode": prodcode}
     headers = {"content-type": "application/json"}
     res = requests.post(url, data=json.dumps(input), headers=headers)
 
@@ -71,12 +71,13 @@ def primer_tm_neb(primer):
         print(r["error"][0])
 
 
-def primer_ta_neb(primer1, primer2):
-    """Calculates primer pair melting temp
+def primer_ta_neb(primer1, primer2, conc = 0.5 , prodcode ="q5-0"):
+    """Calculates primer pair melting temp, TA
 
     Parameters
     ----------
-
+    primer1 : str
+        first primer to be 
 
     Returns
     -------
@@ -86,7 +87,7 @@ def primer_ta_neb(primer1, primer2):
     url = "https://tmapi.neb.com/tm/batch"
     seqpairs = [[primer1, primer2]]
 
-    input = {"seqpairs": seqpairs, "conc": 0.5, "prodcode": "q5-0"}
+    input = {"seqpairs": seqpairs, "conc": conc, "prodcode": prodcode}
     headers = {"content-type": "application/json"}
     res = requests.post(url, data=json.dumps(input), headers=headers)
 
