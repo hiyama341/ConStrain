@@ -33,7 +33,6 @@ from collections import OrderedDict
 import pandas
 from copy import deepcopy
 
-
 # from Well.py
 """This module contains a generic class for a well."""
 class Well:
