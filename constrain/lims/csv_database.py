@@ -104,7 +104,8 @@ def add_sequences_to_dataframe(list_of_DNA: list, csv_database_as_df, index=0) -
 
         # annotations
         csv_database_as_df.loc[blank_row_index, "concentration"] = ds_dna.annotations['batches'][0]['concentration']
-        csv_database_as_df.loc[blank_row_index, "volume"] = ds_dna.annotations['batches'][0]['concentration']
+        csv_database_as_df.loc[blank_row_index, "volume"] = ds_dna.annotations['batches'][0]['volume']
+        csv_database_as_df.loc[blank_row_index, "location"] = ds_dna.annotations['batches'][0]['location']
 
 
         csv_database_as_df.loc[blank_row_index, "comments"] = ds_dna.annotations[
@@ -113,6 +114,7 @@ def add_sequences_to_dataframe(list_of_DNA: list, csv_database_as_df, index=0) -
         csv_database_as_df.loc[blank_row_index, "reference"] = ds_dna.annotations[
             "reference"
         ]
+
 
 
 
