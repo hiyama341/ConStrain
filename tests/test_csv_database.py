@@ -49,7 +49,7 @@ def test_add_annotations():
     test_templates
 
     add_annotations(test_templates, concentration = 100)
-    assert test_templates[0].annotations['concentration'] == 100
+    assert test_templates[0].annotations['batches'][0]['concentration'] == 100
 
 
 def test_get_dna_from_plate_name():
@@ -71,14 +71,13 @@ def test_change_row():
     for seq_record in SeqIO.parse('../ConStrain/tests/files_for_testing/templates_for_pairwise_alignment.fasta', format= 'fasta'): 
         test_templates.append(seq_record) 
     # adding annotations    
-    biopython_object = test_templates[0]
+    biopython_object = [test_templates[0]]
+    biopython_object = add_annotations(biopython_object )[0]
     biopython_object.id = 999999
-    biopython_object.annotations['concentration'] = ''
-    biopython_object.annotations['comments'] = ''
-    biopython_object.annotations['reference'] = ''
-    biopython_object.annotations['volume'] = ''
+    # changing row
     change_row(0, plasmid_plates,  biopython_object)
-
+    print(biopython_object)
+    print(plasmid_plates)
     assert plasmid_plates.iloc[0]['ID'] == 999999
 
 

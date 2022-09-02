@@ -247,8 +247,8 @@ def get_dna_from_plate_name(
                     + str(found_the_record_df.loc[0, "plate"])
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
-                    "volume":int(found_the_record_df.loc[0, "volume"]),
-                    "concentration": int(found_the_record_df.loc[0, "concentration"]),
+                    "volume":float(found_the_record_df.loc[0, "volume"]),
+                    "concentration": float(found_the_record_df.loc[0, "concentration"]),
                 }
             ],
         }
@@ -269,8 +269,8 @@ def get_dna_from_plate_name(
                     + str(found_the_record_df.loc[0, "plate"])+ "_"
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
-                    "volume": int(found_the_record_df.loc[0, "volume"]),
-                    "concentration": int(found_the_record_df.loc[0, "concentration"]),
+                    "volume": float(found_the_record_df.loc[0, "volume"]),
+                    "concentration": float(found_the_record_df.loc[0, "concentration"]),
                 }
             ],
         }
