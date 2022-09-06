@@ -11,8 +11,8 @@
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
-""" This part of the lab module is used for simulating and calculating PCR reactions"""
-"""
+""" This part of the lab module is used for simulating and calculating PCR reactions.
+
 HELPER FUNCTIONS:
 -----------------
 primer_tm_neb
@@ -28,12 +28,10 @@ pcr_locations
 
 #!/usr/bin/env python
 # standard libraries
-import pathlib
 
 import textwrap as _textwrap
 import math
 import csv
-import pathlib
 import json
 
 # Extra
@@ -443,3 +441,4 @@ def simple_PCR_program(amplicon):
     )
 
     return _pretty_str(formated)
+
