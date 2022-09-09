@@ -394,6 +394,7 @@ def simple_PCR_program(amplicon):
     str
         schematic representation of a Q5 program
     """
+    # Determine elongation time and process speed.
     amplicon = det_elon_time(amplicon)
     amplicon = det_proc_speed(amplicon)
 
