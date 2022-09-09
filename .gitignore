@@ -9,6 +9,10 @@ __pycache__/
 .DS_Store
 **/.DS_Store
 
+# Notebooks
+/notebooks
+
+
 # Egg files
 *.egg-info/
 *.egg
