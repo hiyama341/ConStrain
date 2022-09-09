@@ -76,7 +76,6 @@ def test_extract_gRNAs():
     assert gRNA[0].seq.watson == 'ACTCATATTTATACAGAAAC'
 
 
-
 def test_extract_template_amplification_sites():
     from Bio.SeqFeature import SeqFeature, FeatureLocation
     from Bio.SeqRecord import SeqRecord
@@ -104,29 +103,39 @@ def test_extract_template_amplification_sites():
     assert extractions_sites[0].name == 'ATF'
     
 
-
 def test_extract_sites(): 
-    """ This function will extract sequences from feature locations """
+    # Test 1
     from Bio.SeqRecord import SeqRecord
     from Bio.Seq import Seq
     from Bio.SeqFeature import SeqFeature, FeatureLocation
+    from Bio import SeqIO
+
 
     features1 = [SeqFeature(FeatureLocation(2, 100, strand=1), type='promoter1')]
     features2 = [SeqFeature(FeatureLocation(200, 300, strand=1), type='promoter2')]
-    features1[0].qualifiers['name'] =  'pCYC1'
-    features2[0].qualifiers['name'] =  'pCYC1'
+    features1[0].qualifiers['name'] =  ['pCYC1']
+    features2[0].qualifiers['name'] =  ['pPCK']
 
     prom_seq = Seq('CAGCATTTTCAAAGGTGTGTTCTTCGTCAGACATGTTTTAGTGTGTGAATGAAAATATAGATAGATGATGATGATA'*50)
 
-    prom_template = [SeqRecord(seq = prom_seq, id='seq_DPrPIMvy', name='pCYC1', description='<unknown description>', dbxrefs=[], features = features1+ features2)]
-    p_annotations = 'pCYC1'
-    p_names = 'pCYC1'
+    prom_template = [SeqRecord(seq = prom_seq, id='seq_DPrPIMvy', name='Promoter_test', description='<unknown description>', dbxrefs=[], features = features1+ features2)]
+    p_annotations = ['pCYC1']
+    p_names = ['pCYC1']
 
     promoter_sites =  extract_sites(p_annotations, prom_template, p_names)
     assert promoter_sites[0].seq == 'GCATTTTCAAAGGTGTGTTCTTCGTCAGACATGTTTTAGTGTGTGAATGAAAATATAGATAGATGATGATGATACAGCATTTTCAAAGGTGTGTTCTT'
     assert promoter_sites[0].name == 'pCYC1'
-    assert promoter_sites[1].seq =='ATGAAAATATAGATAGATGATGATGATACAGCATTTTCAAAGGTGTGTTCTTCGTCAGACATGTTTTAGTGTGTGAATGAAAATATAGATAGATGATGAT'
 
+    ##  Test 2
+    test_plasmid = [SeqIO.read('../ConStrain/tests/files_for_testing/MIA-HA-1.gb', format = 'genbank')]
+    test_plasmid
+
+    p_annotations = ['XI-2']
+    p_names = ['XI-2']
+
+    site_on_plasmid =  extract_sites(p_annotations, test_plasmid, p_names)
+    assert site_on_plasmid[0].name == 'XI-2'
+    assert len(site_on_plasmid[0].seq) == 1573
 
 
 def test_seq_to_annotation(): 
