@@ -13,9 +13,9 @@
 # copies or substantial portions of the Software.
 
 
-""" This part of the design module is used for cloning of microbial strains"""
-"""
------
+""" Module used for cloning of microbial strains.
+
+-----------------
 HELPER FUNCTIONS: 
 -----------------
 USER_enzyme
@@ -23,8 +23,8 @@ CAS9_cutting
 CRIPSIR_knockout
 extract_gRNAs
 remove_features_with_negative_loc
-casembler2
-extract_template_amplification_sites1
+casembler
+extract_template_amplification_sites
 UPandDW
 extract_sites
 seq_to_annotation
@@ -116,8 +116,8 @@ def CAS9_cutting(gRNA_record, background_record):
 
 def CRIPSR_knockout(gRNA_record, insertion_site, repair_DNA):
 
-    """Cuts the insertion site with CAS9_cutting and
-    assebmles knockout with a repair template.
+    """Simple version of casembler - Cuts the insertion site with
+     CAS9_cutting and assembles knockout with a repair template.
 
     Parameters
     ----------
@@ -293,38 +293,6 @@ def extract_sites(annotations, templates, names):
                 sites.append(site)
     return sites
 
-
-def extract_site(annotations, templates, names):
-    """This function extracts the sequences from annotated sequences based
-    on their names
-
-    Parameters
-    ----------
-    annotations: list
-        list of annotations for sequences that will be extracted
-
-    templates: list of Bio.SeqRecord.SeqRecord
-        A list of Bio.SeqRecord.SeqRecord with SeqFeatures
-
-    names: str
-        name of the sequence that will be extracted
-
-    Returns
-    -------
-    record: list of Bio.SeqRecord.SeqRecord
-        list of extracted sites
-    """
-
-    for anno, template, name in zip(annotations, templates, names):
-        for feature in template.features:
-            if str(feature.qualifiers["name"]) == anno:
-                site = template[feature.location.start : feature.location.end]
-                site.name = name
-            else:
-                site = ""
-    return site
-
-
 def seq_to_annotation(seqrec_from, seqrec_onto, aType):
     """Anotate an amplicon object from another amplicon object.
 
@@ -462,9 +430,6 @@ def casembler(
     -------
     One dseqrecord
         of assembled contig
-
-
-
 
     """
     assemblies = []
