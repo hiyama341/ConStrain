@@ -40,7 +40,7 @@ from pydna._pretty import pretty_str as _pretty_str
 import requests
 
 
-def primer_tm_neb(primer,conc = 0.5 , prodcode ="q5-0" ):
+def primer_tm_neb(primer, conc=0.5, prodcode="q5-0"):
     """Calculates a single primers melting temp
 
     Parameters
@@ -69,13 +69,13 @@ def primer_tm_neb(primer,conc = 0.5 , prodcode ="q5-0" ):
         print(r["error"][0])
 
 
-def primer_ta_neb(primer1, primer2, conc = 0.5 , prodcode ="q5-0"):
+def primer_ta_neb(primer1, primer2, conc=0.5, prodcode="q5-0"):
     """Calculates primer pair melting temp, TA
 
     Parameters
     ----------
     primer1 : str
-        first primer to be 
+        first primer to be
 
     Returns
     -------
@@ -442,4 +442,3 @@ def simple_PCR_program(amplicon):
     )
 
     return _pretty_str(formated)
-

@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# This script was writting by the Global BioFoundry Alliance and it is used 
+# This script was writting by the Global BioFoundry Alliance and it is used
 # as a foundation building easy to use functions as the RobotAssembly class.
 # The original code can be found at:
 # https://github.com/Global-Biofoundries-Alliance/SynBioPython
@@ -35,6 +35,8 @@ from copy import deepcopy
 
 # from Well.py
 """This module contains a generic class for a well."""
+
+
 class Well:
     """Generic class for a well.
 
@@ -411,6 +413,7 @@ class Plate:
 # From PickList.py
 """Classes to represent picklists and liquid transfers in general."""
 
+
 class PickList:
     """Representation of a list of well-to-well transfers.
 
@@ -556,8 +559,9 @@ class PickList:
     def to_flowbot_instructions_string(self):
         # Made to accomodate flowbot instructions - not part of synbiopython
         """Return the list of transfers in Flowbot format."""
-        return "\n".join(transfer.to_flowbot_instructions() for transfer in self.transfers_list)
-
+        return "\n".join(
+            transfer.to_flowbot_instructions() for transfer in self.transfers_list
+        )
 
     def __add__(self, other):
         return PickList(self.transfers_list + other.transfers_list)
@@ -571,8 +575,6 @@ class PickList:
         in the list.
         """
         return sum(picklists_list, PickList([]))
-    
-
 
 
 # From Transfer.py
@@ -670,8 +672,7 @@ class Transfer:
             "{self.source_well.name},"
             " {self.destination_well.plate.name}:"
             "{self.destination_well.name}, {self.volume} "
-            ).format(self=self)
-
+        ).format(self=self)
 
     def __repr__(self):
         """Return  "Transfer {volume}L from {source_well} into {dest_well}"."""
@@ -721,16 +722,20 @@ class WellContent:
 # From builtin_containers.py
 """Classes to represent plates"""
 
+
 class Plate96(Plate):
     """Base class for standard 96-well plates"""
+
     num_rows = 8
     num_columns = 12
 
 
 class Plate2x4(Plate):
     """Class for 8-well (2 x 4) plates such as colony plating plates"""
+
     num_rows = 2
     num_columns = 4
+
 
 # From helper_functions.py
 def compute_rows_columns(num_wells):
@@ -814,6 +819,7 @@ def index_to_wellname(index, num_wells, direction="row"):
     row, column = index_to_row_column(index, num_wells, direction)
     return coordinates_to_wellname((row, column))
 
+
 # From tools.py
 unit_factors = {
     prefix + unit: factor
@@ -824,6 +830,7 @@ unit_factors = {
 volume_values_and_units = sorted(
     [(value, unit) for (unit, value) in unit_factors.items() if unit.endswith("L")]
 )
+
 
 def replace_nans_in_dict(dictionary, replace_by="null"):
     """Replace NaNs in a dictionary with a string.

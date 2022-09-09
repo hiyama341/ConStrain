@@ -14,7 +14,12 @@
 
 #!/usr/bin/env python
 # For automating part
-from constrain.lab.containers_wells_picklists import Transfer, Plate96, Plate2x4, PickList
+from constrain.lab.containers_wells_picklists import (
+    Transfer,
+    Plate96,
+    Plate2x4,
+    PickList,
+)
 
 import pandas as pd
 

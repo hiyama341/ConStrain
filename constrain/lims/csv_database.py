@@ -103,10 +103,15 @@ def add_sequences_to_dataframe(list_of_DNA: list, csv_database_as_df, index=0) -
         csv_database_as_df.loc[blank_row_index, "features"] = str(ds_dna.features)
 
         # annotations
-        csv_database_as_df.loc[blank_row_index, "concentration"] = ds_dna.annotations['batches'][0]['concentration']
-        csv_database_as_df.loc[blank_row_index, "volume"] = ds_dna.annotations['batches'][0]['volume']
-        csv_database_as_df.loc[blank_row_index, "location"] = ds_dna.annotations['batches'][0]['location']
-
+        csv_database_as_df.loc[blank_row_index, "concentration"] = ds_dna.annotations[
+            "batches"
+        ][0]["concentration"]
+        csv_database_as_df.loc[blank_row_index, "volume"] = ds_dna.annotations[
+            "batches"
+        ][0]["volume"]
+        csv_database_as_df.loc[blank_row_index, "location"] = ds_dna.annotations[
+            "batches"
+        ][0]["location"]
 
         csv_database_as_df.loc[blank_row_index, "comments"] = ds_dna.annotations[
             "comments"
@@ -114,8 +119,6 @@ def add_sequences_to_dataframe(list_of_DNA: list, csv_database_as_df, index=0) -
         csv_database_as_df.loc[blank_row_index, "reference"] = ds_dna.annotations[
             "reference"
         ]
-
-
 
 
 def get_plate(plate_number: int, csv_database_as_df):
@@ -166,25 +169,26 @@ def add_unique_ids(list_of_parts: list, path="../data/csv_database") -> None:
 
 def add_annotations(
     list_of_parts: list,
-    concentration:float = 0.0,
+    concentration: float = 0.0,
     reference="",
-    volume:float = 0.0,
+    volume: float = 0.0,
     comments="",
-    location = '')-> list:
-    
-    """Adds the neccessary annotations to a list of 
+    location="",
+) -> list:
+
+    """Adds the neccessary annotations to a list of
     SeqRecord objectto be uploaded to the database"""
     for annotations in list_of_parts:
         annotations.annotations = {
             "reference": reference,
-            "comments": comments,            
+            "comments": comments,
             "batches": [
-                    {
-                        "location": location,
-                        "volume": float(volume),
-                        "concentration": float(concentration),
-                    }
-            ]
+                {
+                    "location": location,
+                    "volume": float(volume),
+                    "concentration": float(concentration),
+                }
+            ],
         }
     return list_of_parts
 
@@ -249,7 +253,7 @@ def get_dna_from_plate_name(
                     + str(found_the_record_df.loc[0, "plate"])
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
-                    "volume":float(found_the_record_df.loc[0, "volume"]),
+                    "volume": float(found_the_record_df.loc[0, "volume"]),
                     "concentration": float(found_the_record_df.loc[0, "concentration"]),
                 }
             ],
@@ -267,8 +271,10 @@ def get_dna_from_plate_name(
             # adding the batches
             "batches": [
                 {
-                    "location": str(found_the_record_df.loc[0, "location"])+ "_"
-                    + str(found_the_record_df.loc[0, "plate"])+ "_"
+                    "location": str(found_the_record_df.loc[0, "location"])
+                    + "_"
+                    + str(found_the_record_df.loc[0, "plate"])
+                    + "_"
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
                     "volume": float(found_the_record_df.loc[0, "volume"]),
@@ -348,8 +354,10 @@ def get_dna_from_box_name(
             # adding the batches
             "batches": [
                 {
-                    "location": str(found_the_record_df.loc[0, "location"])+ "_"
-                    + str(found_the_record_df.loc[0, "box"])+ "_"
+                    "location": str(found_the_record_df.loc[0, "location"])
+                    + "_"
+                    + str(found_the_record_df.loc[0, "box"])
+                    + "_"
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
                     "volume": float(found_the_record_df.loc[0, "volume"]),
@@ -385,13 +393,22 @@ def change_row(row_index: int, csv_database_as_df, biopython_object):
     csv_database_as_df.loc[row_index, "features"] = str(biopython_object.features)
 
     # annotations
-    csv_database_as_df.loc[row_index, "concentration"] = biopython_object.annotations['batches'][0]['concentration']
-    csv_database_as_df.loc[row_index, "volume"] = biopython_object.annotations['batches'][0]['concentration']
+    csv_database_as_df.loc[row_index, "concentration"] = biopython_object.annotations[
+        "batches"
+    ][0]["concentration"]
+    csv_database_as_df.loc[row_index, "volume"] = biopython_object.annotations[
+        "batches"
+    ][0]["concentration"]
 
-    csv_database_as_df.loc[row_index, "comments"] = biopython_object.annotations["comments"]
-    csv_database_as_df.loc[row_index, "reference"] = biopython_object.annotations["reference"]
-    
+    csv_database_as_df.loc[row_index, "comments"] = biopython_object.annotations[
+        "comments"
+    ]
+    csv_database_as_df.loc[row_index, "reference"] = biopython_object.annotations[
+        "reference"
+    ]
+
     return csv_database_as_df
+
 
 def delete_row_df(row_index, which_df):
     """Deletes a row in the database without changing the namse of"""

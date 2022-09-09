@@ -276,20 +276,23 @@ def extract_sites(annotations, templates, names):
     sites = []
     for anno, template, name in zip(annotations, templates, names):
         for feature in template.features:
-            #site = template[feature.location.start : feature.location.end]
+            # site = template[feature.location.start : feature.location.end]
             if str(feature.qualifiers["name"][0]) == anno:
                 site = template[feature.location.start : feature.location.end]
                 site.name = name
 
                 # If there is an batch anotation we can save it
                 if "batches" in site.annotations.keys():
-                    site.annotations["batches"].append(template.annotations["batches"][0])
+                    site.annotations["batches"].append(
+                        template.annotations["batches"][0]
+                    )
                 else:
                     site.annotations["batches"] = []
                     site.annotations["batches"].append(template.annotations)
 
                 sites.append(site)
     return sites
+
 
 def extract_site(annotations, templates, names):
     """This function extracts the sequences from annotated sequences based
@@ -317,8 +320,8 @@ def extract_site(annotations, templates, names):
             if str(feature.qualifiers["name"]) == anno:
                 site = template[feature.location.start : feature.location.end]
                 site.name = name
-            else: 
-                site = ''    
+            else:
+                site = ""
     return site
 
 
@@ -426,7 +429,8 @@ def casembler(
     to_benchling=False,
 ):
 
-    """Simulate in vivo assembly and integration.
+    """Simulate in vivo assembly and integration with the possibility
+    of printing to gb files or send it directly to benchling.
 
     Parameters
     ----------
@@ -461,7 +465,7 @@ def casembler(
 
 
 
-    
+
     """
     assemblies = []
     for int_no in range(0, len(gRNAs)):
@@ -475,12 +479,13 @@ def casembler(
         UP, DW = CAS9_cutting(gRNA, site)
 
         fragments = [UP] + parts[int_no] + [DW]
-        
+
         assembly = pydna.assembly.Assembly(
             fragments, limit=assembly_limits[int_no]
         ).assemble_linear()[0]
 
-        # sometimes pydna.assembly.Assembly distorts the start, end location of features to become negative which produces and error when printing. This function is created as a workaround.
+        # sometimes pydna.assembly.Assembly distorts the start, end location of features to become negative which produces and error when printing. 
+        # This function is created as a workaround.
         # CPR assembly gives DW_XI_3 annotation called "DW_XI_3" a negative start location.
         # A quick workaround is to remove featuere
         remove_features_with_negative_loc(assembly)
@@ -508,7 +513,7 @@ def casembler(
     return functools.reduce(lambda x, y: x + y, assemblies)
 
 
-def UPandDW(strain, isite_name, path_to_gRNA_table="../data/raw/gRNAtable.csv" ):
+def UPandDW(strain, isite_name, path_to_gRNA_table="../data/raw/gRNAtable.csv"):
     """Finds upstream and downstream sequences based on genome and site name.
 
     Parameters
