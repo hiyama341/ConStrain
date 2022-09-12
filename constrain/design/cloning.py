@@ -281,14 +281,16 @@ def extract_sites(annotations, templates, names):
                 site = template[feature.location.start : feature.location.end]
                 site.name = name
 
-                # If there is an batch anotation we can save it
-                if "batches" in site.annotations.keys():
-                    site.annotations["batches"].append(
-                        template.annotations["batches"][0]
-                    )
-                else:
-                    site.annotations["batches"] = []
-                    site.annotations["batches"].append(template.annotations)
+                # # If there is an batch anotation we can save it
+                # if "batches" in site.annotations.keys():
+                #     site.annotations["batches"].append(
+                #         template.annotations["batches"][0]
+                #     )
+                # else:
+                #     site.annotations["batches"] = []
+                #     site.annotations["batches"].append(template.annotations)
+                site.annotations = template.annotations
+                
 
                 sites.append(site)
     return sites
