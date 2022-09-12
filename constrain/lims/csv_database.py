@@ -250,7 +250,9 @@ def get_dna_from_plate_name(
             "batches": [
                 {
                     "location": str(found_the_record_df.loc[0, "location"])
-                    + str(found_the_record_df.loc[0, "plate"])
+                    + "_"
+                    + str(found_the_record_df.loc[0, "box"])
+                    + "_"
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
                     "volume": float(found_the_record_df.loc[0, "volume"]),
@@ -333,7 +335,9 @@ def get_dna_from_box_name(
             "batches": [
                 {
                     "location": str(found_the_record_df.loc[0, "location"])
+                    + "_"
                     + str(found_the_record_df.loc[0, "box"])
+                    + "_"
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
                     "volume": float(found_the_record_df.loc[0, "volume"]),
