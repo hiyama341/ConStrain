@@ -251,7 +251,7 @@ def get_dna_from_plate_name(
                 {
                     "location": str(found_the_record_df.loc[0, "location"])
                     + "_"
-                    + str(found_the_record_df.loc[0, "box"])
+                    + str(found_the_record_df.loc[0, "plate"])
                     + "_"
                     + str(found_the_record_df.loc[0, "row"])
                     + str(found_the_record_df.loc[0, "col"]),
