@@ -263,7 +263,7 @@ def get_dna_from_plate_name(
     else:
         # Taking data from the df
         Record = SeqRecord(Seq(str(found_the_record_df.loc[0, "seq"])))
-        Record.id = int(found_the_record_df.loc[0, "ID"])
+        Record.id = str(found_the_record_df.loc[0, "ID"])
         Record.name = found_the_record_df.loc[0, "name"]
         Record.description = found_the_record_df.loc[0, "description"]
         Record.annotations = {
@@ -348,7 +348,7 @@ def get_dna_from_box_name(
     else:
         # Taking data from the df
         Record = SeqRecord(Seq(str(found_the_record_df.loc[0, "seq"])))
-        Record.id = int(found_the_record_df.loc[0, "ID"])
+        Record.id = str(found_the_record_df.loc[0, "ID"])
         Record.name = found_the_record_df.loc[0, "name"]
         Record.description = found_the_record_df.loc[0, "description"]
         Record.annotations = {
@@ -402,7 +402,7 @@ def change_row(row_index: int, csv_database_as_df, biopython_object):
     ][0]["concentration"]
     csv_database_as_df.loc[row_index, "volume"] = biopython_object.annotations[
         "batches"
-    ][0]["concentration"]
+    ][0]["volume"]
 
     csv_database_as_df.loc[row_index, "comments"] = biopython_object.annotations[
         "comments"
