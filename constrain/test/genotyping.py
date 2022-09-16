@@ -18,6 +18,7 @@ import numpy as np
 from Bio import pairwise2
 
 
+
 def slicing_and_naming_seq_plates(sequencing_plates, where_to_slice=7) -> list:
     """Slices rows of a list of dataframes and changes the names.
     Is used to ease pre-processing of Plate2seq excel files
@@ -251,10 +252,10 @@ def pairwise_alignment_of_templates(
         template_number_list.append(temp_number)
 
     # Making a pandas. dataframe
-    df_promoters = pd.DataFrame()
-    df_promoters["Sample-Name"] = read_list
-    df_promoters["inf_part_name"] = template_list
-    df_promoters["align_score"] = best_scores
-    df_promoters["inf_part_number"] = template_number_list
+    df = pd.DataFrame()
+    df["Sample-Name"] = read_list
+    df["inf_part_name"] = template_list
+    df["align_score"] = best_scores
+    df["inf_part_number"] = template_number_list
 
-    return df_promoters
+    return df
