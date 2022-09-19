@@ -44,7 +44,8 @@ jobs:
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
-          ./codecov
+          ./codecov -t ${CODECOV_TOKEN}
+
           
       - name: Build package
         run: python setup.py sdist bdist_wheel
