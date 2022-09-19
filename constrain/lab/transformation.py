@@ -287,12 +287,12 @@ def wanted_mass(wanted_moles, size):
     ----------
     wanted_moles : int
         wanted moles in nmol
-    size : int 
+    size : int
         size in bp
 
     Returns
     -------
-    w_mass_rounded : int 
+    w_mass_rounded : int
         in ng = nmol * bp * 650 ng/(nmol * bp)
 
     """

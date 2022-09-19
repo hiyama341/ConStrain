@@ -52,7 +52,7 @@ def primer_tm_neb(primer, conc=0.5, prodcode="q5-0"):
 
     Returns
     -------
-    tm : int 
+    tm : int
         primer melting temperature
 
     """
@@ -89,7 +89,7 @@ def primer_ta_neb(primer1, primer2, conc=0.5, prodcode="q5-0"):
 
     Returns
     -------
-    ta : int 
+    ta : int
         primer pair annealing temp
 
     """
@@ -228,16 +228,14 @@ def det_elon_time(amplicon):
     Returns
     -------
     Adds the elongation time to the amplicon annotations
-    
+
     Notes
     -----
     The amplicon needs to have a dict called proc_speed shown as follows:
     amplicon.annotations["proc_speed"]
-    This dict within the annotations can be made with the function proc_speed. 
-    
-    """
+    This dict within the annotations can be made with the function proc_speed.
 
-    
+    """
 
     if "elongation_time" in amplicon.forward_primer.annotations:
         print("elongation_time already set")
@@ -250,23 +248,21 @@ def det_elon_time(amplicon):
     return amplicon
 
 
-def takeThird(elem):
-    """Takes third element of a list"""
-    return elem[2]
-
-
-def det_no_of_thermal_cyclers(amplicons, polymerase, elong_time_max_diff=15):
-
+def det_no_of_thermal_cyclers(amplicons: list, polymerase: str, elong_time_max_diff=15):
     """Determines the number of thermalcyclers that is needed
     based on elongation time differences
 
 
     Parameters
     ----------
-
+    amplicons : list
+        of pydna.amplicon objects
+    polymerase : str
 
     Returns
     -------
+    pd.DataFrame
+        dataframe of grouped amplicons
 
     """
 
@@ -277,7 +273,7 @@ def det_no_of_thermal_cyclers(amplicons, polymerase, elong_time_max_diff=15):
 
     list_of_tuples = list(zip(amp_names, tas, elong_times, order))
 
-    list_of_tuples.sort(key=takeThird)
+    list_of_tuples.sort()
 
     groups = dict(enumerate(grouper(elong_times, elong_time_max_diff), 1))
 
@@ -410,7 +406,18 @@ def nanophotometer_concentrations(
 
 
 def amplicon_by_name(name: str, amplicons_lst: list):
-    """Returns amplicon with specified name"""
+    """Returns amplicon with specified name
+
+    Parameters
+    ----------
+    name : str
+    amplicons_lst : list
+
+    Returns
+    -------
+    amplicon : pydna.amplicon
+
+    """
     for amplicon in amplicons_lst:
         if amplicon.name == name:
             return amplicon
@@ -418,7 +425,7 @@ def amplicon_by_name(name: str, amplicons_lst: list):
 
 def simple_PCR_program(amplicon):
 
-    """Simple PCR program designed to give a quick visual representations
+    """Simple PCR program designed to give a quick visual representations.
 
     Parameters
     ----------
@@ -472,7 +479,7 @@ def simple_PCR_program(amplicon):
             ta=amplicon.annotations["ta Q5 Hot Start"],
             tmf=amplicon.forward_primer.annotations["tm Q5 Hot Start"],
             tmr=amplicon.reverse_primer.annotations["tm Q5 Hot Start"],
-            GC_prod=int(amplicon.gc()),
+            GC_prod=round(amplicon.gc() * 100, 2),
             *map(int, divmod(amplicon.annotations["elongation_time"], 60)),
         )
     )
