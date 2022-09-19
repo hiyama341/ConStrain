@@ -25,6 +25,9 @@ ConStrain: Literate programming can streamline bioengineering workflows
         :target: https://pypi.org/project/ConStrain/
         :alt: Supported Python Versions
 
+.. image:: https://codecov.io/gh/hiyama341/ConStrain/branch/main/graph/badge.svg?token=P4457QACUY 
+        :target: https://codecov.io/gh/hiyama341/ConStrain
+
 
 What is ConStrain?
 ~~~~~~~~~~~~~~~~~~
