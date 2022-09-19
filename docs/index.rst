@@ -11,6 +11,28 @@ Suppose you are interested in examples, head over to our colab_notebooks.
 Feel free to reach out if something is unclear.
 
 
+Features
+--------
+
+* Combinatorial library generation
+* HT cloning and transformation workflows
+* Flowbot One instructions
+* CSV-based LIMS system as well as integration to Benchling
+* Genotyping of microbial strains
+* Advanced Machine Learning of biological datasets with the AutoML `H2O <https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html>`__
+* Workflows for selecting enzyme homologs
+* Promoter selection workflows from RNA-seq datasets
+* Data analysis of large LC-MS datasets along with workflows for analysis
+
+Getting started
+~~~~~~~~~~~~~~~
+To get started with making microbial strains in an HT manner please follow the steps below: 
+
+1. Install ConStrain. You will find the necessary information below under installation.
+
+2. Check out our `notebooks <https://github.com/hiyama341/ConStrain/tree/main/colab_notebooks>`__ for inspiration to make HT strain construction with ConStrain.
+
+3. You can start making your own workflows by importing ConStrain into either Google colab or Jupyter lab/notebooks.
 
 
 .. toctree::
