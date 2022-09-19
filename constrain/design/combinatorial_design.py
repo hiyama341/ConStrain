@@ -115,7 +115,9 @@ def empty_list_maker(list_of_sequences: list):
     return EmptyList
 
 
-def simple_amplicon_maker(list_of_seqs: list, list_of_names: list, target_tm=56.0, limit=13):
+def simple_amplicon_maker(
+    list_of_seqs: list, list_of_names: list, target_tm=56.0, limit=13
+):
     """Creates amplicons, updates their names
 
     Parameters
@@ -151,7 +153,10 @@ def simple_amplicon_maker(list_of_seqs: list, list_of_names: list, target_tm=56.
         for j in range(0, len(list_of_seqs[i])):
             # Append Amplicons
             amplicons = primer_design(
-                list_of_seqs[i][j], tm_func=_tm_default, target_tm=target_tm, limit=limit
+                list_of_seqs[i][j],
+                tm_func=_tm_default,
+                target_tm=target_tm,
+                limit=limit,
             )  ############## Can add NEB Calculator here: primer_TM ################# _tm_default i.e tm_func = _tm_default,
 
             # Updating names
@@ -488,7 +493,13 @@ class DesignAssembly:
     """
 
     def __init__(
-        self, list_of_seqs: list, list_of_names: list, pad: str, position_of_pad: int, target_tm=56.0, limit=13
+        self,
+        list_of_seqs: list,
+        list_of_names: list,
+        pad: str,
+        position_of_pad: int,
+        target_tm=56.0,
+        limit=13,
     ):
 
         ###  1.INITIALIZING ##
@@ -502,7 +513,9 @@ class DesignAssembly:
             self.list_of_amplicons,
             self.list_of_amplicon_primers,
             self.list_of_amplicon_primer_temps,
-        ) = simple_amplicon_maker(self.list_of_seqs, self.list_of_names, target_tm=target_tm, limit=limit)
+        ) = simple_amplicon_maker(
+            self.list_of_seqs, self.list_of_names, target_tm=target_tm, limit=limit
+        )
 
         # Systematic names
         self.systematic_names = systematic_names_function(self.list_of_seqs)

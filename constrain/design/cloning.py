@@ -290,10 +290,10 @@ def extract_sites(annotations, templates, names):
                 #     site.annotations["batches"] = []
                 #     site.annotations["batches"].append(template.annotations)
                 site.annotations = template.annotations
-                
 
                 sites.append(site)
     return sites
+
 
 def seq_to_annotation(seqrec_from, seqrec_onto, aType):
     """Anotate an amplicon object from another amplicon object.
@@ -451,7 +451,7 @@ def casembler(
             fragments, limit=assembly_limits[int_no]
         ).assemble_linear()[0]
 
-        # sometimes pydna.assembly.Assembly distorts the start, end location of features to become negative which produces and error when printing. 
+        # sometimes pydna.assembly.Assembly distorts the start, end location of features to become negative which produces and error when printing.
         # This function is created as a workaround.
         # CPR assembly gives DW_XI_3 annotation called "DW_XI_3" a negative start location.
         # A quick workaround is to remove featuere

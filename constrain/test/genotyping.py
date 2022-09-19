@@ -18,7 +18,6 @@ import numpy as np
 from Bio import pairwise2
 
 
-
 def slicing_and_naming_seq_plates(sequencing_plates, where_to_slice=7) -> list:
     """Slices rows of a list of dataframes and changes the names.
     Is used to ease pre-processing of Plate2seq excel files
