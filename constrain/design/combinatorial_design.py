@@ -115,7 +115,7 @@ def empty_list_maker(list_of_sequences: list):
     return EmptyList
 
 
-def simple_amplicon_maker(list_of_seqs: list, list_of_names: list):
+def simple_amplicon_maker(list_of_seqs: list, list_of_names: list, target_tm=56.0, limit=13):
     """Creates amplicons, updates their names
 
     Parameters
@@ -151,7 +151,7 @@ def simple_amplicon_maker(list_of_seqs: list, list_of_names: list):
         for j in range(0, len(list_of_seqs[i])):
             # Append Amplicons
             amplicons = primer_design(
-                list_of_seqs[i][j], tm_func=_tm_default, target_tm=56.0, limit=13
+                list_of_seqs[i][j], tm_func=_tm_default, target_tm=target_tm, limit=limit
             )  ############## Can add NEB Calculator here: primer_TM ################# _tm_default i.e tm_func = _tm_default,
 
             # Updating names
@@ -336,6 +336,7 @@ def unique_primers(primers: list, list_of_assemblies):
     unique_reverse_primers = []
 
     ### CHANGING THE NAMES OF THE PRIMERS
+    # Forward primers
     for i in range(len(unikke_F_primers)):
         counter += 1
         unikke_F_primers[i].id = "F{number:03}".format(number=counter)
@@ -349,7 +350,7 @@ def unique_primers(primers: list, list_of_assemblies):
             len(unikke_F_primers[i].seq) * 1.8,  # price
         ]
         unique_forward_primers.append(U_f_primers)
-
+    # Reverse primers
     for i in range(len(unikke_R_primers)):
         counter += 1
         unikke_R_primers[i].id = "R{number:03}".format(number=counter)
@@ -366,7 +367,7 @@ def unique_primers(primers: list, list_of_assemblies):
 
     primer_list = (
         unique_forward_primers + unique_reverse_primers
-    )  # cOULD CONCATONATE THEM INTO: unique_forward_primers + unique_reverse_primers
+    )  # COULD CONCATONATE THEM INTO: unique_forward_primers + unique_reverse_primers
 
     ### Updating primer names and removing duplicates
     for i in range(0, len(list_of_assemblies)):
@@ -487,7 +488,7 @@ class DesignAssembly:
     """
 
     def __init__(
-        self, list_of_seqs: list, list_of_names: list, pad: str, position_of_pad: int
+        self, list_of_seqs: list, list_of_names: list, pad: str, position_of_pad: int, target_tm=56.0, limit=13
     ):
 
         ###  1.INITIALIZING ##
@@ -501,7 +502,7 @@ class DesignAssembly:
             self.list_of_amplicons,
             self.list_of_amplicon_primers,
             self.list_of_amplicon_primer_temps,
-        ) = simple_amplicon_maker(self.list_of_seqs, self.list_of_names)
+        ) = simple_amplicon_maker(self.list_of_seqs, self.list_of_names, target_tm=target_tm, limit=limit)
 
         # Systematic names
         self.systematic_names = systematic_names_function(self.list_of_seqs)
