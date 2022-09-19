@@ -46,7 +46,6 @@ def primer_tm_neb(primer, conc=0.5, prodcode="q5-0"):
     Parameters
     ----------
     primer1 : str
-        first primer to be
     conc : float
     prodcode : str
         find product codes on nebswebsite: https://tmapi.neb.com/docs/productcodes
@@ -54,7 +53,7 @@ def primer_tm_neb(primer, conc=0.5, prodcode="q5-0"):
     Returns
     -------
     tm : int 
-        primer melting temp
+        primer melting temperature
 
     """
 
@@ -81,9 +80,9 @@ def primer_ta_neb(primer1, primer2, conc=0.5, prodcode="q5-0"):
     Parameters
     ----------
     primer1 : str
-        first primer to be
+        first primer to be used for finding the optimal ta
     primer2 : str
-        first primer to be
+        second primer to be used for finding the optimal ta
     conc : float
     prodcode : str
         find product codes on nebswebsite: https://tmapi.neb.com/docs/productcodes
@@ -91,7 +90,7 @@ def primer_ta_neb(primer1, primer2, conc=0.5, prodcode="q5-0"):
     Returns
     -------
     ta : int 
-        primer pair melting temp
+        primer pair annealing temp
 
     """
 
@@ -145,9 +144,6 @@ def pcr_volumes(
 
     Examples
     --------
-
-    If this is used as input:
-    ------------------------
     pcr_volumes(vol_p_reac = 10,
                 no_of_reactions = 6,
                 standard_reagents = ["DNA","Buffer, Cutsmart","H20","Enz, USER"],
@@ -156,9 +152,9 @@ def pcr_volumes(
      The following reaction scheme will be made:
      -------------------------
                      vol_p_reac	vol_p_x_reac
-     DNA	                1.0	        6.0
+     DNA	            1.0	        6.0
      Buffer, Cutsmart	1.0	        6.0
-     H20	                7.0	        42.0
+     H20	            7.0	        42.0
      Enz, USER	        1.0	        6.0
      Total	            10.0      	60.0
      -------------------------
@@ -187,9 +183,7 @@ def pcr_volumes(
 
 
 def det_proc_speed(amplicon):
-    """
-    This function determines process speed based on the which polymerase is used.
-
+    """Determines process speed based on the which polymerase is used.
 
     Parameters
     ----------
@@ -198,6 +192,11 @@ def det_proc_speed(amplicon):
     Returns
     -------
     Adds annotations to the amplicon object dependent on which polymerase was used
+
+    Notes
+    -----
+    The amplicon needs to have the following dict incorporated:
+    amplicon.annotations["polymerase"]
     """
 
     if "proc_speed" in amplicon.forward_primer.annotations:
@@ -220,7 +219,25 @@ def det_proc_speed(amplicon):
 def det_elon_time(amplicon):
 
     """Determines elongation time for an amplicon
-    and add the elongation time to the amplicon annotations"""
+    and add the elongation time to the amplicon annotations
+
+    Parameters
+    ----------
+    amplicon : pydna.amplicon
+
+    Returns
+    -------
+    Adds the elongation time to the amplicon annotations
+    
+    Notes
+    -----
+    The amplicon needs to have a dict called proc_speed shown as follows:
+    amplicon.annotations["proc_speed"]
+    This dict within the annotations can be made with the function proc_speed. 
+    
+    """
+
+    
 
     if "elongation_time" in amplicon.forward_primer.annotations:
         print("elongation_time already set")
