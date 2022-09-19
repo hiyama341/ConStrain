@@ -56,6 +56,28 @@ Please cite our paper (link tba) if you've used ConStrain in a scientific public
 
 .. summary-end
 
+
+Features
+--------
+
+* Combinatorial library generation
+* HT cloning and transformation workflows
+* Flowbot One instructions
+* CSV based LIMS system as well as integration to Benchling
+* Genotyping of microbial strains
+* Advanced Machine Learning of biological datasets with the AutoML `H2O <https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html>`__
+* Workflows for selecting enzyme homologs 
+* Promoter selection workflows from RNA-seq datasets 
+* Data analysis of large LC-MS datasets along with workflows for analysis
+
+Getting started
+~~~~~~~~~~~~~~~
+To get started with making microbial strains in a HT manner please follow the steps bellow: 
+
+1. Install ConStrain. You will find the neccessary information below for installation. 
+2. Check out our `notebooks <https://github.com/hiyama341/ConStrain/tree/main/colab_notebooks>`__ for inspiration on how to make HT strain constuction with ConStrain. 
+3. Now you can start making your own workflows by importing ConStrain into eiter Google colab or Jupyter lab/notebooks. 
+
 Installation
 ~~~~~~~~~~~~
 
@@ -68,7 +90,7 @@ Use pip to install ConStrain from `PyPI <https://pypi.org/project/ConStrain/>`__
     $ pip install constrain
 
 
-If you want to develop or you cloned the repository from our `GitHub <https://github.com/hiyama341/ConStrain/>`__
+If you want to develop or if you cloned the repository from our `GitHub <https://github.com/hiyama341/ConStrain/>`__
 you can install ConStrain in the following way.
 
 ::
