@@ -124,8 +124,39 @@ def test_grouper():
 
 
 def test_det_no_of_thermal_cyclers():
-    # no test atm
-    pass
+    # amplicon1
+    middle = 'c'*100
+    template = Dseqrecord("tacactcaccgtctatcattatcagcgacgaagcgagcgcgaccgcgagcgcgagcgca"+middle+"caggagcgagacacggcgacgcgagcgagcgagcgatactatcgactgtatcatctgatagcac")
+    p1 = Primer("tacactcaccgtctatca")
+    p2 = Primer("cgactgtatcatctgatagcac").reverse_complement()
+    amplicon1 = pcr(p1, p2, template)
+    amplicon1.name = 'AMPLICON1'
+    amplicon1.annotations['polymerase'] = "OneTaq Hot Start"
+    det_proc_speed(amplicon1)
+    det_elon_time(amplicon1)
+
+    # amplicon2
+    middle = 'a'*200
+    template = Dseqrecord("tacactcaccgtctatcattatcagcgacgaagcgagcgcgaccgcgagcgcgagcgca"+middle+"caggagcgagacacggcgacgcgagcgagcgagcgatactatcgactgtatcatctgatagcac")
+    p1 = Primer("tacactcaccgtctatca")
+    p2 = Primer("cgactgtatcatctgatagcac").reverse_complement()
+    amplicon2 = pcr(p1, p2, template)
+    amplicon2.name = 'AMPLICON2'
+    amplicon2.annotations['polymerase'] = "OneTaq Hot Start"
+    det_proc_speed(amplicon2)
+    det_elon_time(amplicon2)
+
+    # adding extra annotations
+    amplicon1_program = simple_PCR_program(amplicon1)
+    amplicon2_program = simple_PCR_program(amplicon2)
+
+    amplicons = [amplicon1, amplicon2]
+    # running the function
+    thermal_cyclers = det_no_of_thermal_cyclers(amplicons, polymerase='Q5 Hot Start') # pol
+
+    assert thermal_cyclers.iloc[0]['tas'] == 59
+    assert thermal_cyclers.iloc[0]['elong_times'] == 20
+    assert thermal_cyclers.iloc[0]['amplicons'] == 'AMPLICON1, AMPLICON2'
 
 
 def test_pcr_locations():
