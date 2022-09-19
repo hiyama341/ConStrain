@@ -28,6 +28,9 @@ ConStrain: Literate programming can streamline bioengineering workflows
 .. image:: https://codecov.io/gh/hiyama341/ConStrain/branch/main/graph/badge.svg?token=P4457QACUY 
         :target: https://codecov.io/gh/hiyama341/ConStrain
 
+.. image:: https://img.shields.io/badge/code%20style-black-black
+        :target: https://black.readthedocs.io/en/stable/
+
 
 What is ConStrain?
 ~~~~~~~~~~~~~~~~~~
