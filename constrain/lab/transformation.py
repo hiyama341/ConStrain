@@ -155,8 +155,21 @@ def time_to_inculate(
         print("Hours to OD = 1: \t" + str(hours_to_OD1) + " hours")
 
         ### When do u need to innoculate?
-        when_to_inoculate = 11 + 24 - hours_to_OD1
-        print("Time of inoculation: \t" + str(when_to_inoculate) + "(the day before)")
+        when_to_inoculate = transformation_time - hours_to_OD1
+
+        if when_to_inoculate < 0:
+            print("Transformation time has been set to ", transformation_time)
+            print(
+                "Time of inoculation: \t"
+                + str(when_to_inoculate + 24)
+                + " (the day before)"
+            )
+
+        else:
+            print("Transformation time has been set to ", transformation_time)
+            print(
+                "Time of inoculation: \t" + str(when_to_inoculate) + "(the day before)"
+            )
 
         # If i innoculate now?
 
@@ -216,7 +229,7 @@ def transformation_mix(
     media = ['LB_AMP'] * 5
 
     # 5. initate the function
-    transformation_mix(reaction_names, reaction_participants, wanted_concentration =
+    transformation_mix(reaction_names, reaction_participants, wanted_amounts =
     (wanted_concentrations, water_dna_p_reac = 7, media = media)
 
     Return:
@@ -272,16 +285,15 @@ def wanted_mass(wanted_moles, size):
 
     Parameters
     ----------
+    wanted_moles : int
+        wanted moles in nmol
+    size : int 
+        size in bp
 
     Returns
     -------
-
-
-    wanted moles in nmol,
-    size in bp
-
-    Returns:
-    in ng = nmol * bp * 650 ng/(nmol * bp)
+    w_mass_rounded : int 
+        in ng = nmol * bp * 650 ng/(nmol * bp)
 
     """
     w_mass = wanted_moles * size * 650
@@ -294,14 +306,16 @@ def wanted_volume(wanted_mass, actual_concentration):
 
     Parameters
     ----------
+    wanted_mass : int
+        wanted mass in ng
+
+    actual_concentration : int
+            actual_concentration in ng/ul
 
     Returns
     -------
-
-
-    wanted mass in ng
-    actual_concentration in ng/ul
-    return in ul
+    wanted_volume_rounded : int
+        return in ul
     """
     wanted_volume = wanted_mass / actual_concentration
     wanted_volume_rounded = round(wanted_volume, 1)

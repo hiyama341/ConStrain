@@ -45,10 +45,16 @@ def primer_tm_neb(primer, conc=0.5, prodcode="q5-0"):
 
     Parameters
     ----------
-
+    primer1 : str
+        first primer to be
+    conc : float
+    prodcode : str
+        find product codes on nebswebsite: https://tmapi.neb.com/docs/productcodes
 
     Returns
     -------
+    tm : int 
+        primer melting temp
 
     """
 
@@ -76,9 +82,16 @@ def primer_ta_neb(primer1, primer2, conc=0.5, prodcode="q5-0"):
     ----------
     primer1 : str
         first primer to be
+    primer2 : str
+        first primer to be
+    conc : float
+    prodcode : str
+        find product codes on nebswebsite: https://tmapi.neb.com/docs/productcodes
 
     Returns
     -------
+    ta : int 
+        primer pair melting temp
 
     """
 
@@ -121,11 +134,14 @@ def pcr_volumes(
     """Can make a reaction scheme for PCR master mixes.
     Parameters
     ----------
-
+    vol_p_reac : int
+    no_of_reactions : int
+    standard_reagents : list
+    standard_volumes : list
 
     Returns
     -------
-
+    pd.DataFrame
 
     Examples
     --------
@@ -177,10 +193,11 @@ def det_proc_speed(amplicon):
 
     Parameters
     ----------
-
+    amplicon : pydna.amplicon
 
     Returns
     -------
+    Adds annotations to the amplicon object dependent on which polymerase was used
     """
 
     if "proc_speed" in amplicon.forward_primer.annotations:
@@ -202,7 +219,7 @@ def det_proc_speed(amplicon):
 
 def det_elon_time(amplicon):
 
-    """This function determines elongation time for an amplicon
+    """Determines elongation time for an amplicon
     and add the elongation time to the amplicon annotations"""
 
     if "elongation_time" in amplicon.forward_primer.annotations:
@@ -269,7 +286,7 @@ def det_no_of_thermal_cyclers(amplicons, polymerase, elong_time_max_diff=15):
 
 
 def pcr_locations(amplicons: list):
-    """Obtain primer information for amplicons.
+    """Obtain information annotation information from amplicons.
 
     Parameters
     ----------
@@ -357,10 +374,12 @@ def nanophotometer_concentrations(
 
     Parameters
     ----------
-
-
+    path : str
+        path to file
     Returns
     -------
+    concentrations : list
+        list of concentrations from the file as floats
     """
     concentrations = []
     with open(path, encoding="Latin1") as tsvfile:

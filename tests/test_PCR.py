@@ -12,17 +12,21 @@ from Bio.SeqRecord import SeqRecord
 # Importing the module we are  testing
 from constrain.lab.PCR import *
 
-
-
-def test_pcr_volumes(): 
-    vol_p_reac = 10,
+def test_amplicon_by_name(): 
     
-    #no_of_reactions = 6,
-    #standard_reagents = ["DNA","Buffer, Cutsmart","H20","Enz, USER"],
-    # standard_volumes = [1,1,7,1]
-    #pcr_reaction_df = pcr_volumes(vol_p_reac,no_of_reactions ,standard_reagents, standard_volumes)
-    
-    pass
+    # initialize
+    middle = 'a'*2000
+    template = Dseqrecord("tacactcaccgtctatcattatcagcgacgaagcgagcgcgaccgcgagcgcgagcgca"+middle+"caggagcgagacacggcgacgcgagcgagcgagcgatactatcgactgtatcatctgatagcac")
+    p1 = Primer("tacactcaccgtctatcattatc")
+    p2 = Primer("cgactgtatcatctgatagcac").reverse_complement()
+    amplicon = pcr(p1, p2, template)
+    amplicon.name = 'AMPICON_FOR_TESTING_amplicon_byname_function'
+
+    amplicon_list = [amplicon]
+    my_amplicon = amplicon_by_name('AMPICON_FOR_TESTING_amplicon_byname_function', amplicon_list)
+
+    assert my_amplicon.name == 'AMPICON_FOR_TESTING_amplicon_byname_function'
+    assert len(my_amplicon) == 2123
     
 def test_det_proc_speed(): 
     
@@ -91,8 +95,22 @@ def test_det_elon_time():
     
 
 def test_PCR_program(): 
-    # no test atm
-    pass
+    # intialize an amplicon 
+    middle = 'a'*2000
+    template = Dseqrecord("tacactcaccgtctatcattatcagcgacgaagcgagcgcgaccgcgagcgcgagcgca"+middle+"caggagcgagacacggcgacgcgagcgagcgagcgatactatcgactgtatcatctgatagcac")
+    p1 = Primer("tacactcaccgtctatcattatc")
+    p2 = Primer("cgactgtatcatctgatagcac").reverse_complement()
+    amplicon = pcr(p1, p2, template)
+    amplicon.name = 'AMPICON_FOR_TESTING_PCR_program_function'
+    amplicon.annotations['polymerase'] = "OneTaq Hot Start"
+    det_proc_speed(amplicon)
+
+    # initialize a string object
+    program = simple_PCR_program(amplicon)
+
+    assert program[1:5] == '98°C'
+    assert program[35:39] == '61.0'
+    assert program[61:65] == '72°C'
 
 
 def test_grouper():
@@ -105,17 +123,68 @@ def test_grouper():
 
 
 
-
-
 def test_det_no_of_thermal_cyclers():
     # no test atm
     pass
 
 
 def test_pcr_locations():
-    # not test - hard to test a df
-    pass
+    from pydna.dseqrecord import Dseqrecord
+    from pydna.amplify import pcr
+
+
+    dna = Dseqrecord('ATGATATATGGCTCGACTGCAGGGGGATTTTTCCGGATCGCGGTCGATGACTGATACTACTACGACTACTAG')
+    primer1 = Dseqrecord('ATGATATATGGCTCGAC')
+    primer2 = Dseqrecord('TACTACGACTACTAG').reverse_complement()
+
+    #names 
+    dna.name = 'dna'
+    primer1.name = 'primer1' 
+    primer2.name  = 'primer2' 
+
+    #annott
+    dna.annotations['batches'] = [{'location':'Freezer1', 'concentration':123}]
+    primer1.annotations['batches']  = [{'location':'Freezer2','concentration':274}]
+    primer2.annotations['batches']   = [{'location':'Freezer3','concentration':124}]
+
+    # make a pcr_prod
+    gRNA1_pcr_prod = pcr(primer1,primer2, dna)
+
+    # run the function
+    pcr_locations_df = pcr_locations([gRNA1_pcr_prod])
+
+    assert pcr_locations_df.iloc[0]['location'] == 'Freezer1'
+    assert pcr_locations_df.iloc[0]['name'] == '72bp_PCR_prod'
+    assert pcr_locations_df.iloc[0]['template'] == 'Freezer1'
+    assert pcr_locations_df.iloc[0]['fw'] == 'Freezer2'
+    assert pcr_locations_df.iloc[0]['rv'] == 'Freezer3'
 
 
 def test_nanophotometer_concentrations(): 
-    pass
+    list_of_conc = nanophotometer_concentrations(path = '../ConStrain/tests/files_for_testing/2021-03-29_G8H_CPR_library_part_concentrations.tsv')
+
+    assert list_of_conc[0] ==142.8
+    assert list_of_conc[1] ==134.5
+
+    assert list_of_conc[-2] ==17.5
+    assert list_of_conc[-1] ==39.9
+
+
+def test_pcr_volumes(): 
+
+    pcr_volumes_df = pcr_volumes(vol_p_reac = 20, 
+            no_of_reactions = 3,
+            standard_reagents = ["Template", "Primer 1", "Primer 2", "H20", "Pol"],
+            standard_volumes = [1, 2.5, 2.5, 19, 25])
+    
+    # template
+    assert pcr_volumes_df.iloc[0]['vol_p_reac'] == 0.4
+    assert round(pcr_volumes_df.iloc[0]['vol_p_3_reac'],2) == 1.2
+
+    # h2o
+    assert pcr_volumes_df.iloc[3]['vol_p_reac'] == 7.6
+    assert round(pcr_volumes_df.iloc[3]['vol_p_3_reac'],2) == 22.8
+
+    # total
+    assert pcr_volumes_df.iloc[5]['vol_p_reac'] == 20.0
+    assert round(pcr_volumes_df.iloc[5]['vol_p_3_reac'],2) == 60.0
