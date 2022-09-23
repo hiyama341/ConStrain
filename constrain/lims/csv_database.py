@@ -164,20 +164,20 @@ def add_unique_ids(list_of_parts: list, path="../data/csv_database") -> None:
     """Adds unique ids to a list of SeqRecords."""
     for i in range(len(list_of_parts)):
         unique_id = get_unique_id(path) + i
-        list_of_parts[i].id = unique_id
+        list_of_parts[i].id = str(unique_id)
 
 
 def add_annotations(
     list_of_parts: list,
     concentration: float = 0.0,
-    reference="",
+    reference:str = "",
     volume: float = 0.0,
-    comments="",
-    location="",
+    comments: str ="",
+    location: str="",
 ) -> list:
 
     """Adds the neccessary annotations to a list of
-    SeqRecord objectto be uploaded to the database"""
+    SeqRecord objects to be uploaded to the database"""
     for annotations in list_of_parts:
         annotations.annotations = {
             "reference": reference,

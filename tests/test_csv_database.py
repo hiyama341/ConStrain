@@ -36,10 +36,10 @@ def test_add_unique_ids():
     
     add_unique_ids(test_templates, path= '../ConStrain/tests/files_for_testing/csv_database_tests')
 
-    assert test_templates[0].id == 10041.0
-    assert test_templates[1].id == 10042.0
-    assert test_templates[2].id == 10043.0
-    assert test_templates[3].id == 10044.0
+    assert test_templates[0].id == str(10041)
+    assert test_templates[1].id == str(10042)
+    assert test_templates[2].id == str(10043)
+    assert test_templates[3].id == str(10044)
 
 
 def test_add_annotations(): 
