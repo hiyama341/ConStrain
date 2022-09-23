@@ -70,6 +70,11 @@ Features
 * Promoter selection workflows from RNA-seq datasets
 * Data analysis of large LC-MS datasets along with workflows for analysis
 
+
+.. image:: ../pictures/Overview_of_ConStrain.png
+  :width: 400
+  :alt: Overview of ConStrain's features throughout the DBTL cycle. 
+
 Getting started
 ~~~~~~~~~~~~~~~
 To get started with making microbial strains in an HT manner please follow the steps below: 
