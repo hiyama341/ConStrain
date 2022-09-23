@@ -170,10 +170,10 @@ def add_unique_ids(list_of_parts: list, path="../data/csv_database") -> None:
 def add_annotations(
     list_of_parts: list,
     concentration: float = 0.0,
-    reference:str = "",
+    reference: str = "",
     volume: float = 0.0,
-    comments: str ="",
-    location: str="",
+    comments: str = "",
+    location: str = "",
 ) -> list:
 
     """Adds the neccessary annotations to a list of
