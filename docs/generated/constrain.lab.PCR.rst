@@ -13,6 +13,7 @@ constrain.lab.PCR
 
    .. autosummary::
    
+      amplicon_by_name
       det_elon_time
       det_no_of_thermal_cyclers
       det_proc_speed
@@ -23,7 +24,6 @@ constrain.lab.PCR
       primer_ta_neb
       primer_tm_neb
       simple_PCR_program
-      takeThird
    
    
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.lab.transformation &mdash; ConStrain 0.1.6+8.g1fd6337.dirty documentation</title>
+  <title>constrain.lab.transformation &mdash; ConStrain 0.2.7+43.gb91e5a9 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.1.6+8.g1fd6337.dirty
+                0.2.7+43.gb91e5a9
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,11 +55,13 @@
 <li class="toctree-l3"><a class="reference internal" href="constrain.design.html">constrain.design</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="constrain.lab.html">constrain.lab</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="constrain.lab.PCR.html">constrain.lab.PCR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="constrain.lab.containers_wells_picklists.html">constrain.lab.containers_wells_picklists</a></li>
 <li class="toctree-l4"><a class="reference internal" href="constrain.lab.robot_assembly.html">constrain.lab.robot_assembly</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">constrain.lab.transformation</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="constrain.lims.html">constrain.lims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constrain.test.html">constrain.test</a></li>
 </ul>
 </li>
 </ul>
@@ -135,10 +137,26 @@
 <td><p>Calculates nanogrom to nanomol for transformation mixes.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_to_inculate</span></code>([initialOD, td, verbose, ...])</p></td>
-<td><p>Calculates when a starter culture is ready to be inoculated with a transformation mixture.</p></td>
+<td><p>Calculates when a starter culture is ready to be inoculated</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">transformation_mix</span></code>(reaction_names, ...[, media])</p></td>
 <td><p>This function makes a pandas dataframe of the parts(their location)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wanted_mass</span></code>(wanted_moles, size)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param wanted_moles</dt>
+<dd class="field-odd"><p>wanted moles in nmol</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wanted_volume</span></code>(wanted_mass, actual_concentration)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param wanted_mass</dt>
+<dd class="field-odd"><p>wanted mass in ng</p>
+</dd>
+</dl>
+</p></td>
 </tr>
 </tbody>
 </table>

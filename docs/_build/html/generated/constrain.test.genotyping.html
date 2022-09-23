@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.lab.PCR &mdash; ConStrain 0.2.7+43.gb91e5a9 documentation</title>
+  <title>constrain.test.genotyping &mdash; ConStrain 0.2.7+43.gb91e5a9 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="constrain.lab.containers_wells_picklists" href="constrain.lab.containers_wells_picklists.html" />
-    <link rel="prev" title="constrain.lab" href="constrain.lab.html" /> 
+    <link rel="next" title="Colab notebooks" href="../colab_notebooks.html" />
+    <link rel="prev" title="constrain.test" href="constrain.test.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,15 +53,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="constrain.html">constrain</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="constrain.design.html">constrain.design</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="constrain.lab.html">constrain.lab</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">constrain.lab.PCR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="constrain.lab.containers_wells_picklists.html">constrain.lab.containers_wells_picklists</a></li>
-<li class="toctree-l4"><a class="reference internal" href="constrain.lab.robot_assembly.html">constrain.lab.robot_assembly</a></li>
-<li class="toctree-l4"><a class="reference internal" href="constrain.lab.transformation.html">constrain.lab.transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constrain.lab.html">constrain.lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constrain.lims.html">constrain.lims</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="constrain.test.html">constrain.test</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">constrain.test.genotyping</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="constrain.lims.html">constrain.lims</a></li>
-<li class="toctree-l3"><a class="reference internal" href="constrain.test.html">constrain.test</a></li>
 </ul>
 </li>
 </ul>
@@ -85,10 +82,10 @@
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../api.html">API</a> &raquo;</li>
           <li><a href="constrain.html">constrain</a> &raquo;</li>
-          <li><a href="constrain.lab.html">constrain.lab</a> &raquo;</li>
-      <li>constrain.lab.PCR</li>
+          <li><a href="constrain.test.html">constrain.test</a> &raquo;</li>
+      <li>constrain.test.genotyping</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/generated/constrain.lab.PCR.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/constrain.test.genotyping.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -120,20 +117,8 @@
     text-align: unset;
 }
 </style>
-<section id="module-constrain.lab.PCR">
-<span id="constrain-lab-pcr"></span><h1>constrain.lab.PCR<a class="headerlink" href="#module-constrain.lab.PCR" title="Permalink to this heading"></a></h1>
-<p>This part of the lab module is used for simulating and calculating PCR reactions.</p>
-<section id="helper-functions">
-<h2>HELPER FUNCTIONS:<a class="headerlink" href="#helper-functions" title="Permalink to this heading"></a></h2>
-<p>primer_tm_neb
-primer_ta_neb
-grouper
-pcr_volumes (formerly known as volumes)
-det_proc_speed
-det_elon_time
-PCR_program
-det_no_of_thermal_cyclers
-pcr_locations</p>
+<section id="module-constrain.test.genotyping">
+<span id="constrain-test-genotyping"></span><h1>constrain.test.genotyping<a class="headerlink" href="#module-constrain.test.genotyping" title="Permalink to this heading"></a></h1>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
@@ -141,50 +126,34 @@ pcr_locations</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">amplicon_by_name</span></code>(name, amplicons_lst)</p></td>
-<td><p>Returns amplicon with specified name</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenating_list_of_dfs</span></code>(list_of_dfs)</p></td>
+<td><p>Concatenating a list of daframes into one pd.dataframe by rows</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">det_elon_time</span></code>(amplicon)</p></td>
-<td><p>Determines elongation time for an amplicon and add the elongation time to the amplicon annotations</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairwise_alignment_of_templates</span></code>(reads, ...)</p></td>
+<td><p>Infers relationship of templates to reads based on highest score from a pairwise alignment.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">det_no_of_thermal_cyclers</span></code>(amplicons, polymerase)</p></td>
-<td><p>Determines the number of thermalcyclers that is needed based on elongation time differences</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plat_seq_data_wrangler</span></code>(sequencing_plates)</p></td>
+<td><p>Makes list of Plate2Seq pd.DataFrames into numeric values and removes nan values.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">det_proc_speed</span></code>(amplicon)</p></td>
-<td><p>Determines process speed based on the which polymerase is used.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plate_AvgQual</span></code>(list_of_dfs_numeric[, ...])</p></td>
+<td><p>Filters out rows that doesnt follow the criteria.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">grouper</span></code>(iterable, max_diff)</p></td>
-<td><p>Groups objects into distinct groups based on differences</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">slicing_and_naming_seq_plates</span></code>(sequencing_plates)</p></td>
+<td><p>Slices rows of a list of dataframes and changes the names.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">nanophotometer_concentrations</span></code>([path])</p></td>
-<td><p>Reads a CSV file with nanophotometer concentraions and returns the concentrations in a list</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pcr_locations</span></code>(amplicons)</p></td>
-<td><p>Obtain information annotation information from amplicons.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pcr_volumes</span></code>([vol_p_reac, no_of_reactions, ...])</p></td>
-<td><p>Can make a reaction scheme for PCR master mixes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">primer_ta_neb</span></code>(primer1, primer2[, conc, prodcode])</p></td>
-<td><p>Calculates primer pair melting temp, TA</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">primer_tm_neb</span></code>(primer[, conc, prodcode])</p></td>
-<td><p>Calculates a single primers melting temp</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple_PCR_program</span></code>(amplicon)</p></td>
-<td><p>Simple PCR program designed to give a quick visual representations.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_df_names</span></code>(df_names_column[, ...])</p></td>
+<td><p>Splits sample names from plate2seq pd.dataframes into plate and well columns</p></td>
 </tr>
 </tbody>
 </table>
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="constrain.lab.html" class="btn btn-neutral float-left" title="constrain.lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="constrain.lab.containers_wells_picklists.html" class="btn btn-neutral float-right" title="constrain.lab.containers_wells_picklists" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="constrain.test.html" class="btn btn-neutral float-left" title="constrain.test" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../colab_notebooks.html" class="btn btn-neutral float-right" title="Colab notebooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

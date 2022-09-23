@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ConStrain &mdash; ConStrain 0.1.6+8.g1fd6337.dirty documentation</title>
+  <title>ConStrain &mdash; ConStrain 0.2.7+43.gb91e5a9 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.1.6+8.g1fd6337.dirty
+                0.2.7+43.gb91e5a9
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -47,6 +47,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ConStrain</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#constrain-literate-programming-can-streamline-bioengineering-workflows">ConStrain: Literate programming can streamline bioengineering workflows</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#what-is-constrain">What is ConStrain?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting started</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#documentation-and-examples">Documentation and Examples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#contributions">Contributions</a></li>
@@ -120,6 +124,10 @@
 <a class="reference external image-reference" href="https://badge.fury.io/py/ConStrain"><img alt="https://badge.fury.io/py/ConStrain.svg" src="https://badge.fury.io/py/ConStrain.svg" /></a>
 <a class="reference external image-reference" href="https://github.com/hiyama341/ConStrain/actions"><img alt="https://github.com/hiyama341/ConStrain/actions/workflows/main.yml/badge.svg" src="https://github.com/hiyama341/ConStrain/actions/workflows/main.yml/badge.svg" /></a>
 <a class="reference external image-reference" href="https://constrain.readthedocs.io/en/latest/?version=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/constrain/badge/?version=latest" /></a>
+<a class="reference external image-reference" href="https://github.com/hiyama341/ConStrain/blob/main/LICENSE"><img alt="https://img.shields.io/github/license/hiyama341/ConStrain" src="https://img.shields.io/github/license/hiyama341/ConStrain" /></a>
+<a class="reference external image-reference" href="https://pypi.org/project/ConStrain/"><img alt="Supported Python Versions" src="https://img.shields.io/pypi/pyversions/ConStrain.svg" /></a>
+<a class="reference external image-reference" href="https://codecov.io/gh/hiyama341/ConStrain"><img alt="https://codecov.io/gh/hiyama341/ConStrain/branch/main/graph/badge.svg?token=P4457QACUY" src="https://codecov.io/gh/hiyama341/ConStrain/branch/main/graph/badge.svg?token=P4457QACUY" /></a>
+<a class="reference external image-reference" href="https://black.readthedocs.io/en/stable/"><img alt="https://img.shields.io/badge/code%20style-black-black" src="https://img.shields.io/badge/code%20style-black-black" /></a>
 <section id="what-is-constrain">
 <h3>What is ConStrain?<a class="headerlink" href="#what-is-constrain" title="Permalink to this heading"></a></h3>
 <p><strong>ConStrain</strong> is an easy-to-use python package with functions that
@@ -138,13 +146,36 @@ the speed at which we engineer biology.</p>
 and give it a try.</p>
 <p>Please cite our paper (link tba) if you’ve used ConStrain in a scientific publication.</p>
 </section>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Combinatorial library generation</p></li>
+<li><p>HT cloning and transformation workflows</p></li>
+<li><p>Flowbot One instructions</p></li>
+<li><p>CSV-based LIMS system as well as integration to Benchling</p></li>
+<li><p>Genotyping of microbial strains</p></li>
+<li><p>Advanced Machine Learning of biological datasets with the AutoML <a class="reference external" href="https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html">H2O</a></p></li>
+<li><p>Workflows for selecting enzyme homologs</p></li>
+<li><p>Promoter selection workflows from RNA-seq datasets</p></li>
+<li><p>Data analysis of large LC-MS datasets along with workflows for analysis</p></li>
+</ul>
+<section id="getting-started">
+<h3>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h3>
+<p>To get started with making microbial strains in an HT manner please follow the steps below:</p>
+<ol class="arabic simple">
+<li><p>Install ConStrain. You will find the necessary information below for installation.</p></li>
+<li><p>Check out our <a class="reference external" href="https://github.com/hiyama341/ConStrain/tree/main/colab_notebooks">notebooks</a> for inspiration to make HT strain construction with ConStrain.</p></li>
+<li><p>You can start making your own workflows by importing ConStrain into either Google colab or Jupyter lab/notebooks.</p></li>
+</ol>
+</section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h3>
 <p>Use pip to install ConStrain from <a class="reference external" href="https://pypi.org/project/ConStrain/">PyPI</a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install constrain
 </pre></div>
 </div>
-<p>If you want to develop or you cloned the repository from our <a class="reference external" href="https://github.com/hiyama341/ConStrain/">GitHub</a>
+<p>If you want to develop or if you cloned the repository from our <a class="reference external" href="https://github.com/hiyama341/ConStrain/">GitHub</a>
 you can install ConStrain in the following way.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -e &lt;path-to-constrain-repo&gt;
 </pre></div>

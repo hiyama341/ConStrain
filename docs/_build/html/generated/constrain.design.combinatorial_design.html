@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.design.combinatorial_design &mdash; ConStrain 0.1.6+8.g1fd6337.dirty documentation</title>
+  <title>constrain.design.combinatorial_design &mdash; ConStrain 0.2.7+43.gb91e5a9 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.1.6+8.g1fd6337.dirty
+                0.2.7+43.gb91e5a9
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -59,6 +59,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="constrain.lab.html">constrain.lab</a></li>
 <li class="toctree-l3"><a class="reference internal" href="constrain.lims.html">constrain.lims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constrain.test.html">constrain.test</a></li>
 </ul>
 </li>
 </ul>
@@ -128,34 +129,34 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">assembly_maker</span></code>(combinatorial_list_of_amplicons)</p></td>
-<td><p>Assembles Amplicons with pad and makes new overlapping primers</p></td>
+<td><p>Assembles Amplicons with pad and makes new overlapping primers. :param combinatorial_list_of_amplicons: the list of pydna.amplicon.Amplicon that you want generate                                         overlapping primers for. :type combinatorial_list_of_amplicons: list[[pydna.amplicon.Amplicon]] :param overlap: How many basepair overlaps :type overlap: int = 35.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">combinatorial_list_maker</span></code>(...)</p></td>
-<td><p>Makes all possible combinations from a list of list</p></td>
+<td><p>Makes all possible combinations from a list of list.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">empty_list_maker</span></code>(list_of_sequences)</p></td>
 <td><p>returns empty list in the length of seqs</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_primers</span></code>(List_of_assemblies, ...)</p></td>
-<td><p>Returns a list of ALL primers from the combinatorial library</p></td>
+<td><p>Returns a list of ALL primers from the combinatorial library, updates names and what they anneal to.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">making_assembled_contigs</span></code>(...)</p></td>
-<td><p>Assembles a list of assembly object into contigs</p></td>
+<td><p>Assembles a list of assembly object into linear contigs.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">making_assembly_objects</span></code>(list_of_assemblies)</p></td>
-<td><p>Assembling amplicons into assembling class that shows fragments, limit, nodes and which algorithm that was used for assembling.</p></td>
+<td><p>Assembling amplicons into assembling class that shows fragments, limit,nodes and which algorithm that was used for assembling.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple_amplicon_maker</span></code>(list_of_seqs, ...)</p></td>
-<td><p>Calculates amplicons, updates their names</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple_amplicon_maker</span></code>(list_of_seqs, ...[, ...])</p></td>
+<td><p>Creates amplicons, updates their names</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematic_names_function</span></code>(List_of_list_parts)</p></td>
 <td><p>Returns a list of list with systematic names i.e [1,1,1], [1,2,1].</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unique_amplicons</span></code>(list_of_assemblies)</p></td>
-<td><p>Finds Unique amplicons from a list of assemblies</p></td>
+<td><p>Finds Unique amplicons from a list of assemblies :param list_of_assemblies: list of the combinatorial libarary with overlapping ends :type list_of_assemblies: list[[pydna.amplicon.Amplicon]]</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unique_primers</span></code>(primers, list_of_assemblies)</p></td>
-<td><p>Finds unique primers from a list of assemblies</p></td>
+<td><p>Finds unique primers from a list of assemblies :param primers: a list of all the primers made for the combinatorial library :type primers: list[list[[pydna.primer.Primer, pydna.primer.Primer]] :param list_of_assemblies: used here to update the names of the primers :type list_of_assemblies: list[[pydna.amplicon.Amplicon]]</p></td>
 </tr>
 </tbody>
 </table>

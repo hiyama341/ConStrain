@@ -1,4 +1,4 @@
-﻿constrain.lims
+constrain.lims
 ==============
 
 .. automodule:: constrain.lims
@@ -28,4 +28,5 @@
    :recursive:
 
    constrain.lims.benchling_api
+   constrain.lims.csv_database
 

@@ -17,6 +17,8 @@ constrain.lab.transformation
       ng_to_nmol
       time_to_inculate
       transformation_mix
+      wanted_mass
+      wanted_volume
    
    
 

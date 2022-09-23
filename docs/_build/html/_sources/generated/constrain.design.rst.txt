@@ -1,4 +1,4 @@
-﻿constrain.design
+constrain.design
 ================
 
 .. automodule:: constrain.design

@@ -30,4 +30,5 @@
    constrain.design
    constrain.lab
    constrain.lims
+   constrain.test
 

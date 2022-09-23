@@ -1,7 +1,7 @@
-constrain.lims
+constrain.test
 ==============
 
-.. automodule:: constrain.lims
+.. automodule:: constrain.test
 
    
    
@@ -27,6 +27,5 @@ constrain.lims
    :toctree:
    :recursive:
 
-   constrain.lims.benchling_api
-   constrain.lims.csv_database
+   constrain.test.genotyping
 

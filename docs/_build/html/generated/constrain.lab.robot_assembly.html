@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.lab.robot_assembly &mdash; ConStrain 0.1.6+8.g1fd6337.dirty documentation</title>
+  <title>constrain.lab.robot_assembly &mdash; ConStrain 0.2.7+43.gb91e5a9 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="constrain.lab.transformation" href="constrain.lab.transformation.html" />
-    <link rel="prev" title="constrain.lab.PCR" href="constrain.lab.PCR.html" /> 
+    <link rel="prev" title="constrain.lab.containers_wells_picklists" href="constrain.lab.containers_wells_picklists.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.1.6+8.g1fd6337.dirty
+                0.2.7+43.gb91e5a9
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,11 +55,13 @@
 <li class="toctree-l3"><a class="reference internal" href="constrain.design.html">constrain.design</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="constrain.lab.html">constrain.lab</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="constrain.lab.PCR.html">constrain.lab.PCR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="constrain.lab.containers_wells_picklists.html">constrain.lab.containers_wells_picklists</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">constrain.lab.robot_assembly</a></li>
 <li class="toctree-l4"><a class="reference internal" href="constrain.lab.transformation.html">constrain.lab.transformation</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="constrain.lims.html">constrain.lims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constrain.test.html">constrain.test</a></li>
 </ul>
 </li>
 </ul>
@@ -128,7 +130,7 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_virtual_plates_fromDF</span></code>(f_primers, ...)</p></td>
-<td><p>This function can make virtual plates from lists of primers and templates.</p></td>
+<td><p>This function can make virtual plates from lists of primers and templates.The Pandas DataFrame is used to calculate how much pcr and h2o is needed for the reactions.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">picklist_from_plates</span></code>(F_primer_plate, ...)</p></td>
 <td><p>This function can generate picklist from virtual plates and pandas dataframe with PCR components</p></td>
@@ -146,7 +148,7 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">LiquidHandler</span></code>()</p></td>
-<td><p>This class is is a subclass of the synbiopython Transfer class and be used to make flowbot instructions</p></td>
+<td><p>This class is a subclass of the synbiopython Transfer class and be used to make flowbot instructions</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">RobotAssembly</span></code>(Pandas_dataframe_PCR, ...)</p></td>
 <td><p>Class to generate instructions for robot on demand.</p></td>
@@ -159,7 +161,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="constrain.lab.PCR.html" class="btn btn-neutral float-left" title="constrain.lab.PCR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="constrain.lab.containers_wells_picklists.html" class="btn btn-neutral float-left" title="constrain.lab.containers_wells_picklists" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="constrain.lab.transformation.html" class="btn btn-neutral float-right" title="constrain.lab.transformation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
