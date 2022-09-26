@@ -142,4 +142,4 @@ Credits
 
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 
-- ConStains logo was made by Jonas Krogh Fischer. Check out his `website <https://github.com/hiyama341/ConStrain/>`__. 
+- ConStrains logo was made by Jonas Krogh Fischer. Check out his `website <https://github.com/hiyama341/ConStrain/>`__. 
