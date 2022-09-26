@@ -1,8 +1,7 @@
 
-=========
 .. image:: pictures/constrain1.svg
-  :width: 400 
-=========
+  :width: 400
+  :alt: ConStrain logo 
 
 ConStrain: Literate programming can streamline bioengineering workflows
 -----------------------------------------------------------------------
