@@ -1,5 +1,5 @@
 
-.. image:: pictures/constrain1.svg
+.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/constrain1.svg?token=GHSAT0AAAAAABTYCY2KQITX4BYBOV6ISV3UYZRQFDQ
   :width: 400
   :alt: ConStrain logo 
 
@@ -9,7 +9,7 @@ ConStrain: Literate programming can streamline bioengineering workflows
 .. summary-start
 
 .. image:: https://badge.fury.io/py/ConStrain.svg
-    :target: https://badge.fury.io/py/ConStrain
+        :target: https://badge.fury.io/py/ConStrain
 
 .. image:: https://github.com/hiyama341/ConStrain/actions/workflows/main.yml/badge.svg
         :target: https://github.com/hiyama341/ConStrain/actions
@@ -71,7 +71,7 @@ Features
 * Data analysis of large LC-MS datasets along with workflows for analysis
 
 
-.. image:: pictures/Overview_of_ConStrain.png
+.. image:: https://github.com/hiyama341/ConStrain/blob/main/pictures/Overview_of_ConStrain.png
   :width: 800
   :alt: Overview of ConStrain's features throughout the DBTL cycle. 
 
@@ -131,7 +131,7 @@ Contributions are very welcome! Check our `guidelines <https://constrain.readthe
 
 
 License
-~~~~~~~~~~~~~
+~~~~~~~
 * Free software: MIT license
 
 Credits
