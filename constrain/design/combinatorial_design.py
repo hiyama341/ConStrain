@@ -13,19 +13,6 @@
 # copies or substantial portions of the Software.
 
 """ This part of the design module is used for making combinatorial libraries from DNA fragments.
-
-HELPER FUNCTIONS: 
------------------
-CombinatorialListMaker
-systematic_names_function
-empty_list_maker
-simple_amplicon_maker
-get_primers
-assembly_maker
-unique_primers
-unique_amplicons
-making_assembly_objects
-making_assembled_contigs
 """
 
 # standard libraries

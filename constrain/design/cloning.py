@@ -13,23 +13,7 @@
 # copies or substantial portions of the Software.
 
 
-""" Module used for cloning of microbial strains.
-
------------------
-HELPER FUNCTIONS: 
------------------
-USER_enzyme
-CAS9_cutting
-CRIPSIR_knockout
-extract_gRNAs
-remove_features_with_negative_loc
-casembler
-extract_template_amplification_sites
-UPandDW
-extract_sites
-seq_to_annotation
-
-"""
+""" Module used for cloning of microbial strains."""
 import functools
 import pandas as pd
 import pydna

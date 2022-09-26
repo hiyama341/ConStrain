@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # MIT License
 # Copyright (c) 2022, Technical University of Denmark (DTU)
 #
@@ -13,13 +14,6 @@
 
 
 """ This part of the lab module is used for making transformations"""
-"""
-HELPER FUNCTIONS:
------------------
-ng_to_nmol
-ODtime
-time_to_inculate
-"""
 
 #!/usr/bin/env python
 # standard libraries

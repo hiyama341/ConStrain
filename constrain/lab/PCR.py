@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # MIT License
 # Copyright (c) 2022, Technical University of Denmark (DTU)
 #
@@ -11,24 +12,9 @@
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
-""" This part of the lab module is used for simulating and calculating PCR reactions.
+""" This part of the lab module is used for simulating and calculating PCR reactions."""
 
-HELPER FUNCTIONS:
------------------
-primer_tm_neb
-primer_ta_neb
-grouper
-pcr_volumes (formerly known as volumes)
-det_proc_speed
-det_elon_time
-PCR_program
-det_no_of_thermal_cyclers
-pcr_locations
-"""
-
-#!/usr/bin/env python
 # standard libraries
-
 import textwrap as _textwrap
 import math
 import csv
