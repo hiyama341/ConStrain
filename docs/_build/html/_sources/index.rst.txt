@@ -50,7 +50,7 @@ To get started with making microbial strains in an HT manner please follow the s
    contributing
    authors
    history
-   constrain
+   modules
    colab_notebooks
    constrain.design
    constrain.lab

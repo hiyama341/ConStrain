@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design module &mdash; ConStrain 0.2.7+57.gfc7687b.dirty documentation</title>
+  <title>Design module &mdash; ConStrain 0.2.7+59.g40f6bc1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+57.gfc7687b.dirty
+                0.2.7+59.g40f6bc1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,17 +52,11 @@
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constrain.html">ConStrain package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">ConStrains modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab_notebooks.html">Colab notebooks</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Design module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-constrain.design.cloning">Cloning module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#helper-functions">HELPER FUNCTIONS:</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-constrain.design.combinatorial_design">Combinatorial library module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">HELPER FUNCTIONS:</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-constrain.design.cloning">Cloning module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-constrain.design.combinatorial_design">Combinatorial library module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="constrain.lab.html">Lab module</a></li>
@@ -85,6 +79,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">ConStrains modules</a> &raquo;</li>
           <li><a href="constrain.html">ConStrain package</a> &raquo;</li>
       <li>Design module</li>
       <li class="wy-breadcrumbs-aside">
@@ -125,18 +120,6 @@
 <section id="module-constrain.design.cloning">
 <span id="cloning-module"></span><h2>Cloning module<a class="headerlink" href="#module-constrain.design.cloning" title="Permalink to this heading"></a></h2>
 <p>Module used for cloning of microbial strains.</p>
-<section id="helper-functions">
-<h3>HELPER FUNCTIONS:<a class="headerlink" href="#helper-functions" title="Permalink to this heading"></a></h3>
-<p>USER_enzyme
-CAS9_cutting
-CRIPSIR_knockout
-extract_gRNAs
-remove_features_with_negative_loc
-casembler
-extract_template_amplification_sites
-UPandDW
-extract_sites
-seq_to_annotation</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="constrain.design.cloning.CAS9_cutting">
 <span class="sig-prename descclassname"><span class="pre">constrain.design.cloning.</span></span><span class="sig-name descname"><span class="pre">CAS9_cutting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gRNA_record</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background_record</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/design/cloning.html#CAS9_cutting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.design.cloning.CAS9_cutting" title="Permalink to this definition"></a></dt>
@@ -464,22 +447,9 @@ H   PCR_CPR_31      PCR_CPR_40      PCR_CPR_33      PCR_CPR_39      PCR_CPR_32  
 </dd></dl>
 
 </section>
-</section>
 <section id="module-constrain.design.combinatorial_design">
 <span id="combinatorial-library-module"></span><h2>Combinatorial library module<a class="headerlink" href="#module-constrain.design.combinatorial_design" title="Permalink to this heading"></a></h2>
 <p>This part of the design module is used for making combinatorial libraries from DNA fragments.</p>
-<section id="id1">
-<h3>HELPER FUNCTIONS:<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
-<p>CombinatorialListMaker
-systematic_names_function
-empty_list_maker
-simple_amplicon_maker
-get_primers
-assembly_maker
-unique_primers
-unique_amplicons
-making_assembly_objects
-making_assembled_contigs</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="constrain.design.combinatorial_design.DesignAssembly">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">constrain.design.combinatorial_design.</span></span><span class="sig-name descname"><span class="pre">DesignAssembly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_seqs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_of_pad</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_tm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">56.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">13</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/design/combinatorial_design.html#DesignAssembly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.design.combinatorial_design.DesignAssembly" title="Permalink to this definition"></a></dt>
@@ -756,7 +726,6 @@ are added to the objects.</p>
 </dl>
 </dd></dl>
 
-</section>
 </section>
 </section>
 

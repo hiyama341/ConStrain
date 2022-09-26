@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lab module &mdash; ConStrain 0.2.7+57.gfc7687b.dirty documentation</title>
+  <title>Lab module &mdash; ConStrain 0.2.7+59.g40f6bc1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+57.gfc7687b.dirty
+                0.2.7+59.g40f6bc1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,14 +52,11 @@
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">ConStrains modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab_notebooks.html">Colab notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="constrain.design.html">Design module</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Lab module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-constrain.lab.PCR">PCR module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#helper-functions">HELPER FUNCTIONS:</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-constrain.lab.PCR">PCR module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-constrain.lab.containers_wells_picklists">Containers module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-constrain.lab.robot_assembly">Robot assembly module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-constrain.lab.transformation">Transformation module</a></li>
@@ -67,6 +64,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="constrain.lims.html">LIMS module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="constrain.test.html">TEST module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
 
         </div>
@@ -83,6 +81,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">ConStrains modules</a> &raquo;</li>
+          <li><a href="constrain.html">ConStrain package</a> &raquo;</li>
       <li>Lab module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/constrain.lab.rst.txt" rel="nofollow"> View page source</a>
@@ -122,17 +122,6 @@
 <section id="module-constrain.lab.PCR">
 <span id="pcr-module"></span><h2>PCR module<a class="headerlink" href="#module-constrain.lab.PCR" title="Permalink to this heading"></a></h2>
 <p>This part of the lab module is used for simulating and calculating PCR reactions.</p>
-<section id="helper-functions">
-<h3>HELPER FUNCTIONS:<a class="headerlink" href="#helper-functions" title="Permalink to this heading"></a></h3>
-<p>primer_tm_neb
-primer_ta_neb
-grouper
-pcr_volumes (formerly known as volumes)
-det_proc_speed
-det_elon_time
-PCR_program
-det_no_of_thermal_cyclers
-pcr_locations</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="constrain.lab.PCR.amplicon_by_name">
 <span class="sig-prename descclassname"><span class="pre">constrain.lab.PCR.</span></span><span class="sig-name descname"><span class="pre">amplicon_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplicons_lst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/lab/PCR.html#amplicon_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.lab.PCR.amplicon_by_name" title="Permalink to this definition"></a></dt>
@@ -348,7 +337,6 @@ Total                  10.0        60.0
 </dl>
 </dd></dl>
 
-</section>
 </section>
 <section id="module-constrain.lab.containers_wells_picklists">
 <span id="containers-module"></span><h2>Containers module<a class="headerlink" href="#module-constrain.lab.containers_wells_picklists" title="Permalink to this heading"></a></h2>
