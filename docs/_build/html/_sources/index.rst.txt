@@ -1,6 +1,7 @@
-.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/constrain1.svg?token=GHSAT0AAAAAABTYCY2KQITX4BYBOV6ISV3UYZRQFDQ
+.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/constrain1.svg?token=GHSAT0AAAAAABTYCY2K6BXO47HXA2TUSNLWYZRRKDA
   :width: 400
-  :alt: ConStrain logo 
+  :alt: ConStrain logo
+
 ======================================
 Welcome to ConStrain's documentation!
 ======================================
