@@ -12,12 +12,12 @@ We hope you want to be part of the revolution.
 Below you will find documentation for how to install and use ConStrain.
 
 
-Suppose you are interested in examples, head over to our colab_notebooks. 
+Suppose you are interested in examples, head over to our `notebooks <https://github.com/hiyama341/ConStrain/tree/main/colab_notebooks>`__. 
 Feel free to reach out if something is unclear.
 
 
-Features
---------
+Features of ConStrain
+---------------------
 
 * Combinatorial library generation
 * HT cloning and transformation workflows
