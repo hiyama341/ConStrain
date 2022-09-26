@@ -1,5 +1,5 @@
 
-.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/constrain1.svg?token=${{secrets.READ_THE_DOCS_SECRET}}
+.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/constrain1.svg?token=GHSAT0AAAAAABTYCY2LJAGWCM5TL4VUUSMOYZRXFXA
   :width: 400
   :alt: ConStrain logo 
 
@@ -71,7 +71,7 @@ Features
 * Data analysis of large LC-MS datasets along with workflows for analysis
 
 
-.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/DBTL_.svg?token=${{secrets.READ_THE_DOCS_SECRET}}
+.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/DBTL_.svg?
   :width: 800
   :alt: Overview of ConStrain's features throughout the DBTL cycle. 
 

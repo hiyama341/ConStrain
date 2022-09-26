@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.design.combinatorial_design &mdash; ConStrain 0.2.7+56.gd6c5d78.dirty documentation</title>
+  <title>constrain.design.combinatorial_design &mdash; ConStrain 0.2.7+57.gfc7687b.dirty documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+56.gd6c5d78.dirty
+                0.2.7+57.gfc7687b.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,6 +52,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.html">ConStrain package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.design.html">Design module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lab.html">Lab module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lims.html">LIMS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.test.html">TEST module</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="constrain.html">constrain</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="constrain.design.html">constrain.design</a><ul class="current">
@@ -66,7 +72,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
 </ul>
 
         </div>
@@ -142,34 +147,34 @@ making_assembled_contigs</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">assembly_maker</span></code>(combinatorial_list_of_amplicons)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.assembly_maker" title="constrain.design.combinatorial_design.assembly_maker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assembly_maker</span></code></a>(combinatorial_list_of_amplicons)</p></td>
 <td><p>Assembles Amplicons with pad and makes new overlapping primers. :param combinatorial_list_of_amplicons: the list of pydna.amplicon.Amplicon that you want generate                                         overlapping primers for. :type combinatorial_list_of_amplicons: list[[pydna.amplicon.Amplicon]] :param overlap: How many basepair overlaps :type overlap: int = 35.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">combinatorial_list_maker</span></code>(...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.combinatorial_list_maker" title="constrain.design.combinatorial_design.combinatorial_list_maker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">combinatorial_list_maker</span></code></a>(...)</p></td>
 <td><p>Makes all possible combinations from a list of list.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">empty_list_maker</span></code>(list_of_sequences)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.empty_list_maker" title="constrain.design.combinatorial_design.empty_list_maker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">empty_list_maker</span></code></a>(list_of_sequences)</p></td>
 <td><p>returns empty list in the length of seqs</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_primers</span></code>(List_of_assemblies, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.get_primers" title="constrain.design.combinatorial_design.get_primers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_primers</span></code></a>(List_of_assemblies, ...)</p></td>
 <td><p>Returns a list of ALL primers from the combinatorial library, updates names and what they anneal to.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">making_assembled_contigs</span></code>(...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.making_assembled_contigs" title="constrain.design.combinatorial_design.making_assembled_contigs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">making_assembled_contigs</span></code></a>(...)</p></td>
 <td><p>Assembles a list of assembly object into linear contigs.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">making_assembly_objects</span></code>(list_of_assemblies)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.making_assembly_objects" title="constrain.design.combinatorial_design.making_assembly_objects"><code class="xref py py-obj docutils literal notranslate"><span class="pre">making_assembly_objects</span></code></a>(list_of_assemblies)</p></td>
 <td><p>Assembling amplicons into assembling class that shows fragments, limit,nodes and which algorithm that was used for assembling.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple_amplicon_maker</span></code>(list_of_seqs, ...[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.simple_amplicon_maker" title="constrain.design.combinatorial_design.simple_amplicon_maker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple_amplicon_maker</span></code></a>(list_of_seqs, ...[, ...])</p></td>
 <td><p>Creates amplicons, updates their names</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematic_names_function</span></code>(List_of_list_parts)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.systematic_names_function" title="constrain.design.combinatorial_design.systematic_names_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematic_names_function</span></code></a>(List_of_list_parts)</p></td>
 <td><p>Returns a list of list with systematic names i.e [1,1,1], [1,2,1].</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unique_amplicons</span></code>(list_of_assemblies)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.unique_amplicons" title="constrain.design.combinatorial_design.unique_amplicons"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unique_amplicons</span></code></a>(list_of_assemblies)</p></td>
 <td><p>Finds Unique amplicons from a list of assemblies :param list_of_assemblies: list of the combinatorial libarary with overlapping ends :type list_of_assemblies: list[[pydna.amplicon.Amplicon]]</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unique_primers</span></code>(primers, list_of_assemblies)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.unique_primers" title="constrain.design.combinatorial_design.unique_primers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unique_primers</span></code></a>(primers, list_of_assemblies)</p></td>
 <td><p>Finds unique primers from a list of assemblies :param primers: a list of all the primers made for the combinatorial library :type primers: list[list[[pydna.primer.Primer, pydna.primer.Primer]] :param list_of_assemblies: used here to update the names of the primers :type list_of_assemblies: list[[pydna.amplicon.Amplicon]]</p></td>
 </tr>
 </tbody>
@@ -181,7 +186,7 @@ making_assembled_contigs</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">DesignAssembly</span></code>(list_of_seqs, list_of_names, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.combinatorial_design.DesignAssembly" title="constrain.design.combinatorial_design.DesignAssembly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DesignAssembly</span></code></a>(list_of_seqs, list_of_names, ...)</p></td>
 <td><p>Class able to make a combinatorial library from DNA fragments.</p></td>
 </tr>
 </tbody>

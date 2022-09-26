@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.lab.robot_assembly &mdash; ConStrain 0.2.7+56.gd6c5d78.dirty documentation</title>
+  <title>constrain.lab.robot_assembly &mdash; ConStrain 0.2.7+57.gfc7687b.dirty documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+56.gd6c5d78.dirty
+                0.2.7+57.gfc7687b.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,6 +52,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.html">ConStrain package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.design.html">Design module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lab.html">Lab module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lims.html">LIMS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.test.html">TEST module</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="constrain.html">constrain</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="constrain.design.html">constrain.design</a></li>
@@ -68,7 +74,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
 </ul>
 
         </div>
@@ -131,13 +136,13 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_virtual_plates_fromDF</span></code>(f_primers, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.robot_assembly.make_virtual_plates_fromDF" title="constrain.lab.robot_assembly.make_virtual_plates_fromDF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_virtual_plates_fromDF</span></code></a>(f_primers, ...)</p></td>
 <td><p>This function can make virtual plates from lists of primers and templates.The Pandas DataFrame is used to calculate how much pcr and h2o is needed for the reactions.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">picklist_from_plates</span></code>(F_primer_plate, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.robot_assembly.picklist_from_plates" title="constrain.lab.robot_assembly.picklist_from_plates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">picklist_from_plates</span></code></a>(F_primer_plate, ...)</p></td>
 <td><p>This function can generate picklist from virtual plates and pandas dataframe with PCR components</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">well_keys_96</span></code>([row])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.robot_assembly.well_keys_96" title="constrain.lab.robot_assembly.well_keys_96"><code class="xref py py-obj docutils literal notranslate"><span class="pre">well_keys_96</span></code></a>([row])</p></td>
 <td><p>If true it generates keys for a 96 well plate by row.</p></td>
 </tr>
 </tbody>
@@ -149,10 +154,10 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">LiquidHandler</span></code>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.robot_assembly.LiquidHandler" title="constrain.lab.robot_assembly.LiquidHandler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LiquidHandler</span></code></a>()</p></td>
 <td><p>This class is a subclass of the synbiopython Transfer class and be used to make flowbot instructions</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">RobotAssembly</span></code>(Pandas_dataframe_PCR, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.robot_assembly.RobotAssembly" title="constrain.lab.robot_assembly.RobotAssembly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RobotAssembly</span></code></a>(Pandas_dataframe_PCR, ...)</p></td>
 <td><p>Class to generate instructions for robot on demand.</p></td>
 </tr>
 </tbody>

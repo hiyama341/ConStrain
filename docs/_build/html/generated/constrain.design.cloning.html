@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.design.cloning &mdash; ConStrain 0.2.7+56.gd6c5d78.dirty documentation</title>
+  <title>constrain.design.cloning &mdash; ConStrain 0.2.7+57.gfc7687b.dirty documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+56.gd6c5d78.dirty
+                0.2.7+57.gfc7687b.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,6 +52,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.html">ConStrain package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.design.html">Design module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lab.html">Lab module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lims.html">LIMS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.test.html">TEST module</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="constrain.html">constrain</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="constrain.design.html">constrain.design</a><ul class="current">
@@ -66,7 +72,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
 </ul>
 
         </div>
@@ -142,49 +147,49 @@ seq_to_annotation</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">CAS9_cutting</span></code>(gRNA_record, background_record)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.CAS9_cutting" title="constrain.design.cloning.CAS9_cutting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CAS9_cutting</span></code></a>(gRNA_record, background_record)</p></td>
 <td><p>Simulates double-stranded-break by CAS9 given a gRNA.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">CRIPSR_knockout</span></code>(gRNA_record, insertion_site, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.CRIPSR_knockout" title="constrain.design.cloning.CRIPSR_knockout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CRIPSR_knockout</span></code></a>(gRNA_record, insertion_site, ...)</p></td>
 <td><p>Simple version of casembler - Cuts the insertion site with</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">UPandDW</span></code>(strain, isite_name[, path_to_gRNA_table])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.UPandDW" title="constrain.design.cloning.UPandDW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UPandDW</span></code></a>(strain, isite_name[, path_to_gRNA_table])</p></td>
 <td><p>Finds upstream and downstream sequences based on genome and site name.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">USER_enzyme</span></code>(amplicon)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.USER_enzyme" title="constrain.design.cloning.USER_enzyme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">USER_enzyme</span></code></a>(amplicon)</p></td>
 <td><p>Simulates digestion with USER enzyme.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">casembler</span></code>(bg_strain[, site_names, gRNAs, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.casembler" title="constrain.design.cloning.casembler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">casembler</span></code></a>(bg_strain[, site_names, gRNAs, ...])</p></td>
 <td><p>Simulate in vivo assembly and integration with the possibility of printing to gb files or send it directly to benchling.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_gRNAs</span></code>(template, name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.extract_gRNAs" title="constrain.design.cloning.extract_gRNAs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_gRNAs</span></code></a>(template, name)</p></td>
 <td><p>Extracts gRNAs from a template.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_sites</span></code>(annotations, templates, names)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.extract_sites" title="constrain.design.cloning.extract_sites"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_sites</span></code></a>(annotations, templates, names)</p></td>
 <td><p>This function extracts the sequences from annotated sequences based on their names</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_template_amplification_sites</span></code>(...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.extract_template_amplification_sites" title="constrain.design.cloning.extract_template_amplification_sites"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_template_amplification_sites</span></code></a>(...)</p></td>
 <td><p>Extracts amplifications sites from a templates features</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">multiply_list</span></code>(myList)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.multiply_list" title="constrain.design.cloning.multiply_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multiply_list</span></code></a>(myList)</p></td>
 <td><p>Multiplies elements one by one.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plate_plot</span></code>(df, value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.plate_plot" title="constrain.design.cloning.plate_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plate_plot</span></code></a>(df, value)</p></td>
 <td><p>Plots a 96 well plate as a pandas df.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">recs_no_duplicates</span></code>(recs_with_duplicates)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.recs_no_duplicates" title="constrain.design.cloning.recs_no_duplicates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recs_no_duplicates</span></code></a>(recs_with_duplicates)</p></td>
 <td><p>Removes duplicate sequences from a list.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">recs_no_duplicates_names</span></code>(recs_with_duplicates)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.recs_no_duplicates_names" title="constrain.design.cloning.recs_no_duplicates_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recs_no_duplicates_names</span></code></a>(recs_with_duplicates)</p></td>
 <td><p>Removes duplicate names from a list</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_features_with_negative_loc</span></code>(record)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.remove_features_with_negative_loc" title="constrain.design.cloning.remove_features_with_negative_loc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_features_with_negative_loc</span></code></a>(record)</p></td>
 <td><p>Removes a SeqFeatures if negative.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_tuple_duplicates</span></code>(lst)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.remove_tuple_duplicates" title="constrain.design.cloning.remove_tuple_duplicates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_tuple_duplicates</span></code></a>(lst)</p></td>
 <td><p>Removes tuple duplicates</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">seq_to_annotation</span></code>(seqrec_from, seqrec_onto, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.design.html#constrain.design.cloning.seq_to_annotation" title="constrain.design.cloning.seq_to_annotation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">seq_to_annotation</span></code></a>(seqrec_from, seqrec_onto, ...)</p></td>
 <td><p>Anotate an amplicon object from another amplicon object.</p></td>
 </tr>
 </tbody>

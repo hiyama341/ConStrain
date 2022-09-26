@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.test.genotyping &mdash; ConStrain 0.2.7+56.gd6c5d78.dirty documentation</title>
+  <title>constrain.test.genotyping &mdash; ConStrain 0.2.7+57.gfc7687b.dirty documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,7 +20,6 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Colab notebooks" href="../colab_notebooks.html" />
     <link rel="prev" title="constrain.test" href="constrain.test.html" /> 
 </head>
 
@@ -32,7 +31,7 @@
             <a href="../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+56.gd6c5d78.dirty
+                0.2.7+57.gfc7687b.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,6 +51,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.html">ConStrain package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.design.html">Design module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lab.html">Lab module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lims.html">LIMS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.test.html">TEST module</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="constrain.html">constrain</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="constrain.design.html">constrain.design</a></li>
@@ -65,7 +70,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
 </ul>
 
         </div>
@@ -128,22 +132,22 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenating_list_of_dfs</span></code>(list_of_dfs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.concatenating_list_of_dfs" title="constrain.test.genotyping.concatenating_list_of_dfs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenating_list_of_dfs</span></code></a>(list_of_dfs)</p></td>
 <td><p>Concatenating a list of daframes into one pd.dataframe by rows</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairwise_alignment_of_templates</span></code>(reads, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.pairwise_alignment_of_templates" title="constrain.test.genotyping.pairwise_alignment_of_templates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairwise_alignment_of_templates</span></code></a>(reads, ...)</p></td>
 <td><p>Infers relationship of templates to reads based on highest score from a pairwise alignment.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plat_seq_data_wrangler</span></code>(sequencing_plates)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.plat_seq_data_wrangler" title="constrain.test.genotyping.plat_seq_data_wrangler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plat_seq_data_wrangler</span></code></a>(sequencing_plates)</p></td>
 <td><p>Makes list of Plate2Seq pd.DataFrames into numeric values and removes nan values.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plate_AvgQual</span></code>(list_of_dfs_numeric[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.plate_AvgQual" title="constrain.test.genotyping.plate_AvgQual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plate_AvgQual</span></code></a>(list_of_dfs_numeric[, ...])</p></td>
 <td><p>Filters out rows that doesnt follow the criteria.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">slicing_and_naming_seq_plates</span></code>(sequencing_plates)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.slicing_and_naming_seq_plates" title="constrain.test.genotyping.slicing_and_naming_seq_plates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slicing_and_naming_seq_plates</span></code></a>(sequencing_plates)</p></td>
 <td><p>Slices rows of a list of dataframes and changes the names.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_df_names</span></code>(df_names_column[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.split_df_names" title="constrain.test.genotyping.split_df_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_df_names</span></code></a>(df_names_column[, ...])</p></td>
 <td><p>Splits sample names from plate2seq pd.dataframes into plate and well columns</p></td>
 </tr>
 </tbody>
@@ -155,7 +159,6 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="constrain.test.html" class="btn btn-neutral float-left" title="constrain.test" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../colab_notebooks.html" class="btn btn-neutral float-right" title="Colab notebooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

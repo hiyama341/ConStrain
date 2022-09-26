@@ -1,4 +1,4 @@
-.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/constrain1.svg?token=${{secrets.READ_THE_DOCS_SECRET}}
+.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/constrain1.svg?
   :width: 400
   :alt: ConStrain logo
 
@@ -50,8 +50,13 @@ To get started with making microbial strains in an HT manner please follow the s
    contributing
    authors
    history
-   api
+   modules
    colab_notebooks
+   constrain.design
+   constrain.lab
+   constrain.lims
+   constrain.test
+   api
 
 Indices and tables
 ==================

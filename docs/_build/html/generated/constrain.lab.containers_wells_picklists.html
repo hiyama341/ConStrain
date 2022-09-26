@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.lab.containers_wells_picklists &mdash; ConStrain 0.2.7+56.gd6c5d78.dirty documentation</title>
+  <title>constrain.lab.containers_wells_picklists &mdash; ConStrain 0.2.7+57.gfc7687b.dirty documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+56.gd6c5d78.dirty
+                0.2.7+57.gfc7687b.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,6 +52,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.html">ConStrain package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.design.html">Design module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lab.html">Lab module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lims.html">LIMS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.test.html">TEST module</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="constrain.html">constrain</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="constrain.design.html">constrain.design</a></li>
@@ -68,7 +74,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
 </ul>
 
         </div>
@@ -131,31 +136,31 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_rows_columns</span></code>(num_wells)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.compute_rows_columns" title="constrain.lab.containers_wells_picklists.compute_rows_columns"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_rows_columns</span></code></a>(num_wells)</p></td>
 <td><p>Convert 96-&gt;(8,12), 384-&gt;(16,24), etc.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">coordinates_to_wellname</span></code>(coords)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.coordinates_to_wellname" title="constrain.lab.containers_wells_picklists.coordinates_to_wellname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">coordinates_to_wellname</span></code></a>(coords)</p></td>
 <td><p>Convert (1,1)-&gt;A1, (4,3)-&gt;D3, (12, 12)-&gt;H12, etc.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_to_row_column</span></code>(index, num_wells[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.index_to_row_column" title="constrain.lab.containers_wells_picklists.index_to_row_column"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_to_row_column</span></code></a>(index, num_wells[, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_to_wellname</span></code>(index, num_wells[, direction])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.index_to_wellname" title="constrain.lab.containers_wells_picklists.index_to_wellname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_to_wellname</span></code></a>(index, num_wells[, direction])</p></td>
 <td><p>Convert e.g.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_to_rowname</span></code>(number)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.number_to_rowname" title="constrain.lab.containers_wells_picklists.number_to_rowname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_to_rowname</span></code></a>(number)</p></td>
 <td><p>Convert 1-&gt;A 26-&gt;Z 27-&gt;AA etc.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_nans_in_dict</span></code>(dictionary[, replace_by])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.replace_nans_in_dict" title="constrain.lab.containers_wells_picklists.replace_nans_in_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_nans_in_dict</span></code></a>(dictionary[, replace_by])</p></td>
 <td><p>Replace NaNs in a dictionary with a string.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rowname_to_number</span></code>(name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.rowname_to_number" title="constrain.lab.containers_wells_picklists.rowname_to_number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rowname_to_number</span></code></a>(name)</p></td>
 <td><p>Convert A-&gt;1 Z-&gt;26 AA-&gt;27 etc.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wellname_to_coordinates</span></code>(wellname)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.wellname_to_coordinates" title="constrain.lab.containers_wells_picklists.wellname_to_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wellname_to_coordinates</span></code></a>(wellname)</p></td>
 <td><p>Convert A1-&gt;(1,1), H11-&gt;(8, 11), etc.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wellname_to_index</span></code>(wellname, num_wells[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.wellname_to_index" title="constrain.lab.containers_wells_picklists.wellname_to_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wellname_to_index</span></code></a>(wellname, num_wells[, ...])</p></td>
 <td><p>Convert e.g.</p></td>
 </tr>
 </tbody>
@@ -167,25 +172,25 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">PickList</span></code>([transfers_list, data])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.PickList" title="constrain.lab.containers_wells_picklists.PickList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PickList</span></code></a>([transfers_list, data])</p></td>
 <td><p>Representation of a list of well-to-well transfers.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plate</span></code>([name, wells_data, plate_data])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.Plate" title="constrain.lab.containers_wells_picklists.Plate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plate</span></code></a>([name, wells_data, plate_data])</p></td>
 <td><p>Base class for all plates.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plate2x4</span></code>([name, wells_data, plate_data])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.Plate2x4" title="constrain.lab.containers_wells_picklists.Plate2x4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plate2x4</span></code></a>([name, wells_data, plate_data])</p></td>
 <td><p>Class for 8-well (2 x 4) plates such as colony plating plates</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plate96</span></code>([name, wells_data, plate_data])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.Plate96" title="constrain.lab.containers_wells_picklists.Plate96"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plate96</span></code></a>([name, wells_data, plate_data])</p></td>
 <td><p>Base class for standard 96-well plates</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Transfer</span></code>(source_well, destination_well, volume)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.Transfer" title="constrain.lab.containers_wells_picklists.Transfer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Transfer</span></code></a>(source_well, destination_well, volume)</p></td>
 <td><p>Class representing a transfer from a source well to a destination well.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Well</span></code>(plate, row, column, name[, data])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.Well" title="constrain.lab.containers_wells_picklists.Well"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Well</span></code></a>(plate, row, column, name[, data])</p></td>
 <td><p>Generic class for a well.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">WellContent</span></code>([quantities, volume])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.WellContent" title="constrain.lab.containers_wells_picklists.WellContent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WellContent</span></code></a>([quantities, volume])</p></td>
 <td><p>Class to represent the volume and quantities of a well.</p></td>
 </tr>
 </tbody>
@@ -197,10 +202,10 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoUniqueWell</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.NoUniqueWell" title="constrain.lab.containers_wells_picklists.NoUniqueWell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoUniqueWell</span></code></a></p></td>
 <td><p>NoUniqueWell exception class.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TransferError</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.containers_wells_picklists.TransferError" title="constrain.lab.containers_wells_picklists.TransferError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TransferError</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.lab.transformation &mdash; ConStrain 0.2.7+56.gd6c5d78.dirty documentation</title>
+  <title>constrain.lab.transformation &mdash; ConStrain 0.2.7+57.gfc7687b.dirty documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+56.gd6c5d78.dirty
+                0.2.7+57.gfc7687b.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,6 +52,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.html">ConStrain package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.design.html">Design module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lab.html">Lab module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.lims.html">LIMS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constrain.test.html">TEST module</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="constrain.html">constrain</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="constrain.design.html">constrain.design</a></li>
@@ -68,7 +74,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
 </ul>
 
         </div>
@@ -132,19 +137,19 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ODtime</span></code>(initialOD, time[, td])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.transformation.ODtime" title="constrain.lab.transformation.ODtime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ODtime</span></code></a>(initialOD, time[, td])</p></td>
 <td><p>Calculates the OD based on doupling time.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ng_to_nmol</span></code>(ng, bp)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.transformation.ng_to_nmol" title="constrain.lab.transformation.ng_to_nmol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ng_to_nmol</span></code></a>(ng, bp)</p></td>
 <td><p>Calculates nanogrom to nanomol for transformation mixes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_to_inculate</span></code>([initialOD, td, verbose, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.transformation.time_to_inculate" title="constrain.lab.transformation.time_to_inculate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_to_inculate</span></code></a>([initialOD, td, verbose, ...])</p></td>
 <td><p>Calculates when a starter culture is ready to be inoculated</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">transformation_mix</span></code>(reaction_names, ...[, media])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.transformation.transformation_mix" title="constrain.lab.transformation.transformation_mix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transformation_mix</span></code></a>(reaction_names, ...[, media])</p></td>
 <td><p>This function makes a pandas dataframe of the parts(their location)</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wanted_mass</span></code>(wanted_moles, size)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.transformation.wanted_mass" title="constrain.lab.transformation.wanted_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wanted_mass</span></code></a>(wanted_moles, size)</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">param wanted_moles</dt>
 <dd class="field-odd"><p>wanted moles in nmol</p>
@@ -152,7 +157,7 @@
 </dl>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wanted_volume</span></code>(wanted_mass, actual_concentration)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lab.html#constrain.lab.transformation.wanted_volume" title="constrain.lab.transformation.wanted_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wanted_volume</span></code></a>(wanted_mass, actual_concentration)</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">param wanted_mass</dt>
 <dd class="field-odd"><p>wanted mass in ng</p>
