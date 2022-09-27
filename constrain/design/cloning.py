@@ -586,12 +586,11 @@ def recs_no_duplicates(recs_with_duplicates: list) -> list:
     ----------
     recs_with_duplicates: list
         list with duplicated elements
-
+        
     Returns
     -------
     list
         without duplicates
-
     """
     seen_sequences = set()
     recs_no_dup = []

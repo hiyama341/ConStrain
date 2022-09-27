@@ -80,10 +80,14 @@ def well_keys_96(row=True):
 
     Parameters
     ----------
-
+    row : bool
+        if true it will generate keys horisontally for a
+        96 well plate. Else vertically. 
 
     Returns
     -------
+    keys : list
+        list of keys i.e ['A1', 'A2', 'A3',..]
     """
     key_list = "ABCDEFGH"
 
@@ -115,11 +119,18 @@ def make_virtual_plates_fromDF(
 
     Parameters
     ----------
-
+    f_primers: list
+        list of forward primers
+    r_primers: list
+        list of reverse primers
+    templates: list
+        list of templates
+    Dataframe_with_PCR_contents : pandas.DataFrame
+        dataframe with a PCR scheme. 
 
     Returns
     -------
-
+    Virtual 96 plates as containers.
     """
     # initializing
     source_plate1 = Plate96(name="1")  # Forward primers
@@ -225,17 +236,24 @@ def picklist_from_plates(
 
 
 class RobotAssembly:
-    """Class to generate instructions for robot on demand.
+    """Class to generate instructions for robots on demand.
 
      Parameters
     ----------
-    Pandas_dataframe_PCR
-    F_primers
-    R_primers
-    Templates
+    pandas.DataFrame
+        Pandas_dataframe with a PCR scheme 
+    F_primers : list
+        list of forward primers
+    R_primers :list 
+        list of reverse primers
+    Templates : list
+        list of templates
 
     Returns
     -------
+    RobotAssembly object.
+        Methods include printing robot-
+        excecutable intructions. 
 
     """
 

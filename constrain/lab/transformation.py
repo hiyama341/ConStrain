@@ -42,12 +42,18 @@ def ng_to_nmol(ng: float, bp: float):
     Parameters
     ----------
 
-    parm: ng        eg. nanogram
-    param: bp       eg. basepairs
+    ng : float        
+        eg. nanogram
+    param: float 
+        eg. number of basepairs. Can also be an int
 
     Returns
     -------
+    ng_to_nmol : float 
 
+    Note
+    ----
+    It calculates the nmol in the following way: 
     nmol = ng/(bp*650)
     """
     if ng > 0 and bp > 0:
@@ -60,13 +66,17 @@ def ODtime(initialOD: float, time: float, td: float = 0.5):
     """Calculates the OD based on doupling time.
     Parameters
     ----------
-    - initialOD in OD
-    - time in hours
-    - doupling time : td in h^-1
+    initialOD : float
+        in OD
+    time : float 
+        in hours
+    td : float
+        doupling time i.e. td in h^-1
 
     Returns
     -------
-
+    OD : float 
+        the OD after a certain time()
     """
     if initialOD >= 0 and time >= 0:
         return round(initialOD * 2 ** (time * td), 3)
@@ -83,23 +93,23 @@ def time_to_inculate(
 
     Parameters
     ----------
-    param: initialOD in OD
-    param: td is doubling time
-    param: transformations time is given as the time you want to transform
-    param: verbose : Provides extra information
-
+    initialOD : float 
+    td : float 
+        is doubling time
+    transformation_time : int
+        The time you want to transform
+    verbose : Bool 
+        Provides extra information
 
     Returns
     -------
     A plot of cell growth at different td
 
-    Note
-    ----
-    This is used to calculate when the cells should be used for transformation
-
-    Examples
-    --------
-    # OD 1 = 1 * 10^7 cells / ml
+    Notes
+    -----
+    This is used to calculate when the cells should be used for transformation. 
+    For example:
+    OD_1 = 1 * 10^7 cells / ml
     For a succesfull S.cerevisiae transformation between 1 to 2 × 10^7 cells/ml should be used
     Normal doupling time is between 3-6 hours
 
@@ -191,13 +201,26 @@ def transformation_mix(
 
     Parameters
     ----------
+    reaction_names : list
+        list of reaction names
+    reaction_participants : list
+        list of pydna.Dseqrecord objects of Bio.seqrecord objects
+    wanted_concentrations : dict
+        dict of the names of the reactants with their calculated nmol 
+    water_dna_p_reac : int
+        the amount of water wanted for the reaction
+    media : list
+        list of names of the media used. e.g. ['LB_AMP']
 
     Returns
     -------
+    pandas.DataFrame
+        with a transformation scheme showing which parts should be
+        mixed for each reaction including positive and negative 
+        controls. 
 
     Examples
     --------
-
     # 1. Mention which reacion names you have
     reaction_names = ["insert", "n.ctr", "n.ctr", "n.ctr", "p. ctr"]
 
@@ -287,8 +310,7 @@ def wanted_mass(wanted_moles, size):
     Returns
     -------
     w_mass_rounded : int
-        in ng = nmol * bp * 650 ng/(nmol * bp)
-
+        in ng. Mass wanted for the reaction.
     """
     w_mass = wanted_moles * size * 650
     w_mass_rounded = round(w_mass, 1)
