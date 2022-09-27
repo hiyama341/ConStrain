@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # MIT License
 # Copyright (c) 2022, Technical University of Denmark (DTU)
 #
@@ -11,9 +12,6 @@
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
-
-#!/usr/bin/env python
-# For automating part
 from constrain.lab.containers_wells_picklists import (
     Transfer,
     Plate96,
