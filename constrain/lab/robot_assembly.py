@@ -106,9 +106,6 @@ def well_keys_96(row=True):
     return wells_keys
 
 
-well_keys = well_keys_96()
-
-
 def make_virtual_plates_fromDF(
     f_primers: list, r_primers: list, templates: list, Dataframe_with_PCR_contents
 ):
