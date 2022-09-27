@@ -644,3 +644,34 @@ def plate_plot(df, value):
 
     cols = [value, "prow", "pcol"]
     return df[cols].set_index(["prow", "pcol"]).unstack(level=-1)
+
+
+def CRIPSR_knockout(gRNA_record, insertion_site, repair_DNA):
+
+    """Simple version of casembler - Cuts the insertion site with
+     CAS9_cutting and assembles knockout with a repair template.
+
+    Parameters
+    ----------
+    gRNA_record: pydna.dseqrecord.
+        A 20 bp DNA sequence
+
+    insertion_site: pydna.dseqrecord.
+        The site to knock out
+
+    repair_DNA: pydna.dseqrecord.
+        Repair template. Typucally 90 bp or longer
+
+    Returns
+    -------
+    pydna.dseqrecord.
+        Of assembled contig after CRISPR-mediated KO
+    """
+    # Create fragments after CAS9 cut
+    IS_UP, IS_DW = CAS9_cutting(gRNA_record, insertion_site)
+
+    # create list of parts and assemble to knockout sequence
+    assmeble_parts = IS_UP, repair_DNA, IS_DW
+    assembled_knockout = Assembly(assmeble_parts).assemble_linear()[0]
+
+    return assembled_knockout

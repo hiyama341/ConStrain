@@ -8,7 +8,6 @@ from constrain.lab.transformation import *
 from Bio import SeqIO
 
 
-
 def test_ng_to_nmol():
     
     ''' Testing that it calculates correctly'''
