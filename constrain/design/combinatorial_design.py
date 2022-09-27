@@ -12,8 +12,7 @@
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
-""" This part of the design module is used for making combinatorial libraries from DNA fragments.
-"""
+""" This part of the design module is used for making combinatorial libraries from DNA fragments."""
 
 # standard libraries
 import itertools
@@ -196,10 +195,8 @@ def get_primers(
             # Primers
             # description ------ DESCRIBES what other part it overlaps-------------
             if j == 0:  # START OF THE ASSEMBLY
-                List_of_assemblies[i][
-                    j
-                ].forward_primer.description = "Anneals to " + str(
-                    List_of_assemblies[i][j].name
+                List_of_assemblies[i][j].forward_primer.description = (
+                    "Anneals to " + str(List_of_assemblies[i][j].name)
                 )
                 List_of_assemblies[i][j].reverse_primer.description = (
                     "Anneals to "
@@ -208,19 +205,21 @@ def get_primers(
                     + str(List_of_assemblies[i][j + 1].name)
                 )
             if j > 0 and j < len(List_of_assemblies[i]) - 1:  #      # THE rest:
-                List_of_assemblies[i][
-                    j
-                ].forward_primer.description = "Anneals to " + str(
-                    List_of_assemblies[i][j].name
-                    + ", overlaps to "
-                    + str(List_of_assemblies[i][j - 1].name)
+                List_of_assemblies[i][j].forward_primer.description = (
+                    "Anneals to "
+                    + str(
+                        List_of_assemblies[i][j].name
+                        + ", overlaps to "
+                        + str(List_of_assemblies[i][j - 1].name)
+                    )
                 )
-                List_of_assemblies[i][
-                    j
-                ].reverse_primer.description = "Anneals to " + str(
-                    List_of_assemblies[i][j].name
-                    + ", overlaps to "
-                    + str(List_of_assemblies[i][j + 1].name)
+                List_of_assemblies[i][j].reverse_primer.description = (
+                    "Anneals to "
+                    + str(
+                        List_of_assemblies[i][j].name
+                        + ", overlaps to "
+                        + str(List_of_assemblies[i][j + 1].name)
+                    )
                 )
             if j == len(List_of_assemblies[i]) - 1:  # THE END OF THE ASSEMBLY
                 List_of_assemblies[i][j].forward_primer.description = (
@@ -229,10 +228,8 @@ def get_primers(
                     + ", overlaps to "
                     + str(List_of_assemblies[i][j - 1].name)
                 )
-                List_of_assemblies[i][
-                    j
-                ].reverse_primer.description = "Anneals to " + str(
-                    List_of_assemblies[i][j].name
+                List_of_assemblies[i][j].reverse_primer.description = (
+                    "Anneals to " + str(List_of_assemblies[i][j].name)
                 )
 
             # template it aneals to
@@ -452,29 +449,21 @@ class DesignAssembly:
 
     Parameters
     ----------
+    list_of_seqs : list
+        A list of list of a constructs of choice.
+    list_of_names : list
+        A list of list of the names wanted for the construct of choice.
+    pad : pydna.Dseqrecord
+        A nucleotide sequence to be incorporated into the primers (Max is 40 bp)
+    position_of_pad : int
+        the position in the list of seqs where the pad is incorporated (zero indexed)
 
     Returns
     -------
-
-    Input:
-    :param list_of_seqs: A list of list of a construct of choice.
-    :param list_of_names: A list of list of the names wanted for the construct of choice.
-    :param pad: Volume to be transferred, expressed in liters.
-    :param position_of_pad: A dict containing any useful information about the transfer.
-        This information can be used later e.g. as parameters for the printing out primers,PCRs needed
-        for the construction of the library
-
-    Design_output:
-    The rest of the parameters are generated from the initial such as:
-    :param list_of_amplicons
-    :param systematic_names
-    :param combinatorial_list_of_amplicons
-    :param combinatorial_list_of_names
-    :param combinatorial_list_of_primer_tm
-    :param list_of_assemblies
-    :param primers
-    :param unique_primers
-    :param unique_amplicons
+    constrain.design.combinatorial_design.DesignAssembly object
+        A powerfull class and a lot of information can be retrieved.
+        Such as: showing all the amplicons needed to construct a combinatorial library 
+        with the simple method --> PCR_list_to_dataframe or Primer_list_to_dataframe. 
 
     """
 
@@ -542,9 +531,6 @@ class DesignAssembly:
 
         ### 8. Unique amplicons
         self.unique_amplicons = unique_amplicons(self.list_of_assemblies)
-
-    ##########################################################
-    ###################  CLASS METHODS  ######################
 
     def ShowContigs(self):
         """Returns a string of the contigs generated by the assembly"""

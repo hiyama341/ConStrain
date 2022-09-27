@@ -220,11 +220,7 @@ class Plate:
                 wellname = coordinates_to_wellname((row, column))
                 data = self.wells_data.get(wellname, {})
                 well = self.well_class(
-                    plate=self,
-                    row=row,
-                    column=column,
-                    name=wellname,
-                    data=data,
+                    plate=self, row=row, column=column, name=wellname, data=data,
                 )
                 self.wells[wellname] = well
                 self.columns[column] += [wellname]
@@ -488,8 +484,7 @@ class PickList:
 
             new_picklist = PickList(transfers_list=new_transfer_list)
             new_picklist.simulate(
-                content_field=content_field,
-                inplace=True,
+                content_field=content_field, inplace=True,
             )
             return new_plates
 
@@ -535,8 +530,7 @@ class PickList:
                 return transfer.__dict__[sorting_method]
 
         return PickList(
-            sorted(self.transfers_list, key=sorting_method),
-            data={"parent": self},
+            sorted(self.transfers_list, key=sorting_method), data={"parent": self},
         )
 
     def total_transferred_volume(self):
