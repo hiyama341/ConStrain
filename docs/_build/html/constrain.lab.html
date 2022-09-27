@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lab module &mdash; ConStrain 0.2.7+59.g40f6bc1 documentation</title>
+  <title>Lab module &mdash; ConStrain 0.2.7+64.g928ed1e.dirty documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+59.g40f6bc1
+                0.2.7+64.g928ed1e.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -280,7 +280,7 @@ Total                  10.0        60.0
 <dl class="py function">
 <dt class="sig sig-object py" id="constrain.lab.PCR.primer_ta_neb">
 <span class="sig-prename descclassname"><span class="pre">constrain.lab.PCR.</span></span><span class="sig-name descname"><span class="pre">primer_ta_neb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primer1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primer2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prodcode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'q5-0'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/lab/PCR.html#primer_ta_neb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.lab.PCR.primer_ta_neb" title="Permalink to this definition"></a></dt>
-<dd><p>Calculates primer pair melting temp, TA</p>
+<dd><p>Calculates primer pair melting temp TA,  from NEB.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -302,7 +302,7 @@ Total                  10.0        60.0
 <dl class="py function">
 <dt class="sig sig-object py" id="constrain.lab.PCR.primer_tm_neb">
 <span class="sig-prename descclassname"><span class="pre">constrain.lab.PCR.</span></span><span class="sig-name descname"><span class="pre">primer_tm_neb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prodcode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'q5-0'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/lab/PCR.html#primer_tm_neb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.lab.PCR.primer_tm_neb" title="Permalink to this definition"></a></dt>
-<dd><p>Calculates a single primers melting temp</p>
+<dd><p>Calculates a single primers melting temp from NEB.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -923,12 +923,13 @@ direction is either row for A1 A2 A3… or column for A1 B1 C1 D1 etc.</p>
 </section>
 <section id="module-constrain.lab.robot_assembly">
 <span id="robot-assembly-module"></span><h2>Robot assembly module<a class="headerlink" href="#module-constrain.lab.robot_assembly" title="Permalink to this heading"></a></h2>
+<p>A module to for automating biological assemblies with robots</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="constrain.lab.robot_assembly.LiquidHandler">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">constrain.lab.robot_assembly.</span></span><span class="sig-name descname"><span class="pre">LiquidHandler</span></span><a class="reference internal" href="_modules/constrain/lab/robot_assembly.html#LiquidHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.lab.robot_assembly.LiquidHandler" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#constrain.lab.containers_wells_picklists.Transfer" title="constrain.lab.containers_wells_picklists.Transfer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transfer</span></code></a></p>
 <p>This class is a subclass of the synbiopython Transfer
-class and be used to make flowbot instructions</p>
+class and be used to make flowbot instructions.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="constrain.lab.robot_assembly.LiquidHandler.to_flowbot_instructions">
 <span class="sig-name descname"><span class="pre">to_flowbot_instructions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/lab/robot_assembly.html#LiquidHandler.to_flowbot_instructions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.lab.robot_assembly.LiquidHandler.to_flowbot_instructions" title="Permalink to this definition"></a></dt>
@@ -948,14 +949,29 @@ class and be used to make flowbot instructions</p>
 <dt class="sig sig-object py" id="constrain.lab.robot_assembly.RobotAssembly">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">constrain.lab.robot_assembly.</span></span><span class="sig-name descname"><span class="pre">RobotAssembly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pandas_dataframe_PCR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F_primers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_primers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Templates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/lab/robot_assembly.html#RobotAssembly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.lab.robot_assembly.RobotAssembly" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Class to generate instructions for robot on demand.</p>
+<p>Class to generate instructions for robots on demand.</p>
 <blockquote>
 <div><p>Parameters</p>
 </div></blockquote>
-<p>Pandas_dataframe_PCR
-F_primers
-R_primers
-Templates</p>
+<dl class="simple">
+<dt>pandas.DataFrame</dt><dd><p>Pandas_dataframe with a PCR scheme</p>
+</dd>
+<dt>F_primers<span class="classifier">list</span></dt><dd><p>list of forward primers</p>
+</dd>
+<dt>R_primers :list</dt><dd><p>list of reverse primers</p>
+</dd>
+<dt>Templates<span class="classifier">list</span></dt><dd><p>list of templates</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Methods include printing robot-
+excecutable intructions.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>RobotAssembly object.</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="constrain.lab.robot_assembly.RobotAssembly.FlowbotInstructionsToCSV">
 <span class="sig-name descname"><span class="pre">FlowbotInstructionsToCSV</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/lab/robot_assembly.html#RobotAssembly.FlowbotInstructionsToCSV"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.lab.robot_assembly.RobotAssembly.FlowbotInstructionsToCSV" title="Permalink to this definition"></a></dt>
@@ -982,6 +998,19 @@ Templates</p>
 <dd><p>This function can make virtual plates from lists of primers
 and templates.The Pandas DataFrame is used to calculate how
 much pcr and h2o is needed for the reactions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_primers</strong> (<em>list</em>) – list of forward primers</p></li>
+<li><p><strong>r_primers</strong> (<em>list</em>) – list of reverse primers</p></li>
+<li><p><strong>templates</strong> (<em>list</em>) – list of templates</p></li>
+<li><p><strong>Dataframe_with_PCR_contents</strong> (<em>pandas.DataFrame</em>) – dataframe with a PCR scheme.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Virtual 96 plates as containers.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -995,6 +1024,18 @@ much pcr and h2o is needed for the reactions.</p>
 <span class="sig-prename descclassname"><span class="pre">constrain.lab.robot_assembly.</span></span><span class="sig-name descname"><span class="pre">well_keys_96</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/lab/robot_assembly.html#well_keys_96"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.lab.robot_assembly.well_keys_96" title="Permalink to this definition"></a></dt>
 <dd><p>If true it generates keys for a 96 well plate by row.
 else it does it by column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>bool</em>) – if true it will generate keys horisontally for a
+96 well plate. Else vertically.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>keys</strong> – list of keys i.e [‘A1’, ‘A2’, ‘A3’,..]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -1005,10 +1046,20 @@ else it does it by column</p>
 <dt class="sig sig-object py" id="constrain.lab.transformation.ODtime">
 <span class="sig-prename descclassname"><span class="pre">constrain.lab.transformation.</span></span><span class="sig-name descname"><span class="pre">ODtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initialOD</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">td</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/lab/transformation.html#ODtime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.lab.transformation.ODtime" title="Permalink to this definition"></a></dt>
 <dd><p>Calculates the OD based on doupling time.
-:param - initialOD in OD:
-:param - time in hours:
-:param - doupling time:
-:type - doupling time: td in h^-1</p>
+:param initialOD: in OD
+:type initialOD: float
+:param time: in hours
+:type time: float
+:param td: doupling time i.e. td in h^-1
+:type td: float</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>OD</strong> – the OD after a certain time()</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1021,14 +1072,22 @@ the nanomolar ratios and this tool can do that</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>parm</strong> (<em>ng        eg. nanogram</em>) – </p></li>
-<li><p><strong>param</strong> (<em>bp       eg. basepairs</em>) – </p></li>
+<li><p><strong>ng</strong> (<em>float</em>) – eg. nanogram</p></li>
+<li><p><strong>param</strong> (<em>float</em>) – eg. number of basepairs. Can also be an int</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>nmol = ng/(bp*650)</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ng_to_nmol</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It calculates the nmol in the following way:
+nmol = ng/(bp*650)</p>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -1041,22 +1100,20 @@ the nanomolar ratios and this tool can do that</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>param</strong> (<em>verbose : Provides extra information</em>) – </p></li>
-<li><p><strong>param</strong> – </p></li>
-<li><p><strong>param</strong> – </p></li>
-<li><p><strong>param</strong> – </p></li>
+<li><p><strong>initialOD</strong> (<em>float</em>) – </p></li>
+<li><p><strong>td</strong> (<em>float</em>) – is doubling time</p></li>
+<li><p><strong>transformation_time</strong> (<em>int</em>) – The time you want to transform</p></li>
+<li><p><strong>verbose</strong> (<em>Bool</em>) – Provides extra information</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>A plot of cell growth at different td</p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is used to calculate when the cells should be used for transformation</p>
-</div>
-<p class="rubric">Examples</p>
-<p># OD 1 = 1 * 10^7 cells / ml
+<p class="rubric">Notes</p>
+<p>This is used to calculate when the cells should be used for transformation.
+For example:
+OD_1 = 1 * 10^7 cells / ml
 For a succesfull S.cerevisiae transformation between 1 to 2 × 10^7 cells/ml should be used
 Normal doupling time is between 3-6 hours</p>
 </dd></dl>
@@ -1066,6 +1123,25 @@ Normal doupling time is between 3-6 hours</p>
 <span class="sig-prename descclassname"><span class="pre">constrain.lab.transformation.</span></span><span class="sig-name descname"><span class="pre">transformation_mix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reaction_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reaction_participants</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wanted_amounts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_dna_p_reac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">media</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/constrain/lab/transformation.html#transformation_mix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#constrain.lab.transformation.transformation_mix" title="Permalink to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>This function makes a pandas dataframe of the parts(their location)</dt><dd><p>that needs to be put into the transformation mixes</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reaction_names</strong> (<em>list</em>) – list of reaction names</p></li>
+<li><p><strong>reaction_participants</strong> (<em>list</em>) – list of pydna.Dseqrecord objects of Bio.seqrecord objects</p></li>
+<li><p><strong>wanted_concentrations</strong> (<em>dict</em>) – dict of the names of the reactants with their calculated nmol</p></li>
+<li><p><strong>water_dna_p_reac</strong> (<em>int</em>) – the amount of water wanted for the reaction</p></li>
+<li><p><strong>media</strong> (<em>list</em>) – list of names of the media used. e.g. [‘LB_AMP’]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>with a transformation scheme showing which parts should be
+mixed for each reaction including positive and negative
+controls.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -1120,7 +1196,7 @@ transformation_mix(reaction_names, reaction_participants, wanted_amounts =
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>w_mass_rounded</strong> – in ng = nmol * bp * 650 ng/(nmol * bp)</p>
+<dd class="field-even"><p><strong>w_mass_rounded</strong> – in ng. Mass wanted for the reaction.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>int</p>

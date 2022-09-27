@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.lab.robot_assembly &mdash; ConStrain 0.2.7+59.g40f6bc1 documentation</title>
+  <title>constrain.lab.robot_assembly &mdash; ConStrain 0.2.7+64.g928ed1e.dirty documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+59.g40f6bc1
+                0.2.7+64.g928ed1e.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -83,7 +83,8 @@
            <div itemprop="articleBody">
              
   <h1>Source code for constrain.lab.robot_assembly</h1><div class="highlight"><pre>
-<span></span><span class="c1"># MIT License</span>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># MIT License</span>
 <span class="c1"># Copyright (c) 2022, Technical University of Denmark (DTU)</span>
 <span class="c1">#</span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
@@ -96,44 +97,22 @@
 <span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
 <span class="c1"># copies or substantial portions of the Software.</span>
 
+<span class="s2">&quot;A module to for automating biological assemblies with robots&quot;</span>
 
-<span class="c1">#!/usr/bin/env python</span>
-<span class="c1"># For automating part</span>
 <span class="kn">from</span> <span class="nn">constrain.lab.containers_wells_picklists</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Transfer</span><span class="p">,</span>
     <span class="n">Plate96</span><span class="p">,</span>
     <span class="n">Plate2x4</span><span class="p">,</span>
     <span class="n">PickList</span><span class="p">,</span>
 <span class="p">)</span>
-
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">robot_assembly (:mod:`robot_assembly`)</span>
-<span class="sd">=====================================</span>
-
-<span class="sd">.. currentmodule:: robot_assembly</span>
-
-<span class="sd">This part of the lab module is used for robot instructions - primarily for FlowbotOne</span>
-
-
-<span class="sd">.. code-block:: python</span>
-
-<span class="sd">    from constrain.lab.robot_assembly import RobotAssembly</span>
-
-
-<span class="sd">&quot;&quot;&quot;</span>
 
 
 <div class="viewcode-block" id="LiquidHandler"><a class="viewcode-back" href="../../../constrain.lab.html#constrain.lab.robot_assembly.LiquidHandler">[docs]</a><span class="k">class</span> <span class="nc">LiquidHandler</span><span class="p">(</span><span class="n">Transfer</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This class is a subclass of the synbiopython Transfer</span>
-<span class="sd">    class and be used to make flowbot instructions</span>
-
-
+<span class="sd">    class and be used to make flowbot instructions.</span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-
-
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -165,10 +144,14 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-
+<span class="sd">    row : bool</span>
+<span class="sd">        if true it will generate keys horisontally for a</span>
+<span class="sd">        96 well plate. Else vertically.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
+<span class="sd">    keys : list</span>
+<span class="sd">        list of keys i.e [&#39;A1&#39;, &#39;A2&#39;, &#39;A3&#39;,..]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">key_list</span> <span class="o">=</span> <span class="s2">&quot;ABCDEFGH&quot;</span>
 
@@ -187,9 +170,6 @@
     <span class="k">return</span> <span class="n">wells_keys</span></div>
 
 
-<span class="n">well_keys</span> <span class="o">=</span> <span class="n">well_keys_96</span><span class="p">()</span>
-
-
 <div class="viewcode-block" id="make_virtual_plates_fromDF"><a class="viewcode-back" href="../../../constrain.lab.html#constrain.lab.robot_assembly.make_virtual_plates_fromDF">[docs]</a><span class="k">def</span> <span class="nf">make_virtual_plates_fromDF</span><span class="p">(</span>
     <span class="n">f_primers</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">r_primers</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">templates</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">Dataframe_with_PCR_contents</span>
 <span class="p">):</span>
@@ -200,11 +180,18 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-
+<span class="sd">    f_primers: list</span>
+<span class="sd">        list of forward primers</span>
+<span class="sd">    r_primers: list</span>
+<span class="sd">        list of reverse primers</span>
+<span class="sd">    templates: list</span>
+<span class="sd">        list of templates</span>
+<span class="sd">    Dataframe_with_PCR_contents : pandas.DataFrame</span>
+<span class="sd">        dataframe with a PCR scheme.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-
+<span class="sd">    Virtual 96 plates as containers.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># initializing</span>
     <span class="n">source_plate1</span> <span class="o">=</span> <span class="n">Plate96</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>  <span class="c1"># Forward primers</span>
@@ -310,17 +297,24 @@
 
 
 <div class="viewcode-block" id="RobotAssembly"><a class="viewcode-back" href="../../../constrain.lab.html#constrain.lab.robot_assembly.RobotAssembly">[docs]</a><span class="k">class</span> <span class="nc">RobotAssembly</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class to generate instructions for robot on demand.</span>
+    <span class="sd">&quot;&quot;&quot;Class to generate instructions for robots on demand.</span>
 
 <span class="sd">     Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    Pandas_dataframe_PCR</span>
-<span class="sd">    F_primers</span>
-<span class="sd">    R_primers</span>
-<span class="sd">    Templates</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Pandas_dataframe with a PCR scheme</span>
+<span class="sd">    F_primers : list</span>
+<span class="sd">        list of forward primers</span>
+<span class="sd">    R_primers :list</span>
+<span class="sd">        list of reverse primers</span>
+<span class="sd">    Templates : list</span>
+<span class="sd">        list of templates</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
+<span class="sd">    RobotAssembly object.</span>
+<span class="sd">        Methods include printing robot-</span>
+<span class="sd">        excecutable intructions.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.lab.transformation &mdash; ConStrain 0.2.7+59.g40f6bc1 documentation</title>
+  <title>constrain.lab.transformation &mdash; ConStrain 0.2.7+64.g928ed1e.dirty documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+59.g40f6bc1
+                0.2.7+64.g928ed1e.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -127,12 +127,18 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 
-<span class="sd">    parm: ng        eg. nanogram</span>
-<span class="sd">    param: bp       eg. basepairs</span>
+<span class="sd">    ng : float</span>
+<span class="sd">        eg. nanogram</span>
+<span class="sd">    param: float</span>
+<span class="sd">        eg. number of basepairs. Can also be an int</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
+<span class="sd">    ng_to_nmol : float</span>
 
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    It calculates the nmol in the following way:</span>
 <span class="sd">    nmol = ng/(bp*650)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ng</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">bp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -145,13 +151,17 @@
     <span class="sd">&quot;&quot;&quot;Calculates the OD based on doupling time.</span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    - initialOD in OD</span>
-<span class="sd">    - time in hours</span>
-<span class="sd">    - doupling time : td in h^-1</span>
+<span class="sd">    initialOD : float</span>
+<span class="sd">        in OD</span>
+<span class="sd">    time : float</span>
+<span class="sd">        in hours</span>
+<span class="sd">    td : float</span>
+<span class="sd">        doupling time i.e. td in h^-1</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-
+<span class="sd">    OD : float</span>
+<span class="sd">        the OD after a certain time()</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">initialOD</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">initialOD</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">time</span> <span class="o">*</span> <span class="n">td</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
@@ -168,23 +178,23 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    param: initialOD in OD</span>
-<span class="sd">    param: td is doubling time</span>
-<span class="sd">    param: transformations time is given as the time you want to transform</span>
-<span class="sd">    param: verbose : Provides extra information</span>
-
+<span class="sd">    initialOD : float</span>
+<span class="sd">    td : float</span>
+<span class="sd">        is doubling time</span>
+<span class="sd">    transformation_time : int</span>
+<span class="sd">        The time you want to transform</span>
+<span class="sd">    verbose : Bool</span>
+<span class="sd">        Provides extra information</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    A plot of cell growth at different td</span>
 
-<span class="sd">    Note</span>
-<span class="sd">    ----</span>
-<span class="sd">    This is used to calculate when the cells should be used for transformation</span>
-
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    # OD 1 = 1 * 10^7 cells / ml</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This is used to calculate when the cells should be used for transformation.</span>
+<span class="sd">    For example:</span>
+<span class="sd">    OD_1 = 1 * 10^7 cells / ml</span>
 <span class="sd">    For a succesfull S.cerevisiae transformation between 1 to 2 × 10^7 cells/ml should be used</span>
 <span class="sd">    Normal doupling time is between 3-6 hours</span>
 
@@ -276,13 +286,26 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    reaction_names : list</span>
+<span class="sd">        list of reaction names</span>
+<span class="sd">    reaction_participants : list</span>
+<span class="sd">        list of pydna.Dseqrecord objects of Bio.seqrecord objects</span>
+<span class="sd">    wanted_concentrations : dict</span>
+<span class="sd">        dict of the names of the reactants with their calculated nmol</span>
+<span class="sd">    water_dna_p_reac : int</span>
+<span class="sd">        the amount of water wanted for the reaction</span>
+<span class="sd">    media : list</span>
+<span class="sd">        list of names of the media used. e.g. [&#39;LB_AMP&#39;]</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        with a transformation scheme showing which parts should be</span>
+<span class="sd">        mixed for each reaction including positive and negative</span>
+<span class="sd">        controls.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-
 <span class="sd">    # 1. Mention which reacion names you have</span>
 <span class="sd">    reaction_names = [&quot;insert&quot;, &quot;n.ctr&quot;, &quot;n.ctr&quot;, &quot;n.ctr&quot;, &quot;p. ctr&quot;]</span>
 
@@ -372,8 +395,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    w_mass_rounded : int</span>
-<span class="sd">        in ng = nmol * bp * 650 ng/(nmol * bp)</span>
-
+<span class="sd">        in ng. Mass wanted for the reaction.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">w_mass</span> <span class="o">=</span> <span class="n">wanted_moles</span> <span class="o">*</span> <span class="n">size</span> <span class="o">*</span> <span class="mi">650</span>
     <span class="n">w_mass_rounded</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">w_mass</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
