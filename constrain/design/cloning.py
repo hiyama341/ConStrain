@@ -86,7 +86,9 @@ def CAS9_cutting(gRNA_record, background_record):
     dw_feature.qualifiers["label"] = dw.name
     dw.features.append(dw_feature)
 
-    up = pydna.dseqrecord.Dseqrecord(up,)
+    up = pydna.dseqrecord.Dseqrecord(
+        up,
+    )
     dw = pydna.dseqrecord.Dseqrecord(dw)
 
     # UPS more than one cut site?
@@ -586,7 +588,7 @@ def recs_no_duplicates(recs_with_duplicates: list) -> list:
     ----------
     recs_with_duplicates: list
         list with duplicated elements
-        
+
     Returns
     -------
     list

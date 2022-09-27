@@ -27,7 +27,7 @@ import requests
 
 
 def primer_tm_neb(primer, conc=0.5, prodcode="q5-0"):
-    """Calculates a single primers melting temp from NEB. 
+    """Calculates a single primers melting temp from NEB.
 
     Parameters
     ----------

@@ -198,7 +198,8 @@ def update_database(
 ) -> None:
     """Updates the database of choosing"""
     dataframe.to_csv(
-        path + which_database + ".csv", index=False,
+        path + which_database + ".csv",
+        index=False,
     )
 
 

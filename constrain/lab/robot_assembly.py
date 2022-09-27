@@ -12,41 +12,22 @@
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
+"A module to for automating biological assemblies with robots"
+
 from constrain.lab.containers_wells_picklists import (
     Transfer,
     Plate96,
     Plate2x4,
     PickList,
 )
-
 import pandas as pd
-
-r"""
-robot_assembly (:mod:`robot_assembly`)
-=====================================
-
-.. currentmodule:: robot_assembly
-
-This part of the lab module is used for robot instructions - primarily for FlowbotOne
-
-
-.. code-block:: python
-
-    from constrain.lab.robot_assembly import RobotAssembly
-
-
-"""
 
 
 class LiquidHandler(Transfer):
     """This class is a subclass of the synbiopython Transfer
-    class and be used to make flowbot instructions
-
-
+    class and be used to make flowbot instructions.
     Parameters
     ----------
-
-
     Returns
     -------
     """
@@ -80,7 +61,7 @@ def well_keys_96(row=True):
     ----------
     row : bool
         if true it will generate keys horisontally for a
-        96 well plate. Else vertically. 
+        96 well plate. Else vertically.
 
     Returns
     -------
@@ -121,7 +102,7 @@ def make_virtual_plates_fromDF(
     templates: list
         list of templates
     Dataframe_with_PCR_contents : pandas.DataFrame
-        dataframe with a PCR scheme. 
+        dataframe with a PCR scheme.
 
     Returns
     -------
@@ -236,10 +217,10 @@ class RobotAssembly:
      Parameters
     ----------
     pandas.DataFrame
-        Pandas_dataframe with a PCR scheme 
+        Pandas_dataframe with a PCR scheme
     F_primers : list
         list of forward primers
-    R_primers :list 
+    R_primers :list
         list of reverse primers
     Templates : list
         list of templates
@@ -248,7 +229,7 @@ class RobotAssembly:
     -------
     RobotAssembly object.
         Methods include printing robot-
-        excecutable intructions. 
+        excecutable intructions.
 
     """
 

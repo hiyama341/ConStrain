@@ -42,18 +42,18 @@ def ng_to_nmol(ng: float, bp: float):
     Parameters
     ----------
 
-    ng : float        
+    ng : float
         eg. nanogram
-    param: float 
+    param: float
         eg. number of basepairs. Can also be an int
 
     Returns
     -------
-    ng_to_nmol : float 
+    ng_to_nmol : float
 
     Note
     ----
-    It calculates the nmol in the following way: 
+    It calculates the nmol in the following way:
     nmol = ng/(bp*650)
     """
     if ng > 0 and bp > 0:
@@ -68,14 +68,14 @@ def ODtime(initialOD: float, time: float, td: float = 0.5):
     ----------
     initialOD : float
         in OD
-    time : float 
+    time : float
         in hours
     td : float
         doupling time i.e. td in h^-1
 
     Returns
     -------
-    OD : float 
+    OD : float
         the OD after a certain time()
     """
     if initialOD >= 0 and time >= 0:
@@ -93,12 +93,12 @@ def time_to_inculate(
 
     Parameters
     ----------
-    initialOD : float 
-    td : float 
+    initialOD : float
+    td : float
         is doubling time
     transformation_time : int
         The time you want to transform
-    verbose : Bool 
+    verbose : Bool
         Provides extra information
 
     Returns
@@ -107,7 +107,7 @@ def time_to_inculate(
 
     Notes
     -----
-    This is used to calculate when the cells should be used for transformation. 
+    This is used to calculate when the cells should be used for transformation.
     For example:
     OD_1 = 1 * 10^7 cells / ml
     For a succesfull S.cerevisiae transformation between 1 to 2 × 10^7 cells/ml should be used
@@ -206,7 +206,7 @@ def transformation_mix(
     reaction_participants : list
         list of pydna.Dseqrecord objects of Bio.seqrecord objects
     wanted_concentrations : dict
-        dict of the names of the reactants with their calculated nmol 
+        dict of the names of the reactants with their calculated nmol
     water_dna_p_reac : int
         the amount of water wanted for the reaction
     media : list
@@ -216,8 +216,8 @@ def transformation_mix(
     -------
     pandas.DataFrame
         with a transformation scheme showing which parts should be
-        mixed for each reaction including positive and negative 
-        controls. 
+        mixed for each reaction including positive and negative
+        controls.
 
     Examples
     --------
