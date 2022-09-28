@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.design.cloning &mdash; ConStrain 0.2.7+64.g928ed1e.dirty documentation</title>
+  <title>constrain.design.cloning &mdash; ConStrain 0.2.7+68.gdbe6b10.dirty documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+64.g928ed1e.dirty
+                0.2.7+68.gdbe6b10.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -181,37 +181,6 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OBS&quot;</span><span class="p">,</span> <span class="n">gRNA_sequence</span><span class="p">,</span> <span class="s2">&quot;cuts more than one location!&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="p">(</span><span class="n">up</span><span class="p">,</span> <span class="n">dw</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="CRIPSR_knockout"><a class="viewcode-back" href="../../../constrain.design.html#constrain.design.cloning.CRIPSR_knockout">[docs]</a><span class="k">def</span> <span class="nf">CRIPSR_knockout</span><span class="p">(</span><span class="n">gRNA_record</span><span class="p">,</span> <span class="n">insertion_site</span><span class="p">,</span> <span class="n">repair_DNA</span><span class="p">):</span>
-
-    <span class="sd">&quot;&quot;&quot;Simple version of casembler - Cuts the insertion site with</span>
-<span class="sd">     CAS9_cutting and assembles knockout with a repair template.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    gRNA_record: pydna.dseqrecord.</span>
-<span class="sd">        A 20 bp DNA sequence</span>
-
-<span class="sd">    insertion_site: pydna.dseqrecord.</span>
-<span class="sd">        The site to knock out</span>
-
-<span class="sd">    repair_DNA: pydna.dseqrecord.</span>
-<span class="sd">        Repair template. Typucally 90 bp or longer</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    pydna.dseqrecord.</span>
-<span class="sd">        Of assembled contig after CRISPR-mediated KO</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Create fragments after CAS9 cut</span>
-    <span class="n">IS_UP</span><span class="p">,</span> <span class="n">IS_DW</span> <span class="o">=</span> <span class="n">CAS9_cutting</span><span class="p">(</span><span class="n">gRNA_record</span><span class="p">,</span> <span class="n">insertion_site</span><span class="p">)</span>
-
-    <span class="c1"># create list of parts and assemble to knockout sequence</span>
-    <span class="n">assmeble_parts</span> <span class="o">=</span> <span class="n">IS_UP</span><span class="p">,</span> <span class="n">repair_DNA</span><span class="p">,</span> <span class="n">IS_DW</span>
-    <span class="n">assembled_knockout</span> <span class="o">=</span> <span class="n">Assembly</span><span class="p">(</span><span class="n">assmeble_parts</span><span class="p">)</span><span class="o">.</span><span class="n">assemble_linear</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">assembled_knockout</span></div>
 
 
 <div class="viewcode-block" id="extract_gRNAs"><a class="viewcode-back" href="../../../constrain.design.html#constrain.design.cloning.extract_gRNAs">[docs]</a><span class="k">def</span> <span class="nf">extract_gRNAs</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -473,10 +442,10 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    bg_strain:</span>
+<span class="sd">    bg_strain : GenBank</span>
 <span class="sd">        strain of choice eg. genbank file</span>
 
-<span class="sd">    site_names:</span>
+<span class="sd">    site_names: list</span>
 <span class="sd">          list of names e.g. [X-3, XI-3]</span>
 
 <span class="sd">    gRNAs: Seqrecords</span>
@@ -760,6 +729,37 @@
 
     <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;prow&quot;</span><span class="p">,</span> <span class="s2">&quot;pcol&quot;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;prow&quot;</span><span class="p">,</span> <span class="s2">&quot;pcol&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CRIPSR_knockout"><a class="viewcode-back" href="../../../constrain.design.html#constrain.design.cloning.CRIPSR_knockout">[docs]</a><span class="k">def</span> <span class="nf">CRIPSR_knockout</span><span class="p">(</span><span class="n">gRNA_record</span><span class="p">,</span> <span class="n">insertion_site</span><span class="p">,</span> <span class="n">repair_DNA</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Simple version of casembler - Cuts the insertion site with</span>
+<span class="sd">     CAS9_cutting and assembles knockout with a repair template.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    gRNA_record: pydna.dseqrecord.</span>
+<span class="sd">        A 20 bp DNA sequence</span>
+
+<span class="sd">    insertion_site: pydna.dseqrecord.</span>
+<span class="sd">        The site to knock out</span>
+
+<span class="sd">    repair_DNA: pydna.dseqrecord.</span>
+<span class="sd">        Repair template. Typucally 90 bp or longer</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pydna.dseqrecord.</span>
+<span class="sd">        Of assembled contig after CRISPR-mediated KO</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create fragments after CAS9 cut</span>
+    <span class="n">IS_UP</span><span class="p">,</span> <span class="n">IS_DW</span> <span class="o">=</span> <span class="n">CAS9_cutting</span><span class="p">(</span><span class="n">gRNA_record</span><span class="p">,</span> <span class="n">insertion_site</span><span class="p">)</span>
+
+    <span class="c1"># create list of parts and assemble to knockout sequence</span>
+    <span class="n">assmeble_parts</span> <span class="o">=</span> <span class="n">IS_UP</span><span class="p">,</span> <span class="n">repair_DNA</span><span class="p">,</span> <span class="n">IS_DW</span>
+    <span class="n">assembled_knockout</span> <span class="o">=</span> <span class="n">Assembly</span><span class="p">(</span><span class="n">assmeble_parts</span><span class="p">)</span><span class="o">.</span><span class="n">assemble_linear</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">assembled_knockout</span></div>
 </pre></div>
 
            </div>

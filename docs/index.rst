@@ -1,6 +1,6 @@
-.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/constrain1.svg?
+.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/constrain1.svg?token=GHSAT0AAAAAABTYCY2LIAJ7B7ZTWBR4NMHIYZUJQ4A
   :width: 400
-  :alt: ConStrain logo
+  :alt: ConStrain logo 
 
 ======================================
 Welcome to ConStrain's documentation!
@@ -28,6 +28,7 @@ Features of ConStrain
 * Workflows for selecting enzyme homologs
 * Promoter selection workflows from RNA-seq datasets
 * Data analysis of large LC-MS datasets along with workflows for analysis
+
 
 Getting started
 ~~~~~~~~~~~~~~~

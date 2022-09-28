@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design module &mdash; ConStrain 0.2.7+64.g928ed1e.dirty documentation</title>
+  <title>Design module &mdash; ConStrain 0.2.7+68.gdbe6b10.dirty documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> ConStrain
           </a>
               <div class="version">
-                0.2.7+64.g928ed1e.dirty
+                0.2.7+68.gdbe6b10.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -212,8 +212,8 @@ of printing to gb files or send it directly to benchling.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bg_strain</strong> – strain of choice eg. genbank file</p></li>
-<li><p><strong>site_names</strong> – list of names e.g. [X-3, XI-3]</p></li>
+<li><p><strong>bg_strain</strong> (<em>GenBank</em>) – strain of choice eg. genbank file</p></li>
+<li><p><strong>site_names</strong> (<em>list</em>) – list of names e.g. [X-3, XI-3]</p></li>
 <li><p><strong>gRNAs</strong> (<em>Seqrecords</em>) – list of 20 bp seqrecords e.g. [ATF1_gRNA, CroCPR_gRNA]</p></li>
 <li><p><strong>parts</strong> (<em>list</em>) – list of list of parts e.g. [[ATF1_repair_template],[CPR_repair_template]]</p></li>
 <li><p><strong>assembly_limits</strong> (<em>list</em>) – list of numbers of bp assembly limits e.g. [200,400]</p></li>
@@ -456,27 +456,21 @@ H   PCR_CPR_31      PCR_CPR_40      PCR_CPR_33      PCR_CPR_39      PCR_CPR_32  
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class able to make a combinatorial library from DNA fragments.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><ul class="simple">
-<li><p><em>Input</em></p></li>
-<li><p><em>param list_of_seqs: A list of list of a construct of choice.</em></p></li>
-<li><p><em>param list_of_names: A list of list of the names wanted for the construct of choice.</em></p></li>
-<li><p><em>param pad: Volume to be transferred, expressed in liters.</em></p></li>
-<li><p><em>param position_of_pad: A dict containing any useful information about the transfer.</em> – This information can be used later e.g. as parameters for the printing out primers,PCRs needed
-for the construction of the library</p></li>
-<li><p><em>Design_output</em></p></li>
-<li><p><em>The rest of the parameters are generated from the initial such as</em></p></li>
-<li><p><em>param list_of_amplicons</em></p></li>
-<li><p><em>param systematic_names</em></p></li>
-<li><p><em>param combinatorial_list_of_amplicons</em></p></li>
-<li><p><em>param combinatorial_list_of_names</em></p></li>
-<li><p><em>param combinatorial_list_of_primer_tm</em></p></li>
-<li><p><em>param list_of_assemblies</em></p></li>
-<li><p><em>param primers</em></p></li>
-<li><p><em>param unique_primers</em></p></li>
-<li><p><em>param unique_amplicons</em></p></li>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list_of_seqs</strong> (<em>list</em>) – A list of list of a constructs of choice.</p></li>
+<li><p><strong>list_of_names</strong> (<em>list</em>) – A list of list of the names wanted for the construct of choice.</p></li>
+<li><p><strong>pad</strong> (<em>pydna.Dseqrecord</em>) – A nucleotide sequence to be incorporated into the primers (Max is 40 bp)</p></li>
+<li><p><strong>position_of_pad</strong> (<em>int</em>) – the position in the list of seqs where the pad is incorporated (zero indexed)</p></li>
 </ul>
-</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A powerfull class and a lot of information can be retrieved.
+Such as: showing all the amplicons needed to construct a combinatorial library
+with the simple method –&gt; PCR_list_to_dataframe or Primer_list_to_dataframe.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>constrain.design.combinatorial_design.DesignAssembly object</p>
 </dd>
 </dl>
 <dl class="py method">
