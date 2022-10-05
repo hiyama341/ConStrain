@@ -110,6 +110,7 @@ First DBTL cycle
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/01_DESIGN_PromoterSelection_colab.ipynb
 
 02. Describes how a combinatorial library can be generated with the DesignAssembly class along with robot executable intructions. 
+
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 02
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/02_DESIGN_Combinatorial_library_with_DesignAssembly.ipynb
@@ -123,6 +124,7 @@ First DBTL cycle
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/03_BUILD_USER_gRNA_plasmid.ipynb
 
 04. Describes the construction of the background strain by K/O of G8H and CPR 
+
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 04
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/04_BUILD_Background_strain.ipynb
@@ -180,6 +182,7 @@ Second DBTL cycle
 **LEARN:**
 
 11. Second ML cycle of ML showing how the model increased performance and saturation of best performing strains. 
+
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 11
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/11_LEARN_DataAnalysisML2.ipynb
