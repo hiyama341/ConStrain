@@ -88,8 +88,12 @@ To get started with making microbial strains in an HT manner please follow the s
 
 Colab notebooks
 ---------------
+As a proof of concept we show how ConStrain and literate programming can be used to streamline bioengineering workflows.
+These workflows should serve as a guide or a help to build your own workflows and thereby harnessing the power of literate programming with ConStrain. 
 
-In the paper that came out of this work we describe a ML guided bioengineering workflow in a set of Google colab notebooks.
+Specifically, in this study we present how ConStrain and literate programming to build simulation-guided, iterative,
+and evolution-guided laboratory workflows for optimizing strictosidine production in yeast.
+
 Below you can find all the notebooks developed in this work. Just click the Google colab badge to start the workflows. 
 
 First DBTL cycle
