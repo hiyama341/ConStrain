@@ -71,7 +71,7 @@ Features
 * Data analysis of large LC-MS datasets along with workflows for analysis
 
 
-.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/DBTL_.svg?token=GHSAT0AAAAAABTYCY2KOB34CGUWV7JDL5PCYZUJUVQ
+.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/DBTL_modules_of_ConStrain.svg
   :width: 800
   :alt: Overview of ConStrain's features throughout the DBTL cycle. 
 
