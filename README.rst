@@ -116,14 +116,14 @@ First DBTL cycle
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/02_1_DESIGN_Combinatorial_library.ipynb
     
 
-- 00. Describes how we can automatically fetch homologs from NCBI from a query in a standardizable and repeatable way |Notebook 00|. 
+00. Describes how we can automatically fetch homologs from NCBI from a query in a standardizable and repeatable way |Notebook 00|. 
 
 
-- 01. Describes how promoters can be selected from RNAseq data and fetched from online database with various quality measurements implemented |Notebook 01|.
+01. Describes how promoters can be selected from RNAseq data and fetched from online database with various quality measurements implemented |Notebook 01|.
 
 
 
-- 02. Describes how a combinatorial library can be generated with the DesignAssembly class along with robot executable intructions |Notebook 02|. 
+02. Describes how a combinatorial library can be generated with the DesignAssembly class along with robot executable intructions |Notebook 02|. 
 
 
 
@@ -145,11 +145,11 @@ First DBTL cycle
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/05_1_BUILD_CombinatorialLibrary_AllStrains.ipynb
 
 
-- 03. Describes the assembly of a CRISPR plasmid with USER cloning |Notebook 03|.
+03. Describes the assembly of a CRISPR plasmid with USER cloning |Notebook 03|.
 
-- 04. Describes the construction of the background strain by K/O of G8H and CPR |Notebook 04|.
+04. Describes the construction of the background strain by K/O of G8H and CPR |Notebook 04|.
 
-- 05. Shows how the first large combinatorial library was generated for 1280 possible combinations |Notebook 05|. 
+05. Shows how the first large combinatorial library was generated for 1280 possible combinations |Notebook 05|. 
 
 
 
@@ -161,7 +161,7 @@ First DBTL cycle
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/06_1_TEST_LibraryCharacterisation.ipynb
 
 
-- 06. Describes data processing of LC-MS data and genotyping of the generated strains |Notebook 06|.  
+06. Describes data processing of LC-MS data and genotyping of the generated strains |Notebook 06|.  
 
 
 **LEARN:**
@@ -171,7 +171,7 @@ First DBTL cycle
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/07_1_LEARN_DataAnalysis.ipynb
 
 
-- 07. Describes how we use AutoML to predict the best combinations for a targeted second round of library construction |Notebook 07|.
+07. Describes how we use AutoML to predict the best combinations for a targeted second round of library construction |Notebook 07|.
 
 
 
@@ -186,17 +186,19 @@ Second DBTL cycle
     :alt: Notebook 08
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/09_BUILD_Library2.ipynb
 
-- 08. Shows how results from the ML can be translated into making a target library of strains |Notebook 08|. 
+08. Shows how results from the ML can be translated into making a target library of strains |Notebook 08|. 
 
 
 
 **BUILD:**
+
+
 ..  |Notebook 09| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 09
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/09_2_BUILD_CombinatorialLibrary.ipynb
 
 
-- 09. Shows the construction of a targeted library of strains |Notebook 09|. 
+09. Shows the construction of a targeted library of strains |Notebook 09|. 
 
 
 
@@ -209,7 +211,7 @@ Second DBTL cycle
 
 
 
-- 10. Describes the data processing of LC-MS data like in notebook 7 |Notebook 10|.
+10. Describes the data processing of LC-MS data like in notebook 7 |Notebook 10|.
 
 
 
@@ -221,7 +223,7 @@ Second DBTL cycle
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/11_2_LEARN_DataAnalysisML.ipynb
 
 
-- 11. Second ML cycle of ML showing how the model increased performance and saturation of best performing strains |Notebook 11|. 
+11. Second ML cycle of ML showing how the model increased performance and saturation of best performing strains |Notebook 11|. 
 
 
 
