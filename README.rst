@@ -103,78 +103,76 @@ First DBTL cycle
 
 **DESIGN:**
 
-
-
-- 00. Describes how we can automatically fetch homologs from NCBI from a query in a standardizable and repeatable way. 
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 00| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 00
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/00_1_DESIGN_Homologs.ipynb
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/00_1_DESIGN_Homologs.ipynb 
 
-
-- 01. Describes how promoters can be selected from RNAseq data and fetched from online database with various quality measurements implemented.
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 01| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 01
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/01_1_DESIGN_Promoters.ipynb
 
-
-- 02. Describes how a combinatorial library can be generated with the DesignAssembly class along with robot executable intructions. 
-
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 02| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 02
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/02_1_DESIGN_Combinatorial_library.ipynb
+    
+
+- 00. Describes how we can automatically fetch homologs from NCBI from a query in a standardizable and repeatable way |Notebook 00|. 
+
+
+- 01. Describes how promoters can be selected from RNAseq data and fetched from online database with various quality measurements implemented |Notebook 01|.
+
+
+
+- 02. Describes how a combinatorial library can be generated with the DesignAssembly class along with robot executable intructions |Notebook 02|. 
+
 
 
 
 **BUILD:**
 
-
-
-- 03. Describes the assembly of a CRISPR plasmid with USER cloning.
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 03| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 03
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/03_1_BUILD_USER_gRNA_plasmid.ipynb
 
 
-- 04. Describes the construction of the background strain by K/O of G8H and CPR 
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 04| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 04
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/04_1_BUILD_Background_strain.ipynb
 
 
-- 05. Shows how the first large combinatorial library was generated for 1280 possible combinations. 
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 05| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 05
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/05_1_BUILD_CombinatorialLibrary_AllStrains.ipynb
+
+
+- 03. Describes the assembly of a CRISPR plasmid with USER cloning |Notebook 03|.
+
+- 04. Describes the construction of the background strain by K/O of G8H and CPR |Notebook 04|.
+
+- 05. Shows how the first large combinatorial library was generated for 1280 possible combinations |Notebook 05|. 
 
 
 
 **TEST:**
 
 
-
-- 06. Describes data processing of LC-MS data and genotyping of the generated strains. 
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 06| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 06
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/06_1_TEST_LibraryCharacterisation.ipynb
 
 
+- 06. Describes data processing of LC-MS data and genotyping of the generated strains |Notebook 06|.  
+
 
 **LEARN:**
 
-
-
-- 07. Describes how we use AutoML to predict the best combinations for a targeted second round of library construction.
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 07| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 07
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/07_1_LEARN_DataAnalysis.ipynb
+
+
+- 07. Describes how we use AutoML to predict the best combinations for a targeted second round of library construction |Notebook 07|.
+
 
 
 Second DBTL cycle
@@ -184,49 +182,46 @@ Second DBTL cycle
 
 **DESIGN:**
 
-
-
-- 08. Shows how results from the ML can be translated into making a target library of strains. 
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 08| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 08
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/09_BUILD_Library2.ipynb
+
+- 08. Shows how results from the ML can be translated into making a target library of strains |Notebook 08|. 
 
 
 
 **BUILD:**
-
-
-
-- 09. Shows the construction of a targeted library of strains. 
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 09| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 09
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/09_2_BUILD_CombinatorialLibrary.ipynb
+
+
+- 09. Shows the construction of a targeted library of strains |Notebook 09|. 
+
 
 
 
 **TEST:**
 
-
-
-- 10. Describes the data processing of LC-MS data like in notebook 8.
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 10| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 10
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/10_2_TEST_Library_Characterization.ipynb
 
 
 
+- 10. Describes the data processing of LC-MS data like in notebook 7 |Notebook 10|.
+
+
+
+
 **LEARN:**
 
-
-
-- 11. Second ML cycle of ML showing how the model increased performance and saturation of best performing strains. 
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
+..  |Notebook 11| image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 11
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/11_2_LEARN_DataAnalysisML.ipynb
+
+
+- 11. Second ML cycle of ML showing how the model increased performance and saturation of best performing strains |Notebook 11|. 
 
 
 
