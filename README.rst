@@ -149,7 +149,7 @@ First DBTL cycle
 
 04. Describes the construction of the background strain by K/O of G8H and CPR |Notebook 04|.
 
-05. Shows how the first large combinatorial library was generated for 1280 possible combinations |Notebook 05|. 
+05. Shows how the first combinatorial library was generated for 1280 possible combinations |Notebook 05|. 
 
 
 
