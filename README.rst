@@ -105,19 +105,19 @@ First DBTL cycle
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 00
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/00_DESIGN_HomologSelection.ipynb
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/00_1_DESIGN_Homologs.ipynb
 
 01. Describes how promoters can be selected from RNAseq data and fetched from online database with various quality measurements implemented.
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 01
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/01_DESIGN_PromoterSelection_colab.ipynb
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/01_1_DESIGN_Promoters.ipynb
 
 02. Describes how a combinatorial library can be generated with the DesignAssembly class along with robot executable intructions. 
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 02
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/02_DESIGN_Combinatorial_library_with_DesignAssembly.ipynb
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/02_1_DESIGN_Combinatorial_library.ipynb
 
 **BUILD:**
 
@@ -125,54 +125,57 @@ First DBTL cycle
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 03
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/03_BUILD_USER_gRNA_plasmid.ipynb
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/03_1_BUILD_USER_gRNA_plasmid.ipynb
 
 04. Describes the construction of the background strain by K/O of G8H and CPR 
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 04
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/04_BUILD_Background_strain.ipynb
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/04_1_BUILD_Background_strain.ipynb
 
-05. Describes how a smaller combinatorial library was build and test the method before moving on to a larger library.  
+
+05. Shows how the first large combinatorial library was generated for 1280 possible combinations. 
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 05
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/05_BUILD_croStrains_build.ipynb
-
-06. Shows how the first large combinatorial library was generated for 1280 possible combinations. 
-
-..  image:: https://colab.research.google.com/assets/colab-badge.svg
-    :alt: Notebook 06
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/06_BUILD_CombinatorialLibrary_AllStrains.ipynb
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/05_1_BUILD_CombinatorialLibrary_AllStrains.ipynb
 
 
 **TEST:**
 
-07. Describes data processing of LC-MS data and genotyping of the generated strains. 
+06. Describes data processing of LC-MS data and genotyping of the generated strains. 
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
-    :alt: Notebook 07
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/07_TEST_LibraryCharacterisation.ipynb
+    :alt: Notebook 06
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/06_1_TEST_LibraryCharacterisation.ipynb
 
 **LEARN:**
 
-08. Describes how we use AutoML to predict the best combinations for a targeted second round of library construction.
+07. Describes how we use AutoML to predict the best combinations for a targeted second round of library construction.
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
-    :alt: Notebook 08
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/08_LEARN_DataAnalysis.ipynb
+    :alt: Notebook 07
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/07_1_LEARN_DataAnalysis.ipynb
 
 
 Second DBTL cycle
 ~~~~~~~~~~~~~~~~~
 
-**DESIGN/BUILD:**
+**DESIGN:**
+08. Shows how results from the ML can be translated into making a target library of strains. 
 
-09. Shows how results from the ML can be translated into making a focused library of strains. 
+..  image:: https://colab.research.google.com/assets/colab-badge.svg
+    :alt: Notebook 08
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/09_BUILD_Library2.ipynb
+
+
+**BUILD:**
+
+09. Shows the construction of a targeted library of strains. 
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 09
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/09_BUILD_Library2.ipynb
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/09_2_BUILD_CombinatorialLibrary.ipynb
 
 **TEST:**
 
@@ -180,7 +183,7 @@ Second DBTL cycle
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 10
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/10_TEST_Library_Characterization2.ipynb
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/10_2_TEST_Library_Characterization.ipynb
 
 
 **LEARN:**
@@ -189,7 +192,7 @@ Second DBTL cycle
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 11
-    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/11_LEARN_DataAnalysisML2.ipynb
+    :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/11_2_LEARN_DataAnalysisML.ipynb
 
 
 
@@ -249,4 +252,4 @@ Credits
 
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 
-- ConStrains logo was made by Jonas Krogh Fischer. Check out his `website <https://github.com/hiyama341/ConStrain/>`__. 
+- ConStrains logo was made by Jonas Krogh Fischer. Check out his `website <http://jkfischerproductions.com/kea/portfolio/index.html>`__. 
