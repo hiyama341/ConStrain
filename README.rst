@@ -99,7 +99,11 @@ Below you can find all the notebooks developed in this work. Just click the Goog
 First DBTL cycle
 ~~~~~~~~~~~~~~~~
 
-**DESIGN:**
+
+
+**DESIGN:*
+
+
 
 00. Describes how we automatically can fetch homologs from NCBI from a query in a standardizable and repeatable way. 
 
@@ -119,7 +123,11 @@ First DBTL cycle
     :alt: Notebook 02
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/02_1_DESIGN_Combinatorial_library.ipynb
 
+
+
 **BUILD:**
+
+
 
 03. Describes the assembly of a CRISPR plasmid with USER cloning.
 
@@ -141,7 +149,10 @@ First DBTL cycle
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/05_1_BUILD_CombinatorialLibrary_AllStrains.ipynb
 
 
+
 **TEST:**
+
+
 
 06. Describes data processing of LC-MS data and genotyping of the generated strains. 
 
@@ -149,7 +160,11 @@ First DBTL cycle
     :alt: Notebook 06
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/06_1_TEST_LibraryCharacterisation.ipynb
 
+
+
 **LEARN:**
+
+
 
 07. Describes how we use AutoML to predict the best combinations for a targeted second round of library construction.
 
@@ -161,7 +176,12 @@ First DBTL cycle
 Second DBTL cycle
 ~~~~~~~~~~~~~~~~~
 
+
+
 **DESIGN:**
+
+
+
 08. Shows how results from the ML can be translated into making a target library of strains. 
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
@@ -169,7 +189,10 @@ Second DBTL cycle
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/09_BUILD_Library2.ipynb
 
 
+
 **BUILD:**
+
+
 
 09. Shows the construction of a targeted library of strains. 
 
@@ -177,7 +200,11 @@ Second DBTL cycle
     :alt: Notebook 09
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/09_2_BUILD_CombinatorialLibrary.ipynb
 
+
+
 **TEST:**
+
+
 
 10. Describes the data processing of LC-MS data like in notebook 8.
 
@@ -186,7 +213,10 @@ Second DBTL cycle
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/10_2_TEST_Library_Characterization.ipynb
 
 
+
 **LEARN:**
+
+
 
 11. Second ML cycle of ML showing how the model increased performance and saturation of best performing strains. 
 
