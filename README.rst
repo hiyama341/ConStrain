@@ -101,23 +101,27 @@ First DBTL cycle
 
 
 
-**DESIGN:*
+**DESIGN:**
 
 
 
-00. Describes how we automatically can fetch homologs from NCBI from a query in a standardizable and repeatable way. 
+00. Describes how we can automatically fetch homologs from NCBI from a query in a standardizable and repeatable way. 
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 00
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/00_1_DESIGN_Homologs.ipynb
 
+
 01. Describes how promoters can be selected from RNAseq data and fetched from online database with various quality measurements implemented.
+
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 01
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/01_1_DESIGN_Promoters.ipynb
 
+
 02. Describes how a combinatorial library can be generated with the DesignAssembly class along with robot executable intructions. 
+
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 02
@@ -131,11 +135,14 @@ First DBTL cycle
 
 03. Describes the assembly of a CRISPR plasmid with USER cloning.
 
+
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 03
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/03_1_BUILD_USER_gRNA_plasmid.ipynb
 
+
 04. Describes the construction of the background strain by K/O of G8H and CPR 
+
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 04
@@ -143,6 +150,7 @@ First DBTL cycle
 
 
 05. Shows how the first large combinatorial library was generated for 1280 possible combinations. 
+
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 05
@@ -156,6 +164,7 @@ First DBTL cycle
 
 06. Describes data processing of LC-MS data and genotyping of the generated strains. 
 
+
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 06
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/06_1_TEST_LibraryCharacterisation.ipynb
@@ -167,6 +176,7 @@ First DBTL cycle
 
 
 07. Describes how we use AutoML to predict the best combinations for a targeted second round of library construction.
+
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 07
@@ -184,6 +194,7 @@ Second DBTL cycle
 
 08. Shows how results from the ML can be translated into making a target library of strains. 
 
+
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 08
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/09_BUILD_Library2.ipynb
@@ -195,6 +206,7 @@ Second DBTL cycle
 
 
 09. Shows the construction of a targeted library of strains. 
+
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 09
@@ -208,6 +220,7 @@ Second DBTL cycle
 
 10. Describes the data processing of LC-MS data like in notebook 8.
 
+
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 10
     :target: https://colab.research.google.com/github/hiyama341/ConStrain/blob/main/colab_notebooks/10_2_TEST_Library_Characterization.ipynb
@@ -219,6 +232,7 @@ Second DBTL cycle
 
 
 11. Second ML cycle of ML showing how the model increased performance and saturation of best performing strains. 
+
 
 ..  image:: https://colab.research.google.com/assets/colab-badge.svg
     :alt: Notebook 11
