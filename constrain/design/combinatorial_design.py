@@ -260,7 +260,7 @@ def get_primers(
     return primers
 
 
-def assembly_maker(combinatorial_list_of_amplicons: list, overlap=35):
+def assembly_maker(combinatorial_list_of_amplicons: list, overlap=30):
     """Assembles Amplicons with pad and makes new overlapping primers.
     Parameters
     ----------
