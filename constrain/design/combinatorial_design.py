@@ -260,7 +260,7 @@ def get_primers(
     return primers
 
 
-def assembly_maker(combinatorial_list_of_amplicons: list, overlap=30):
+def assembly_maker(combinatorial_list_of_amplicons: list, overlap=35):
     """Assembles Amplicons with pad and makes new overlapping primers.
     Parameters
     ----------
@@ -475,6 +475,7 @@ class DesignAssembly:
         position_of_pad: int,
         target_tm=56.0,
         limit=13,
+        overlap=35
     ):
 
         ###  1.INITIALIZING ##
@@ -517,7 +518,7 @@ class DesignAssembly:
             )
 
         ### 5. Assembling and making overlapping primers
-        self.list_of_assemblies = assembly_maker(self.combinatorial_list_of_amplicons)
+        self.list_of_assemblies = assembly_maker(self.combinatorial_list_of_amplicons, overlap = overlap)
 
         ### 6. GETTING all primers, annotating, adding features
         self.primers = get_primers(
