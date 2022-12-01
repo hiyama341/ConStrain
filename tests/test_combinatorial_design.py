@@ -48,9 +48,8 @@ list_of_names =[test_prom_names, test_cds_names,test_term_names]
 
 # Initializing the design
 test_assembly = DesignAssembly(list_of_seqs, list_of_names, pad, 2)
-# print(test_assembly.PCR_list())
+
 indec0 = test_assembly.list_of_amplicons
-print(len(indec0))
 
 def test_DesignAssembly_lengths():
     # test lenght of assembly, primers, PCR
