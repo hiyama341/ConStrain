@@ -257,3 +257,22 @@ def pairwise_alignment_of_templates(
     df["inf_part_number"] = template_number_list
 
     return df
+
+def alignment_identity(query:list, reference:str):
+    '''Calculates percent identity between a reference and query(s). 
+    Parameters
+    ----------
+    query : list
+        list of Biopython Seqrecord objects 
+    reference : str
+
+    Returns
+    -------
+    list of percent identeties 
+    '''
+
+    alignment_score= []
+    for alignment in query: 
+        alignment_score.append(pairwise2.align.globalmx(reference.seq, alignment.seq, 1, 0, score_only= True)/len(litterature_CPRs[0].seq))
+
+    return alignment_score
