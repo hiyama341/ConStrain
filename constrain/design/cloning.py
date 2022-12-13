@@ -23,6 +23,8 @@ import Bio.SeqRecord
 import Bio.SeqIO
 from Bio.Seq import Seq
 from pydna.assembly import Assembly
+from pydna.dseq import Dseq
+
 
 
 def CAS9_cutting(gRNA_record, background_record):
@@ -339,6 +341,24 @@ def USER_enzyme(amplicon):
     )
     # digested_pcr.seq
     return digested_pcr
+
+
+def nicking_enzyme(vector):
+    """Nicks a vector with the sequence 'CGCGTG' on watson and 'CGCACG' on crick strand.
+
+    Parameters
+    ----------
+    vector: Dseq
+        digested Dseqrecord - usually with AsiSI or similar overhang 
+
+    Returns
+    -------
+    Dseq with nick - ready for USER cloning
+    """
+    if vector.seq[0:8].watson == 'CGCGTG' and vector.seq.crick[:6] == 'CGCACG':
+        return Dseq(watson=vector.seq.watson[6:],crick=vector.seq.crick[6:], ovhg=8)
+    else: 
+        print('No nicking sequnce')
 
 
 def casembler(
