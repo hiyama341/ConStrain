@@ -167,6 +167,11 @@ def bar_plot(x:list, y:list, error_bar:list = None, horisontal_line = True, save
     horisontal_line : bool 
     save_pdf : bool
     path : str
+    color : str 
+        can be matplotlib color names or hex color codes 
+    title : str
+    x_label : str
+    y_label : str
 
     Returns
     -------
@@ -218,7 +223,11 @@ def bar_plot(x:list, y:list, error_bar:list = None, horisontal_line = True, save
 
 
 
-def horisontal_bar_plot(x:list, y:list, vertical_line:bool = True, save_pdf:bool = True , path:str = '', color = 'white')-> None:
+def horisontal_bar_plot(x:list, y:list, vertical_line:bool = True, save_pdf:bool = True , path:str = '', 
+    color = 'white', 
+    title = None, 
+        x_label= None, 
+        y_label= None)-> None:
     '''Plotting a horisontal_bar_plot .
     
     Parameters
@@ -230,6 +239,11 @@ def horisontal_bar_plot(x:list, y:list, vertical_line:bool = True, save_pdf:bool
     vertical_line : bool 
     save_pdf : bool
     path : str
+    color : str 
+    can be matplotlib color names or hex color codes 
+    title : str
+    x_label : str
+    y_label : str
 
     Returns
     -------
@@ -249,6 +263,14 @@ def horisontal_bar_plot(x:list, y:list, vertical_line:bool = True, save_pdf:bool
 
     # remove gridlines
     ax.grid(False)
+
+    # Title and labels
+    if title is not None: 
+        ax.set_title(title, size = 30, fontname='Helvetica')
+    if x_label is not None: 
+        ax.set_xlabel(x_label, size = 20, fontname='Helvetica')
+    if y_label is not None: 
+        ax.set_ylabel(y_label, size = 20, fontname='Helvetica')
 
     # Background
     ax.set_facecolor("white")
@@ -316,3 +338,55 @@ def correlation_plot(dataframe, x:str, y:str, save_pdf = True, path = '') -> Non
         plt.savefig(path+'.pdf',format = 'pdf',  dpi = 300,bbox_inches='tight')
 
     plt.show()
+
+
+def bar_plot_w_hue(dataframe, x:str, y:str, save_pdf = True, path = '',
+     hue:str = 'category',
+     title = '', 
+     x_label = '',
+     y_label = '', 
+     horisontal_line:bool = True
+
+                ) -> None:
+    '''Plotting a correlation_plot.
+
+    Parameters
+    ----------
+    dataframe : pd.DataFrame
+        Dataframe with categories in seperate column from x and y
+    x : str
+        x coordinates
+    y : str 
+        y coordinates 
+    save_pdf : bool
+    path : str
+        path to folder with name of the file
+    title : str
+    x_label : str
+    y_label : str
+
+    Returns
+    -------
+    bar_plot_w_hue'''
+
+    ax = sns.barplot(x=x, y=y, hue=hue, data=dataframe, palette = 'pastel')
+
+    ax = plt.gca()
+    ax.set_xlabel(title, size = 20, fontname='Helvetica')
+    ax.set_ylabel(x_label, size = 20, fontname='Helvetica')
+    ax.set_title(y_label, size = 30, fontname='Helvetica')
+
+    # white background
+    ax.set_facecolor("white")
+    plt.xscale('linear') 
+    
+    if horisontal_line: 
+        # normalized line
+        ax.axhline(100)
+
+    if save_pdf == True and path != '': 
+        plt.savefig(path+'.pdf',format = 'pdf',  dpi = 300)
+
+
+
+

@@ -344,8 +344,8 @@ def USER_enzyme(amplicon):
 
 
 def nicking_enzyme(vector):
-    """Nicks a vector with the sequence 'CGCGTG' on watson and 'CGCACG' on crick strand.
-
+    """Nt.Bbc.CI (nicking enzyme, Nicks) a vector with the 
+    sequence 'CGCGTG' on watson and 'CGCACG' on crick strand.
     Parameters
     ----------
     vector: Dseq
