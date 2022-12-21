@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+""" 
 # Test Combinatorial_design
 import pandas as pd
 import numpy as np
@@ -135,7 +135,7 @@ def test_DesignAssembly_combinatorial_lenght():
     assert len(assembled[0].seq) == len(first_prom) + len(first_cds)+ len(first_term)
 
 
-
+ """
 
 #if __name__ == "__main__":
 #     pytest.main([__file__, "-vv", "-s"])
