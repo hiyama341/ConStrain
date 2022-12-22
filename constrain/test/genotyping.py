@@ -92,7 +92,6 @@ def plat_seq_data_wrangler(sequencing_plates: list) -> list:
 def plate_AvgQual(list_of_dfs_numeric: list, Avg_qual=50, used_bases=25) -> list:
     """Filters out rows that doesnt follow the criteria.
 
-
     Parameters
     ----------
     list_of_dfs_numeric : list of pd.DataFrames
@@ -231,10 +230,7 @@ def pairwise_alignment_of_templates(
 
                 # Align # identical = 1, non-identical = -2 , gap = -2 , extending gap = -2
                 # alignments = pairwise2.align.globalms(template, sample,2, -2, -3, -3)
-                alignments = pairwise2.align.localxx(template, sample)
-
-                # take the first and highest score
-                alignment_score = float(alignments[0].score)
+                alignment_score = pairwise2.align.localxx(template, sample, score_only= True)
 
                 # Get the best alignment of them all
                 if alignment_score > score:
@@ -257,22 +253,3 @@ def pairwise_alignment_of_templates(
     df["inf_part_number"] = template_number_list
 
     return df
-
-def alignment_identity(query:list, reference:str):
-    '''Calculates percent identity between a reference and query(s). 
-    Parameters
-    ----------
-    query : list
-        list of Biopython Seqrecord objects 
-    reference : str
-
-    Returns
-    -------
-    list of percent identeties 
-    '''
-
-    alignment_score= []
-    for alignment in query: 
-        alignment_score.append(pairwise2.align.globalmx(reference.seq, alignment.seq, 1, 0, score_only= True)/len(litterature_CPRs[0].seq))
-
-    return alignment_score
