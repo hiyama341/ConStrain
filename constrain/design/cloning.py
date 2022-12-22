@@ -26,7 +26,6 @@ from pydna.assembly import Assembly
 from pydna.dseq import Dseq
 
 
-
 def CAS9_cutting(gRNA_record, background_record):
 
     """Simulates double-stranded-break by CAS9 given a gRNA.
@@ -344,21 +343,21 @@ def USER_enzyme(amplicon):
 
 
 def nicking_enzyme(vector):
-    """Nt.Bbc.CI (nicking enzyme, Nicks) a vector with the 
+    """Nt.Bbc.CI (nicking enzyme, Nicks) a vector with the
     sequence 'CGCGTG' on watson and 'CGCACG' on crick strand.
     Parameters
     ----------
     vector: Dseq
-        digested Dseqrecord - usually with AsiSI or similar overhang 
+        digested Dseqrecord - usually with AsiSI or similar overhang
 
     Returns
     -------
     Dseq with nick - ready for USER cloning
     """
-    if vector.seq[0:8].watson == 'CGCGTG' and vector.seq.crick[:6] == 'CGCACG':
-        return Dseq(watson=vector.seq.watson[6:],crick=vector.seq.crick[6:], ovhg=8)
-    else: 
-        print('No nicking sequnce')
+    if vector.seq[0:8].watson == "CGCGTG" and vector.seq.crick[:6] == "CGCACG":
+        return Dseq(watson=vector.seq.watson[6:], crick=vector.seq.crick[6:], ovhg=8)
+    else:
+        print("No nicking sequnce")
 
 
 def casembler(

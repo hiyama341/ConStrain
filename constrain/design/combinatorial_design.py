@@ -195,8 +195,10 @@ def get_primers(
             # Primers
             # description ------ DESCRIBES what other part it overlaps-------------
             if j == 0:  # START OF THE ASSEMBLY
-                List_of_assemblies[i][j].forward_primer.description = (
-                    "Anneals to " + str(List_of_assemblies[i][j].name)
+                List_of_assemblies[i][
+                    j
+                ].forward_primer.description = "Anneals to " + str(
+                    List_of_assemblies[i][j].name
                 )
                 List_of_assemblies[i][j].reverse_primer.description = (
                     "Anneals to "
@@ -205,21 +207,19 @@ def get_primers(
                     + str(List_of_assemblies[i][j + 1].name)
                 )
             if j > 0 and j < len(List_of_assemblies[i]) - 1:  #      # THE rest:
-                List_of_assemblies[i][j].forward_primer.description = (
-                    "Anneals to "
-                    + str(
-                        List_of_assemblies[i][j].name
-                        + ", overlaps to "
-                        + str(List_of_assemblies[i][j - 1].name)
-                    )
+                List_of_assemblies[i][
+                    j
+                ].forward_primer.description = "Anneals to " + str(
+                    List_of_assemblies[i][j].name
+                    + ", overlaps to "
+                    + str(List_of_assemblies[i][j - 1].name)
                 )
-                List_of_assemblies[i][j].reverse_primer.description = (
-                    "Anneals to "
-                    + str(
-                        List_of_assemblies[i][j].name
-                        + ", overlaps to "
-                        + str(List_of_assemblies[i][j + 1].name)
-                    )
+                List_of_assemblies[i][
+                    j
+                ].reverse_primer.description = "Anneals to " + str(
+                    List_of_assemblies[i][j].name
+                    + ", overlaps to "
+                    + str(List_of_assemblies[i][j + 1].name)
                 )
             if j == len(List_of_assemblies[i]) - 1:  # THE END OF THE ASSEMBLY
                 List_of_assemblies[i][j].forward_primer.description = (
@@ -228,8 +228,10 @@ def get_primers(
                     + ", overlaps to "
                     + str(List_of_assemblies[i][j - 1].name)
                 )
-                List_of_assemblies[i][j].reverse_primer.description = (
-                    "Anneals to " + str(List_of_assemblies[i][j].name)
+                List_of_assemblies[i][
+                    j
+                ].reverse_primer.description = "Anneals to " + str(
+                    List_of_assemblies[i][j].name
                 )
 
             # template it aneals to
@@ -462,8 +464,8 @@ class DesignAssembly:
     -------
     constrain.design.combinatorial_design.DesignAssembly object
         A powerfull class and a lot of information can be retrieved.
-        Such as: showing all the amplicons needed to construct a combinatorial library 
-        with the simple method --> PCR_list_to_dataframe or Primer_list_to_dataframe. 
+        Such as: showing all the amplicons needed to construct a combinatorial library
+        with the simple method --> PCR_list_to_dataframe or Primer_list_to_dataframe.
 
     """
 
@@ -475,7 +477,7 @@ class DesignAssembly:
         position_of_pad: int,
         target_tm=56.0,
         limit=13,
-        overlap=35
+        overlap=35,
     ):
 
         ###  1.INITIALIZING ##
@@ -518,7 +520,9 @@ class DesignAssembly:
             )
 
         ### 5. Assembling and making overlapping primers
-        self.list_of_assemblies = assembly_maker(self.combinatorial_list_of_amplicons, overlap = overlap)
+        self.list_of_assemblies = assembly_maker(
+            self.combinatorial_list_of_amplicons, overlap=overlap
+        )
 
         ### 6. GETTING all primers, annotating, adding features
         self.primers = get_primers(

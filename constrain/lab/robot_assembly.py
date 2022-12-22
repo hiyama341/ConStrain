@@ -83,9 +83,11 @@ def well_keys_96(row=True):
                 wells_keys.append(str(key_list[j]) + str(i))
 
     return wells_keys
-    
+
+
 # initializing well_keys
 well_keys = well_keys_96(row=True)
+
 
 def make_virtual_plates_fromDF(
     f_primers: list, r_primers: list, templates: list, Dataframe_with_PCR_contents

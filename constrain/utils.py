@@ -15,18 +15,20 @@
 """ A script that provides utility functions"""
 
 
-def mean(lst):
-    """Get mean from a list. 
+def mean(lst:list):
+    """Get mean from a list.
     Parameters
     ----------
 
-    lst : list of floats. 
+    lst : list of floats.
 
     Return
     ------
     mean : float
-    
-    
+
+
     """
     mean = sum(lst) / len(lst)
     return mean
+
+
