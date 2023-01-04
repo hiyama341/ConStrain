@@ -201,21 +201,21 @@ def test_nanophotometer_concentrations():
     assert list_of_conc[-1] ==39.9
 
 
-def test_pcr_volumes(): 
+def test_calculate_volumes(): 
 
-    pcr_volumes_df = pcr_volumes(vol_p_reac = 20, 
+    calculate_volumes_df = calculate_volumes(vol_p_reac = 20, 
             no_of_reactions = 3,
             standard_reagents = ["Template", "Primer 1", "Primer 2", "H20", "Pol"],
             standard_volumes = [1, 2.5, 2.5, 19, 25])
     
     # template
-    assert pcr_volumes_df.iloc[0]['vol_p_reac'] == 0.4
-    assert round(pcr_volumes_df.iloc[0]['vol_p_3_reac'],2) == 1.2
+    assert calculate_volumes_df.iloc[0]['vol_p_reac'] == 0.4
+    assert round(calculate_volumes_df.iloc[0]['vol_p_3_reac'],2) == 1.2
 
     # h2o
-    assert pcr_volumes_df.iloc[3]['vol_p_reac'] == 7.6
-    assert round(pcr_volumes_df.iloc[3]['vol_p_3_reac'],2) == 22.8
+    assert calculate_volumes_df.iloc[3]['vol_p_reac'] == 7.6
+    assert round(calculate_volumes_df.iloc[3]['vol_p_3_reac'],2) == 22.8
 
     # total
-    assert pcr_volumes_df.iloc[5]['vol_p_reac'] == 20.0
-    assert round(pcr_volumes_df.iloc[5]['vol_p_3_reac'],2) == 60.0
+    assert calculate_volumes_df.iloc[5]['vol_p_reac'] == 20.0
+    assert round(calculate_volumes_df.iloc[5]['vol_p_3_reac'],2) == 60.0

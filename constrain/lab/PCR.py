@@ -113,7 +113,7 @@ def grouper(iterable, max_diff):
         yield group
 
 
-def pcr_volumes(
+def calculate_volumes(
     vol_p_reac=0, no_of_reactions=1, standard_reagents=[], standard_volumes=[]
 ):
     """Can make a reaction scheme for PCR master mixes.
@@ -130,7 +130,7 @@ def pcr_volumes(
 
     Examples
     --------
-    pcr_volumes(vol_p_reac = 10,
+    calculate_volumes(vol_p_reac = 10,
                 no_of_reactions = 6,
                 standard_reagents = ["DNA","Buffer, Cutsmart","H20","Enz, USER"],
                 standard_volumes = [1,1,7,1])
