@@ -26,6 +26,7 @@ def autoML_on_partitioned_data(
     path="",
     partitions=5,
     training_time=5,
+    nfold = 10 
 ) -> None:
     """Runs over a pandas dataframe and trains MLs according to specified partition lenght.
 
@@ -90,7 +91,7 @@ def autoML_on_partitioned_data(
         AutoML = H2OAutoML(
             max_runtime_secs=training_time,  # 1 hour =int(3600 * 1) , if unlimited time is wanted then set this to zero = 0
             max_models=None,  # None =  no limit
-            nfolds=10,  # number of folds for k-fold cross-validation (nfolds=0 disables cross-validation)
+            nfolds=nfold,  # number of folds for k-fold cross-validation (nfolds=0 disables cross-validation)
             seed=1,  # Reproducibility
             sort_metric="MAE",
             keep_cross_validation_predictions=True,
