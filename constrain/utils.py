@@ -25,10 +25,31 @@ def mean(lst:list):
     Return
     ------
     mean : float
-
-
     """
     mean = sum(lst) / len(lst)
     return mean
 
+def counting_occurences(data_with_occurences:dict):
+    """
+    Count the occurences of each key in the input dict and returns the percentage of each key in the total values
+    
+    Parameters
+    ----------
+    data_with_occurences : dict
+        The dictionary containing the data for counting occurences.
+    Returns
+    -------
+    tuple
+        A tuple containing two lists, the first one is the occurence percentage of each key, the second one is the list of keys.
+    """
+    columns = []
+    data = []
+    for key,value in data_with_occurences.items(): 
 
+        values = data_with_occurences.values()
+        total = sum(values)
+
+        data.append((value/total)*100)
+        columns.append(key)
+        
+    return data, columns
