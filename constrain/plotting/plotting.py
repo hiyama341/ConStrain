@@ -18,10 +18,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 import seaborn as sns
-from scipy.stats import pearsonr
-import scipy as sp
 from scipy import stats
 import matplotlib as mpl
+import pandas as pd
+import matplotlib as mpl
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
 
 
 # for phylo
@@ -32,7 +34,7 @@ from Bio.Phylo.TreeConstruction import DistanceTreeConstructor
 import matplotlib as mpl
 
 
-def plot_stacked_barplot(
+def carpet_barplot(
     pd_dataframe_cross_tab_prop,
     colorDict: dict,
     save_pdf=True,
@@ -466,147 +468,97 @@ def bar_plot_w_hue(
         plt.savefig(path + ".pdf", format="pdf", dpi=300)
 
 
-def color_dict():
-    ### Color codes ###
-
-    yellow = [
-        "#a59a00",
-        "#aa9e00",
-        "#b0a300",
-        "#b5a800",
-        "#bbad00",
-        "#c0b200",
-        "#c5b700",
-        "#cbbc00",
-        "#d0c100",
-        "#d6c600",
-        "#dbcb03",
-        "#e1d011",
-        "#e6d51b",
-        "#ecda24",
-        "#f2df2b",
-        "#f7e432",
-        "#fde938",
-        "#ffef40",
-        "#fff647",
-    ]
-    cpr_color = yellow[::2][::-1]
-
-    orange = [
-        "#cd6511",
-        "#d26916",
-        "#d76d1b",
-        "#dc7120",
-        "#e17624",
-        "#e67a28",
-        "#eb7e2d",
-        "#f08231",
-        "#f58635",
-        "#fa8a39",
-        "#fe8f3e",
-        "#ff9544",
-        "#ff9c4b",
-        "#ffa351",
-        "#ffaa58",
-        "#ffb15e",
-        "#ffb764",
-        "#ffbd6a",
-        "#ffc470",
-        "#ffca76",
-        "#ffd07c",
-        "#ffd682",
-    ]
-    pcpr_color = orange[::6][::-1]
-
-    blue = [
-        "#2d89bc",
-        "#348dc0",
-        "#3b92c5",
-        "#4197ca",
-        "#479bcf",
-        "#4da0d4",
-        "#52a5d9",
-        "#58aade",
-        "#5daee3",
-        "#63b3e8",
-        "#68b8ee",
-        "#6ebdf3",
-        "#73c2f8",
-        "#78c7fd",
-        "#7eccff",
-        "#84d1ff",
-        "#8ad7ff",
-        "#8fdcff",
-        "#95e2ff",
-        "#9be7ff",
-        "#a1edff",
-        "#a6f3ff",
-        "#acf8ff",
-        "#b2feff",
-    ]
-    g8h_color = blue[::3][::-1]
-
-    green = [
-        "#24b161",
-        "#2bb565",
-        "#32ba69",
-        "#38bf6d",
-        "#3ec371",
-        "#44c876",
-        "#4acd7a",
-        "#4fd27e",
-        "#54d683",
-        "#5adb87",
-        "#5fe08b",
-        "#64e590",
-        "#69ea94",
-        "#6eee99",
-        "#73f39d",
-        "#78f8a2",
-        "#7efda7",
-        "#91ffb9",
-    ]
-    pg8h_color = green[::5][::-1]
-
-    # List index
-    g8h_list_of_index = [
-        "CacuG8H",
-        "OpumG8H",
-        "CroG8H",
-        "VminG8H",
-        "SmusG8H",
-        "RsepG8H",
-        "OeuG8H",
-        "CcalG8H",
-    ]
-    cpr_list_of_index = [
-        "CroCPR",
-        "AanCPR",
-        "AraCPR",
-        "CloCPR",
-        "RseCPR",
-        "AhuCPR",
-        "AniCPR",
-        "CacCPR",
-        "OeuCPR",
-        "CpoCPR",
-    ]
-    pg8h_list_of_index = ["CYC1", "ENO2", "PCK1", "RPL15B"]
-    pcpr_list_of_index = ["CCW12", "TPI1", "MLS1", "URE2"]
-    all_parts = (
-        g8h_list_of_index + pg8h_list_of_index + pcpr_list_of_index + cpr_list_of_index
-    )
-
-    G8H_color_codes = dict(zip(g8h_list_of_index, g8h_color))
-    pG8H_color_codes = dict(zip(pg8h_list_of_index, pg8h_color))
-    pCPR_color_codes = dict(zip(pcpr_list_of_index, pcpr_color))
-    CPR_color_codes = dict(zip(cpr_list_of_index, cpr_color))
-    # making a final dict with colors
-    colorDict = dict(
-        G8H_color_codes, **pG8H_color_codes, **pCPR_color_codes, **CPR_color_codes
-    )
-
-    return colorDict
+def color_range_dict()->dict: 
+    """Returns a dictionary of color ranges.
+    
+    Returns
+    -------
+    dict
+        A dictionary of color ranges containing keys 'yellow', 'orange', 'blue' and 'green'
+    """
+    return  {'yellow':["#a59a00",
+                        "#aa9e00",
+                        "#b0a300",
+                        "#b5a800",
+                        "#bbad00",
+                        "#c0b200",
+                        "#c5b700",
+                        "#cbbc00",
+                        "#d0c100",
+                        "#d6c600",
+                        "#dbcb03",
+                        "#e1d011",
+                        "#e6d51b",
+                        "#ecda24",
+                        "#f2df2b",
+                        "#f7e432",
+                        "#fde938",
+                        "#ffef40",
+                        "#fff647"],
+             'orange': ["#cd6511",
+                        "#d26916",
+                        "#d76d1b",
+                        "#dc7120",
+                        "#e17624",
+                        "#e67a28",
+                        "#eb7e2d",
+                        "#f08231",
+                        "#f58635",
+                        "#fa8a39",
+                        "#fe8f3e",
+                        "#ff9544",
+                        "#ff9c4b",
+                        "#ffa351",
+                        "#ffaa58",
+                        "#ffb15e",
+                        "#ffb764",
+                        "#ffbd6a",
+                        "#ffc470",
+                        "#ffca76",
+                        "#ffd07c",
+                        "#ffd682"],
+            'blue':[    "#2d89bc",
+                        "#348dc0",
+                        "#3b92c5",
+                        "#4197ca",
+                        "#479bcf",
+                        "#4da0d4",
+                        "#52a5d9",
+                        "#58aade",
+                        "#5daee3",
+                        "#63b3e8",
+                        "#68b8ee",
+                        "#6ebdf3",
+                        "#73c2f8",
+                        "#78c7fd",
+                        "#7eccff",
+                        "#84d1ff",
+                        "#8ad7ff",
+                        "#8fdcff",
+                        "#95e2ff",
+                        "#9be7ff",
+                        "#a1edff",
+                        "#a6f3ff",
+                        "#acf8ff",
+                        "#b2feff"], 
+            'green':[   "#24b161",
+                        "#2bb565",
+                        "#32ba69",
+                        "#38bf6d",
+                        "#3ec371",
+                        "#44c876",
+                        "#4acd7a",
+                        "#4fd27e",
+                        "#54d683",
+                        "#5adb87",
+                        "#5fe08b",
+                        "#64e590",
+                        "#69ea94",
+                        "#6eee99",
+                        "#73f39d",
+                        "#78f8a2",
+                        "#7efda7",
+                        "#91ffb9"]}
 
 
 def plot_phylo_tree(alignment_file, save_pdf=True, path="", height=10, wideness=8):
@@ -655,4 +607,134 @@ def plot_phylo_tree(alignment_file, save_pdf=True, path="", height=10, wideness=
         ## save pdf
         plt.savefig(path + ".pdf", format="pdf", dpi=120, bbox_inches="tight")
 
+    plt.show()
+
+
+
+def plot_stacked_barplot_with_labels(df:pd.DataFrame, colors:list, 
+                         title = '', 
+                         y_label = '' ,
+                         x_label = '',
+                         path = ''):
+    """Plots a stacked barplot from a dataframe.
+    
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The dataframe containing the data to be plotted.
+    colors : list
+        A list of colors for the different bars in the plot.
+    title : str, optional
+        The title of the plot. Default is an empty string.
+    y_label : str, optional
+        The label for the y-axis of the plot. Default is an empty string.
+    x_label : str, optional
+        The label for the x-axis of the plot. Default is an empty string.
+    path : str, optional
+        The path to the directory where the plot will be saved. Default is an empty string.
+    """
+    # Initialize 
+    plt.rc('font', family='Helvetica')
+    mpl.rcParams['pdf.fonttype'] = 42
+    mpl.rcParams['ps.fonttype'] = 42
+    
+    
+    ax = df.plot( kind="bar",stacked = True,  figsize=(20, 15), color=colors,  edgecolor='Black') # , cmap="coolwarm"
+    # Add Title and Labels
+    plt.title(title, fontsize=40)
+    plt.xlabel(y_label, fontsize=25, weight='bold')
+    plt.ylabel(x_label, fontsize=25, weight='bold')
+    ax.tick_params(axis='both', which='major', labelsize=25)
+
+    # removes the borders around the plot
+    sns.despine(bottom = True, left = True)
+    ax.legend([],[],frameon=False) # around the legend
+    
+    # adding laves to each box
+    for c in ax.containers:
+        # this one writes label and percent 
+        labels_for_bars = [f"{c.get_label()} \n{round(v.get_height(),2)} %"  for v in c]
+
+        # remove the labels parameter if it's not needed for customized labels
+        ax.bar_label(c, labels=labels_for_bars, label_type='center', fmt='str', size = 20, weight='bold')
+
+    if path != '': 
+        name = 'Occurences of each part sampled'
+        plt.savefig(path+name+'.pdf',format = 'pdf',  dpi = 120)
+
+
+
+def grouped_bar_plot(x:list, y:list, colors:list, category_labels:list,
+                         title = '', 
+                         y_label = '' ,
+                         x_label = '',
+                         path = '', 
+                        axhline = True):
+    """
+    Create a grouped bar plot from input data and save the plot in a pdf format
+    
+    Parameters
+    ----------
+    x : list
+        A list of x-coordinates of the bars in the plot.
+    y : list
+        A list of y-coordinates of the bars in the plot.
+    colors : list
+        A list of color codes for the bars in the plot.
+    category_labels : list
+        A list of labels for the categories represented by the bars in the plot.
+    title : str, optional
+        The title of the plot. Default is an empty string.
+    y_label : str, optional
+        The label for the y-axis of the plot. Default is an empty string.
+    x_label : str, optional
+        The label for the x-axis of the plot. Default is an empty string.
+    path : str, optional
+        The path to the directory where the plot will be saved. Default is an empty string.
+    axhline : bool, optional
+        The flag to show an horisontal line    
+    """
+
+
+    #### How can I export a matplotlib figure as a vector graphic with editable text fields?
+    mpl.rcParams['pdf.fonttype'] = 42
+    mpl.rcParams['ps.fonttype'] = 42
+    
+    # Create Figure and Axes instances
+    fig,ax = plt.subplots(1)
+
+    # Plot
+    plt.bar(x, y, edgecolor='black', color = colors) # white - orange = #fee6ce
+
+
+    # Add labels and titel
+    ax.set_ylabel(title, size = 20, fontname='Helvetica')
+    ax.set_xlabel(x_label, size = 30, fontname='Helvetica')
+    ax.set_title(y_label, size = 30, fontname='Helvetica')
+    
+    if axhline: 
+        # add horisontal line
+        plt.axhline(y = 100, color = 'black', linestyle = '-')
+
+    # Set color 
+    ax.set_facecolor("white")
+
+    white_patch = mpatches.Patch(color='white', label=category_labels[0])
+    black_patch = mpatches.Patch(color='black', label=category_labels[1])
+    ax.legend(handles=[white_patch,black_patch ], fontsize = 20)
+
+    # remove spines
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+
+    # SIze matters
+    fig = mpl.pyplot.gcf()
+    fig.set_size_inches(25, 15)
+
+    if path != '': 
+        name = 'grouped_bar_plot'
+        plt.savefig(path+name+'.pdf',format = 'pdf',  dpi = 120)
+    
     plt.show()
