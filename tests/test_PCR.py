@@ -28,7 +28,7 @@ def test_amplicon_by_name():
     assert my_amplicon.name == 'AMPICON_FOR_TESTING_amplicon_byname_function'
     assert len(my_amplicon) == 2123
     
-def test_calculate_processing_speed_speed(): 
+def test_calculate_processing_speed(): 
     
     # initialize
     template = Dseqrecord("tacactcaccgtctatcattatctactatcgactgtatcatctgatagcac")
@@ -38,20 +38,20 @@ def test_calculate_processing_speed_speed():
     
     # the tests
     amplicon.annotations['polymerase'] = "OneTaq Hot Start"
-    calculate_processing_speed_speed(amplicon)
+    calculate_processing_speed(amplicon)
     assert amplicon.annotations['proc_speed'] == 60
     
     amplicon.annotations['polymerase'] = "Q5 Hot Start"
-    calculate_processing_speed_speed(amplicon)
+    calculate_processing_speed(amplicon)
     assert amplicon.annotations['proc_speed'] == 30
     
 
     amplicon.annotations['polymerase'] = "Phusion"
-    calculate_processing_speed_speed(amplicon)
+    calculate_processing_speed(amplicon)
     assert amplicon.annotations['proc_speed'] == 30
     
 
-def test_calculate_elongation_time_time():
+def test_calculate_elongation_time():
     
     # initialize
     template = Dseqrecord("tacactcaccgtctatcattatctactatcgactgtatcatctgatagcac")
@@ -59,9 +59,10 @@ def test_calculate_elongation_time_time():
     p2 = Primer("cgactgtatcatctgatagcac").reverse_complement()
     amplicon = pcr(p1, p2, template)
     amplicon.annotations['polymerase'] = "OneTaq Hot Start"
-    calculate_processing_speed_speed(amplicon)
-    #test
-    calculate_elongation_time_time(amplicon)
+    calculate_processing_speed(amplicon)
+    #the test
+    calculate_elongation_time(amplicon)
+    
     assert amplicon.annotations['elongation_time'] == 4
     
     
@@ -72,8 +73,8 @@ def test_calculate_elongation_time_time():
     p2 = Primer("cgactgtatcatctgatagcac").reverse_complement()
     amplicon = pcr(p1, p2, template)
     amplicon.annotations['polymerase'] = "OneTaq Hot Start"
-    calculate_processing_speed_speed(amplicon)
-    calculate_elongation_time_time(amplicon)
+    calculate_processing_speed(amplicon)
+    calculate_elongation_time(amplicon)
 
     #tests
     assert amplicon.annotations['elongation_time'] == 128
@@ -86,8 +87,8 @@ def test_calculate_elongation_time_time():
     p2 = Primer("cgactgtatcatctgatagcac").reverse_complement()
     amplicon = pcr(p1, p2, template)
     amplicon.annotations['polymerase'] = "OneTaq Hot Start"
-    calculate_processing_speed_speed(amplicon)
-    calculate_elongation_time_time(amplicon)
+    calculate_processing_speed(amplicon)
+    calculate_elongation_time(amplicon)
 
     #test
     assert amplicon.annotations['elongation_time'] == 188
@@ -103,10 +104,10 @@ def test_PCR_program():
     amplicon = pcr(p1, p2, template)
     amplicon.name = 'AMPICON_FOR_TESTING_PCR_program_function'
     amplicon.annotations['polymerase'] = "OneTaq Hot Start"
-    calculate_processing_speed_speed(amplicon)
+    calculate_processing_speed(amplicon)
 
     # initialize a string object
-    program = Q5_NEB_PCR_programR_program(amplicon)
+    program = Q5_NEB_PCR_program(amplicon)
 
     assert program[1:5] == '98°C'
     assert program[35:39] == '61.0'
@@ -132,8 +133,8 @@ def test_calculate_required_thermal_cyclers():
     amplicon1 = pcr(p1, p2, template)
     amplicon1.name = 'AMPLICON1'
     amplicon1.annotations['polymerase'] = "OneTaq Hot Start"
-    calculate_processing_speed_speed(amplicon1)
-    calculate_elongation_time_time(amplicon1)
+    calculate_processing_speed(amplicon1)
+    calculate_elongation_time(amplicon1)
 
     # amplicon2
     middle = 'a'*200
@@ -143,12 +144,12 @@ def test_calculate_required_thermal_cyclers():
     amplicon2 = pcr(p1, p2, template)
     amplicon2.name = 'AMPLICON2'
     amplicon2.annotations['polymerase'] = "OneTaq Hot Start"
-    calculate_processing_speed_speed(amplicon2)
-    calculate_elongation_time_time(amplicon2)
+    calculate_processing_speed(amplicon2)
+    calculate_elongation_time(amplicon2)
 
     # adding extra annotations
-    amplicon1_program = Q5_NEB_PCR_programR_program(amplicon1)
-    amplicon2_program = Q5_NEB_PCR_programR_program(amplicon2)
+    amplicon1_program = Q5_NEB_PCR_program(amplicon1)
+    amplicon2_program = Q5_NEB_PCR_program(amplicon2)
 
     amplicons = [amplicon1, amplicon2]
     # running the function
