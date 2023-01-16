@@ -19,14 +19,16 @@ import datetime
 import Bio
 from Bio.SeqFeature import SeqFeature
 import pydna
-# Typing
-from typing import Dict, Any, List
+from constrain.utils import rename_dict_keys, split_based_on_keys, nest_dict, start_end_to_location
 
+########################################################
+########## Initializing Benchling environmen t##########
+########################################################
 
 # Fetching API key from env file  - the function can find the env file in the root folder
 import os
 from dotenv import load_dotenv, find_dotenv
-
+# find dotenv file
 load_dotenv(find_dotenv())
 
 # Initializing session
@@ -34,28 +36,10 @@ api_key = os.environ.get("API_KEY")
 
 # Add your benchling home environment here
 home_url = os.environ.get("HOME_url")
-
-# print(home_url, api_key)
-
 session = Session(api_key=api_key, home=home_url)
 
 
-""" This part of the LIMS module is used for importing sequences and exporting sequences to benchling
-
------------------
-HELPER FUNCTIONS: 
------------------
-sequence_to_benchling
-from_benchling
-update_loc_vol_conc
-unnest_dict
-nest_dict
-start_end_to_location
-split_based_on_keys
-rename_dict_keys
-Compound_to_SE()
-"""
-
+""" This part of the LIMS module is used for importing sequences and exporting sequences to benchling"""
 
 def sequence_to_benchling(folder_name, oligo_name, oligo_bases, schema):
 
@@ -241,144 +225,3 @@ def update_loc_vol_conc(seqRecord, DBpath:str= ''):
     return seqRecord
 
 
-def unnest_dict(dictionary:Dict[Any, Any], key_unnest_dict:str)->Dict[Any, Any]:
-    """Unnest a dictionary by merging the values of a nested dictionary
-    with the original dictionary, and renaming the key "label" to "name"
-
-    Parameters:
-    -----------
-    dictionary : Dict[Any, Any]
-        The input dictionary
-    key_unnest_dict : str
-        The key of the nested dictionary to unnest
-        
-    Returns:
-    --------
-    dictionary : Dict[Any, Any]
-        The unnested dictionary
-    """
-    nested_dict = dictionary.pop(key_unnest_dict)
-
-    unnested_dictionary = {**dictionary, **nested_dict}
-
-    if "label" in unnested_dictionary.keys():
-        unnested_dictionary["name"] = unnested_dictionary.pop("label")
-
-    return unnested_dictionary
-
-
-def nnest_dict(dictionary: Dict[Any, Any], key_for_nested_dict: str, first_order_keys: List[str]=None) -> Dict[Any, Any]:
-    """"
-    Nest a dictionary by moving the values of specified keys to a nested dictionary.
-
-    Parameters:
-    -----------
-    dictionary : Dict[Any, Any]
-        The input dictionary
-    key_for_nested_dict : str
-        The key to use for the nested dictionary
-    first_order_keys : List[str], optional
-        List of keys to keep in the first level of the dictionary, by default None
-        
-    Returns:
-    --------
-    dictionary : Dict[Any, Any]
-        The nested dictionary
-
-    """
-    if first_order_keys is None:
-        first_order_keys = []
-    else:
-        first_order_keys = first_order_keys
-
-    first_order_dict, second_order_dict = split_based_on_keys(
-        dictionary, first_order_keys
-    )
-
-    # Create qualifer dict
-    dict_to_be_nested = {}
-    dict_to_be_nested[key_for_nested_dict] = second_order_dict
-
-    # Merge dictionaries by nesting qualifer dict
-    nested_dictionary = {**first_order_dict, **dict_to_be_nested}
-
-    return nested_dictionary
-
-
-def start_end_to_location(dictionary, length):
-    """Start and End Key Value pair to Compound Location Key Value pair.
-
-
-
-    Parameters
-    ----------
-
-    Returns
-    -------
-    """
-    start = dictionary.pop("start")
-    end = dictionary.pop("end")
-    start_pos = Bio.SeqFeature.ExactPosition(start)
-    end_pos = Bio.SeqFeature.ExactPosition(end)
-    if start_pos < end_pos:
-        location = Bio.SeqFeature.FeatureLocation(start_pos, end_pos)
-    else:
-        f1 = Bio.SeqFeature.FeatureLocation(start_pos, length - 1)
-        f2 = Bio.SeqFeature.FeatureLocation(0, end_pos)
-        location = Bio.SeqFeature.CompoundLocation([f1, f2])
-
-    dictionary["location"] = location
-    return dictionary
-
-
-def split_based_on_keys(dictionary, key_list):
-    """Split dictionary based on key list"""
-    # Split keys
-    first_keys = key_list
-    other_keys = [k for k in dictionary.keys() if k not in first_keys]
-
-    # Create dicts
-    first_dict = {k: dictionary[k] for k in first_keys}
-    other_dict = {k: dictionary[k] for k in other_keys}
-
-    return (first_dict, other_dict)
-
-
-def rename_dict_keys(dictionary, trans_dictionary):
-    """rename the keys of a dictionary using another dictionary
-
-
-    Parameters
-    ----------
-
-    Returns
-    -------
-    """
-
-    keys = dictionary.keys()
-    values = dictionary.values()
-
-    new_keys = [trans_dictionary.get(k, k) for k in keys]
-    return dict(zip(new_keys, values))
-
-
-def Compoundloc_to_SE(dictionary):
-    """location :
-
-    Parameters
-    ----------
-
-    Returns
-    -------
-
-     CompoundLocation to start : v ,
-     end : v
-     strand : v key value pairs"""
-
-    Compoundloc = dictionary.pop("location")
-
-    dictionary["start"] = Compoundloc.start.real
-    dictionary["end"] = Compoundloc.end.real
-    dictionary["strand"] = Compoundloc.strand
-
-    return dictionary
