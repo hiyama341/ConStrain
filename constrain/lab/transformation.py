@@ -22,8 +22,6 @@ from pydna.dseqrecord import Dseqrecord
 
 # for plotting with pyplot
 import matplotlib.pyplot as plt
-plt.style.use("seaborn-whitegrid")
-
 
 def ng_to_nmol(ng: float, bp: float):
 
