@@ -168,7 +168,7 @@ def calculate_volumes(
     return volumes_df
 
 
-def det_proc_speed(amplicon):
+def calculate_processing_speed(amplicon):
     """Determines process speed based on the which polymerase is used.
 
     Parameters
@@ -202,7 +202,7 @@ def det_proc_speed(amplicon):
     return amplicon
 
 
-def det_elon_time(amplicon):
+def calculate_elongation_time(amplicon):
 
     """Determines elongation time for an amplicon
     and add the elongation time to the amplicon annotations
@@ -234,10 +234,9 @@ def det_elon_time(amplicon):
     return amplicon
 
 
-def det_no_of_thermal_cyclers(amplicons: list, polymerase: str, elong_time_max_diff=15):
+def calculate_required_thermal_cyclers(amplicons: list, polymerase: str, elong_time_max_diff=15):
     """Determines the number of thermalcyclers that is needed
     based on elongation time differences
-
 
     Parameters
     ----------
@@ -365,7 +364,7 @@ def pcr_locations(amplicons: list):
 
 
 def nanophotometer_concentrations(
-    path="../data/raw/005_Nanophotometer/2021-03-29_G8H_CPR_library_part_concentrations.csv",
+    path="",
 ):
 
     """Reads a CSV file with nanophotometer concentraions
@@ -409,7 +408,7 @@ def amplicon_by_name(name: str, amplicons_lst: list):
             return amplicon
 
 
-def simple_PCR_program(amplicon):
+def Q5_NEB_PCR_program(amplicon):
 
     """Simple PCR program designed to give a quick visual representations.
 
@@ -424,8 +423,8 @@ def simple_PCR_program(amplicon):
         schematic representation of a Q5 program
     """
     # Determine elongation time and process speed.
-    amplicon = det_elon_time(amplicon)
-    amplicon = det_proc_speed(amplicon)
+    amplicon = calculate_elongation_time(amplicon)
+    amplicon = calculate_processing_speed(amplicon)
 
     # ta
     amplicon.annotations["ta Q5 Hot Start"] = primer_ta_neb(
