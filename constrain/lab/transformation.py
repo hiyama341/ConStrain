@@ -14,8 +14,6 @@
 
 
 """ This part of the lab module is used for making transformations"""
-
-#!/usr/bin/env python
 # standard libraries
 from datetime import datetime, timedelta
 import numpy as np
@@ -24,7 +22,6 @@ from pydna.dseqrecord import Dseqrecord
 
 # for plotting with pyplot
 import matplotlib.pyplot as plt
-
 plt.style.use("seaborn-whitegrid")
 
 
