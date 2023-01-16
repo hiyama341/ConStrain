@@ -12,9 +12,6 @@
 # copies or substantial portions of the Software.
 
 """ Easy to use benchling functions to fetch sequences and objects"""
-
-
-#!/usr/bin/env python
 import os
 from benchlingapi import Session
 import pandas as pd
@@ -22,6 +19,9 @@ import datetime
 import Bio
 from Bio.SeqFeature import SeqFeature
 import pydna
+# Typing
+from typing import Dict, Any, List
+
 
 # Fetching API key from env file  - the function can find the env file in the root folder
 import os
@@ -50,7 +50,7 @@ from_benchling
 update_loc_vol_conc
 unnest_dict
 nest_dict
-SE_to_CLoc
+start_end_to_location
 split_based_on_keys
 rename_dict_keys
 Compound_to_SE()
@@ -59,15 +59,25 @@ Compound_to_SE()
 
 def sequence_to_benchling(folder_name, oligo_name, oligo_bases, schema):
 
-    """This function uploads sequences to benchlong
-
-    Parameters
+    '''This function uploads sequences to Benchling.
+    Parameters:
     ----------
+    folder_name : str
+        The name of the folder in which to upload the sequence.
+    oligo_name : str
+        The name of the oligo.
+    oligo_bases : str
+        The base sequence of the oligo.
+    schema : str
+        The schema to use for the oligo. Should be one of the following: 
+        "Primer", "DNA Fragment", "Plasmid", "Gene", "gRNA", "Marker","Promoter", 
+        "Terminator", "Tag", "Origin of Replication".
 
-    Returns
-    -------
+    Returns:
+    --------
+    None
+    '''
 
-    """
 
     folder = session.Folder.find_by_name(folder_name)
     dna = ""
@@ -96,16 +106,19 @@ def sequence_to_benchling(folder_name, oligo_name, oligo_bases, schema):
     dna.register()
 
 
-def from_benchling(bname, schema=""):
-
+def from_benchling(bname:str, schema:str=""):
     """Extract information of object on benchling.
-
-
-    Parameters
-    ----------
-
-    Returns
-    -------
+    Parameters:
+    -----------
+    bname : str
+        The name of the object on Benchling.
+    schema : str, optional
+        The schema of the object, by default ""
+        
+    Returns:
+    --------
+    object :
+        The extracted object from Benchling.
     """
     # retrieve benchling sequence dict
     bench_dict = session.DNASequence.find_by_name(bname).dump()
@@ -158,7 +171,7 @@ def from_benchling(bname, schema=""):
 
     #### Translate start end to compound locations object
     translated_bench_dict_sel["features"] = [
-        SE_to_CLoc(feature_dict, seq_length)
+        start_end_to_location(feature_dict, seq_length)
         for feature_dict in translated_bench_dict_sel["features"]
     ]
 
@@ -193,22 +206,21 @@ def from_benchling(bname, schema=""):
     return seqRecord
 
 
-def update_loc_vol_conc(seqRecord):
+def update_loc_vol_conc(seqRecord, DBpath:str= ''):
     """Update with location volume and concentration
     information downloaded from benchling if possible.
-
-
-    Parameters
-    ----------
-
-    Returns
-    -------
-    take Bio.SeqRecord.SeqRecord
-
+    Parameters:
+    -----------
+    seqRecord : Bio.SeqRecord.SeqRecord
+        The SeqRecord object to update.
+    DBpath : str, optional
+        The path to the csv file containing the location, volume and concentration information.
+        
+    Returns:
+    --------
+    seqRecord : Bio.SeqRecord.SeqRecord
+        The updated SeqRecord object.
     """
-
-    DBpath = "../data/external/benchlingBoxes_sorted.csv"
-
     DB = pd.read_csv(DBpath)
 
     seqRecord.annotations["batches"] = []
@@ -229,16 +241,22 @@ def update_loc_vol_conc(seqRecord):
     return seqRecord
 
 
-def unnest_dict(dictionary, key_unnest_dict):
+def unnest_dict(dictionary:Dict[Any, Any], key_unnest_dict:str)->Dict[Any, Any]:
+    """Unnest a dictionary by merging the values of a nested dictionary
+    with the original dictionary, and renaming the key "label" to "name"
+
+    Parameters:
+    -----------
+    dictionary : Dict[Any, Any]
+        The input dictionary
+    key_unnest_dict : str
+        The key of the nested dictionary to unnest
+        
+    Returns:
+    --------
+    dictionary : Dict[Any, Any]
+        The unnested dictionary
     """
-
-    Parameters
-    ----------
-
-    Returns
-    -------
-    """
-
     nested_dict = dictionary.pop(key_unnest_dict)
 
     unnested_dictionary = {**dictionary, **nested_dict}
@@ -249,14 +267,24 @@ def unnest_dict(dictionary, key_unnest_dict):
     return unnested_dictionary
 
 
-def nest_dict(dictionary, key_for_nested_dict, first_order_keys=None):
-    """
+def nnest_dict(dictionary: Dict[Any, Any], key_for_nested_dict: str, first_order_keys: List[str]=None) -> Dict[Any, Any]:
+    """"
+    Nest a dictionary by moving the values of specified keys to a nested dictionary.
 
-    Parameters
-    ----------
+    Parameters:
+    -----------
+    dictionary : Dict[Any, Any]
+        The input dictionary
+    key_for_nested_dict : str
+        The key to use for the nested dictionary
+    first_order_keys : List[str], optional
+        List of keys to keep in the first level of the dictionary, by default None
+        
+    Returns:
+    --------
+    dictionary : Dict[Any, Any]
+        The nested dictionary
 
-    Returns
-    -------
     """
     if first_order_keys is None:
         first_order_keys = []
@@ -277,7 +305,7 @@ def nest_dict(dictionary, key_for_nested_dict, first_order_keys=None):
     return nested_dictionary
 
 
-def SE_to_CLoc(dictionary, length):
+def start_end_to_location(dictionary, length):
     """Start and End Key Value pair to Compound Location Key Value pair.
 
 

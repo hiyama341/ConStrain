@@ -23,7 +23,7 @@ def test_unnest_dict():
 def test_nest_dict():
     pass
 
-def test_SE_to_CLoc():
+def test_start_end_to_location():
     
     pass
 
