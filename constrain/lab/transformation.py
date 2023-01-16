@@ -30,12 +30,11 @@ plt.style.use("seaborn-whitegrid")
 
 def ng_to_nmol(ng: float, bp: float):
 
-    """Calculates nanogrom to nanomol for transformation mixes.
+    """Calculates nanogram to nanomol for transformation mixes.
 
     To do a transformation it is important to have the right ratio
     of plasmid to insert. In other words this is done by calculating
     the nanomolar ratios and this tool can do that
-
 
     Parameters
     ----------
