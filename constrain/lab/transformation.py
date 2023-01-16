@@ -18,11 +18,9 @@
 #!/usr/bin/env python
 # standard libraries
 from datetime import datetime, timedelta
-
-
 import numpy as np
 import pandas as pd
-
+from pydna.dseqrecord import Dseqrecord
 
 # for plotting with pyplot
 import matplotlib.pyplot as plt
@@ -336,3 +334,175 @@ def wanted_volume(wanted_mass, actual_concentration):
     wanted_volume = wanted_mass / actual_concentration
     wanted_volume_rounded = round(wanted_volume, 1)
     return wanted_volume_rounded
+
+
+def transformation_partitipants(reaction_participants, amnt =0.0005 , sgRNA_plasmid_name= None, sgRNA_plasmid_conc= None):
+    """Returns a dict with the µl amounts needed in a transformation reaction.
+
+    Parameters
+    ----------
+    reaction_participants : list of list of Dseqrecord
+        List of lists of Dseqrecord objects representing the reaction participants.
+    amnt : float, optional
+        Amount in µl of the reagents other than `sgRNA_plasmid_name`. Default is 0.0005.
+    sgRNA_plasmid_name : str, optional
+        Name of the sgRNA plasmid. If not provided, `amnt` is used for all reaction participants.
+    sgRNA_plasmid_conc : float, optional
+        Concentration in µl of the sgRNA plasmid. If not provided, `amnt` is used for all reaction participants.
+
+    Returns
+    -------
+    dict
+        Dict with the µl amounts needed for the transformation reaction, 
+        with keys being the names of the reaction participants and values being the corresponding µl amounts.
+    """
+    ...
+    # Initialize two lists 
+    wanted_amounts = [[] for i in range(len(reaction_participants))]
+    names_matrix = [[] for i in range(len(reaction_participants))]
+    for reac_no, reac in enumerate(reaction_participants):
+        for parti_no, parti in enumerate(reac):
+            if sgRNA_plasmid_name == None and sgRNA_plasmid_conc == None: 
+                wanted_amounts[reac_no].append(amnt)
+                names_matrix[reac_no].append(parti.name)
+            else:
+                names_matrix[reac_no].append(parti.name)
+                if parti.name == sgRNA_plasmid_name:
+                    wanted_amounts[reac_no].append(sgRNA_plasmid_conc)
+                    names_matrix[reac_no].append(parti.name)
+                else: 
+                    wanted_amounts[reac_no].append(amnt)
+
+
+    # making the reaction participants into Dseqrecords and changing names        
+    new_dict_with_wanted_amounts = dict()
+    for i in range(len(reaction_participants)):
+        for j in range(len(reaction_participants[i])): 
+            reaction_participants[i][j] = Dseqrecord(reaction_participants[i][j])
+            new_dict_with_wanted_amounts[reaction_participants[i][j].name] = wanted_amounts[i][j]
+    
+    
+    return new_dict_with_wanted_amounts 
+
+
+def calculate_volume_and_total_concentration(amplicons, amplicon_parts_amounts_total, n= 1):
+    """
+    Calculates the volume and total concentration of a list of DNA parts.Parameters
+    ----------
+    amplicons : list
+        A list of amplicon objects
+    amplicon_parts_amounts_total : dict
+        A dictionary of amplicon names and their respective total amounts
+    n : int (optional)
+        Gives the option of multiplying the volume is needed. Optional set to 1. 
+
+    Returns
+    -------
+    volumes : list
+        List of volumes of each amplicon
+    ngs : list
+        List of ngs of each amplicon
+    total_conc : float
+        Total concentration of all amplicons
+    """
+    print('name, volume, concentration, location')
+
+    volumes = []
+    ngs = []
+    for amp in amplicons:
+        w_moles = amplicon_parts_amounts_total[amp.name]
+        w_mass = wanted_mass(wanted_moles=w_moles, size=len(amp))
+        act_conc = amp.annotations['batches'][0]['concentration']
+        w_volume = wanted_volume(w_mass, act_conc)*n
+        volumes.append(w_volume)
+        ngs.append(w_volume * act_conc)
+        print(amp.name, w_volume, act_conc, '\t', amp.annotations['batches'][0]['location'])
+
+    #Count total concentrtaion expected   
+    total_vol = sum(volumes)
+    total_ngs = sum(ngs)
+    total_conc = total_ngs/total_vol
+    print('total volume: ', sum(volumes))
+    print()
+    print('total ngs: ', sum(ngs))
+    print('total conc: ', total_conc)
+    
+    return volumes, ngs, total_conc
+    
+
+def pool_parts(amplicons:list, part_names:list,part_amounts:list,  pool_names:list, pool_lengths)->dict: 
+    """Pools amplicon parts and returns a dictionary of pooled volumes.
+
+    Parameters
+    ----------
+    amplicons : list
+        List of amplicon objects.
+    part_names : list
+        List of part names.
+    part_amounts : list
+        List of amounts of each part.
+    pool_names : list
+        List of pool names.
+    pool_lengths : list
+        List of pool lengths.
+
+    Returns
+    -------
+    pooled_volumes : dict
+        Dictionary containing the pooled volumes for each amplicon part.
+    """
+    # intialize
+    pooled_volumes = {}
+    
+    #Iterate through the parts that are avilable
+    for amplicon in amplicons:
+        if amplicon.template.name in part_names:
+            
+            # calculate volume needed 
+            ind1 = part_names.index(amplicon.template.name)
+            amount = part_amounts[ind1]
+            
+            ind2 = pool_names.index(amplicon.template.name)
+            vol = (pool_lengths[ind2]*650*amount)/amplicon.annotations['batches'][0]['concentration']
+            
+            # add it to the dictionary
+            if amplicon.template.name in pooled_volumes:
+                pooled_volumes[amplicon.template.name][amplicon.name] = {'volume_to_mix':round(vol,1),'location':amplicon.annotations['batches'][0]['location'], 'concentration':amplicon.annotations['batches'][0]['concentration']}
+            else:
+                pooled_volumes[amplicon.template.name] = {amplicon.name: {'volume_to_mix':round(vol,1),'location':amplicon.annotations['batches'][0]['location'], 'concentration':amplicon.annotations['batches'][0]['concentration']}}
+
+    return pooled_volumes
+
+
+def print_pooled_parts(pooled_volumes: dict) -> None:
+    """
+    print_pooled_parts(pooled_volumes)
+    Prints the pooled parts and calculated concentrations.
+
+    Parameters
+    ----------
+    pooled_volumes : dict
+        Dictionary containing the pooled volumes for each amplicon part.
+
+    Returns
+    -------
+    None
+    """
+    print("To be pooled together")
+    con_per_part = {}
+    for key in pooled_volumes:
+        print(key)
+        total_vol = 0
+        total_con = 0
+        total_ng = 0
+        for ke in pooled_volumes[key]:
+            print(ke, pooled_volumes[key][ke])
+            total_vol += pooled_volumes[key][ke]['volume_to_mix']
+            total_con += pooled_volumes[key][ke]['concentration']
+            total_ng += pooled_volumes[key][ke]['concentration'] * pooled_volumes[key][ke]['volume_to_mix']
+        print("vol", round(total_vol, 1))
+        print("calculated con", total_ng / total_vol, '\n')
+        con_per_part[key] = round(total_ng / total_vol)
+        total_con = 0
+        total_vol = 0
+        total_ng = 0

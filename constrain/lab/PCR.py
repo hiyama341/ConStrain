@@ -470,3 +470,118 @@ def Q5_NEB_PCR_program(amplicon):
     )
 
     return _pretty_str(formated)
+
+
+
+def set_plate_locations(amplicons:list): 
+    '''Makes a dataframe from amplicons
+    
+    Parameters
+    ----------
+    
+    amplicons : list 
+        list of pydna.amplicon objects
+        
+    Returns
+    -------
+    pd.DataFrame 
+        with overview of plate locations'''
+    
+    plate_locations = []
+    for amplicon in amplicons:
+        plate_locations.append([amplicon.name, 
+                                amplicon.annotations['batches'][0]['location'],
+                                amplicon.annotations['template_name'],
+                                amplicon.template.annotations['batches'][0]['location'],
+                                amplicon.forward_primer.id,
+                                amplicon.forward_primer.annotations['batches'][0]['location'],
+                                amplicon.reverse_primer.id,
+                                amplicon.reverse_primer.annotations['batches'][0]['location']
+                               ])
+    amplicon_df = pd.DataFrame(plate_locations, columns=['name', 'location','template_name', 'template_location','fw_name','fw_location','rv_name','rv_location'])
+    amplicon_df = amplicon_df.set_index('name')
+    
+    return amplicon_df
+
+
+def update_amplicon_annotations(amplicon_names:list,amplicons:list,  locations:list, concentrations:list,volumes:list )->None: 
+    """Updates the annotations of amplicons in the amplicon list.
+    
+    Parameters
+    ----------
+    amplicon_names : list
+        List of amplicon names.
+    locations : list
+        List of locations for each amplicon.
+    concentrations : list
+        List of concentrations for each amplicon.
+    volumes : list
+        List of volumes for each amplicon.
+
+    Returns
+    -------
+    None
+    """
+    for i in range(len(amplicon_names)): 
+        amplicon_by_name(amplicon_names[i], amplicons).annotations['batches'][0]['location'] = locations[i]
+        amplicon_by_name(amplicon_names[i], amplicons).annotations['batches'][0]['concentration'] =concentrations[i]
+        amplicon_by_name(amplicon_names[i], amplicons).annotations['batches'][0]['volume'] = volumes[i]
+        
+
+## Maybe redundant
+#def get_amplicons_by_row(row, amplicon_df, amplicons):
+#    """Returns a list of amplicons in a given gel row.
+#
+#    Parameters
+#    ----------
+#    row : str
+#        Name of the gel row.
+#    amplicon_df : pandas DataFrame
+#        DataFrame with amplicon information, including the column 'prow' indicating the gel row.
+#    amplicons : list of Amplicon
+#        List of Amplicon objects.
+#
+#    Returns
+#    -------
+#    list of Amplicon
+#        List of Amplicon objects in the given gel row.
+#    """
+#    row_names = amplicon_df[amplicon_df['prow']==row][['name']]['name'].tolist()
+#
+#    row_amplicons = []
+#    for name in row_names:
+#        for amplicon in amplicons:
+#            if amplicon.name == name:
+#                row_amplicons.append([amplicon])
+#
+#    return(row_amplicons)
+#
+#
+#
+#def get_amplicons_by_column(col, amplicon_df, amplicons):
+#    """
+#    Returns a list of amplicons in a given gel column.
+#
+#    Parameters
+#    ----------
+#    col : str
+#        Name of the gel column.
+#    amplicon_df : pandas DataFrame
+#        DataFrame with amplicon information, including the column 'pcol' indicating the gel column.
+#    amplicons : list of Amplicon
+#        List of Amplicon objects.
+#
+#    Returns
+#    -------
+#    list of Amplicon
+#        List of Amplicon objects in the given gel column.
+#    """
+#    col_names = amplicon_df[amplicon_df['pcol']==col][['name']]['name'].tolist()
+#    
+#    col_amplicons = []
+#    for name in col_names:
+#        for amplicon in amplicons:
+#            if amplicon.name == name:
+#                col_amplicons.append([amplicon])
+#                
+#    return(col_amplicons)
