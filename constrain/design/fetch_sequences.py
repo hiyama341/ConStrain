@@ -170,7 +170,7 @@ def fetch_multiple_promoters(List_of_promoter_names: list):
 
 
 def read_genbank_files(path):
-    """Reads Genbank files.
+    """Reads single Genbank files.
     Parameters
     ----------
     path: str
