@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Test fetch_sequences module
-from constrain.design.fetch_sequences import retrieve_sequences_from_ncbi, read_fasta_files, retrieve_sequences_from_PDB, fetch_Promoter
+from constrain.design.fetch_sequences import *
 
 
 from Bio import SeqIO
@@ -28,6 +28,24 @@ def retrieve_sequences_from_PDB():
     assert str(sequences[0][0].seq[:10]) == 'MQSTTSVKLS'
     assert str(sequences[0][0].id) == 'sp|A0A2U1LIM9|NCPR1_ARTAN'
 
-def test_fetch_Promoter(): 
-    cyc1 = fetch_Promoter('CYC1')
-    assert cyc1[:20] == 'GAGGCACCAGCGTCAGCATT'
+
+def test_read_genbank_files():
+    test_gb = read_genbank_files('../ConStrain/tests/files_for_testing/MIA-HA-1.gb')
+    assert str(test_gb[0].seq[20:30]) == 'AGTTATATAG'
+    assert test_gb[0].name == 'MIA-HA-1'
+
+
+### I cannot make these work with github actions yet. It lacks some packages. Have to figure this out later. 
+# def test_fetch_promoter(): 
+#     cyc1 = fetch_promoter('CYC1')
+#     assert cyc1[:20] == 'GAGGCACCAGCGTCAGCATT'
+
+# def test_fetch_multiple_promoters(): 
+#     list_of_promoters = ['YAR035C-A', 'YGR067C']
+#     seqs = fetch_multiple_promoters(list_of_promoters)
+
+#     assert str(seqs[0].seq[:10]) == 'CCCTGGTGGC'
+#     assert str(seqs[1].seq[:10])== 'AGACAACCTA'
+#     assert seqs[0].id == 'YAR035C-A'
+#     assert seqs[1].id == 'YGR067C'
+

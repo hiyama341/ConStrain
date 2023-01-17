@@ -105,7 +105,7 @@ def retrieve_sequences_from_PDB(query: list):
     return list_of_protein_seqs
 
 
-def fetch_Promoter(promoter_name: str):
+def fetch_promoter(promoter_name: str):
     """Retrieves a yeast promoter sequence from intermine.
     Parameters
     ----------
@@ -156,11 +156,11 @@ def fetch_multiple_promoters(List_of_promoter_names: list):
 
     for i in range(0, len(List_of_promoter_names)):
         # fetching the seqs
-        promoters_seq = SeqRecord(Seq(fetch_Promoter(List_of_promoter_names[i])))
+        promoters_seq = SeqRecord(Seq(fetch_promoter(List_of_promoter_names[i])))
         promoters_seq.name = str(List_of_promoter_names[i]) + " Promoter"
         promoters_seq.id = str(List_of_promoter_names[i])
         promoters_seq.description = (
-            "Defined as being 1kb upstream of the TSS and fetched from Intermines API"
+            "Defined as being 1kb upstream of the TSS and fetched through Intermines API"
         )
 
         # Append to list
