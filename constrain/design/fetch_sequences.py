@@ -21,7 +21,6 @@ from io import StringIO
 
 # intermine
 # from __future__ import print_function
-from intermine.webservice import Service
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 
@@ -106,6 +105,7 @@ def retrieve_sequences_from_PDB(query: list):
 
 
 def fetch_promoter(promoter_name: str):
+    from intermine.webservice import Service
     """Retrieves a yeast promoter sequence from intermine.
     Parameters
     ----------
