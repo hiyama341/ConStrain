@@ -16,11 +16,12 @@ install_requires = ['pydna>=4.0.7',
 'pandas>=1.3.0', 
 'benchlingapi>=2.1.12',
 'numpy>=1.21.0',
-'biopython>=1.79',              #biopython got a recent update to 1.80 but pydna is not up to date with that yet
+'biopython>=1.79',              
 'python-dotenv>=0.20.0',
 'openpyxl>=3.0.9',
 'wheel>=0.37.1', 
-'matplotlib>=3.5.1']
+'matplotlib>=3.5.1'
+, 'intermine>=1.12.0']
 
 
 test_requirements=['pytest==7.1.2',
