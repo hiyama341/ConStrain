@@ -5,10 +5,16 @@
 # Importing the module we are  testing
 from pydna.amplify import pcr
 from constrain.design.cloning import *
+from pydna.dseqrecord import Dseqrecord
+from pydna.amplify import pcr
+from Bio.SeqFeature import SeqFeature, FeatureLocation
+from Bio.SeqRecord import SeqRecord
+from Bio.Seq import Seq
+from Bio import SeqIO
+from constrain.design.fetch_sequences import read_fasta_files, read_genbank_files
 
 
 def test_USER_enzyme(): 
-    
     # inititalize
     template = 'TCTTTGAAAAGATAATGTATGATTATGCTTTCACTCATATTTATACAGAAACTTGATGTTTTCTTTCGAGTATATACAAGGTGATTACATGTACGTTTGAAGTACAACTCTAGATTTTGTAGTGCCCTCTTGGGCTAGCGGTAAAGGTGCGCATTTTTTCACACCCTACAATGTTCTGTTCAAAAGATTTTGGTCAAACGCTGTAGAAGTGAAAGTTGGTGCGCATGTTTCGGCGTTCGAAACTTCTCCGCAGTGAAAGATAAATGATCGCCGTAGTAACGTCGCTGTCGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGGTGCTTTTTTTGTTTTTTATGTCTTCGAGTCATGTAATTAGTTAAGTGCAGGT'
     primerF = 'CGTGCGAUTCTTTGAAAAGATAATGTATGA'
@@ -22,7 +28,6 @@ def test_USER_enzyme():
 
 
 def test_remove_features_with_negative_loc():
-
     template = 'TCTTTGAAAAGATAATGTATGATTATGCTTTCACTCATATTTATACAGAAACTTGATGTTTTCTTTCGAGTATATACAAGGTGATTACATGTACGTTTGAAGTACAACTCTAGATTTTGTAGTGCCCTCTTGGGCTAGCGGTAAAGGTGCGCATTTTTTCACACCCTACAATGTTCTGTTCAAAAGATTTTGGTCAAACGCTGTAGAAGTGAAAGTTGGTGCGCATGTTTCGGCGTTCGAAACTTCTCCGCAGTGAAAGATAAATGATCGCCGTAGTAACGTCGCTGTCGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGGTGCTTTTTTTGTTTTTTATGTCTTCGAGTCATGTAATTAGTTAAGTGCAGGT'
     primerF = 'CGTGCGAUTCTTTGAAAAGATAATGTATGA'
     primerR = 'ACCTGCACUTAACTAATTACATGACTCGA'
@@ -36,7 +41,6 @@ def test_remove_features_with_negative_loc():
 
 
 def test_CAS9_cutting():
-    from pydna.dseqrecord import Dseqrecord
 
     template = Dseqrecord('TCTTTGAAAAGATAATGTATGATTATGCTTTCACTCATATTTATACAGAAACTTGATGTTTTCTTTCGAGTATATACAAGGTGATTACATGTACGTTTGAAGTACAACTCTAGATTTTGTAGTGCCCTCTTGGGCTAGCGGTAAAGGTGCGCATTTTTTCACACCCTACAATGTTCTGTTCAAAAGATTTTGGTCAAACGCTGTAGAAGTGAAAGTTGGTGCGCATGTTTCGGCGTTCGAAACTTCTCCGCAGTGAAAGATAAATGATCGCCGTAGTAACGTCGCTGTCGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGGTGCTTTTTTTGTTTTTTATGTCTTCGAGTCATGTAATTAGTTAAGTGCAGGT')
     gRNA = Dseqrecord('TCTAGATTTTGTAGTGCCCT')
@@ -51,7 +55,6 @@ def test_CAS9_cutting():
 
 def test_CRIPSR_knockout():
     # initialize
-    from pydna.dseqrecord import Dseqrecord
     insertion_site = Dseqrecord('TCTTTGAAAAGATAATGTATGATTATGCTTTCACTCATATTTATACAGAAACTTGATGTTTTCTTTCGAGTATATACAAGGTGATTACATGTACGTTTGAAGTACAACTCTAGATTTTGTAGTGCCCTCTTGGGCTAGCGGTAAAGGTGCGCATTTTTTCACACCCTACAATGTTCTGTTCAAAAGATTTTGGTCAAACGCTGTAGAAGTGAAAGTTGGTGCGCATGTTTCGGCGTTCGAAACTTCTCCGCAGTGAAAGATAAATGATCGCCGTAGTAACGTCGCTGTCGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGGTGCTTTTTTTGTTTTTTATGTCTTCGAGTCATGTAATTAGTTAAGTGCAGGT')
     gRNA = Dseqrecord('TCTAGATTTTGTAGTGCCCT')
     repair_template = Dseqrecord('CGTTTGAAGTACAACTCTAGATTTTGTAGTGCCCTCTTGGGCTAGCGGTAAAGGTGCGCATTTTTTCACACCCTACAATGT')
@@ -61,8 +64,6 @@ def test_CRIPSR_knockout():
     assert Knock_out.seq.watson == 'TCTTTGAAAAGATAATGTATGATTATGCTTTCACTCATATTTATACAGAAACTTGATGTTTTCTTTCGAGTATATACAAGGTGATTACATGTACGTTTGAAGTACAACTCTAGATTTTGTAGTGCCCTCTTGGGCTAGCGGTAAAGGTGCGCATTTTTTCACACCCTACAATGTTCTGTTCAAAAGATTTTGGTCAAACGCTGTAGAAGTGAAAGTTGGTGCGCATGTTTCGGCGTTCGAAACTTCTCCGCAGTGAAAGATAAATGATCGCCGTAGTAACGTCGCTGTCGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGGTGCTTTTTTTGTTTTTTATGTCTTCGAGTCATGTAATTAGTTAAGTGCAGGT'
 
 def test_extract_gRNAs():
-    from pydna.amplify import pcr
-
     template = 'TCTTTGAAAAGATAATGTATGATTATGCTTTCACTCATATTTATACAGAAACTTGATGTTTTCTTTCGAGTATATACAAGGTGATTACATGTACGTTTGAAGTACAACTCTAGATTTTGTAGTGCCCTCTTGGGCTAGCGGTAAAGGTGCGCATTTTTTCACACCCTACAATGTTCTGTTCAAAAGATTTTGGTCAAACGCTGTAGAAGTGAAAGTTGGTGCGCATGTTTCGGCGTTCGAAACTTCTCCGCAGTGAAAGATAAATGATCGCCGTAGTAACGTCGCTGTCGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGGTGCTTTTTTTGTTTTTTATGTCTTCGAGTCATGTAATTAGTTAAGTGCAGGT'
     primerF = 'CGTGCGAUTCTTTGAAAAGATAATGTATGA'
     primerR = 'ACCTGCACUTAACTAATTACATGACTCGA'
@@ -77,10 +78,6 @@ def test_extract_gRNAs():
 
 
 def test_extract_template_amplification_sites():
-    from Bio.SeqFeature import SeqFeature, FeatureLocation
-    from Bio.SeqRecord import SeqRecord
-    from Bio.Seq import Seq
-
     # Initializing
     features1 = [SeqFeature(FeatureLocation(1, 100, strand=1), type='CDS')]
     features2 = [SeqFeature(FeatureLocation(101, 300, strand=1), type='terminator')]
@@ -105,12 +102,6 @@ def test_extract_template_amplification_sites():
 
 def test_extract_sites(): 
     # Test 1
-    from Bio.SeqRecord import SeqRecord
-    from Bio.Seq import Seq
-    from Bio.SeqFeature import SeqFeature, FeatureLocation
-    from Bio import SeqIO
-
-
     features1 = [SeqFeature(FeatureLocation(2, 100, strand=1), type='promoter1')]
     features2 = [SeqFeature(FeatureLocation(200, 300, strand=1), type='promoter2')]
     features1[0].qualifiers['name'] =  ['pCYC1']
@@ -159,4 +150,39 @@ def test_UPandDW():
     pass 
 
 def test_casembler():
-    pass
+    # name 
+    assembly_name = 'test'
+    
+    # strain and sgRNA
+    HA1 = SeqIO.read('../ConStrain/tests/files_for_testing/MIA-HA-1.gb', 'gb')
+    XI2_2_gRNA = pydna.dseqrecord.Dseqrecord("ACCCCCCTCAACTGATCAAC", name = "XI2-2_gRNA")
+
+    # primers
+    forward_primers = read_fasta_files('../ConStrain/tests/files_for_testing/casembler_test/MIA-HA-1_forward_primers.fasta')
+    reverse_primers = read_fasta_files('../ConStrain/tests/files_for_testing/casembler_test/MIA-HA-1_reverse_primers.fasta')
+
+    # amplicon sequences
+    amplicons = read_genbank_files('../ConStrain/tests/files_for_testing/casembler_test/MIA-HA-1_casembler.gb')
+
+    # Making amplicon objects
+    pcr_amplicons = []
+    for i in range( len(amplicons)): 
+        pcr_amplicons.append(pydna.amplify.pcr(forward_primers[i],  reverse_primers[i],amplicons[i]))
+
+    # adding parameters    
+    parameters = {
+        'bg_strain': HA1,
+        'site_names': ["XI-2"],
+        'gRNAs': [XI2_2_gRNA],
+        'assembly_limits':[30],
+        'verbose': False,
+        'to_benchling': False  
+        }       
+    # Assembling the new strain
+    assembly = [casembler(**{**parameters,
+                            'parts'          : [pcr_amplicons],
+                            'assembly_names' : [assembly_name]
+                            })]
+
+    assert len(assembly[0]) == 8993
+    assert str(assembly[0].seq[:20]) =='GTTTGTAGTTGGCGGTGGAG'
