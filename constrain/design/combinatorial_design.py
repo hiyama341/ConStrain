@@ -25,7 +25,6 @@ from pydna.design import assembly_fragments
 from pydna.assembly import Assembly
 from pydna.tm import tm_default as _tm_default
 
-
 def combinatorial_list_maker(
     listOflist_that_is_being_made_into_all_combinations: list,
 ) -> list:
@@ -657,3 +656,59 @@ class DesignAssembly:
         ]
 
         return graphical_representation
+
+
+def count_unique_parts(df, max_combinations:int): 
+    """Iterate through the list of predictions and save new encountered parts. 
+    
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe containing predictions
+    
+    Returns:
+    --------
+    parts_encounteres : dict 
+        A dictionary containing the unique parts encountered in 'G8H','pG8H', 'pCPR', 'CPR' columns,
+        total number of unique combinations encountered in 'Sum of parts' and total predictions
+        encountered in 'Predictions'
+
+    """
+    #Iterate through the list of predictions and save new encountered parts. Stop after 180 combiantions.
+    #Initialisation
+    parts_encounteres = {'G8H':[],'pG8H':[], 'pCPR': [], 'CPR': [], 'Sum of parts':'', 'Predictions': ''}
+    sum_of_parts = 0
+    i = 0
+    g8h_count = 0
+    cpr_count = 0
+    pg8h_count = 0
+    pcpr_count = 0
+
+    #Loop through the predctions and save new parts. 
+    while sum_of_parts < max_combinations:
+        sum_of_parts =  g8h_count*cpr_count*pg8h_count*pcpr_count
+
+        parts_encounteres['Sum of parts'] = str(sum_of_parts)
+        parts_encounteres['Predictions'] = str(i)
+        
+        g8h = df.G8H[i]
+        pg8h = df.pG8H[i]
+        cpr = df.CPR[i]
+        pcpr = df.pCPR[i]
+        if g8h not in parts_encounteres['G8H']:
+            parts_encounteres['G8H'].append(g8h)
+            g8h_count += 1
+        if pg8h not in parts_encounteres['pG8H']:
+            parts_encounteres['pG8H'].append(pg8h)
+            pg8h_count += 1
+        if cpr not in parts_encounteres['CPR']:
+            parts_encounteres['CPR'].append(cpr)
+            cpr_count += 1
+        if pcpr not in parts_encounteres['pCPR']:
+            parts_encounteres['pCPR'].append(pcpr)
+            pcpr_count += 1
+        i += 1
+
+    return parts_encounteres
+
+

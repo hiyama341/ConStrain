@@ -2,15 +2,13 @@
 
 # Test Combinatorial_design
 import pandas as pd
-import numpy as np
-
 
 # For getting the sequences
 from Bio import SeqIO
 from pydna.dseqrecord import Dseqrecord
 
 # Import the DesignAssembly modules
-from constrain.design.combinatorial_design import DesignAssembly
+from constrain.design.combinatorial_design import DesignAssembly, count_unique_parts
 
 # First some data is imported
 promoter = []
@@ -135,6 +133,24 @@ def test_DesignAssembly_combinatorial_lenght():
     assert len(assembled[0].seq) == len(first_prom) + len(first_cds)+ len(first_term)
 
 
+
+# def test_count_unique_parts():
+#     # Create a test DataFrame
+#     df = pd.DataFrame({'G8H': [1, 2, 3, 4, 5],
+#                       'pG8H': [6, 7, 8, 9, 10],
+#                       'CPR': [11, 12, 13, 14, 15],
+#                       'pCPR': [16, 17, 18, 19, 20]})
+    
+#     # Convert values to strings
+#     df = df.astype(str)
+    
+#     # Test that the function returns the correct output
+#     assert count_unique_parts(df, max_combinations=10) == {'G8H': ['1', '2'],
+#                                                            'pG8H': ['6', '7'],
+#                                                            'pCPR': ['16', '17'],
+#                                                            'CPR': ['11', '12'],
+#                                                            'Sum of parts': '16',
+#                                                            'Predictions': '2'}
 
 
 #if __name__ == "__main__":
