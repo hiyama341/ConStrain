@@ -12,7 +12,7 @@
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
 
-""" This part of the design module is used fetching sequences"""
+""" Module used for producing/reproducing plots"""
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -104,6 +104,9 @@ def plot_ml_learning_curve(
     cv_sd: list,
     save_pdf=True,
     path="",
+    size_height: int = 10,
+    size_length: int = 10,
+    title = '', 
 ) -> None:
     """Plotting a learning curve from partitioned dataframes.
 
@@ -161,7 +164,7 @@ def plot_ml_learning_curve(
         fontweight="bold",
     )
     ax.set_ylabel("MAE", size=20, fontname="Helvetica")
-    ax.set_title("Learning curve on partitioned data", size=30, fontname="Helvetica")
+    ax.set_title(title, size=30, fontname="Helvetica")
     ax.legend(
         [
             "Cross-validation mean MAE",
@@ -179,7 +182,7 @@ def plot_ml_learning_curve(
 
     # SIze matters
     fig = mpl.pyplot.gcf()
-    fig.set_size_inches(20, 10)
+    fig.set_size_inches(size_length,size_height)
 
     if save_pdf and path != "":
         ## save pdf
