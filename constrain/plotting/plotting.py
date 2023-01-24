@@ -598,7 +598,7 @@ def plot_phylo_tree(alignment_file, save_pdf=True, path="", height=10, wideness=
 
     Returns
     -------
-    bar_plot_w_hue"""
+    plot_phylo_tree"""
 
     # calculate distances in protein identety:
     calculator = DistanceCalculator("identity")
