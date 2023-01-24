@@ -41,6 +41,8 @@ def carpet_barplot(
     path="",
     xlabel="",
     ylabel="",
+    size_height: int = 20,
+    size_length: int = 10,
 ) -> None:
     """Plotting stacked barplots from a pandas dataframe cross tab df
 
@@ -81,7 +83,7 @@ def carpet_barplot(
 
     ## size matters
     fig = mpl.pyplot.gcf()
-    fig.set_size_inches(25, 15)
+    fig.set_size_inches(size_height, size_length)
 
     # remove spines
     ax.spines["right"].set_visible(False)
@@ -91,7 +93,7 @@ def carpet_barplot(
 
     if save_pdf and path != "":
         ## save pdf
-        plt.savefig(path + ".pdf", format="pdf", dpi=120, bbox_inches="tight")
+        plt.savefig(path + ".pdf", format="pdf", dpi=300, bbox_inches="tight")
 
     plt.show()
 
@@ -186,7 +188,7 @@ def plot_ml_learning_curve(
 
     if save_pdf and path != "":
         ## save pdf
-        plt.savefig(path + ".pdf", format="pdf", dpi=120, bbox_inches="tight")
+        plt.savefig(path + ".pdf", format="pdf", dpi=300, bbox_inches="tight")
 
     # show
     plt.show()
@@ -203,6 +205,8 @@ def bar_plot(
     title=None,
     x_label=None,
     y_label=None,
+    size_height: int = 25,
+    size_length: int = 15
 ) -> None:
     """Plotting a bar_plot .
 
@@ -270,7 +274,7 @@ def bar_plot(
 
     # SIze matters
     fig = mpl.pyplot.gcf()
-    fig.set_size_inches(25, 15)
+    fig.set_size_inches(size_height, size_length)
 
     if save_pdf and path != "":
         plt.savefig(path + ".pdf", format="pdf", dpi=300, bbox_inches="tight")
@@ -364,7 +368,11 @@ def horisontal_bar_plot(
     plt.show()
 
 
-def correlation_plot(dataframe, x: str, y: str, save_pdf=True, path="") -> None:
+def correlation_plot(dataframe, x: str, y: str, 
+    save_pdf=True, 
+    path="", 
+    size_height: int = 10,
+    size_length: int = 10) -> None:
     """Plotting a correlation_plot.
 
     Parameters
@@ -376,6 +384,8 @@ def correlation_plot(dataframe, x: str, y: str, save_pdf=True, path="") -> None:
         y coordinates
     save_pdf : bool
     path : str
+    size_height : int
+    size_length : int
 
     Returns
     -------
@@ -411,7 +421,7 @@ def correlation_plot(dataframe, x: str, y: str, save_pdf=True, path="") -> None:
     )
     # SIze matters
     fig = mpl.pyplot.gcf()
-    fig.set_size_inches(8, 8)
+    fig.set_size_inches(size_height, size_length)
 
     if save_pdf and path != "":
         plt.savefig(path + ".pdf", format="pdf", dpi=300, bbox_inches="tight")
@@ -429,8 +439,9 @@ def bar_plot_w_hue(
     title="",
     x_label="",
     y_label="",
-    horisontal_line: bool = True,
-) -> None:
+    horisontal_line: bool = True, 
+    size_height: int = 10,
+    size_length: int = 10) -> None:
     """Plotting a correlation_plot.
 
     Parameters
@@ -451,6 +462,9 @@ def bar_plot_w_hue(
     Returns
     -------
     bar_plot_w_hue"""
+    #### How can I export a matplotlib figure as a vector graphic with editable text fields?
+    mpl.rcParams['pdf.fonttype'] = 42
+    mpl.rcParams['ps.fonttype'] = 42
 
     ax = sns.barplot(x=x, y=y, hue=hue, data=dataframe, palette="pastel")
 
@@ -463,12 +477,18 @@ def bar_plot_w_hue(
     ax.set_facecolor("white")
     plt.xscale("linear")
 
+    # SIze matters
+    fig = mpl.pyplot.gcf()
+    fig.set_size_inches(size_height, size_length)
+
     if horisontal_line:
         # normalized line
         ax.axhline(100)
 
     if save_pdf == True and path != "":
         plt.savefig(path + ".pdf", format="pdf", dpi=300)
+    
+    plt.show()
 
 
 def color_range_dict()->dict: 
@@ -608,7 +628,7 @@ def plot_phylo_tree(alignment_file, save_pdf=True, path="", height=10, wideness=
     # Saving the plot
     if save_pdf and path != "":
         ## save pdf
-        plt.savefig(path + ".pdf", format="pdf", dpi=120, bbox_inches="tight")
+        plt.savefig(path + ".pdf", format="pdf", dpi=300, bbox_inches="tight")
 
     plt.show()
 
@@ -663,16 +683,18 @@ def plot_stacked_barplot_with_labels(df:pd.DataFrame, colors:list,
 
     if path != '': 
         name = 'Occurences of each part sampled'
-        plt.savefig(path+name+'.pdf',format = 'pdf',  dpi = 120)
+        plt.savefig(path+name+'.pdf',format = 'pdf',  dpi = 300)
 
 
 
 def grouped_bar_plot(x:list, y:list, colors:list, category_labels:list,
-                         title = '', 
-                         y_label = '' ,
-                         x_label = '',
-                         path = '', 
-                        axhline = True):
+                        title = '', 
+                        y_label = '' ,
+                        x_label = '',
+                        path = '', 
+                        axhline = True, 
+                        size_height: int = 10,
+                        size_length: int = 10):
     """
     Create a grouped bar plot from input data and save the plot in a pdf format
     
@@ -709,7 +731,6 @@ def grouped_bar_plot(x:list, y:list, colors:list, category_labels:list,
     # Plot
     plt.bar(x, y, edgecolor='black', color = colors) # white - orange = #fee6ce
 
-
     # Add labels and titel
     ax.set_ylabel(title, size = 20, fontname='Helvetica')
     ax.set_xlabel(x_label, size = 30, fontname='Helvetica')
@@ -733,11 +754,13 @@ def grouped_bar_plot(x:list, y:list, colors:list, category_labels:list,
     ax.spines['bottom'].set_visible(False)
 
     # SIze matters
+    # SIze matters
     fig = mpl.pyplot.gcf()
-    fig.set_size_inches(25, 15)
+    fig.set_size_inches(size_height, size_length)
+
 
     if path != '': 
         name = 'grouped_bar_plot'
-        plt.savefig(path+name+'.pdf',format = 'pdf',  dpi = 120)
+        plt.savefig(path+name+'.pdf',format = 'pdf',  dpi = 300)
     
     plt.show()
