@@ -1,7 +1,7 @@
-constrain.lab.containers\_wells\_picklists
+teemi.build.containers\_wells\_picklists
 ==========================================
 
-.. automodule:: constrain.lab.containers_wells_picklists
+.. automodule:: teemi.build.containers_wells_picklists
 
    
    

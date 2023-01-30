@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.test.genotyping &mdash; ConStrain 0.2.7+68.gdbe6b10.dirty documentation</title>
+  <title>teemi.test.genotyping &mdash; teemi 0.3.0+20.g1b653f4.dirty documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="constrain.test" href="constrain.test.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -28,10 +27,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> ConStrain
+            <a href="../index.html" class="icon icon-home"> teemi
           </a>
               <div class="version">
-                0.2.7+68.gdbe6b10.dirty
+                0.3.0+20.g1b653f4.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -42,34 +41,24 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">ConStrain: Literate programming can streamline bioengineering workflows</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">teemi: Literate programming can streamline bioengineering workflows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#colab-notebooks">Colab notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#credits">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">ConStrains modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html#id1">0.1.0 (2023-01-02)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">teemis modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../constrain.design.html">Design module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../constrain.lab.html">Lab module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../constrain.lims.html">LIMS module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../constrain.test.html">TEST module</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="constrain.html">constrain</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="constrain.design.html">constrain.design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="constrain.lab.html">constrain.lab</a></li>
-<li class="toctree-l3"><a class="reference internal" href="constrain.lims.html">constrain.lims</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="constrain.test.html">constrain.test</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">constrain.test.genotyping</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../teemi.design.html">Design module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teemi.build.html">Lab module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teemi.lims.html">LIMS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teemi.test.html">TEST module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
 </ul>
 
         </div>
@@ -78,7 +67,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">ConStrain</a>
+          <a href="../index.html">teemi</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -86,10 +75,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">API</a> &raquo;</li>
-          <li><a href="constrain.html">constrain</a> &raquo;</li>
-          <li><a href="constrain.test.html">constrain.test</a> &raquo;</li>
-      <li>constrain.test.genotyping</li>
+      <li>teemi.test.genotyping</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/generated/constrain.test.genotyping.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -123,8 +109,8 @@
     text-align: unset;
 }
 </style>
-<section id="module-constrain.test.genotyping">
-<span id="constrain-test-genotyping"></span><h1>constrain.test.genotyping<a class="headerlink" href="#module-constrain.test.genotyping" title="Permalink to this heading"></a></h1>
+<section id="module-teemi.test.genotyping">
+<span id="teemi-test-genotyping"></span><h1>teemi.test.genotyping<a class="headerlink" href="#module-teemi.test.genotyping" title="Permalink to this heading"></a></h1>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
@@ -132,22 +118,22 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.concatenating_list_of_dfs" title="constrain.test.genotyping.concatenating_list_of_dfs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenating_list_of_dfs</span></code></a>(list_of_dfs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../teemi.test.html#teemi.test.genotyping.concatenating_list_of_dfs" title="teemi.test.genotyping.concatenating_list_of_dfs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenating_list_of_dfs</span></code></a>(list_of_dfs)</p></td>
 <td><p>Concatenating a list of daframes into one pd.dataframe by rows</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.pairwise_alignment_of_templates" title="constrain.test.genotyping.pairwise_alignment_of_templates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairwise_alignment_of_templates</span></code></a>(reads, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../teemi.test.html#teemi.test.genotyping.pairwise_alignment_of_templates" title="teemi.test.genotyping.pairwise_alignment_of_templates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairwise_alignment_of_templates</span></code></a>(reads, ...)</p></td>
 <td><p>Infers relationship of templates to reads based on highest score from a pairwise alignment.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.plat_seq_data_wrangler" title="constrain.test.genotyping.plat_seq_data_wrangler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plat_seq_data_wrangler</span></code></a>(sequencing_plates)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../teemi.test.html#teemi.test.genotyping.plat_seq_data_wrangler" title="teemi.test.genotyping.plat_seq_data_wrangler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plat_seq_data_wrangler</span></code></a>(sequencing_plates)</p></td>
 <td><p>Makes list of Plate2Seq pd.DataFrames into numeric values and removes nan values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.plate_AvgQual" title="constrain.test.genotyping.plate_AvgQual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plate_AvgQual</span></code></a>(list_of_dfs_numeric[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../teemi.test.html#teemi.test.genotyping.plate_AvgQual" title="teemi.test.genotyping.plate_AvgQual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plate_AvgQual</span></code></a>(list_of_dfs_numeric[, ...])</p></td>
 <td><p>Filters out rows that doesnt follow the criteria.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.slicing_and_naming_seq_plates" title="constrain.test.genotyping.slicing_and_naming_seq_plates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slicing_and_naming_seq_plates</span></code></a>(sequencing_plates)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../teemi.test.html#teemi.test.genotyping.slicing_and_naming_seq_plates" title="teemi.test.genotyping.slicing_and_naming_seq_plates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slicing_and_naming_seq_plates</span></code></a>(sequencing_plates)</p></td>
 <td><p>Slices rows of a list of dataframes and changes the names.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../constrain.test.html#constrain.test.genotyping.split_df_names" title="constrain.test.genotyping.split_df_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_df_names</span></code></a>(df_names_column[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../teemi.test.html#teemi.test.genotyping.split_df_names" title="teemi.test.genotyping.split_df_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_df_names</span></code></a>(df_names_column[, ...])</p></td>
 <td><p>Splits sample names from plate2seq pd.dataframes into plate and well columns</p></td>
 </tr>
 </tbody>
@@ -157,9 +143,7 @@
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="constrain.test.html" class="btn btn-neutral float-left" title="constrain.test" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
+          <footer>
 
   <hr/>
 

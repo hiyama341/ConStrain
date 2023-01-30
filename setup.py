@@ -3,7 +3,6 @@
 """The setup script."""
 import versioneer
 from setuptools import setup, find_packages
-import re
 
 # Readme & History
 with open('README.rst') as readme_file:
@@ -40,7 +39,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
@@ -49,7 +47,7 @@ setup(
     description="A Python package for constructing microbial strains",
     entry_points={
         'console_scripts': [
-            'constrain=constrain.cli:main',
+            'teemi=teemi.cli:main',
         ],
     },
 
@@ -60,12 +58,12 @@ setup(
     license="MIT license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords='ConStrain',
-    name='ConStrain',
-    packages=find_packages(include=['constrain', 'constrain.*']),
+    keywords='teemi',
+    name='teemi',
+    packages=find_packages(include=['teemi', 'teemi.*']),
     test_suite='tests',
     tests_require= test_requirements,
-    url='https://github.com/hiyama341/ConStrain',
+    url='https://github.com/hiyama341/teemi',
     
 
     ### Change version and put tag to release on PYPI

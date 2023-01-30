@@ -1,7 +1,7 @@
-﻿constrain
+﻿teemi
 =========
 
-.. automodule:: constrain
+.. automodule:: teemi
 
    
    
@@ -27,8 +27,8 @@
    :toctree:
    :recursive:
 
-   constrain.design
-   constrain.lab
-   constrain.lims
-   constrain.test
+   teemi.design
+   teemi.build
+   teemi.lims
+   teemi.test
 

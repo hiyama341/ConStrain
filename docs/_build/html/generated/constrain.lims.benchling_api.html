@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constrain.lims.benchling_api &mdash; ConStrain 0.2.7+68.gdbe6b10.dirty documentation</title>
+  <title>teemi.lims.benchling_api &mdash; teemi 0.3.0+20.g1b653f4.dirty documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,9 +19,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="constrain.lims.csv_database" href="constrain.lims.csv_database.html" />
-    <link rel="prev" title="constrain.lims" href="constrain.lims.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -29,10 +27,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> ConStrain
+            <a href="../index.html" class="icon icon-home"> teemi
           </a>
               <div class="version">
-                0.2.7+68.gdbe6b10.dirty
+                0.3.0+20.g1b653f4.dirty
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -43,35 +41,24 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">ConStrain: Literate programming can streamline bioengineering workflows</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">teemi: Literate programming can streamline bioengineering workflows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#colab-notebooks">Colab notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#credits">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">ConStrains modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html#id1">0.1.0 (2023-01-02)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">teemis modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../colab_notebooks.html">Colab notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../constrain.design.html">Design module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../constrain.lab.html">Lab module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../constrain.lims.html">LIMS module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../constrain.test.html">TEST module</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="constrain.html">constrain</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="constrain.design.html">constrain.design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="constrain.lab.html">constrain.lab</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="constrain.lims.html">constrain.lims</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">constrain.lims.benchling_api</a></li>
-<li class="toctree-l4"><a class="reference internal" href="constrain.lims.csv_database.html">constrain.lims.csv_database</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="constrain.test.html">constrain.test</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../teemi.design.html">Design module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teemi.build.html">Lab module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teemi.lims.html">LIMS module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teemi.test.html">TEST module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
 </ul>
 
         </div>
@@ -80,7 +67,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">ConStrain</a>
+          <a href="../index.html">teemi</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -88,10 +75,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">API</a> &raquo;</li>
-          <li><a href="constrain.html">constrain</a> &raquo;</li>
-          <li><a href="constrain.lims.html">constrain.lims</a> &raquo;</li>
-      <li>constrain.lims.benchling_api</li>
+      <li>teemi.lims.benchling_api</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/generated/constrain.lims.benchling_api.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -125,8 +109,8 @@
     text-align: unset;
 }
 </style>
-<section id="module-constrain.lims.benchling_api">
-<span id="constrain-lims-benchling-api"></span><h1>constrain.lims.benchling_api<a class="headerlink" href="#module-constrain.lims.benchling_api" title="Permalink to this heading"></a></h1>
+<section id="module-teemi.lims.benchling_api">
+<span id="teemi-lims-benchling-api"></span><h1>teemi.lims.benchling_api<a class="headerlink" href="#module-teemi.lims.benchling_api" title="Permalink to this heading"></a></h1>
 <p>Easy to use benchling functions to fetch sequences and objects</p>
 <p class="rubric">Module Attributes</p>
 <table class="autosummary longtable docutils align-default">
@@ -135,7 +119,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lims.html#constrain.lims.benchling_api.session" title="constrain.lims.benchling_api.session"><code class="xref py py-obj docutils literal notranslate"><span class="pre">session</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../teemi.lims.html#teemi.lims.benchling_api.session" title="teemi.lims.benchling_api.session"><code class="xref py py-obj docutils literal notranslate"><span class="pre">session</span></code></a></p></td>
 <td><p>This part of the LIMS module is used for importing sequences and exporting sequences to benchling</p></td>
 </tr>
 </tbody>
@@ -147,32 +131,24 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lims.html#constrain.lims.benchling_api.Compoundloc_to_SE" title="constrain.lims.benchling_api.Compoundloc_to_SE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Compoundloc_to_SE</span></code></a>(dictionary)</p></td>
-<td><p>location :</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../teemi.lims.html#teemi.lims.benchling_api.from_benchling" title="teemi.lims.benchling_api.from_benchling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_benchling</span></code></a>(bname[, schema])</p></td>
+<td><p>Extract information of object on benchling. Parameters: ----------- bname : str     The name of the object on Benchling. schema : str, optional     The schema of the object, by default &quot;&quot;.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lims.html#constrain.lims.benchling_api.SE_to_CLoc" title="constrain.lims.benchling_api.SE_to_CLoc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SE_to_CLoc</span></code></a>(dictionary, length)</p></td>
-<td><p>Start and End Key Value pair to Compound Location Key Value pair.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">nest_dict</span></code>(dictionary, key_for_nested_dict[, ...])</p></td>
+<td><p><p>&quot;</p>
+</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lims.html#constrain.lims.benchling_api.from_benchling" title="constrain.lims.benchling_api.from_benchling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_benchling</span></code></a>(bname[, schema])</p></td>
-<td><p>Extract information of object on benchling.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_dict_keys</span></code>(dictionary, trans_dictionary)</p></td>
+<td><p>rename the keys of a dictionary using another dictionary Parameters: ----------- dictionary : Dict[K, V]     The input dictionary trans_dictionary : Dict[K, K]     The dictionary containing the keys to be replaced as keys and the new keys as values</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lims.html#constrain.lims.benchling_api.nest_dict" title="constrain.lims.benchling_api.nest_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nest_dict</span></code></a>(dictionary, key_for_nested_dict[, ...])</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../teemi.lims.html#teemi.lims.benchling_api.sequence_to_benchling" title="teemi.lims.benchling_api.sequence_to_benchling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sequence_to_benchling</span></code></a>(folder_name, ...)</p></td>
+<td><p>This function uploads sequences to Benchling. Parameters: ---------- folder_name : str     The name of the folder in which to upload the sequence. oligo_name : str     The name of the oligo. oligo_bases : str     The base sequence of the oligo. schema : str     The schema to use for the oligo. Should be one of the following:     &quot;Primer&quot;, &quot;DNA Fragment&quot;, &quot;Plasmid&quot;, &quot;Gene&quot;, &quot;gRNA&quot;, &quot;Marker&quot;,&quot;Promoter&quot;,     &quot;Terminator&quot;, &quot;Tag&quot;, &quot;Origin of Replication&quot;.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lims.html#constrain.lims.benchling_api.rename_dict_keys" title="constrain.lims.benchling_api.rename_dict_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_dict_keys</span></code></a>(dictionary, trans_dictionary)</p></td>
-<td><p>rename the keys of a dictionary using another dictionary</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_based_on_keys</span></code>(dictionary, key_list)</p></td>
+<td><p>Split a dictionary into two based on a list of keys. Parameters: ----------- dictionary : Dict[Any, Any]     The input dictionary key_list : List[str]     The list of keys to split the dictionary on.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lims.html#constrain.lims.benchling_api.sequence_to_benchling" title="constrain.lims.benchling_api.sequence_to_benchling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sequence_to_benchling</span></code></a>(folder_name, ...)</p></td>
-<td><p>This function uploads sequences to benchlong</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lims.html#constrain.lims.benchling_api.split_based_on_keys" title="constrain.lims.benchling_api.split_based_on_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_based_on_keys</span></code></a>(dictionary, key_list)</p></td>
-<td><p>Split dictionary based on key list</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../constrain.lims.html#constrain.lims.benchling_api.unnest_dict" title="constrain.lims.benchling_api.unnest_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unnest_dict</span></code></a>(dictionary, key_unnest_dict)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../constrain.lims.html#constrain.lims.benchling_api.update_loc_vol_conc" title="constrain.lims.benchling_api.update_loc_vol_conc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_loc_vol_conc</span></code></a>(seqRecord)</p></td>
-<td><p>Update with location volume and concentration information downloaded from benchling if possible.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../teemi.lims.html#teemi.lims.benchling_api.update_loc_vol_conc" title="teemi.lims.benchling_api.update_loc_vol_conc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_loc_vol_conc</span></code></a>(seqRecord[, DBpath])</p></td>
+<td><p>Update with location volume and concentration information downloaded from benchling if possible. Parameters: ----------- seqRecord : Bio.SeqRecord.SeqRecord     The SeqRecord object to update. DBpath : str, optional     The path to the csv file containing the location, volume and concentration information.</p></td>
 </tr>
 </tbody>
 </table>
@@ -181,10 +157,7 @@
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="constrain.lims.html" class="btn btn-neutral float-left" title="constrain.lims" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="constrain.lims.csv_database.html" class="btn btn-neutral float-right" title="constrain.lims.csv_database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

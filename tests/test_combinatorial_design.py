@@ -8,7 +8,7 @@ from Bio import SeqIO
 from pydna.dseqrecord import Dseqrecord
 
 # Import the DesignAssembly modules
-from constrain.design.combinatorial_design import DesignAssembly, count_unique_parts
+from teemi.design.combinatorial_design import DesignAssembly, count_unique_parts
 
 # First some data is imported
 promoter = []
@@ -16,11 +16,11 @@ cds = []
 terminator = []
 
 # GEtting the objects from the fasta files
-for seq_record in SeqIO.parse('../ConStrain/tests/files_for_testing/promoter_test_data.fasta', format= 'fasta'):
+for seq_record in SeqIO.parse('../teemi/tests/files_for_testing/promoter_test_data.fasta', format= 'fasta'):
     promoter.append(seq_record)
-for seq_record in SeqIO.parse('../ConStrain/tests/files_for_testing/CDS_test_data.fasta', format= 'fasta'):
+for seq_record in SeqIO.parse('../teemi/tests/files_for_testing/CDS_test_data.fasta', format= 'fasta'):
     cds.append(seq_record)
-for seq_record in SeqIO.parse('../ConStrain/tests/files_for_testing/terminator_test_data.fasta', format= 'fasta'):
+for seq_record in SeqIO.parse('../teemi/tests/files_for_testing/terminator_test_data.fasta', format= 'fasta'):
     terminator.append(seq_record)
 
 # Slicing for smaller dataset

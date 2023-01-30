@@ -10,7 +10,7 @@ from Bio.SeqRecord import SeqRecord
 
 
 # Importing the module we are  testing
-from constrain.lab.PCR import *
+from teemi.build.PCR import *
 
 def test_amplicon_by_name(): 
     
@@ -193,7 +193,7 @@ def test_pcr_locations():
 
 
 def test_nanophotometer_concentrations(): 
-    list_of_conc = nanophotometer_concentrations(path = '../ConStrain/tests/files_for_testing/2021-03-29_G8H_CPR_library_part_concentrations.tsv')
+    list_of_conc = nanophotometer_concentrations(path = '../teemi/tests/files_for_testing/2021-03-29_G8H_CPR_library_part_concentrations.tsv')
 
     assert list_of_conc[0] ==142.8
     assert list_of_conc[1] ==134.5

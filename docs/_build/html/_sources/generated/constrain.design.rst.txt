@@ -1,7 +1,7 @@
-constrain.design
+teemi.design
 ================
 
-.. automodule:: constrain.design
+.. automodule:: teemi.design
 
    
    
@@ -27,6 +27,6 @@ constrain.design
    :toctree:
    :recursive:
 
-   constrain.design.cloning
-   constrain.design.combinatorial_design
+   teemi.design.cloning
+   teemi.design.combinatorial_design
 

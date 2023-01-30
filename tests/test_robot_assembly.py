@@ -5,10 +5,10 @@ import sys
 import pytest
 import pandas as pd
 
-from constrain.lab.robot_assembly import RobotAssembly, well_keys_96, make_virtual_plates_fromDF, picklist_from_plates
+from teemi.build.robot_assembly import RobotAssembly, well_keys_96, make_virtual_plates_fromDF, picklist_from_plates
 
 # Read in test data
-test_data = pd.read_excel('../ConStrain/tests/files_for_testing/Random_PCR_list.xlsx')
+test_data = pd.read_excel('../teemi/tests/files_for_testing/Random_PCR_list.xlsx')
 
 # Add test primers and templates
 fwd_primers = ['F0069','F0078', 'F0083','F0088','F0093','F0098','F00103','F00108']

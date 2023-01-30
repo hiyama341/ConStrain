@@ -1,7 +1,7 @@
-constrain.design.combinatorial\_design
+teemi.design.combinatorial\_design
 ======================================
 
-.. automodule:: constrain.design.combinatorial_design
+.. automodule:: teemi.design.combinatorial_design
 
    
    

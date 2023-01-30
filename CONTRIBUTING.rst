@@ -15,7 +15,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/hiyama341/constrain/issues.
+Report bugs at https://github.com/hiyama341/teemi/issues.
 
 If you are reporting a bug, please include:
 
@@ -38,14 +38,14 @@ and "help wanted" is open to whoever wants to implement it.
 Write Documentation
 ~~~~~~~~~~~~~~~~~~~
 
-ConStrain could always use more documentation, whether as part of the
-official ConStrain docs, in docstrings, or even on the web in blog posts,
+teemi could always use more documentation, whether as part of the
+official teemi docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/hiyama341/constrain/issues.
+The best way to send feedback is to file an issue at https://github.com/hiyama341/teemi/issues.
 
 If you are proposing a feature:
 
@@ -57,17 +57,17 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `constrain` for local development.
+Ready to contribute? Here's how to set up `teemi` for local development.
 
-1. Fork the `constrain` repo on GitHub.
+1. Fork the `teemi` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/constrain.git
+    $ git clone git@github.com:your_name_here/teemi.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    $ mkvirtualenv constrain
-    $ cd constrain/
+    $ mkvirtualenv teemi
+    $ cd teemi/
     $ python setup.py develop
 
 4. Create a branch for local development::
@@ -79,7 +79,7 @@ Ready to contribute? Here's how to set up `constrain` for local development.
 5. When you're done making changes, check that your changes pass flake8 and the
    tests, including testing other Python versions with tox::
 
-    $ flake8 constrain tests
+    $ flake8 teemi tests
     $ python setup.py test or pytest
     $ tox
 
@@ -103,7 +103,7 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
 3. The pull request should work for Python 3.5, 3.6, 3.7 and 3.8, and for PyPy. Check
-   https://travis-ci.com/hiyama341/constrain/pull_requests
+   https://travis-ci.com/hiyama341/teemi/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
 Tips
@@ -111,7 +111,7 @@ Tips
 
 To run a subset of tests::
 
-$ pytest tests.test_constrain
+$ pytest tests.test_teemi
 
 
 Deploying

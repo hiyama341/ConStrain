@@ -2,7 +2,7 @@
 
 # Test utils module
 
-from constrain.utils import *
+from teemi.utils import *
 
 def test_mean():
     assert mean([1, 2, 3]) == 2.0

@@ -4,7 +4,7 @@
 
 
 # Importing the module we are  testing
-from constrain.lab.transformation import *
+from teemi.build.transformation import *
 from Bio import SeqIO
 
 
@@ -66,10 +66,10 @@ def test_wanted_volume():
 
 def test_transformation_mix(): 
     # load some files
-    vector = SeqIO.read('../ConStrain/tests/files_for_testing/MIA-HA-1.gb', format = 'gb')
-    gRNA1_pcr_prod = SeqIO.read('../ConStrain/tests/files_for_testing/gRNA_test1.fasta', format = 'fasta')
-    gRNA2_pcr_prod = SeqIO.read('../ConStrain/tests/files_for_testing/gRNA_test2.fasta', format = 'fasta')
-    LEU_plasmid = SeqIO.read('../ConStrain/tests/files_for_testing/MIA-HA-1.gb', format = 'gb')[1000:5000]
+    vector = SeqIO.read('../teemi/tests/files_for_testing/MIA-HA-1.gb', format = 'gb')
+    gRNA1_pcr_prod = SeqIO.read('../teemi/tests/files_for_testing/gRNA_test1.fasta', format = 'fasta')
+    gRNA2_pcr_prod = SeqIO.read('../teemi/tests/files_for_testing/gRNA_test2.fasta', format = 'fasta')
+    LEU_plasmid = SeqIO.read('../teemi/tests/files_for_testing/MIA-HA-1.gb', format = 'gb')[1000:5000]
 
 
     #names 

@@ -1,22 +1,22 @@
-.. image:: https://raw.githubusercontent.com/hiyama341/ConStrain/main/pictures/constrain1.svg?token=GHSAT0AAAAAABTYCY2LIAJ7B7ZTWBR4NMHIYZUJQ4A
+.. image:: https://raw.githubusercontent.com/hiyama341/teemi/main/pictures/teemi1.svg?token=GHSAT0AAAAAABTYCY2LIAJ7B7ZTWBR4NMHIYZUJQ4A
   :width: 400
-  :alt: ConStrain logo 
+  :alt: teemi logo 
 
 ======================================
-Welcome to ConStrain's documentation!
+Welcome to teemi's documentation!
 ======================================
 
 Our mission is to revolutionize the way in which we make biology.
-How do we do that? We pursue reproducible high-throughput strain construction by adopting literate programming with ConStrain.
+How do we do that? We pursue reproducible high-throughput strain construction by adopting literate programming with teemi.
 We hope you want to be part of the revolution.
-Below you will find documentation for how to install and use ConStrain.
+Below you will find documentation for how to install and use teemi.
 
 
-Suppose you are interested in examples, head over to our `notebooks <https://github.com/hiyama341/ConStrain/tree/main/colab_notebooks>`__. 
+Suppose you are interested in examples, head over to our `notebooks <https://github.com/hiyama341/teemi/tree/main/colab_notebooks>`__. 
 Feel free to reach out if something is unclear.
 
 
-Features of ConStrain
+Features of teemi
 ---------------------
 
 * Combinatorial library generation
@@ -34,11 +34,11 @@ Getting started
 ~~~~~~~~~~~~~~~
 To get started with making microbial strains in an HT manner please follow the steps below: 
 
-1. Install ConStrain. You will find the necessary information below under installation.
+1. Install teemi. You will find the necessary information below under installation.
 
-2. Check out our `notebooks <https://github.com/hiyama341/ConStrain/tree/main/colab_notebooks>`__ for inspiration to make HT strain construction with ConStrain.
+2. Check out our `notebooks <https://github.com/hiyama341/teemi/tree/main/colab_notebooks>`__ for inspiration to make HT strain construction with teemi.
 
-3. You can start making your own workflows by importing ConStrain into either Google colab or Jupyter lab/notebooks.
+3. You can start making your own workflows by importing teemi into either Google colab or Jupyter lab/notebooks.
 
 
 .. toctree::
@@ -53,10 +53,11 @@ To get started with making microbial strains in an HT manner please follow the s
    history
    modules
    colab_notebooks
-   constrain.design
-   constrain.lab
-   constrain.lims
-   constrain.test
+   teemi.design
+   teemi.build
+   teemi.test
+   teemi.learn
+   teemi.lims
    api
 
 Indices and tables

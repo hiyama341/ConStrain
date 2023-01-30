@@ -1,18 +1,18 @@
-.. _HomologSelection: https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/00_DESIGN_HomologSelection.ipynb
-.. _PromoterSelection: https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/01_DESIGN_PromoterSelection_colab.ipynb
-.. _Combinatorial_library_with_DesignAssembly: https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/02_Combinatorial_library_with_DesignAssembly.ipynb
-.. _USER_gRNA_plasmid: https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/03_BUILD_USER_gRNA_plasmid.ipynb
-.. _Background_strain: https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/04_BUILD_Background_strain.ipynb
-.. _croStrains_test_build: https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/05_BUILD_croStrains_test_build.ipynb
-.. _CombinatorialLibrary: https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/06_BUILD_CombinatorialLibrary.ipynb
-.. _LibraryCharacterisation: https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/07_TEST_LibraryCharacterisation.ipynb 
-.. _DataAnalysisML: https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/08_LEARN_DataAnalysis.ipynb
+.. _HomologSelection: https://github.com/hiyama341/teemi/blob/main/colab_notebooks/00_DESIGN_HomologSelection.ipynb
+.. _PromoterSelection: https://github.com/hiyama341/teemi/blob/main/colab_notebooks/01_DESIGN_PromoterSelection_colab.ipynb
+.. _Combinatorial_library_with_DesignAssembly: https://github.com/hiyama341/teemi/blob/main/colab_notebooks/02_Combinatorial_library_with_DesignAssembly.ipynb
+.. _USER_gRNA_plasmid: https://github.com/hiyama341/teemi/blob/main/colab_notebooks/03_BUILD_USER_gRNA_plasmid.ipynb
+.. _Background_strain: https://github.com/hiyama341/teemi/blob/main/colab_notebooks/04_BUILD_Background_strain.ipynb
+.. _croStrains_test_build: https://github.com/hiyama341/teemi/blob/main/colab_notebooks/05_BUILD_croStrains_test_build.ipynb
+.. _CombinatorialLibrary: https://github.com/hiyama341/teemi/blob/main/colab_notebooks/06_BUILD_CombinatorialLibrary.ipynb
+.. _LibraryCharacterisation: https://github.com/hiyama341/teemi/blob/main/colab_notebooks/07_TEST_LibraryCharacterisation.ipynb 
+.. _DataAnalysisML: https://github.com/hiyama341/teemi/blob/main/colab_notebooks/08_LEARN_DataAnalysis.ipynb
 
 
 Colab notebooks
 ===============
 
-Welcome to the Colab notebook section. Here we will show how ConStrain can be used in the DBTL cycle. 
+Welcome to the Colab notebook section. Here we will show how teemi can be used in the DBTL cycle. 
 
 
 
@@ -46,5 +46,5 @@ LEARN:
 9. The `DataAnalysisML`_ notebook describes how we use AutoML to predict the best combinations for a targeted second round of library construction.
 
 
-For more information head over to our `publication <https://github.com/hiyama341/ConStrain/blob/main/colab_notebooks/08_LEARN_DataAnalysis.ipynb>`__ describing the use of ConStrain in a literate programming context. 
+For more information head over to our `publication <https://github.com/hiyama341/teemi/blob/main/colab_notebooks/08_LEARN_DataAnalysis.ipynb>`__ describing the use of teemi in a literate programming context. 
 

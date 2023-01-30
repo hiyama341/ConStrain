@@ -4,14 +4,14 @@
 
 # Importing the module we are  testing
 from pydna.amplify import pcr
-from constrain.design.cloning import *
+from teemi.design.cloning import *
 from pydna.dseqrecord import Dseqrecord
 from pydna.amplify import pcr
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 from Bio.SeqRecord import SeqRecord
 from Bio.Seq import Seq
 from Bio import SeqIO
-from constrain.design.fetch_sequences import read_fasta_files, read_genbank_files
+from teemi.design.fetch_sequences import read_fasta_files, read_genbank_files
 
 
 def test_USER_enzyme(): 
@@ -118,7 +118,7 @@ def test_extract_sites():
     assert promoter_sites[0].name == 'pCYC1'
 
     ##  Test 2
-    test_plasmid = [SeqIO.read('../ConStrain/tests/files_for_testing/MIA-HA-1.gb', format = 'genbank')]
+    test_plasmid = [SeqIO.read('../teemi/tests/files_for_testing/MIA-HA-1.gb', format = 'genbank')]
     test_plasmid
 
     p_annotations = ['XI-2']
@@ -154,15 +154,15 @@ def test_casembler():
     assembly_name = 'test'
     
     # strain and sgRNA
-    HA1 = SeqIO.read('../ConStrain/tests/files_for_testing/MIA-HA-1.gb', 'gb')
+    HA1 = SeqIO.read('../teemi/tests/files_for_testing/MIA-HA-1.gb', 'gb')
     XI2_2_gRNA = pydna.dseqrecord.Dseqrecord("ACCCCCCTCAACTGATCAAC", name = "XI2-2_gRNA")
 
     # primers
-    forward_primers = read_fasta_files('../ConStrain/tests/files_for_testing/casembler_test/MIA-HA-1_forward_primers.fasta')
-    reverse_primers = read_fasta_files('../ConStrain/tests/files_for_testing/casembler_test/MIA-HA-1_reverse_primers.fasta')
+    forward_primers = read_fasta_files('../teemi/tests/files_for_testing/casembler_test/MIA-HA-1_forward_primers.fasta')
+    reverse_primers = read_fasta_files('../teemi/tests/files_for_testing/casembler_test/MIA-HA-1_reverse_primers.fasta')
 
     # amplicon sequences
-    amplicons = read_genbank_files('../ConStrain/tests/files_for_testing/casembler_test/MIA-HA-1_casembler.gb')
+    amplicons = read_genbank_files('../teemi/tests/files_for_testing/casembler_test/MIA-HA-1_casembler.gb')
 
     # Making amplicon objects
     pcr_amplicons = []

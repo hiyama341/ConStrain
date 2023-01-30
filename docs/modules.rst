@@ -1,7 +1,7 @@
-ConStrains modules
+teemis modules
 ==================
 
 .. toctree::
    :maxdepth: 4
 
-   constrain
+   teemi

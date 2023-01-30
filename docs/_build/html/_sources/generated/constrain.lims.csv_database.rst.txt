@@ -1,7 +1,7 @@
-constrain.lims.csv\_database
+teemi.lims.csv\_database
 ============================
 
-.. automodule:: constrain.lims.csv_database
+.. automodule:: teemi.lims.csv_database
 
    
    

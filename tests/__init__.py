@@ -1,1 +1,1 @@
-"""Unit test package for constrain."""
+"""Unit test package for teemi."""

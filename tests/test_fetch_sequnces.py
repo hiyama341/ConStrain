@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Test fetch_sequences module
-from constrain.design.fetch_sequences import *
+from teemi.design.fetch_sequences import *
 
 
 from Bio import SeqIO
@@ -13,12 +13,12 @@ def test_retrieve_sequences_from_ncbi():
     assert retrieve_sequences_from_ncbi(acc_numbers, '../tests/files_for_testing/test_fetch.fasta') == None
 
     # check if it is the correct sequences
-    Q05001_seq = SeqIO.read('../ConStrain/tests/files_for_testing/test_fetch.fasta', 'fasta')
+    Q05001_seq = SeqIO.read('../teemi/tests/files_for_testing/test_fetch.fasta', 'fasta')
     assert str(Q05001_seq.seq[:10]) == 'MDSSSEKLSP'
     assert Q05001_seq.id == 'sp|Q05001.1|NCPR_CATRO'
  
 def test_read_fasta_files(): 
-    sequences = read_fasta_files('../ConStrain/tests/files_for_testing/test_fetch.fasta')
+    sequences = read_fasta_files('../teemi/tests/files_for_testing/test_fetch.fasta')
     assert sequences[0].seq[:10] == 'MDSSSEKLSP'
     assert sequences[0].id == 'sp|Q05001.1|NCPR_CATRO'
 
@@ -30,7 +30,7 @@ def retrieve_sequences_from_PDB():
 
 
 def test_read_genbank_files():
-    test_gb = read_genbank_files('../ConStrain/tests/files_for_testing/MIA-HA-1.gb')
+    test_gb = read_genbank_files('../teemi/tests/files_for_testing/MIA-HA-1.gb')
     assert str(test_gb[0].seq[20:30]) == 'AGTTATATAG'
     assert test_gb[0].name == 'MIA-HA-1'
 

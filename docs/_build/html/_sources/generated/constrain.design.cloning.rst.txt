@@ -1,7 +1,7 @@
-constrain.design.cloning
+teemi.design.cloning
 ========================
 
-.. automodule:: constrain.design.cloning
+.. automodule:: teemi.design.cloning
 
    
    

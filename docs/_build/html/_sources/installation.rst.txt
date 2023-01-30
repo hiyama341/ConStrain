@@ -8,13 +8,13 @@ Installation
 Stable release
 --------------
 
-To install ConStrain, run this command in your terminal:
+To install teemi, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install constrain
+    $ pip install teemi
 
-This is the preferred method to install ConStrain, as it will always install the most recent stable release.
+This is the preferred method to install teemi, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -26,19 +26,19 @@ you through the process.
 From sources
 ------------
 
-The sources for ConStrain can be downloaded from the `Github repo`_.
+The sources for teemi can be downloaded from the `Github repo`_.
 
 You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/hiyama341/constrain
+    $ git clone git://github.com/hiyama341/teemi
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/hiyama341/constrain/tarball/master
+    $ curl -OJL https://github.com/hiyama341/teemi/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/hiyama341/constrain
-.. _tarball: https://github.com/hiyama341/constrain/tarball/master
+.. _Github repo: https://github.com/hiyama341/teemi
+.. _tarball: https://github.com/hiyama341/teemi/tarball/master

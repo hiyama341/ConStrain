@@ -1,7 +1,7 @@
-constrain.lab.PCR
+teemi.build.PCR
 =================
 
-.. automodule:: constrain.lab.PCR
+.. automodule:: teemi.build.PCR
 
    
    

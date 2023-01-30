@@ -3,7 +3,7 @@
 # Test benchlingapi  module
 
 # Importing the module we are  testing
-from constrain.lims.benchling_api import *
+from teemi.lims.benchling_api import *
 
 
 def test_sequence_to_benchling(): 

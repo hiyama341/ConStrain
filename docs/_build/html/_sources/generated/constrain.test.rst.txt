@@ -1,7 +1,7 @@
-constrain.test
+teemi.test
 ==============
 
-.. automodule:: constrain.test
+.. automodule:: teemi.test
 
    
    
@@ -27,5 +27,5 @@ constrain.test
    :toctree:
    :recursive:
 
-   constrain.test.genotyping
+   teemi.test.genotyping
 

@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=constrain
+set SPHINXPROJ=teemi
 
 if "%1" == "" goto help
 

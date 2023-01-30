@@ -1,7 +1,7 @@
-constrain.lims.benchling\_api
+teemi.lims.benchling\_api
 =============================
 
-.. automodule:: constrain.lims.benchling_api
+.. automodule:: teemi.lims.benchling_api
 
    
    

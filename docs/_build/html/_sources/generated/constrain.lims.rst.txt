@@ -1,7 +1,7 @@
-constrain.lims
+teemi.lims
 ==============
 
-.. automodule:: constrain.lims
+.. automodule:: teemi.lims
 
    
    
@@ -27,6 +27,6 @@ constrain.lims
    :toctree:
    :recursive:
 
-   constrain.lims.benchling_api
-   constrain.lims.csv_database
+   teemi.lims.benchling_api
+   teemi.lims.csv_database
 
