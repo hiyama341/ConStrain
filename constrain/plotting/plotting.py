@@ -109,6 +109,7 @@ def plot_ml_learning_curve(
     size_height: int = 10,
     size_length: int = 10,
     title = '', 
+    linewidth:int = 1.5,
 ) -> None:
     """Plotting a learning curve from partitioned dataframes.
 
@@ -140,11 +141,11 @@ def plot_ml_learning_curve(
     fig, ax = plt.subplots(1)
 
     # CV_mae
-    plt.plot(x_partitioned_data, y_cv, color="#986e42")
+    plt.plot(x_partitioned_data, y_cv, color="#986e42", linewidth=linewidth)
     plt.fill_between(x_partitioned_data, y_cv - cv_sd, y_cv + cv_sd, color="#ffe7b5")
 
     # Model plotted
-    plt.plot(x_partitioned_data, y_training, color="Blue")
+    plt.plot(x_partitioned_data, y_training, color="Blue", linewidth=linewidth)
     plt.fill_between(
         x_partitioned_data,
         y_training - training_sd,
@@ -422,6 +423,7 @@ def correlation_plot(dataframe, x: str, y: str,
     # SIze matters
     fig = mpl.pyplot.gcf()
     fig.set_size_inches(size_height, size_length)
+    
 
     if save_pdf and path != "":
         plt.savefig(path + ".pdf", format="pdf", dpi=300, bbox_inches="tight")
@@ -436,6 +438,7 @@ def bar_plot_w_hue(
     save_pdf=True,
     path="",
     hue: str = "category",
+    palette = 'dark',
     title="",
     x_label="",
     y_label="",
@@ -466,20 +469,23 @@ def bar_plot_w_hue(
     mpl.rcParams['pdf.fonttype'] = 42
     mpl.rcParams['ps.fonttype'] = 42
 
-    ax = sns.barplot(x=x, y=y, hue=hue, data=dataframe, palette="pastel")
-
+    ax = sns.barplot(x=x, y=y, hue=hue, data=dataframe, palette=palette)
+    #Remove spines
+    sns.despine()
+    # add labels
     ax = plt.gca()
-    ax.set_xlabel(title, size=20, fontname="Helvetica")
-    ax.set_ylabel(x_label, size=20, fontname="Helvetica")
-    ax.set_title(y_label, size=30, fontname="Helvetica")
+    ax.set_xlabel(x_label, size=20, fontname="Helvetica",  fontweight="bold")
+    ax.set_ylabel(y_label, size=20, fontname="Helvetica",  fontweight="bold")
+    ax.set_title(title, size=30, fontname="Helvetica",  fontweight="bold")
 
     # white background
     ax.set_facecolor("white")
     plt.xscale("linear")
+    
 
     # SIze matters
     fig = mpl.pyplot.gcf()
-    fig.set_size_inches(size_height, size_length)
+    fig.set_size_inches(size_length, size_height )
 
     if horisontal_line:
         # normalized line
