@@ -19,11 +19,8 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import seaborn as sns
 from scipy import stats
-import matplotlib as mpl
 import pandas as pd
-import matplotlib as mpl
 import matplotlib.patches as mpatches
-import matplotlib.pyplot as plt
 
 
 # for phylo
@@ -31,7 +28,6 @@ from Bio.Phylo.TreeConstruction import DistanceCalculator
 from Bio import Phylo
 import pylab
 from Bio.Phylo.TreeConstruction import DistanceTreeConstructor
-import matplotlib as mpl
 
 
 def carpet_barplot(
@@ -43,6 +39,7 @@ def carpet_barplot(
     ylabel="",
     size_height: int = 20,
     size_length: int = 10,
+    bar_width = 1.0
 ) -> None:
     """Plotting stacked barplots from a pandas dataframe cross tab df
 
@@ -59,16 +56,15 @@ def carpet_barplot(
     -------
     stacked barplot
     """
-    import matplotlib.pyplot as plt
-    import matplotlib as mpl
+
 
     #### How can I export a matplotlib figure as a vector graphic with editable text fields?
-    mpl.rcParams["pdf.fonttype"] = 42
-    mpl.rcParams["ps.fonttype"] = 42
+    #mpl.rcParams["pdf.fonttype"] = 42
+    #mpl.rcParams["ps.fonttype"] = 42
 
     # Plot
     ax = pd_dataframe_cross_tab_prop.plot(
-        kind="bar", stacked=True, figsize=(20, 6), color=colorDict, width=1.0
+        kind="bar", stacked=True, color=colorDict, width=bar_width
     )
 
     plt.legend(loc="upper right", ncol=2)
@@ -83,7 +79,10 @@ def carpet_barplot(
 
     ## size matters
     fig = mpl.pyplot.gcf()
-    fig.set_size_inches(size_height, size_length)
+    fig.set_size_inches(size_length,size_height)
+
+    # tight layout
+    plt.tight_layout()
 
     # remove spines
     ax.spines["right"].set_visible(False)
@@ -275,7 +274,7 @@ def bar_plot(
 
     # SIze matters
     fig = mpl.pyplot.gcf()
-    fig.set_size_inches(size_height, size_length)
+    fig.set_size_inches(size_length,size_height)
 
     if save_pdf and path != "":
         plt.savefig(path + ".pdf", format="pdf", dpi=300, bbox_inches="tight")
@@ -638,13 +637,13 @@ def plot_phylo_tree(alignment_file, save_pdf=True, path="", height=10, wideness=
 
     plt.show()
 
-
-
 def plot_stacked_barplot_with_labels(df:pd.DataFrame, colors:list, 
                          title = '', 
                          y_label = '' ,
                          x_label = '',
-                         path = ''):
+                         path = '',
+                         size_length:int = 20, 
+                         size_heigth:int = 10):
     """Plots a stacked barplot from a dataframe.
     
     Parameters
@@ -668,7 +667,7 @@ def plot_stacked_barplot_with_labels(df:pd.DataFrame, colors:list,
     mpl.rcParams['ps.fonttype'] = 42
     
     
-    ax = df.plot( kind="bar",stacked = True,  figsize=(20, 15), color=colors,  edgecolor='Black') # , cmap="coolwarm"
+    ax = df.plot( kind="bar",stacked = True,  figsize=(size_length,size_heigth), color=colors,  edgecolor='Black') # , cmap="coolwarm"
     # Add Title and Labels
     plt.title(title, fontsize=40)
     plt.xlabel(y_label, fontsize=25, weight='bold')
@@ -738,9 +737,9 @@ def grouped_bar_plot(x:list, y:list, colors:list, category_labels:list,
     plt.bar(x, y, edgecolor='black', color = colors) # white - orange = #fee6ce
 
     # Add labels and titel
-    ax.set_ylabel(title, size = 20, fontname='Helvetica')
+    ax.set_ylabel(y_label, size = 20, fontname='Helvetica')
     ax.set_xlabel(x_label, size = 30, fontname='Helvetica')
-    ax.set_title(y_label, size = 30, fontname='Helvetica')
+    ax.set_title(title, size = 30, fontname='Helvetica')
     
     if axhline: 
         # add horisontal line
@@ -751,7 +750,7 @@ def grouped_bar_plot(x:list, y:list, colors:list, category_labels:list,
 
     white_patch = mpatches.Patch(color='white', label=category_labels[0])
     black_patch = mpatches.Patch(color='black', label=category_labels[1])
-    ax.legend(handles=[white_patch,black_patch ], fontsize = 20)
+    ax.legend(handles=[white_patch,black_patch ], fontsize = 20, frameon=False)
 
     # remove spines
     ax.spines['right'].set_visible(False)
