@@ -37,8 +37,8 @@ def carpet_barplot(
     path="",
     xlabel="",
     ylabel="",
-    size_height: int = 20,
-    size_length: int = 10,
+    size_height: int = 10,
+    size_length: int = 20,
     bar_width = 1.0
 ) -> None:
     """Plotting stacked barplots from a pandas dataframe cross tab df
@@ -73,6 +73,9 @@ def carpet_barplot(
     plt.legend(bbox_to_anchor=(1.02, 1), loc="upper left", borderaxespad=0)
     plt.xscale("linear")
 
+    # make axis integers 
+    plt.locator_params(axis="both", integer=True, tight=True)
+ 
     # remove y axis labes
     plt.yticks([])
     plt.xticks(rotation=0, fontweight="bold", size=20)  # changing x scale by own
