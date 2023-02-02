@@ -59,8 +59,8 @@ def carpet_barplot(
 
 
     #### How can I export a matplotlib figure as a vector graphic with editable text fields?
-    #mpl.rcParams["pdf.fonttype"] = 42
-    #mpl.rcParams["ps.fonttype"] = 42
+    mpl.rcParams["pdf.fonttype"] = 42
+    mpl.rcParams["ps.fonttype"] = 42
 
     # Plot
     ax = pd_dataframe_cross_tab_prop.plot(
@@ -369,8 +369,9 @@ def horisontal_bar_plot(
 
 
 def correlation_plot(dataframe, x: str, y: str, 
-    save_pdf=True, 
-    path="", 
+    save_pdf:bool =True, 
+    path: str = "", 
+    title: str = '',
     size_height: int = 10,
     size_length: int = 10) -> None:
     """Plotting a correlation_plot.
@@ -407,10 +408,10 @@ def correlation_plot(dataframe, x: str, y: str,
         legend=False,
     )
     r, p = stats.pearsonr(dataframe[x], dataframe[y])
-
+    # add white background
     ax = plt.gca()
-
     ax.set_facecolor("white")
+    # add R and P values
     plt.suptitle(
         f"R-squared = {r:.3f} \n  P-value = {p:.3E}",
         y=0.8,
@@ -419,6 +420,10 @@ def correlation_plot(dataframe, x: str, y: str,
         fontname="Helvetica",
         fontweight="bold",
     )
+
+    # add title 
+    ax.set_title(title)
+
     # SIze matters
     fig = mpl.pyplot.gcf()
     fig.set_size_inches(size_height, size_length)
